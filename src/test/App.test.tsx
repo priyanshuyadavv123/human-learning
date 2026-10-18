@@ -60,4 +60,55 @@ describe('App Workspace Integration', () => {
 
     expect(screen.getByText(/AI Learning Companion/i)).toBeInTheDocument();
   });
+
+  it('hydrates saved lesson progress and state from localStorage', () => {
+    const savedState = {
+      theme: 'dark',
+      activeLessonId: 'how-learning-actually-works',
+      lessonStates: {
+        'how-learning-actually-works': {
+          predictionAnswer: 'opt-retrieval',
+          predictionSubmitted: true,
+          activeExplanationTab: 'working-memory',
+          inspectedDiagramStages: ['sensory', 'attention-gate', 'working-memory-stage'],
+          exerciseAnswers: {
+            'scen-1': 'illusion-of-competence',
+            'scen-2': 'attention-bottleneck',
+            'scen-3': 'working-memory-overload',
+            'scen-4': 'schema-consolidation',
+          },
+          exerciseSubmitted: true,
+          quizAnswers: {
+            q1: 'q1-b',
+            q2: 'q2-c',
+            q3: 'q3-a',
+            q4: 'q4-b',
+          },
+          quizSubmitted: true,
+          quizScore: 100,
+          practicalAnswers: {
+            'step-subject': 'Distributed Systems',
+            'step-bottleneck': 'Attention leak',
+            'step-intervention': 'Blank sheet recall',
+          },
+          practicalCompleted: true,
+          isCompleted: true,
+          completedAt: '2026-10-18T20:00:00.000Z',
+        },
+      },
+    };
+
+    localStorage.setItem('human_learning_platform_progress_v1', JSON.stringify(savedState));
+    localStorage.setItem('human_learning_platform_theme_v1', 'dark');
+
+    render(<App />);
+
+    // Hydrated prediction
+    expect(screen.getByText(/Active Retrieval produces substantially higher delayed retention/i)).toBeInTheDocument();
+    expect(screen.getByText(/Empirically Supported Strategy \(The Testing Effect\)/i)).toBeInTheDocument();
+
+    // Hydrated completion banner
+    expect(screen.getByText(/Lesson 1.1 Complete: Core Principles Verified/i)).toBeInTheDocument();
+    expect(screen.getByText(/Checkpoint Verified/i)).toBeInTheDocument();
+  });
 });

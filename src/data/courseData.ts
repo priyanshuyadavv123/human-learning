@@ -228,11 +228,11 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
       mechanisms: [
         {
           label: 'Synaptic Plasticity & LTP',
-          description: 'Neurons that fire together during effortful processing undergo long-term potentiation (LTP), strengthening synaptic connections through structural protein synthesis.',
+          description: 'Coordinated neural firing during sustained cognitive processing induces long-term potentiation (LTP)—a lasting enhancement in synaptic transmission supported by structural remodeling and protein synthesis (Bliss & Lømo, 1973; Kandel, 2001).',
         },
         {
-          label: 'Systems Consolidation',
-          description: 'Initially, memories depend heavily on the hippocampus for indexing. Over days, weeks, and sleep cycles, memories are gradually reorganized and integrated directly into the neocortex.',
+          label: 'Systems Consolidation & Replay',
+          description: 'Initial declarative memory traces depend on the hippocampus for indexing. Over offline rest and sleep cycles, coordinated neural replay transfers and integrates these representations into neocortical networks for long-term storage (Frankland & Bontempi, 2005; Diekelmann & Born, 2010).',
         },
         {
           label: 'Storage Strength vs Retrieval Strength',
@@ -251,8 +251,8 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
       summary: 'Most learners treat testing as an evaluation tool to measure what has been learned. In reality, the act of retrieving an item from memory fundamentally alters the memory trace, making it vastly more accessible in the future. Struggle and difficulty during retrieval signal to the brain that the pathway is vital.',
       mechanisms: [
         {
-          label: 'Re-consolidation upon Recall',
-          description: 'Whenever a memory is retrieved, it temporarily becomes labile (malleable) again. The brain updates it, enriches its contextual tags, and re-stabilizes it with stronger synaptic density.',
+          label: 'Memory Modification & Reconsolidation',
+          description: 'Retrieval is a memory modifier rather than a neutral readout. Behaviorally, it triggers elaborative search and context updating (Karpicke et al., 2014). Neurobiologically, when retrieval involves updating or unexpected conditions, the trace can become temporarily labile, initiating protein-synthesis-dependent reconsolidation (Nader, 2000; Dudai, 2012).',
         },
         {
           label: 'Elaborative Retrieval Paths',
@@ -276,7 +276,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
       mechanisms: [
         {
           label: 'Prediction Discrepancy & Updating',
-          description: 'Predictive processing models suggest that unexpected outcomes produce discrepancy signals, prompting cortical and neuromodulatory systems to update schema weights and improve future accuracy.',
+          description: 'In cognitive architecture, unexpected outcomes produce discrepancy signals. Cortical monitoring systems (such as the anterior cingulate and prefrontal networks) register this divergence, prompting working memory to update schema associations and improve subsequent accuracy (Botvinick et al., 2001; Butterfield & Metcalfe, 2001).',
         },
         {
           label: 'The Hypercorrection Effect',
@@ -336,11 +336,11 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
         duration: 'Decades to a lifetime (via synaptic consolidation)',
         role: 'Stores interconnected semantic structures, procedural habits, and causal models.',
         failureMode: 'Retrieval pathway decay, isolated inert facts, negative transfer.',
-        evidenceType: 'Synaptic plasticity (LTP) & Systems memory consolidation',
+        evidenceType: 'Synaptic plasticity (LTP), offline replay & systems consolidation',
         practicalFix: 'Connect new concepts to known models; test across varying contexts and diverse problem types.',
       },
     ],
-    feedbackLoopDescription: 'The Retrieval & Calibration Loop: When you attempt retrieval, information flows backward from Long-Term Memory into Working Memory. Corrective feedback provides a prediction error signal, recalibrating the schema connections for permanent durability.',
+    feedbackLoopDescription: 'The Retrieval & Calibration Loop: When you attempt retrieval, information flows backward from Long-Term Memory into Working Memory. Corrective feedback provides a discrepancy signal, allowing monitoring circuits to recalibrate schema connections for durable retention.',
   },
   exercise: {
     title: 'Cognitive Bottleneck Diagnoser',
@@ -499,7 +499,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
           },
           {
             id: 'q4-b',
-            text: 'A prediction error provides the physiological signal that forces the brain to revise incorrect schema weights and prevents repeating the false prediction.',
+            text: 'A prediction discrepancy provides an error signal that alerts monitoring circuits to update incorrect schema representations and incorporate corrective feedback.',
           },
           {
             id: 'q4-c',
@@ -511,7 +511,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
           },
         ],
         correctOptionId: 'q4-b',
-        explanation: 'The brain updates its model through prediction error minimization. When a prediction fails and corrective feedback clarifies why, dopaminergic and cortical circuits update the schema weights to bridge the gap.',
+        explanation: 'The brain updates its model through error-driven discrepancy detection. When an expectation is violated and corrective feedback explains why, cognitive monitoring networks (including the anterior cingulate and prefrontal cortices) signal the mismatch, enabling working memory to repair the schema link (Butterfield & Metcalfe, 2001; Botvinick et al., 2001).',
         pedagogicalRationale: 'Encourages bold testing and highlights why explanatory feedback is essential to complete the learning loop.',
         evidenceNote: 'Predictive processing frameworks and the empirical hypercorrection effect (Butterfield & Metcalfe).',
       },

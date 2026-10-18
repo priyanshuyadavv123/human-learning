@@ -38,9 +38,25 @@ describe('PredictionInteraction Component', () => {
     expect(submitBtn).not.toBeDisabled();
     fireEvent.click(submitBtn);
 
-    // After submit, empirical outcome, learner-specific feedback, and comparative retention matrix are shown
     expect(screen.getByText(/Active Retrieval produces substantially higher delayed retention/i)).toBeInTheDocument();
     expect(screen.getByText(/Empirically Supported Strategy \(The Testing Effect\)/i)).toBeInTheDocument();
     expect(screen.getByText(/Evidence vs. Simplified Modeling:/i)).toBeInTheDocument();
+  });
+
+  it('renders specific explanatory feedback for Protocol Alpha (Fluency Illusion)', () => {
+    render(
+      <LearningProvider>
+        <PredictionInteraction />
+      </LearningProvider>
+    );
+
+    const radioAlpha = screen.getByDisplayValue('opt-reread');
+    fireEvent.click(radioAlpha);
+
+    const submitBtn = screen.getByRole('button', { name: /Lock In Prediction & Reveal Evidence/i });
+    fireEvent.click(submitBtn);
+
+    expect(screen.getByText(/The Fluency Illusion \(Most Common Metacognitive Trap\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/Repeated reading feels productive because the eye moves across words with increasing ease/i)).toBeInTheDocument();
   });
 });

@@ -17,6 +17,7 @@ export const PredictionInteraction: React.FC = () => {
   );
 
   const isSubmitted = lessonState.predictionSubmitted;
+  const activeAnswer = lessonState.predictionAnswer || selectedOption;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +78,7 @@ export const PredictionInteraction: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '18px' }}>
           {predictionData.options.map((opt) => {
-            const isChosen = selectedOption === opt.id;
+            const isChosen = (isSubmitted ? activeAnswer : selectedOption) === opt.id;
             const isCorrect = isSubmitted && opt.id === predictionData.outcome.winningOptionId;
             const isSelectedIncorrect = isSubmitted && isChosen && !isCorrect;
 
@@ -197,19 +198,19 @@ export const PredictionInteraction: React.FC = () => {
             </p>
 
             {/* Learner Choice Specific Explanatory Feedback */}
-            {selectedOption && predictionData.outcome.optionFeedback && predictionData.outcome.optionFeedback[selectedOption] && (
+            {activeAnswer && predictionData.outcome.optionFeedback && predictionData.outcome.optionFeedback[activeAnswer] && (
               <div 
                 style={{
                   padding: '14px 16px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-bg)' : 'var(--warning-bg)',
-                  border: `1px solid ${selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-border)' : 'var(--warning-border)'}`,
+                  backgroundColor: activeAnswer === predictionData.outcome.winningOptionId ? 'var(--success-bg)' : 'var(--warning-bg)',
+                  border: `1px solid ${activeAnswer === predictionData.outcome.winningOptionId ? 'var(--success-border)' : 'var(--warning-border)'}`,
                   marginBottom: '16px',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)' }}>
-                    {predictionData.outcome.optionFeedback[selectedOption].title}
+                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: activeAnswer === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)' }}>
+                    {predictionData.outcome.optionFeedback[activeAnswer].title}
                   </span>
                   <span 
                     style={{ 
@@ -219,14 +220,14 @@ export const PredictionInteraction: React.FC = () => {
                       borderRadius: '4px', 
                       backgroundColor: 'var(--bg-surface)',
                       border: '1px solid var(--border-subtle)',
-                      color: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)',
+                      color: activeAnswer === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)',
                     }}
                   >
-                    {predictionData.outcome.optionFeedback[selectedOption].verdict}
+                    {predictionData.outcome.optionFeedback[activeAnswer].verdict}
                   </span>
                 </div>
                 <p style={{ fontSize: '0.875rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
-                  {predictionData.outcome.optionFeedback[selectedOption].analysis}
+                  {predictionData.outcome.optionFeedback[activeAnswer].analysis}
                 </p>
               </div>
             )}

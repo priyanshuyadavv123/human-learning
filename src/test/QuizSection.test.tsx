@@ -18,6 +18,9 @@ describe('QuizSection Component', () => {
     expect(screen.getByText(/Cognitive Verification Assessment/i)).toBeInTheDocument();
     expect(screen.getByText(/Answers locked until submission/i)).toBeInTheDocument();
     expect(screen.queryByText(/Pedagogical Mechanism:/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/✓ Key/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/^Correct$/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/^Incorrect$/)).not.toBeInTheDocument();
   });
 
   it('grades answers and reveals pedagogical rationales only after submission', () => {
