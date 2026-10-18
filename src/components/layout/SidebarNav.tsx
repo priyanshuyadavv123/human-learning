@@ -4,8 +4,7 @@ import {
   ChevronRight, 
   CheckCircle2, 
   Lock, 
-  GraduationCap, 
-  Layers,
+  BookOpen, 
   X
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
@@ -89,7 +88,7 @@ export const SidebarNav: React.FC = () => {
                 fontWeight: 600
               }}
             >
-              Curriculum Core
+              Curriculum Syllabus
             </span>
             <button
               onClick={() => setLeftSidebarOpen(false)}
@@ -122,22 +121,19 @@ export const SidebarNav: React.FC = () => {
             const isExpanded = !!expandedChapters[chapter.id];
 
             return (
-              <div key={chapter.id} style={{ marginBottom: '8px' }}>
-                {/* Chapter Heading Toggle */}
+              <div key={chapter.id} style={{ marginBottom: '10px' }}>
+                {/* Chapter Heading Toggle: Readable & Clear */}
                 <button
                   onClick={() => toggleChapter(chapter.id)}
                   style={{
                     width: '100%',
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                     justifyContent: 'space-between',
                     padding: '8px 10px',
                     borderRadius: 'var(--radius-sm)',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                    color: 'var(--text-main)',
                     textAlign: 'left',
-                    transition: 'background-color 0.1s ease',
+                    transition: 'background-color 0.12s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)';
@@ -146,35 +142,72 @@ export const SidebarNav: React.FC = () => {
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Layers size={14} color="var(--text-muted)" />
-                    <span>
-                      Ch {chapter.number}: {chapter.title}
-                    </span>
+                  <div style={{ flex: 1, paddingRight: '8px' }}>
+                    <div 
+                      className="font-mono"
+                      style={{ 
+                        fontSize: '0.625rem', 
+                        fontWeight: 700, 
+                        color: 'var(--accent-primary)', 
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        marginBottom: '2px',
+                      }}
+                    >
+                      Chapter {chapter.number}
+                    </div>
+                    <div 
+                      style={{ 
+                        fontSize: '0.8125rem', 
+                        fontWeight: 600, 
+                        color: 'var(--text-main)',
+                        lineHeight: 1.35,
+                      }}
+                    >
+                      {chapter.title}
+                    </div>
                   </div>
-                  {isExpanded ? (
-                    <ChevronDown size={14} color="var(--text-muted)" />
-                  ) : (
-                    <ChevronRight size={14} color="var(--text-muted)" />
-                  )}
+                  <div style={{ marginTop: '4px', color: 'var(--text-muted)' }}>
+                    {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                  </div>
                 </button>
 
                 {/* Lesson List */}
                 {isExpanded && (
-                  <div style={{ marginLeft: '14px', paddingLeft: '10px', borderLeft: '1px solid var(--border-subtle)', marginTop: '4px' }}>
+                  <div style={{ marginLeft: '12px', paddingLeft: '8px', borderLeft: '1px solid var(--border-subtle)', marginTop: '4px' }}>
                     {chapter.lessons.map((lesson) => {
                       const isActive = activeLessonId === lesson.id;
                       const isComplete = lesson.id === 'how-learning-actually-works' && lessonState.isCompleted;
 
+                      if (!lesson.isAvailable) {
+                        // Clean, quiet locked lesson row without badge clutter
+                        return (
+                          <div
+                            key={lesson.id}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              padding: '6px 10px',
+                              fontSize: '0.8125rem',
+                              color: 'var(--text-muted)',
+                              opacity: 0.65,
+                              userSelect: 'none',
+                            }}
+                          >
+                            <Lock size={12} style={{ flexShrink: 0 }} />
+                            <span style={{ lineHeight: 1.35, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              {lesson.number} {lesson.title}
+                            </span>
+                          </div>
+                        );
+                      }
+
+                      // Active / Available Lesson
                       return (
                         <button
                           key={lesson.id}
-                          onClick={() => {
-                            if (lesson.isAvailable) {
-                              setActiveLessonId(lesson.id);
-                            }
-                          }}
-                          disabled={!lesson.isAvailable}
+                          onClick={() => setActiveLessonId(lesson.id)}
                           style={{
                             width: '100%',
                             display: 'flex',
@@ -186,17 +219,17 @@ export const SidebarNav: React.FC = () => {
                             textAlign: 'left',
                             backgroundColor: isActive ? 'var(--accent-subtle)' : 'transparent',
                             border: isActive ? '1px solid var(--accent-border)' : '1px solid transparent',
-                            color: isActive ? 'var(--accent-primary)' : lesson.isAvailable ? 'var(--text-main)' : 'var(--text-muted)',
+                            color: isActive ? 'var(--accent-primary)' : 'var(--text-main)',
                             transition: 'all 0.12s ease',
-                            cursor: lesson.isAvailable ? 'pointer' : 'not-allowed',
+                            cursor: 'pointer',
                           }}
                           onMouseEnter={(e) => {
-                            if (!isActive && lesson.isAvailable) {
+                            if (!isActive) {
                               e.currentTarget.style.backgroundColor = 'var(--bg-surface-hover)';
                             }
                           }}
                           onMouseLeave={(e) => {
-                            if (!isActive && lesson.isAvailable) {
+                            if (!isActive) {
                               e.currentTarget.style.backgroundColor = 'transparent';
                             }
                           }}
@@ -204,7 +237,7 @@ export const SidebarNav: React.FC = () => {
                           <div style={{ marginTop: '2px', flexShrink: 0 }}>
                             {isComplete ? (
                               <CheckCircle2 size={14} color="var(--success-text)" />
-                            ) : lesson.isAvailable ? (
+                            ) : (
                               <div 
                                 style={{
                                   width: '14px',
@@ -227,46 +260,27 @@ export const SidebarNav: React.FC = () => {
                                   />
                                 )}
                               </div>
-                            ) : (
-                              <Lock size={13} color="var(--text-muted)" />
                             )}
                           </div>
 
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                              <span 
-                                style={{ 
-                                  fontSize: '0.8125rem', 
-                                  fontWeight: isActive ? 600 : 500,
-                                  lineHeight: 1.35,
-                                  whiteSpace: 'nowrap',
-                                  overflow: 'hidden',
-                                  textOverflow: 'ellipsis',
-                                }}
-                              >
-                                {lesson.number} {lesson.title}
-                              </span>
+                            <div 
+                              style={{ 
+                                fontSize: '0.8125rem', 
+                                fontWeight: isActive ? 600 : 500,
+                                lineHeight: 1.35,
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                              }}
+                            >
+                              {lesson.number} {lesson.title}
                             </div>
 
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '2px' }}>
                               <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
                                 {lesson.readingTimeMinutes} min
                               </span>
-                              {!lesson.isAvailable && (
-                                <span 
-                                  style={{
-                                    fontSize: '0.625rem',
-                                    padding: '1px 5px',
-                                    borderRadius: '3px',
-                                    backgroundColor: 'var(--bg-surface-well)',
-                                    color: 'var(--text-muted)',
-                                    fontWeight: 500,
-                                    textTransform: 'uppercase',
-                                  }}
-                                >
-                                  Phase 2
-                                </span>
-                              )}
                               {isActive && !isComplete && (
                                 <span 
                                   className="font-mono"
@@ -301,12 +315,12 @@ export const SidebarNav: React.FC = () => {
             color: 'var(--text-muted)'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-            <GraduationCap size={14} color="var(--accent-primary)" />
-            <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>Engineering Mode</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+            <BookOpen size={13} color="var(--accent-primary)" />
+            <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>Phase 1 Core Curriculum</span>
           </div>
           <p style={{ lineHeight: 1.35 }}>
-            Evidence-grounded learning pipeline. Verified in local storage.
+            Evidence-grounded learning manual.
           </p>
         </div>
       </aside>

@@ -44,8 +44,8 @@ export const InteractiveExercise: React.FC = () => {
   return (
     <section 
       style={{
-        marginBottom: '48px',
-        padding: '24px',
+        marginBottom: '32px',
+        padding: '20px',
         borderRadius: 'var(--radius-lg)',
         backgroundColor: 'var(--bg-surface)',
         border: '1px solid var(--border-subtle)',
@@ -53,7 +53,7 @@ export const InteractiveExercise: React.FC = () => {
       }}
     >
       {/* Header */}
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
           <div 
             className="font-mono"

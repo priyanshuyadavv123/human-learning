@@ -25,6 +25,11 @@ export interface PredictionData {
     winningOptionId: string;
     headline: string;
     explanation: string;
+    optionFeedback: Record<string, {
+      title: string;
+      verdict: string;
+      analysis: string;
+    }>;
     comparisons: EmpiricalComparison[];
     evidenceDistinction: string;
   };

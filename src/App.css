@@ -14,14 +14,14 @@
   flex: 1;
   height: 100%;
   overflow-y: auto;
-  padding: 32px 24px 64px;
+  padding: 24px 20px 48px;
   display: flex;
   justify-content: center;
 }
 
 .lesson-content-wrapper {
   width: 100%;
-  max-width: 860px;
+  max-width: 780px;
 }
 
 /* Responsive Media Queries */
@@ -67,7 +67,7 @@
 
 @media (max-width: 640px) {
   .lesson-main-scroll {
-    padding: 20px 14px 48px !important;
+    padding: 16px 12px 40px !important;
   }
 
   .nav-tutor-label {

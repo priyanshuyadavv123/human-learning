@@ -26,8 +26,8 @@ export const LearningProcessDiagram: React.FC = () => {
   return (
     <section 
       style={{
-        marginBottom: '48px',
-        padding: '24px',
+        marginBottom: '32px',
+        padding: '20px',
         borderRadius: 'var(--radius-lg)',
         backgroundColor: 'var(--bg-surface)',
         border: '1px solid var(--border-subtle)',
@@ -35,7 +35,7 @@ export const LearningProcessDiagram: React.FC = () => {
       }}
     >
       {/* Header */}
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <div 
           className="font-mono"
           style={{ 

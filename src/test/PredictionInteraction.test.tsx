@@ -38,9 +38,9 @@ describe('PredictionInteraction Component', () => {
     expect(submitBtn).not.toBeDisabled();
     fireEvent.click(submitBtn);
 
-    // After submit, empirical outcome and comparative retention matrix are shown
-    expect(screen.getByText(/Active Retrieval produces up to 50% higher long-term retention/i)).toBeInTheDocument();
-    expect(screen.getByText(/1-Week Delayed Recall/i)).toBeInTheDocument();
+    // After submit, empirical outcome, learner-specific feedback, and comparative retention matrix are shown
+    expect(screen.getByText(/Active Retrieval produces substantially higher delayed retention/i)).toBeInTheDocument();
+    expect(screen.getByText(/Empirically Supported Strategy \(The Testing Effect\)/i)).toBeInTheDocument();
     expect(screen.getByText(/Evidence vs. Simplified Modeling:/i)).toBeInTheDocument();
   });
 });

@@ -100,7 +100,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
   curiosityQuestion: {
     headline: 'Why does rereading a concept three times feel like total mastery, yet completely vanish the moment you face an empty editor or a blank exam sheet?',
     teaser: 'Most people spend hundreds of hours studying in ways that feel effortless and productive, but generate almost zero durable memory traces.',
-    hookNote: 'The brain did not evolve to store copies of texts; it evolved to conserve energy and only rewire circuits when forced to solve active prediction errors.',
+    hookNote: 'The brain is an energy-conserving organ that does not passively record incoming text like a hard drive; it prioritizes durable synaptic remodeling when information is actively retrieved, used to solve task demands, or integrated into existing conceptual schemas.',
   },
   prediction: {
     prompt: 'Before reading the science, test your intuition: Which study protocol produces higher durable retention one week later?',
@@ -124,32 +124,49 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
     ],
     outcome: {
       winningOptionId: 'opt-retrieval',
-      headline: 'Active Retrieval produces up to 50% higher long-term retention—despite feeling significantly more difficult and frustrating.',
-      explanation: 'When students reread text (Protocol Alpha), they experience perceptual fluency: the eye glides smoothly over words, and the brain mistakes the ease of recognition for the strength of storage. In contrast, Protocol Beta forces the brain to rebuild neural retrieval pathways from scratch. This cognitive friction is precisely what triggers memory consolidation.',
+      headline: 'Active Retrieval produces substantially higher delayed retention than restudying—despite feeling significantly more difficult and less fluent.',
+      explanation: 'When learners reread text (Protocol Alpha), they experience perceptual fluency: the eye glides smoothly across words, and the brain mistakes the ease of recognition for the strength of storage. In contrast, Protocol Beta forces the brain to reconstruct retrieval pathways from long-term memory. This effortful cognitive generation is precisely what triggers durable memory consolidation.',
+      optionFeedback: {
+        'opt-reread': {
+          title: 'Your Choice: Protocol Alpha (Repeated Reading & Highlighting)',
+          verdict: 'The Fluency Illusion (Most Common Metacognitive Trap)',
+          analysis: 'Repeated reading feels productive because the eye moves across words with increasing ease. However, this fluency reflects superficial visual familiarity rather than an accessible retrieval pathway. Cognitive experiments consistently show that while rereading supports immediate familiarity, recall drops steeply over subsequent days.',
+        },
+        'opt-retrieval': {
+          title: 'Your Choice: Protocol Beta (Read Once + Active Retrieval Practice)',
+          verdict: 'Empirically Supported Strategy (The Testing Effect)',
+          analysis: 'Accurate calibration! Even though retrieval feels halting, effortful, and less fluent during study, the cognitive act of generating recall reconstructs and strengthens neural pathways, significantly flattening the rate of forgetting.',
+        },
+        'opt-cram': {
+          title: 'Your Choice: Protocol Gamma (Massed Night-Before Immersion)',
+          verdict: 'Immediate Spike Followed by Rapid Forgetting',
+          analysis: 'Massed cramming can produce high performance on immediate tests given the next morning because temporary working memory and sensory traces remain fresh. However, without spaced consolidation, decay occurs rapidly over the subsequent 48 to 72 hours, leaving minimal durable knowledge.',
+        },
+      },
       comparisons: [
         {
-          label: 'Immediate Recall (5 min)',
-          immediateRetention: '82%',
-          oneWeekRetention: '40%',
-          illusionRating: 'High (feels effortless)',
+          label: 'Repeated Reading & Highlighting (Protocol Alpha)',
+          immediateRetention: 'High Familiarity (feels smooth)',
+          oneWeekRetention: 'Steep Decay (~30–40% recall)',
+          illusionRating: 'High (deceptive fluency)',
           isEmpiricalWinner: false,
         },
         {
           label: 'Active Retrieval Practice (Protocol Beta)',
-          immediateRetention: '74%',
-          oneWeekRetention: '68%',
-          illusionRating: 'Low (feels difficult & halting)',
+          immediateRetention: 'Moderate Ease (feels effortful)',
+          oneWeekRetention: 'Durable Retention (~65–75% recall)',
+          illusionRating: 'Low (accurately reveals gaps)',
           isEmpiricalWinner: true,
         },
         {
           label: 'Massed Night-Before Cramming (Protocol Gamma)',
-          immediateRetention: '88%',
-          oneWeekRetention: '14%',
-          illusionRating: 'Extreme (false peak before catastrophic decay)',
+          immediateRetention: 'Peak Short-Term Trace (high test day)',
+          oneWeekRetention: 'Severe Forgetting (<20% recall)',
+          illusionRating: 'Extreme (false peak before decay)',
           isEmpiricalWinner: false,
         },
       ],
-      evidenceDistinction: 'Empirical Evidence Distinction: The testing effect (retrieval practice superiority over restudying) is among the most replicated findings in cognitive psychology across hundreds of classroom and laboratory experiments. Note however that the specific retention percentages above are illustrative summaries of classic retention curves rather than a single universal benchmark, as retention varies by domain and baseline knowledge.',
+      evidenceDistinction: 'Empirical Evidence Distinction: The testing effect (the retention superiority of retrieval practice over restudying) is one of the most thoroughly replicated findings in cognitive psychology across verbal, conceptual, and procedural domains. The comparative patterns above reflect typical laboratory retention trajectories (e.g. Roediger & Karpicke) rather than universal benchmarks, as retention varies with prior knowledge and feedback immediacy.',
     },
   },
   coreExplanations: [
@@ -246,7 +263,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
           description: 'If retrieval is too easy (e.g., looking at flashcards 5 seconds after reading them), little consolidation occurs. The difficulty must be calibrated: challenging enough to require effort, but feasible.',
         },
       ],
-      keyInsight: 'Every time you resist the urge to peek at the answer and instead force your brain to generate the explanation from scratch, you double the lifespan of that memory.',
+      keyInsight: 'Every time you resist the urge to peek at the answer and instead force your brain to generate the explanation from scratch, you significantly flatten the forgetting curve for that concept.',
       simplifiedModelCaveat: 'Empirical Caveat: Retrieval practice only benefits items that can actually be retrieved or where immediate corrective feedback is supplied. Unsuccessful retrieval without feedback can entrench errors.',
     },
     {
@@ -255,11 +272,11 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
       tagline: 'Without an error signal, practice merely reinforces existing misconceptions.',
       scientificStatus: 'empirical-consensus',
       statusLabel: 'Empirical Consensus',
-      summary: 'Learning is fundamentally governed by prediction errors: the discrepancy between what your internal model predicts and what reality actually demonstrates. Feedback provides the objective calibration signal that forces the brain to adjust its schema weights.',
+      summary: 'In modern cognitive science, discrepancy detection—often formalized as prediction error—is recognized as a major catalyst for schema revision. Feedback provides the objective calibration signal that allows working memory to identify divergences between expected and actual outcomes.',
       mechanisms: [
         {
-          label: 'Prediction Error Minimization',
-          description: 'Biological brains are prediction machines. Dopaminergic signaling fires when an outcome violates expectations, triggering synaptic updates to prevent repeating the error.',
+          label: 'Prediction Discrepancy & Updating',
+          description: 'Predictive processing models suggest that unexpected outcomes produce discrepancy signals, prompting cortical and neuromodulatory systems to update schema weights and improve future accuracy.',
         },
         {
           label: 'The Hypercorrection Effect',
@@ -270,8 +287,8 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
           description: 'Feedback must be specific and explanatory. Simply telling someone "Wrong" provides no diagnostic signal; explaining the mechanism allows working memory to repair the broken schema link.',
         },
       ],
-      keyInsight: 'Do not avoid mistakes during learning. A high-confidence mistake followed by immediate, explanatory feedback is the fastest physiological route to durable schema revision.',
-      simplifiedModelCaveat: 'Theoretical model: The predictive processing framework (Friston, Clark) is currently a leading unifying theory of brain function, but specific computational details of cortical prediction error propagation remain an active research frontier.',
+      keyInsight: 'Do not fear errors during active recall. A high-confidence mistake followed by clear, explanatory feedback produces a powerful corrective signal that drives durable schema revision.',
+      simplifiedModelCaveat: 'Theoretical model: While the predictive processing framework (e.g. Friston, Clark) is widely influential in computational neuroscience, specific physiological mechanisms of cortical prediction error propagation remain an active research frontier.',
     },
   ],
   diagram: {

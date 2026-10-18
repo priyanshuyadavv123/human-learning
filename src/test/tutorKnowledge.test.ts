@@ -9,6 +9,7 @@ describe('AI Tutor Knowledge Base & Retrieval', () => {
   it('correctly maps working memory queries to the working memory concept', () => {
     const answer = findTutorAnswer('How many chunks can working memory hold?');
     expect(answer.title).toContain('Working Memory');
+    expect(answer.takeaway).toBeTruthy();
     expect(answer.detailedResponse).toContain('3 to 4');
     expect(answer.socraticChallenge).toBeTruthy();
     expect(answer.referencedSection).toContain('Working Memory');

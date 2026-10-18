@@ -31,8 +31,8 @@ export const CompletionBanner: React.FC = () => {
   return (
     <section 
       style={{
-        marginBottom: '64px',
-        padding: '32px',
+        marginBottom: '40px',
+        padding: '24px',
         borderRadius: 'var(--radius-lg)',
         backgroundColor: isCompleted ? 'var(--success-bg)' : 'var(--bg-surface)',
         border: `2px solid ${isCompleted ? 'var(--success-border)' : 'var(--border-subtle)'}`,
@@ -40,7 +40,7 @@ export const CompletionBanner: React.FC = () => {
         transition: 'all 0.2s ease',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap', marginBottom: '18px' }}>
         <div>
           <div 
             className="font-mono"
@@ -53,25 +53,25 @@ export const CompletionBanner: React.FC = () => {
               marginBottom: '4px',
             }}
           >
-            {isCompleted ? 'Milestone Achieved' : 'Final Lesson Checkpoint'}
+            {isCompleted ? 'Checkpoint Verified' : 'Lesson Summary & Verification'}
           </div>
 
           <h2 
             className="font-serif"
             style={{
-              fontSize: '1.75rem',
+              fontSize: '1.5rem',
               fontWeight: 700,
               color: isCompleted ? 'var(--success-text)' : 'var(--text-main)',
               lineHeight: 1.25,
               marginBottom: '6px',
             }}
           >
-            {isCompleted ? 'Lesson 1.1 Complete: Foundations Verified' : 'Seal Lesson 1.1: How Learning Actually Works'}
+            {isCompleted ? 'Lesson 1.1 Complete: Core Principles Verified' : 'Complete Lesson 1.1: How Learning Actually Works'}
           </h2>
 
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
             {isCompleted 
-              ? 'You have successfully integrated the five cognitive imperatives into an evidence-grounded mental model.'
+              ? 'You have successfully integrated the five cognitive imperatives into your personal study routine.'
               : 'Verify your interactive checkpoints below to finalize completion of this curriculum unit.'}
           </p>
         </div>
@@ -82,17 +82,17 @@ export const CompletionBanner: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '9999px',
               backgroundColor: 'var(--bg-surface)',
               border: '1px solid var(--success-border)',
-              fontSize: '0.8125rem',
+              fontSize: '0.75rem',
               fontWeight: 700,
               color: 'var(--success-text)',
             }}
           >
-            <BookCheck size={16} />
-            <span>Mastery Certified</span>
+            <BookCheck size={15} />
+            <span>Lesson Completed</span>
           </div>
         )}
       </div>
@@ -168,7 +168,7 @@ export const CompletionBanner: React.FC = () => {
 
           {!allPrerequisitesMet && (
             <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-              Complete all 5 checkpoints above to certify completion.
+              Complete all 5 checkpoints above to mark this lesson as complete.
             </span>
           )}
         </div>

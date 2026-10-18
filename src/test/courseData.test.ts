@@ -17,12 +17,16 @@ describe('Course and Lesson Data Integrity', () => {
     // 1. Curiosity Hook
     expect(lesson.curiosityQuestion.headline).toBeTruthy();
     expect(lesson.curiosityQuestion.teaser).toBeTruthy();
+    expect(lesson.curiosityQuestion.hookNote).not.toContain('only rewire circuits');
 
     // 2. Prediction Interaction
     expect(lesson.prediction.options.length).toBe(3);
     expect(lesson.prediction.outcome.winningOptionId).toBe('opt-retrieval');
     expect(lesson.prediction.outcome.comparisons.length).toBe(3);
     expect(lesson.prediction.outcome.evidenceDistinction).toContain('Empirical Evidence');
+    expect(lesson.prediction.outcome.optionFeedback['opt-reread']).toBeTruthy();
+    expect(lesson.prediction.outcome.optionFeedback['opt-retrieval']).toBeTruthy();
+    expect(lesson.prediction.outcome.optionFeedback['opt-cram']).toBeTruthy();
 
     // 3. Core Explanations (5 mechanisms)
     expect(lesson.coreExplanations.length).toBe(5);

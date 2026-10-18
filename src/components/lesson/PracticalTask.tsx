@@ -37,8 +37,8 @@ export const PracticalTask: React.FC = () => {
   return (
     <section 
       style={{
-        marginBottom: '48px',
-        padding: '28px',
+        marginBottom: '32px',
+        padding: '22px',
         borderRadius: 'var(--radius-lg)',
         backgroundColor: 'var(--bg-surface)',
         border: '1px solid var(--border-subtle)',
@@ -46,7 +46,7 @@ export const PracticalTask: React.FC = () => {
       }}
     >
       {/* Header */}
-      <div style={{ marginBottom: '24px' }}>
+      <div style={{ marginBottom: '18px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
           <div 
             className="font-mono"

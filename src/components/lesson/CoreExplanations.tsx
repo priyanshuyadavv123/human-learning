@@ -57,9 +57,9 @@ export const CoreExplanations: React.FC = () => {
   const badge = getBadgeProps(activeExplanation.scientificStatus);
 
   return (
-    <section style={{ marginBottom: '48px' }}>
+    <section style={{ marginBottom: '32px' }}>
       {/* Section Header */}
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <div 
           className="font-mono"
           style={{ 
@@ -76,17 +76,17 @@ export const CoreExplanations: React.FC = () => {
         <h2 
           className="font-serif"
           style={{ 
-            fontSize: '1.75rem', 
+            fontSize: '1.5rem', 
             fontWeight: 700, 
             color: 'var(--text-main)', 
             lineHeight: 1.25,
-            marginBottom: '8px'
+            marginBottom: '6px'
           }}
         >
           The Five Biological Imperatives of Learning
         </h2>
-        <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-          Learning is neither magic nor passive absorption. It is an energy-intensive sequence of biological transformations. Navigate each mechanism below:
+        <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+          Learning is an energy-intensive sequence of biological transformations. Navigate each foundational mechanism below:
         </p>
       </div>
 
@@ -96,8 +96,8 @@ export const CoreExplanations: React.FC = () => {
           display: 'flex',
           gap: '8px',
           overflowX: 'auto',
-          paddingBottom: '8px',
-          marginBottom: '20px',
+          paddingBottom: '6px',
+          marginBottom: '16px',
           borderBottom: '1px solid var(--border-subtle)',
         }}
       >
@@ -112,7 +112,7 @@ export const CoreExplanations: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '8px 14px',
+                padding: '7px 12px',
                 borderRadius: 'var(--radius-sm)',
                 backgroundColor: isSelected ? 'var(--accent-primary)' : 'var(--bg-surface)',
                 color: isSelected ? 'var(--text-on-accent)' : 'var(--text-main)',
@@ -135,7 +135,7 @@ export const CoreExplanations: React.FC = () => {
       {/* Active Tab Content Card */}
       <div 
         style={{
-          padding: '28px',
+          padding: '22px',
           borderRadius: 'var(--radius-lg)',
           backgroundColor: 'var(--bg-surface)',
           border: '1px solid var(--border-subtle)',

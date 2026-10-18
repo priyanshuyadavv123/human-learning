@@ -27,8 +27,8 @@ export const PredictionInteraction: React.FC = () => {
   return (
     <section 
       style={{
-        marginBottom: '40px',
-        padding: '24px',
+        marginBottom: '28px',
+        padding: '20px',
         borderRadius: 'var(--radius-lg)',
         backgroundColor: 'var(--bg-surface)',
         border: '1px solid var(--border-subtle)',
@@ -195,6 +195,41 @@ export const PredictionInteraction: React.FC = () => {
             <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '16px' }}>
               {predictionData.outcome.explanation}
             </p>
+
+            {/* Learner Choice Specific Explanatory Feedback */}
+            {selectedOption && predictionData.outcome.optionFeedback && predictionData.outcome.optionFeedback[selectedOption] && (
+              <div 
+                style={{
+                  padding: '14px 16px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-bg)' : 'var(--warning-bg)',
+                  border: `1px solid ${selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-border)' : 'var(--warning-border)'}`,
+                  marginBottom: '16px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)' }}>
+                    {predictionData.outcome.optionFeedback[selectedOption].title}
+                  </span>
+                  <span 
+                    style={{ 
+                      fontSize: '0.6875rem', 
+                      fontWeight: 700, 
+                      padding: '2px 8px', 
+                      borderRadius: '4px', 
+                      backgroundColor: 'var(--bg-surface)',
+                      border: '1px solid var(--border-subtle)',
+                      color: selectedOption === predictionData.outcome.winningOptionId ? 'var(--success-text)' : 'var(--warning-text)',
+                    }}
+                  >
+                    {predictionData.outcome.optionFeedback[selectedOption].verdict}
+                  </span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                  {predictionData.outcome.optionFeedback[selectedOption].analysis}
+                </p>
+              </div>
+            )}
 
             {/* Retention Comparison Matrix */}
             <div style={{ overflowX: 'auto', marginBottom: '16px' }}>

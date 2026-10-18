@@ -40,11 +40,12 @@ export const AITutorPanel: React.FC = () => {
       sender: 'tutor',
       tutorPayload: {
         keywords: [],
-        title: 'Socratic Cognitive Companion',
+        title: 'Socratic Learning Companion',
         summary: 'I am here to test your understanding and unpack the 5 mechanisms of human learning.',
-        detailedResponse: 'Welcome to Lesson 1.1! While you explore the text and interactive exercises, I can clarify cognitive science concepts, dissect the difference between biological facts and pedagogical models, or challenge your assumptions with Socratic questions.\n\nChoose an inquiry topic below or type your question about attention, memory, or retrieval.',
+        takeaway: 'Welcome to Lesson 1.1! Ask any question about attention, working memory limits, retrieval practice, or prediction errors.',
+        detailedResponse: 'While you explore the text and interactive exercises, I can clarify cognitive science concepts, dissect the difference between biological facts and pedagogical models, or challenge your assumptions with Socratic questions.',
         socraticChallenge: 'Before reading further: When you struggle to remember a fact, do you view that struggle as a failure or as the active moment of learning?',
-        referencedSection: 'Lesson 1.1 — Curiosity Hook',
+        referencedSection: 'Lesson 1.1 • Curiosity Hook',
       },
       timestamp: 'Ready',
     },
@@ -85,9 +86,10 @@ export const AITutorPanel: React.FC = () => {
           keywords: [],
           title: 'Socratic Session Reset',
           summary: 'Ready for new inquiries regarding cognitive architecture.',
-          detailedResponse: 'What mechanism would you like to explore next? You can ask about the 4-chunk working memory ceiling, how sleep consolidates schemas, or why active retrieval outperforms rereading.',
+          takeaway: 'Session reset. Select a quick inquiry above or ask any question about the five learning mechanisms.',
+          detailedResponse: 'You can explore the ~4-chunk working memory ceiling, how sleep consolidates schemas, or why active retrieval outperforms rereading.',
           socraticChallenge: 'How does your current learning strategy prevent the illusion of competence?',
-          referencedSection: 'Lesson 1.1 — Cognitive Architecture',
+          referencedSection: 'Lesson 1.1 • Cognitive Architecture',
         },
         timestamp: 'Reset',
       },
@@ -127,7 +129,7 @@ export const AITutorPanel: React.FC = () => {
         {/* Tutor Header */}
         <div 
           style={{ 
-            padding: '14px 16px', 
+            padding: '12px 16px', 
             borderBottom: '1px solid var(--border-subtle)',
             backgroundColor: 'var(--bg-surface-subtle)',
             display: 'flex',
@@ -195,23 +197,23 @@ export const AITutorPanel: React.FC = () => {
           </div>
         </div>
 
-        {/* Honest Disclosure Banner */}
+        {/* Honest Disclosure Banner: Scannable & Compact */}
         <div 
           style={{
-            padding: '8px 14px',
+            padding: '8px 12px',
             backgroundColor: 'var(--bg-surface-well)',
             borderBottom: '1px solid var(--border-subtle)',
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             gap: '8px',
             fontSize: '0.6875rem',
             color: 'var(--text-secondary)',
-            lineHeight: 1.4,
+            lineHeight: 1.35,
           }}
         >
-          <ShieldCheck size={14} color="var(--accent-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+          <ShieldCheck size={14} color="var(--accent-primary)" style={{ flexShrink: 0 }} />
           <div>
-            <strong>Grounded Local Intelligence:</strong> Responses are generated from verified cognitive science principles within this lesson. Phase 2 introduces real-time server-side LLM synthesis.
+            <strong>Local Socratic Mode:</strong> Grounded in Lesson 1.1 syllabus. Server-side LLM connects in Phase 2.
           </div>
         </div>
 
@@ -268,7 +270,7 @@ export const AITutorPanel: React.FC = () => {
           </div>
         </div>
 
-        {/* Message Stream */}
+        {/* Message Stream: Scannable with Key Takeaways */}
         <div 
           style={{ 
             flex: 1, 
@@ -276,7 +278,7 @@ export const AITutorPanel: React.FC = () => {
             overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px',
+            gap: '12px',
           }}
         >
           {messages.map(msg => {
@@ -318,13 +320,31 @@ export const AITutorPanel: React.FC = () => {
                   gap: '8px',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                    <Lightbulb size={14} color="var(--accent-primary)" />
-                    <span>{p.title}</span>
-                  </div>
+                {/* Concept Title */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                  <Lightbulb size={14} color="var(--accent-primary)" />
+                  <span>{p.title}</span>
                 </div>
 
+                {/* Instant Scannable Takeaway */}
+                {p.takeaway && (
+                  <div 
+                    style={{
+                      padding: '8px 10px',
+                      borderRadius: 'var(--radius-sm)',
+                      backgroundColor: 'var(--accent-subtle)',
+                      borderLeft: '3px solid var(--accent-primary)',
+                      fontSize: '0.8125rem',
+                      fontWeight: 600,
+                      color: 'var(--accent-primary)',
+                      lineHeight: 1.45,
+                    }}
+                  >
+                    {p.takeaway}
+                  </div>
+                )}
+
+                {/* Mechanism Explanation */}
                 <p style={{ fontSize: '0.78125rem', color: 'var(--text-secondary)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                   {p.detailedResponse}
                 </p>
