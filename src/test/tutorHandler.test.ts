@@ -24,6 +24,8 @@ function createMockReq(options: {
   emitter.socket = {
     remoteAddress: options.remoteAddress || '127.0.0.1',
   } as unknown as IncomingMessage['socket'];
+  (emitter as unknown as Record<string, unknown>).pause = vi.fn();
+  (emitter as unknown as Record<string, unknown>).destroy = vi.fn();
 
   process.nextTick(() => {
     if (options.body !== undefined) {
@@ -238,6 +240,31 @@ describe('Server Tutor Handler & Validation Suite', () => {
       const body = getBody() as Record<string, unknown>;
       expect(body.mode).toBe('fallback');
       expect(body.reason).toBe('RATE_LIMITED');
+    });
+
+    it('returns 413 when payload exceeds the 32KB limit', async () => {
+      const hugeBody = JSON.stringify({ message: 'x'.repeat(35000) });
+      const req = createMockReq({ body: hugeBody });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(413);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('fallback');
+      expect(body.message).toContain('exceeds the 32 KB limit');
+    });
+
+    it('returns 400 when request payload is malformed JSON', async () => {
+      const req = createMockReq({ body: '{ malformed json' });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(400);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('fallback');
+      expect(body.message).toContain('Malformed request');
     });
 
     it('serves health check accurately', () => {

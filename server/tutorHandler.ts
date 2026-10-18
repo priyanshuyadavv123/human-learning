@@ -113,7 +113,10 @@ export async function readJsonBody<T>(req: IncomingMessage, maxBytes = 32768): P
     req.on('data', (chunk: Buffer) => {
       bytesReceived += chunk.length;
       if (bytesReceived > maxBytes) {
-        req.destroy();
+        if (typeof req.pause === 'function') {
+          req.pause();
+        }
+        req.removeAllListeners('data');
         reject(new Error('PAYLOAD_TOO_LARGE'));
         return;
       }
