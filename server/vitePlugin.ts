@@ -9,6 +9,11 @@ export function tutorApiPlugin(): Plugin {
   return {
     name: 'tutor-api-plugin',
     configureServer(server) {
+      try {
+        process.loadEnvFile?.();
+      } catch {
+        // .env is optional
+      }
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0];
         if (url === '/api/tutor/chat' && req.method === 'POST') {

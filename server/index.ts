@@ -8,6 +8,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, '../dist');
 
+if (process.env.NODE_ENV !== 'test') {
+  try {
+    process.loadEnvFile?.();
+  } catch {
+    // .env is optional
+  }
+}
+
 const PORT = parseInt(process.env.PORT || '3000', 10);
 
 const MIME_TYPES: Record<string, string> = {
