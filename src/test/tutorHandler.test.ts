@@ -1,6 +1,8 @@
+// @vitest-environment node
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { EventEmitter } from 'node:events';
+import Groq from 'groq-sdk';
 import { 
   validateChatRequest, 
   validateStructuredModelOutput,
@@ -74,8 +76,8 @@ function createMockRes(): {
 
 describe('Server Tutor Handler & Validation Suite', () => {
   beforeEach(() => {
-    delete process.env.GEMINI_API_KEY;
-    delete process.env.GOOGLE_API_KEY;
+    delete process.env.GROQ_API_KEY;
+    delete process.env.GROQ_MODEL;
     delete process.env.TRUST_PROXY;
   });
 
@@ -205,7 +207,7 @@ describe('Server Tutor Handler & Validation Suite', () => {
   });
 
   describe('HTTP Handler Integration', () => {
-    it('returns graceful fallback response when GEMINI_API_KEY is not configured', async () => {
+    it('returns graceful fallback response when GROQ_API_KEY is not configured', async () => {
       const req = createMockReq({
         body: JSON.stringify({ message: 'What is the testing effect?' }),
       });
@@ -217,6 +219,7 @@ describe('Server Tutor Handler & Validation Suite', () => {
       const body = getBody() as Record<string, unknown>;
       expect(body.mode).toBe('fallback');
       expect(body.reason).toBe('MISSING_API_KEY');
+      expect(body.message).toContain('GROQ_API_KEY');
     });
 
     it('returns 429 when rate limit is exceeded', async () => {
@@ -267,6 +270,96 @@ describe('Server Tutor Handler & Validation Suite', () => {
       expect(body.message).toContain('Malformed request');
     });
 
+    it('calls Groq API and returns live payload when GROQ_API_KEY is present', async () => {
+      process.env.GROQ_API_KEY = 'gsk_mock_test_key_12345';
+
+      const mockResponse = {
+        choices: [
+          {
+            message: {
+              content: JSON.stringify({
+                title: 'Testing Effect Mechanics',
+                takeaway: 'Active recall strengthens memory traces.',
+                detailedResponse: 'Effortful retrieval practice modifies neural circuits.',
+                socraticChallenge: 'How would you apply this to coding?',
+                referencedSection: 'Lesson 1.1 • Section 4: Retrieval Practice (The Testing Effect)',
+              }),
+            },
+          },
+        ],
+      };
+
+      const createSpy = vi.spyOn(Groq.Chat.Completions.prototype, 'create').mockResolvedValue(mockResponse as unknown as Awaited<ReturnType<Groq['chat']['completions']['create']>>);
+
+      const req = createMockReq({
+        body: JSON.stringify({ message: 'What is the testing effect?' }),
+      });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(200);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('live');
+      expect(body.model).toBe('llama-3.3-70b-versatile');
+      const payload = body.payload as Record<string, unknown>;
+      expect(payload.title).toBe('Testing Effect Mechanics');
+      expect(payload.referencedSection).toBe('Lesson 1.1 • Section 4: Retrieval Practice (The Testing Effect)');
+
+      createSpy.mockRestore();
+    });
+
+    it('falls back gracefully when Groq API throws a provider error', async () => {
+      process.env.GROQ_API_KEY = 'gsk_mock_test_key_12345';
+
+      const createSpy = vi.spyOn(Groq.Chat.Completions.prototype, 'create').mockRejectedValue(new Error('Groq rate limit exceeded (429)'));
+
+      const req = createMockReq({
+        body: JSON.stringify({ message: 'What is cognitive load?' }),
+      });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(200);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('fallback');
+      expect(body.reason).toBe('PROVIDER_ERROR');
+      expect(body.message).toContain('Upstream Groq provider error occurred');
+
+      createSpy.mockRestore();
+    });
+
+    it('falls back gracefully when Groq API returns malformed structured output', async () => {
+      process.env.GROQ_API_KEY = 'gsk_mock_test_key_12345';
+
+      const mockResponse = {
+        choices: [
+          {
+            message: {
+              content: 'Not valid json text',
+            },
+          },
+        ],
+      };
+
+      const createSpy = vi.spyOn(Groq.Chat.Completions.prototype, 'create').mockResolvedValue(mockResponse as unknown as Awaited<ReturnType<Groq['chat']['completions']['create']>>);
+
+      const req = createMockReq({
+        body: JSON.stringify({ message: 'What is attention?' }),
+      });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(200);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('fallback');
+      expect(body.reason).toBe('INVALID_MODEL_OUTPUT');
+
+      createSpy.mockRestore();
+    });
+
     it('serves health check accurately', () => {
       const req = createMockReq({ url: '/api/tutor/health', method: 'GET' });
       const { res, getStatusCode, getBody } = createMockRes();
@@ -277,6 +370,7 @@ describe('Server Tutor Handler & Validation Suite', () => {
       const body = getBody() as Record<string, unknown>;
       expect(body.status).toBe('ok');
       expect(body.hasKey).toBe(false);
+      expect(body.model).toBe('llama-3.3-70b-versatile');
       expect(body.mode).toBe('fallback');
     });
   });

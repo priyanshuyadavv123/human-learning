@@ -18,7 +18,7 @@ describe('AITutorPanel Component Suite', () => {
     vi.spyOn(tutorService, 'checkTutorHealth').mockResolvedValue({
       online: true,
       hasKey: false,
-      model: 'gemini-3.8-flash',
+      model: 'llama-3.3-70b-versatile',
       mode: 'fallback',
     });
 
@@ -39,7 +39,7 @@ describe('AITutorPanel Component Suite', () => {
     vi.spyOn(tutorService, 'checkTutorHealth').mockResolvedValue({
       online: true,
       hasKey: true,
-      model: 'gemini-3.8-flash',
+      model: 'llama-3.3-70b-versatile',
       mode: 'live',
     });
 
@@ -49,15 +49,15 @@ describe('AITutorPanel Component Suite', () => {
       </LearningProvider>
     );
 
-    expect(await screen.findByText('Live AI (gemini-3.8-flash)')).toBeInTheDocument();
-    expect(screen.getByText(/Live Gemini Connected:/i)).toBeInTheDocument();
+    expect(await screen.findByText('Live AI (llama-3.3-70b-versatile)')).toBeInTheDocument();
+    expect(screen.getByText(/Live AI Connected:/i)).toBeInTheDocument();
   });
 
   it('handles sending user messages with loading state and displaying response', async () => {
     vi.spyOn(tutorService, 'checkTutorHealth').mockResolvedValue({
       online: true,
       hasKey: true,
-      model: 'gemini-3.8-flash',
+      model: 'llama-3.3-70b-versatile',
       mode: 'live',
     });
 
@@ -66,7 +66,7 @@ describe('AITutorPanel Component Suite', () => {
       await new Promise(r => setTimeout(r, 50));
       return {
         mode: 'live',
-        model: 'gemini-3.8-flash',
+        model: 'llama-3.3-70b-versatile',
         entry: {
           keywords: [],
           title: 'Desirable Difficulty In Practice',
@@ -102,7 +102,7 @@ describe('AITutorPanel Component Suite', () => {
     // Awaits response
     expect(await screen.findByText('Desirable Difficulty In Practice')).toBeInTheDocument();
     expect(screen.getByText('Challenging retrieval reconstructs neural pathways.')).toBeInTheDocument();
-    expect(screen.getAllByText(/Live AI \(gemini-3.8-flash\)/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Live AI \(llama-3.3-70b-versatile\)/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText(/Curriculum Anchor: Lesson 1.1 • Section 4/i)).toBeInTheDocument();
   });
 

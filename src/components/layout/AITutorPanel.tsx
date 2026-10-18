@@ -49,7 +49,7 @@ export const AITutorPanel: React.FC = () => {
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
     online: false,
     hasKey: false,
-    model: 'gemini-3.8-flash',
+    model: 'llama-3.3-70b-versatile',
     mode: 'fallback',
   });
 
@@ -317,9 +317,9 @@ export const AITutorPanel: React.FC = () => {
           )}
           <div>
             {isLiveMode ? (
-              <span><strong>Live Gemini Connected:</strong> Multi-turn Socratic responses grounded in Lesson 1.1 syllabus.</span>
+              <span><strong>Live AI Connected:</strong> Multi-turn Socratic responses powered by Groq and grounded in Lesson 1.1 syllabus.</span>
             ) : (
-              <span><strong>Local Socratic Mode:</strong> Grounded in Lesson 1.1 syllabus. Configure <code>GEMINI_API_KEY</code> in <code>.env</code> for live AI.</span>
+              <span><strong>Local Socratic Mode:</strong> Grounded in Lesson 1.1 syllabus. Configure <code>GROQ_API_KEY</code> in <code>.env</code> for live AI.</span>
             )}
           </div>
         </div>
@@ -453,7 +453,7 @@ export const AITutorPanel: React.FC = () => {
                       letterSpacing: '0.02em',
                     }}
                   >
-                    {isLiveMsg ? `Live AI (${msg.modelUsed || 'Gemini'})` : 'Local Knowledge'}
+                    {isLiveMsg ? `Live AI (${msg.modelUsed || 'Groq'})` : 'Local Knowledge'}
                   </span>
                 </div>
 
@@ -622,7 +622,7 @@ export const AITutorPanel: React.FC = () => {
             </button>
           </form>
           <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)', marginTop: '4px', textAlign: 'center' }}>
-            {isLiveMode ? 'Powered by Gemini AI • Do not submit sensitive personal data' : 'Grounded in cognitive science syllabus • Local Mode Active'}
+            {isLiveMode ? 'Powered by Groq • Do not submit sensitive personal data' : 'Grounded in cognitive science syllabus • Local Mode Active'}
           </div>
         </div>
       </aside>

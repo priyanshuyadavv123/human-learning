@@ -36,7 +36,7 @@ export async function checkTutorHealth(): Promise<TutorHealthStatus> {
     return {
       online: true,
       hasKey: !!data.hasKey,
-      model: data.model || 'gemini-3.8-flash',
+      model: data.model || 'llama-3.3-70b-versatile',
       mode: data.mode === 'live' ? 'live' : 'fallback',
     };
   } catch {
@@ -45,7 +45,7 @@ export async function checkTutorHealth(): Promise<TutorHealthStatus> {
 }
 
 /**
- * Dispatches a tutor inquiry. Attempts the live Gemini API endpoint first,
+ * Dispatches a tutor inquiry. Attempts the live Groq API endpoint first,
  * and seamlessly falls back to the deterministic local knowledge engine if
  * credentials are missing, quota is exceeded, or the network is offline.
  */

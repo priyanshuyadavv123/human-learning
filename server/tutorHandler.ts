@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { GoogleGenAI, Type } from '@google/genai';
+import Groq from 'groq-sdk';
 import { TUTOR_SYSTEM_INSTRUCTION, resolveValidSection } from './groundingContext.ts';
 
 export interface ChatHistoryTurn {
@@ -329,71 +329,83 @@ export async function handleTutorChatRequest(
   const { message, history } = validation.data;
 
   // 4. Check API Key Presence (Graceful fallback if unconfigured)
-  const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey || !apiKey.trim()) {
     sendJson(200, {
       mode: 'fallback',
       reason: 'MISSING_API_KEY',
-      message: 'GEMINI_API_KEY is not configured on the server. Serving from local deterministic knowledge base.',
+      message: 'GROQ_API_KEY is not configured on the server. Serving from local deterministic knowledge base.',
     } satisfies TutorFallbackResponse);
     return;
   }
 
-  // 5. Call Gemini API via official @google/genai SDK
-  const preferredModel = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
-  const ai = new GoogleGenAI({ apiKey: apiKey.trim() });
+  // 5. Call Groq API via official groq-sdk
+  const preferredModel = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+  const groq = new Groq({ apiKey: apiKey.trim() });
 
-  // Assemble contents array: previous turns + current user message
-  const contents: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }> = [];
+  // Assemble messages array: system instruction + previous turns + current user message
+  const messages: Array<{
+    role: 'system' | 'user' | 'assistant';
+    content: string;
+  }> = [
+    {
+      role: 'system',
+      content: TUTOR_SYSTEM_INSTRUCTION,
+    },
+  ];
 
   if (history && history.length > 0) {
     for (const turn of history) {
-      contents.push({
-        role: turn.role,
-        parts: [{ text: turn.text }],
+      messages.push({
+        role: turn.role === 'model' ? 'assistant' : 'user',
+        content: turn.text,
       });
     }
   }
 
-  contents.push({
+  messages.push({
     role: 'user',
-    parts: [{ text: message }],
+    content: message,
   });
 
   try {
-    const generatePromise = ai.models.generateContent({
+    const chatPromise = groq.chat.completions.create({
       model: preferredModel,
-      contents,
-      config: {
-        systemInstruction: TUTOR_SYSTEM_INSTRUCTION,
-        temperature: 0.3,
-        maxOutputTokens: 1200,
-        responseMimeType: 'application/json',
-        responseJsonSchema: {
-          type: Type.OBJECT,
-          properties: {
-            title: {
-              type: Type.STRING,
-              description: 'A concise 2-5 word concept headline',
+      messages,
+      temperature: 0.3,
+      max_completion_tokens: 1200,
+      response_format: {
+        type: 'json_schema',
+        json_schema: {
+          name: 'tutor_socratic_response',
+          strict: true,
+          schema: {
+            type: 'object',
+            properties: {
+              title: {
+                type: 'string',
+                description: 'A concise 2-5 word concept headline',
+              },
+              takeaway: {
+                type: 'string',
+                description: 'One crisp, high-impact key takeaway sentence',
+              },
+              detailedResponse: {
+                type: 'string',
+                description: 'Socratic pedagogical explanation explaining cognitive mechanisms. Use markdown bullet points where helpful.',
+              },
+              socraticChallenge: {
+                type: 'string',
+                description: 'A calibrating reflective question prompting the learner to retrieve or apply the concept',
+              },
+              referencedSection: {
+                type: 'string',
+                description: 'The exact matching section name from Lesson 1.1 syllabus list',
+              },
             },
-            takeaway: {
-              type: Type.STRING,
-              description: 'One crisp, high-impact key takeaway sentence',
-            },
-            detailedResponse: {
-              type: Type.STRING,
-              description: 'Socratic pedagogical explanation explaining cognitive mechanisms. Use markdown bullet points where helpful.',
-            },
-            socraticChallenge: {
-              type: Type.STRING,
-              description: 'A calibrating reflective question prompting the learner to retrieve or apply the concept',
-            },
-            referencedSection: {
-              type: Type.STRING,
-              description: 'The exact matching section name from Lesson 1.1 syllabus list',
-            },
+            required: ['title', 'takeaway', 'detailedResponse', 'socraticChallenge', 'referencedSection'],
+            additionalProperties: false,
           },
-          required: ['title', 'takeaway', 'detailedResponse', 'socraticChallenge', 'referencedSection'],
         },
       },
     });
@@ -403,10 +415,11 @@ export async function handleTutorChatRequest(
       setTimeout(() => reject(new Error('TIMEOUT')), 15000);
     });
 
-    const response = await Promise.race([generatePromise, timeoutPromise]);
+    const completion = await Promise.race([chatPromise, timeoutPromise]);
+    const responseText = completion.choices[0]?.message?.content || '';
 
     // 6. Validate and parse model structured output
-    const outputValidation = validateStructuredModelOutput(response.text);
+    const outputValidation = validateStructuredModelOutput(responseText);
 
     if (!outputValidation.valid || !outputValidation.output) {
       sendJson(200, {
@@ -443,7 +456,7 @@ export async function handleTutorChatRequest(
       mode: 'fallback',
       reason: 'PROVIDER_ERROR',
       error: errorMsg.slice(0, 100),
-      message: 'Upstream Gemini provider error occurred. Serving from local deterministic knowledge base.',
+      message: 'Upstream Groq provider error occurred. Serving from local deterministic knowledge base.',
     } satisfies TutorFallbackResponse);
   }
 }
@@ -452,8 +465,8 @@ export async function handleTutorChatRequest(
  * Health check handler for /api/tutor/health
  */
 export function handleTutorHealthCheck(_req: IncomingMessage, res: ServerResponse): void {
-  const hasKey = !!(process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY);
-  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+  const hasKey = !!process.env.GROQ_API_KEY;
+  const model = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');

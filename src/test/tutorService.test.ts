@@ -14,20 +14,20 @@ describe('Client Tutor Service Suite', () => {
     it('returns live mode when server hasKey is true', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ status: 'ok', hasKey: true, model: 'gemini-3.8-flash', mode: 'live' }),
+        json: async () => ({ status: 'ok', hasKey: true, model: 'llama-3.3-70b-versatile', mode: 'live' }),
       });
 
       const health = await checkTutorHealth();
       expect(health.online).toBe(true);
       expect(health.hasKey).toBe(true);
       expect(health.mode).toBe('live');
-      expect(health.model).toBe('gemini-3.8-flash');
+      expect(health.model).toBe('llama-3.3-70b-versatile');
     });
 
     it('returns fallback mode when server hasKey is false', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ status: 'ok', hasKey: false, model: 'gemini-3.8-flash', mode: 'fallback' }),
+        json: async () => ({ status: 'ok', hasKey: false, model: 'llama-3.3-70b-versatile', mode: 'fallback' }),
       });
 
       const health = await checkTutorHealth();
@@ -60,7 +60,7 @@ describe('Client Tutor Service Suite', () => {
         ok: true,
         json: async () => ({
           mode: 'live',
-          model: 'gemini-3.8-flash',
+          model: 'llama-3.3-70b-versatile',
           payload: mockPayload,
         }),
       });
@@ -69,7 +69,7 @@ describe('Client Tutor Service Suite', () => {
       expect(result.mode).toBe('live');
       expect(result.entry.title).toBe('Working Memory Load');
       expect(result.entry.takeaway).toBe('Working memory capacity is strictly bounded.');
-      expect(result.model).toBe('gemini-3.8-flash');
+      expect(result.model).toBe('llama-3.3-70b-versatile');
     });
 
     it('falls back to local knowledge base when server instructs fallback (e.g. missing API key)', async () => {
@@ -78,7 +78,7 @@ describe('Client Tutor Service Suite', () => {
         json: async () => ({
           mode: 'fallback',
           reason: 'MISSING_API_KEY',
-          message: 'GEMINI_API_KEY is not configured on the server.',
+          message: 'GROQ_API_KEY is not configured on the server.',
         }),
       });
 
