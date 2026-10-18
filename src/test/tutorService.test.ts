@@ -102,6 +102,51 @@ describe('Client Tutor Service Suite', () => {
       expect(result.entry.title).toContain('Testing Effect');
     });
 
+    it('falls back to local knowledge base when server returns HTTP 500 internal server error', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 500,
+        json: async () => ({ mode: 'fallback', reason: 'PROVIDER_ERROR' }),
+      });
+
+      const result = await queryTutor('How does memory reconsolidation occur?');
+      expect(result.mode).toBe('fallback');
+      expect(result.reason).toBe('SERVER_ERROR');
+      expect(result.notice).toContain('Server returned error status');
+    });
+
+    it('falls back to local knowledge base when server reports provider TIMEOUT', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          mode: 'fallback',
+          reason: 'TIMEOUT',
+          message: 'AI response timed out (15s limit). Serving from local deterministic knowledge base.',
+        }),
+      });
+
+      const result = await queryTutor('Explain cognitive load');
+      expect(result.mode).toBe('fallback');
+      expect(result.reason).toBe('TIMEOUT');
+      expect(result.notice).toContain('timed out');
+    });
+
+    it('falls back to local knowledge base when server reports INVALID_MODEL_OUTPUT', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          mode: 'fallback',
+          reason: 'INVALID_MODEL_OUTPUT',
+          message: 'The AI model output could not be formatted. Falling back to local knowledge base.',
+        }),
+      });
+
+      const result = await queryTutor('What is working memory?');
+      expect(result.mode).toBe('fallback');
+      expect(result.reason).toBe('INVALID_MODEL_OUTPUT');
+      expect(result.notice).toContain('could not be formatted');
+    });
+
     it('falls back to local knowledge base when network fetch throws', async () => {
       global.fetch = vi.fn().mockRejectedValue(new Error('Fetch failed'));
 
