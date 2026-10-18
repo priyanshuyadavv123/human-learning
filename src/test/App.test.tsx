@@ -24,7 +24,7 @@ describe('App Workspace Integration', () => {
 
     // AI Tutor panel
     expect(screen.getByText('AI Learning Companion')).toBeInTheDocument();
-    expect(screen.getByText(/Phase 1 Contextual Socratic Mode/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Local Socratic Mode/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('supports toggling theme between light and dark', () => {
@@ -37,14 +37,14 @@ describe('App Workspace Integration', () => {
     expect(localStorage.getItem('human_learning_platform_theme_v1')).toBeTruthy();
   });
 
-  it('allows interacting with the AI Tutor quick inquiries', () => {
+  it('allows interacting with the AI Tutor quick inquiries', async () => {
     render(<App />);
 
     const quickBtn = screen.getByRole('button', { name: 'Working Memory Limits' });
     fireEvent.click(quickBtn);
 
-    expect(screen.getByText(/Working Memory Architecture & The 4-Chunk Limit/i)).toBeInTheDocument();
-    expect(screen.getByText(/Cowan, 2001; Sweller, 1988/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Working Memory Architecture & The 4-Chunk Limit/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Cowan, 2001; Sweller, 1988/i)).toBeInTheDocument();
   });
 
   it('allows toggling the AI Tutor panel open and closed', () => {
