@@ -301,7 +301,7 @@ describe('Server Tutor Handler & Validation Suite', () => {
       expect(getStatusCode()).toBe(200);
       const body = getBody() as Record<string, unknown>;
       expect(body.mode).toBe('live');
-      expect(body.model).toBe('llama-3.3-70b-versatile');
+      expect(body.model).toBe('openai/gpt-oss-120b');
       const payload = body.payload as Record<string, unknown>;
       expect(payload.title).toBe('Testing Effect Mechanics');
       expect(payload.referencedSection).toBe('Lesson 1.1 • Section 4: Retrieval Practice (The Testing Effect)');
@@ -370,7 +370,7 @@ describe('Server Tutor Handler & Validation Suite', () => {
       const body = getBody() as Record<string, unknown>;
       expect(body.status).toBe('ok');
       expect(body.hasKey).toBe(false);
-      expect(body.model).toBe('llama-3.3-70b-versatile');
+      expect(body.model).toBe('openai/gpt-oss-120b');
       expect(body.mode).toBe('fallback');
     });
   });

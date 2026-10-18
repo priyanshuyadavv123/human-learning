@@ -340,7 +340,7 @@ export async function handleTutorChatRequest(
   }
 
   // 5. Call Groq API via official groq-sdk
-  const preferredModel = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+  const preferredModel = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
   const groq = new Groq({ apiKey: apiKey.trim() });
 
   // Assemble messages array: system instruction + previous turns + current user message
@@ -466,7 +466,7 @@ export async function handleTutorChatRequest(
  */
 export function handleTutorHealthCheck(_req: IncomingMessage, res: ServerResponse): void {
   const hasKey = !!process.env.GROQ_API_KEY;
-  const model = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+  const model = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');

@@ -36,7 +36,7 @@ export async function checkTutorHealth(): Promise<TutorHealthStatus> {
     return {
       online: true,
       hasKey: !!data.hasKey,
-      model: data.model || 'llama-3.3-70b-versatile',
+      model: data.model || 'openai/gpt-oss-120b',
       mode: data.mode === 'live' ? 'live' : 'fallback',
     };
   } catch {

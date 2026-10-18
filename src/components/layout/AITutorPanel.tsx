@@ -49,7 +49,7 @@ export const AITutorPanel: React.FC = () => {
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
     online: false,
     hasKey: false,
-    model: 'llama-3.3-70b-versatile',
+    model: 'openai/gpt-oss-120b',
     mode: 'fallback',
   });
 

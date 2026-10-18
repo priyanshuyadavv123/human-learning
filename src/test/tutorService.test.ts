@@ -14,20 +14,20 @@ describe('Client Tutor Service Suite', () => {
     it('returns live mode when server hasKey is true', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ status: 'ok', hasKey: true, model: 'llama-3.3-70b-versatile', mode: 'live' }),
+        json: async () => ({ status: 'ok', hasKey: true, model: 'openai/gpt-oss-120b', mode: 'live' }),
       });
 
       const health = await checkTutorHealth();
       expect(health.online).toBe(true);
       expect(health.hasKey).toBe(true);
       expect(health.mode).toBe('live');
-      expect(health.model).toBe('llama-3.3-70b-versatile');
+      expect(health.model).toBe('openai/gpt-oss-120b');
     });
 
     it('returns fallback mode when server hasKey is false', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ status: 'ok', hasKey: false, model: 'llama-3.3-70b-versatile', mode: 'fallback' }),
+        json: async () => ({ status: 'ok', hasKey: false, model: 'openai/gpt-oss-120b', mode: 'fallback' }),
       });
 
       const health = await checkTutorHealth();
@@ -60,7 +60,7 @@ describe('Client Tutor Service Suite', () => {
         ok: true,
         json: async () => ({
           mode: 'live',
-          model: 'llama-3.3-70b-versatile',
+          model: 'openai/gpt-oss-120b',
           payload: mockPayload,
         }),
       });
@@ -69,7 +69,7 @@ describe('Client Tutor Service Suite', () => {
       expect(result.mode).toBe('live');
       expect(result.entry.title).toBe('Working Memory Load');
       expect(result.entry.takeaway).toBe('Working memory capacity is strictly bounded.');
-      expect(result.model).toBe('llama-3.3-70b-versatile');
+      expect(result.model).toBe('openai/gpt-oss-120b');
     });
 
     it('falls back to local knowledge base when server instructs fallback (e.g. missing API key)', async () => {
