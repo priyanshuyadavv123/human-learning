@@ -120,7 +120,7 @@ describe('Lesson 12.1: The Edge of Ability & Immediate Feedback Data Integrity',
   });
 
   it('should provide accurate offline tutor knowledge base answers for Lesson 12.1 queries', () => {
-    const q1 = findTutorAnswer('How does K Anders Ericsson deliberate practice disrupt the autonomous stage?');
+    const q1 = findTutorAnswer('How does K Anders Ericsson four pillars of deliberate practice disrupt homeostasis?');
     expect(q1.referencedSection).toContain('Lesson 12.1');
     expect(q1.detailedResponse).toContain('Ericsson');
 

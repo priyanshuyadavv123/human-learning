@@ -104,6 +104,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chase_simon_domain_specific_representations',
   'concept:klein_recognition_primed_decision_simulation',
   'concept:ericsson_internal_reference_self_monitoring',
+  // Lesson 13.1 Concepts
+  'concept:fitts_posner_tripartite_progression',
+  'concept:anderson_actr_knowledge_compilation',
+  'concept:prefrontal_to_striatal_neuroanatomical_handover',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -186,6 +190,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 12.2 Misconceptions
   'misconception:expert_genius_is_general_hardware',
   'misconception:surface_features_define_domain_problems',
+  // Lesson 13.1 Misconceptions
+  'misconception:multitasking_possible_in_early_learning',
+  'misconception:automaticity_means_greater_conscious_control',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

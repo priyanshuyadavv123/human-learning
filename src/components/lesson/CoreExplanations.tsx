@@ -113,6 +113,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'chase-simon-mental-representations-foundations': <Cpu size={18} />,
   'recognition-primed-decisions-klein': <Eye size={18} />,
   'mental-representations-self-monitoring-ericsson': <Bookmark size={18} />,
+  // Lesson 13.1 Tabs
+  'fitts-posner-tripartite-progression': <Network size={18} />,
+  'anderson-act-r-knowledge-compilation': <Cpu size={18} />,
+  'neurobiology-cortical-to-striatal-handover': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -304,6 +304,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 12.2 • Verification Assessment',
   'Lesson 12.2 • The Deep-Structure Mental Model Construction Protocol',
   'Lesson 12.2 • Mental Representations in Expert Performance Overview',
+
+  // Lesson 13.1 Sections
+  'Lesson 13.1 • Curiosity Hook',
+  'Lesson 13.1 • Intuitive Calibration: Cognitive Dual-Task Friction vs Autonomous Touch-Typing',
+  'Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition',
+  'Lesson 13.1 • Section 2: Anderson’s ACT-R: Knowledge Compilation & Production Rules',
+  'Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift',
+  'Lesson 13.1 • The Fitts & Posner Proceduralization Engine Diagram',
+  'Lesson 13.1 • The Skill Acquisition Stage Diagnostic Exercise',
+  'Lesson 13.1 • Verification Assessment',
+  'Lesson 13.1 • The Three-Stage Proceduralization Protocol',
+  'Lesson 13.1 • The Three Stages of Skill Acquisition Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -316,6 +328,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 13.1 anchors
+  if (lower.includes('act-r') || lower.includes('actr') || lower.includes('knowledge compilation') || lower.includes('production rule') || lower.includes('production composition') || lower.includes('power law of practice')) {
+    return 'Lesson 13.1 • Section 2: Anderson’s ACT-R: Knowledge Compilation & Production Rules';
+  }
+  if (lower.includes('prefrontal-to-striatal') || lower.includes('dorsal striatum') || lower.includes('putamen') || lower.includes('basal ganglia') || lower.includes('graybiel') || lower.includes('dlpfc') || lower.includes('cortical-to-striatal')) {
+    return 'Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift';
+  }
+  if (lower.includes('the fitts & posner proceduralization engine diagram') || lower.includes('proceduralization engine diagram') || lower.includes('fitts posner diagram')) {
+    return 'Lesson 13.1 • The Fitts & Posner Proceduralization Engine Diagram';
+  }
+  if (lower.includes('fitts & posner (1967)') || lower.includes('tripartite progression') || lower.includes('cognitive stage') || lower.includes('associative stage') || lower.includes('autonomous stage') || lower.includes('three stages of skill')) {
+    return 'Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition';
+  }
+  if (lower.includes('13.1') || lower.includes('three-stage proceduralization protocol') || lower.includes('proceduralization protocol')) {
+    return 'Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition';
+  }
 
   // Match Lesson 12.2 anchors
   if ((lower.includes('chase') && !lower.includes('chunking') && !lower.includes('8.1')) || lower.includes('randomization asymmetry') || lower.includes('random board') || lower.includes('random piece') || (lower.includes('structural nature') && lower.includes('representation'))) {
@@ -1419,6 +1448,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_13_1 = `You are the specialized Socratic AI Learning Companion for Lesson 13.1: "The Three Stages of Skill Acquisition" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 13.1:
+- Lesson 13.1 • Curiosity Hook
+- Lesson 13.1 • Intuitive Calibration: Cognitive Dual-Task Friction vs Autonomous Touch-Typing
+- Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition
+- Lesson 13.1 • Section 2: Anderson’s ACT-R: Knowledge Compilation & Production Rules
+- Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift
+- Lesson 13.1 • The Fitts & Posner Proceduralization Engine Diagram
+- Lesson 13.1 • The Skill Acquisition Stage Diagnostic Exercise
+- Lesson 13.1 • Verification Assessment
+- Lesson 13.1 • The Three-Stage Proceduralization Protocol
+- Lesson 13.1 • The Three Stages of Skill Acquisition Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of skill acquisition stages, knowledge compilation, and automaticity neurobiology:
+     a) Paul Fitts & Michael Posner (1967) Tripartite Model: Skills progress through Cognitive (declarative, verbal self-talk, 100% prefrontal working memory load, dual-task sensitive), Associative (fewer errors, chunking, verbal mediation fades, ~50% load reduction), and Autonomous (ballistic, sub-cortical striatal control, dual-task resistant).
+     b) John R. Anderson (1982) ACT-R Knowledge Compilation & Production Composition: Proceduralization bypasses declarative retrieval by compiling facts into production rules ($IF \\to THEN$). Successive rules compose ($P_1 + P_2 \\to P_{12}$), eliminating intermediate memory queries. Newell & Rosenbloom (1981) Power Law of Practice ($T = a \\cdot N^{-b}$) mathematically describes this asymptotic speedup.
+     c) Neurobiology of Automaticity (Graybiel, 2008): Behavioral control shifts from dorsolateral prefrontal cortex (DLPFC) and anterior cingulate to the dorsal striatum (sensorimotor putamen), basal ganglia, and cerebellum. This frees conscious working memory for macro-strategy, but requires supervisory anomaly monitors to prevent mindless automated errors.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the three stages, ACT-R production compilation, the power law of practice, striatal automaticity, and supervisory circuit breakers.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1491,6 +1555,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'expert-mental-representations') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_12_2;
+  }
+  if (lessonId === 'fitts-posner-stages') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_13_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1596,6 +1663,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chase_simon_domain_specific_representations',
   'concept:klein_recognition_primed_decision_simulation',
   'concept:ericsson_internal_reference_self_monitoring',
+  // Lesson 13.1 Concepts
+  'concept:fitts_posner_tripartite_progression',
+  'concept:anderson_actr_knowledge_compilation',
+  'concept:prefrontal_to_striatal_neuroanatomical_handover',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1678,6 +1749,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 12.2 Misconceptions
   'misconception:expert_genius_is_general_hardware',
   'misconception:surface_features_define_domain_problems',
+  // Lesson 13.1 Misconceptions
+  'misconception:multitasking_possible_in_early_learning',
+  'misconception:automaticity_means_greater_conscious_control',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

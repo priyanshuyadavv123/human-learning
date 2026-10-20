@@ -283,6 +283,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-ericsson-mental-representation-self-monitoring': 'concept:ericsson_internal_reference_self_monitoring',
     },
   },
+  'fitts-posner-stages': {
+    predictionConceptId: 'concept:fitts_posner_tripartite_progression',
+    predictionMisconceptionId: 'misconception:multitasking_possible_in_early_learning',
+    quizConceptMapping: {
+      'q1-fitts-posner-tripartite-characteristics': 'concept:fitts_posner_tripartite_progression',
+      'q2-anderson-actr-production-composition': 'concept:anderson_actr_knowledge_compilation',
+      'q3-neuroanatomy-prefrontal-to-striatal-shift': 'concept:prefrontal_to_striatal_neuroanatomical_handover',
+      'q4-power-law-of-practice-newell-rosenbloom': 'concept:anderson_actr_knowledge_compilation',
+    },
+  },
 };
 
 interface LearningContextType {

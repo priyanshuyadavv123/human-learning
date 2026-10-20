@@ -1147,6 +1147,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:expert_genius_is_general_hardware',
     discrepancyPrompt: 'Previously you may have relied entirely on external PR reviews or test runners to tell you if your code was good. How does Ericsson’s self-monitoring framework demonstrate that elite craftsmanship requires constructing a sharp internal reference standard?',
   },
+  'concept:fitts_posner_tripartite_progression': {
+    conceptId: 'concept:fitts_posner_tripartite_progression',
+    title: 'The Tripartite Stages of Skill Acquisition (Fitts & Posner, 1967)',
+    prompt: 'Describe the cognitive, associative, and autonomous stages of skill acquisition (Fitts & Posner, 1967) and explain how working memory allocation changes across them.',
+    keyCriteria: [
+      'Cites Paul Fitts & Michael Posner (1967) Human Performance',
+      'Cognitive Stage: explicit declarative rules, verbal self-talk, 100% working memory saturation, dual-task failure',
+      'Associative Stage: gross error elimination, chunking/production composition, verbalization drops, ~50% attentional reduction',
+      'Autonomous Stage: ballistic execution, minimal prefrontal attentional demand, dual-task resistance, sub-cortical striatal control',
+    ],
+    canonicalAnswer: 'Paul Fitts and Michael Posner (1967) established that skill acquisition progresses across three stages: (1) Cognitive Stage: The learner relies on declarative rules and conscious verbal self-talk ("press key X, then Y"). This saturates working memory (~100% executive load), making execution slow, clumsy, and vulnerable to dual-task collapse. (2) Associative Stage: Gross errors are eliminated, sub-actions link into chunks, and verbal mediation fades as perceptual cues directly trigger actions, reducing cognitive load by ~50%. (3) Autonomous Stage: Execution becomes ballistic, rapid, and controlled sub-cortically by the dorsal striatum and basal ganglia. Attentional demand drops to <10%, rendering performance resistant to stress and dual-task interference, though creating expertise amnesia where performers cannot declaratively describe their micro-movements.',
+    lessonSectionAnchor: 'Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition',
+    relatedMisconception: 'misconception:multitasking_possible_in_early_learning',
+    discrepancyPrompt: 'Previously you may have attempted to listen to podcasts or hold complex conversations while learning a brand new software tool. Why does Fitts & Posner’s cognitive stage prove that early procedural learning demands 100% of conscious prefrontal bandwidth?',
+  },
+  'concept:anderson_actr_knowledge_compilation': {
+    conceptId: 'concept:anderson_actr_knowledge_compilation',
+    title: 'Knowledge Compilation & Production Composition (Anderson’s ACT-R)',
+    prompt: 'How does John R. Anderson’s ACT-R model explain proceduralization through production composition ($P_1 + P_2 \\to P_{12}$) and the Power Law of Practice?',
+    keyCriteria: [
+      'Cites John R. Anderson (1982, ACT-R cognitive architecture)',
+      'Contrasts slow declarative memory retrieval with fast procedural production rule firing ($IF \\to THEN$)',
+      'Explains Production Composition: sequential production rules are collapsed into a single atomic macro-rule ($P_1 + P_2 \\to P_{12}$)',
+      'Cites Newell & Rosenbloom (1981) Power Law of Practice ($T = a \\cdot N^{-b}$)',
+    ],
+    canonicalAnswer: 'John R. Anderson’s ACT-R architecture models proceduralization as "Knowledge Compilation." Early in learning, performing a step requires an expensive declarative retrieval from long-term memory (e.g. retrieving the rule: "In Vim, ciw replaces word"). Through repeated practice, declarative rules are proceduralized into compiled production rules ($IF \\to THEN$). Successive micro-productions that execute in sequence are merged via "Production Composition" ($P_1 + P_2 \\to P_{12}$), eliminating intermediate memory retrievals. Newell & Rosenbloom (1981) demonstrated that this compilation follows the Power Law of Practice ($T = a \\cdot N^{-b}$): early trials produce massive speedups, while late-stage gains flatten asymptotically, requiring exponentially greater deliberate effort for marginal improvements.',
+    lessonSectionAnchor: 'Lesson 13.1 • Section 2: Anderson’s ACT-R: Knowledge Compilation & Production Rules',
+    relatedMisconception: 'misconception:automaticity_means_greater_conscious_control',
+    discrepancyPrompt: 'Previously you may have assumed that practicing makes your conscious brain think faster. How does ACT-R knowledge compilation prove that skill speedup occurs by bypassing conscious thinking and compiling declarative rules into atomic production rules?',
+  },
+  'concept:prefrontal_to_striatal_neuroanatomical_handover': {
+    conceptId: 'concept:prefrontal_to_striatal_neuroanatomical_handover',
+    title: 'Prefrontal-to-Striatal Neuroanatomical Handover of Automaticity',
+    prompt: 'What anatomical shift occurs in brain activation as a motor or cognitive skill transforms from the cognitive to the autonomous stage?',
+    keyCriteria: [
+      'Cites Ann Graybiel / neuroimaging expertise consensus',
+      'Early Cognitive Stage: high metabolic activation in DLPFC, anterior cingulate, and premotor cortex',
+      'Late Autonomous Stage: DLPFC returns to baseline; control handed over to dorsal striatum (sensorimotor putamen), basal ganglia, and cerebellum',
+      'Explains prefrontal unburdening and the need for supervisory anomaly-monitoring circuits',
+    ],
+    canonicalAnswer: 'Functional neuroimaging reveals that proceduralization is an anatomical handover of behavioral control. In the Cognitive Stage, task execution is dominated by the dorsolateral prefrontal cortex (DLPFC), anterior cingulate cortex, and premotor areas, which maintain task goals and actively process error feedback. With extensive repetition, synaptic potentiation shifts control to the sensorimotor dorsal striatum (putamen), basal ganglia loops, and cerebellum. In the Autonomous Stage, DLPFC activation returns to baseline during execution, unburdening prefrontal executive resources for high-level tactical oversight. However, this creates a vulnerability: because striatal habits fire automatically, the prefrontal cortex must maintain an active supervisory monitoring thread to detect anomalies and interrupt automated routines when environmental conditions change.',
+    lessonSectionAnchor: 'Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift',
+    relatedMisconception: 'misconception:automaticity_means_greater_conscious_control',
+    discrepancyPrompt: 'Previously you may have thought that master surgeons or engineers concentrate harder on mechanical steps than novices. How does functional neuroimaging prove that automaticity is actually prefrontal deactivation and striatal offloading?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

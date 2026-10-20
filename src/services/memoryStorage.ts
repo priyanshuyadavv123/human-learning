@@ -188,6 +188,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'expert-mental-representations';
     chapterId = 'ch-12-deliberate-practice';
+  } else if (
+    conceptId.startsWith('concept:fitts_posner_tripartite_') ||
+    conceptId.startsWith('concept:anderson_actr_') ||
+    conceptId.startsWith('concept:prefrontal_to_striatal_')
+  ) {
+    lessonId = 'fitts-posner-stages';
+    chapterId = 'ch-13-automaticity';
   }
 
   return {

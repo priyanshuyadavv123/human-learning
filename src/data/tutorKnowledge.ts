@@ -685,7 +685,7 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     referencedSection: 'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin',
   },
   {
-    keywords: ['ericsson', 'deliberate practice', 'four pillars', 'autonomous stage', 'fitts', 'posner', 'homeostasis', 'naive practice', 'comfort zone'],
+    keywords: ['ericsson', 'deliberate practice', 'four pillars', 'anatomy of deliberate practice', 'homeostasis', 'naive practice', 'comfort zone'],
     title: 'K. Anders Ericsson: The Anatomy of Deliberate Practice',
     summary: 'Accumulating routine work hours arrests skill development in the autonomous stage; mastery requires deliberate practice that forces biological systems out of homeostasis.',
     takeaway: 'Experience alone automates mediocrity; deliberate practice targets specific sub-skill deficits at the edge of ability with immediate corrective feedback.',
@@ -737,6 +737,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     detailedResponse: 'According to K. Anders Ericsson (2016, "Peak"), the defining differentiator of elite performers is the sophistication of their mental representations for self-monitoring. Advanced mental representations provide an internal "Reference Standard of Excellence"—an explicit benchmark of what flawless execution and architecture looks and feels like. During live execution, the expert continuously compares real-time sensory feedback and telemetry against this internal standard. Because their mental representation encodes causal relationships, detecting a discrepancy immediately isolates the root cause, enabling real-time closed-loop self-correction without relying on an external coach or supervisor.',
     socraticChallenge: 'What is your explicit internal reference standard for this engineering task, and how do you audit your work against it before submitting?',
     referencedSection: 'Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)',
+  },
+  {
+    keywords: ['fitts', 'posner', 'cognitive stage', 'associative stage', 'autonomous stage', 'tripartite', 'verbal mediation', 'expertise amnesia'],
+    title: 'Fitts & Posner: The Three Stages of Skill Acquisition',
+    summary: 'Skills progress from slow declarative prefrontal verbal mediation to fluid associative chunking and ballistic dorsal striatal automaticity.',
+    takeaway: 'Proceduralization systematically liberates prefrontal working memory by compiling declarative knowledge into sub-cortical striatal execution.',
+    detailedResponse: 'Paul Fitts and Michael Posner (1967) formulated the canonical tripartite model of skill acquisition. In the Cognitive Stage, learners use explicit declarative facts and verbal inner speech ("press key A, then key B"), saturating ~100% of working memory and failing under dual-task conditions. In the Associative Stage, gross errors disappear, actions link into chunks, and verbal mediation drops as perceptual cues directly trigger motor responses. In the Autonomous Stage, execution is handed over to sub-cortical striatal circuits; actions fire ballistically, immune to dual-task cognitive load, though creating "expertise amnesia" where performers cannot explicitly describe their micro-movements.',
+    socraticChallenge: 'Which sub-components of your technical skills are still in the cognitive stage, and how can you isolate them from dual-task distraction?',
+    referencedSection: 'Lesson 13.1 • Section 1: Fitts & Posner (1967): The Tripartite Progression of Skill Acquisition',
+  },
+  {
+    keywords: ['act-r', 'actr', 'anderson', 'knowledge compilation', 'production composition', 'production rules', 'power law of practice', 'newell', 'rosenbloom'],
+    title: 'Anderson’s ACT-R: Knowledge Compilation & The Power Law of Practice',
+    summary: 'Proceduralization collapses declarative memory retrievals into compiled production rules, with speedup following the Power Law of Practice.',
+    takeaway: 'Skill speedup occurs by composing sequential micro-rules into atomic macro-productions ($P_1 + P_2 \\to P_{12}$), eliminating intermediate memory retrievals.',
+    detailedResponse: 'John R. Anderson’s ACT-R architecture models proceduralization as "Knowledge Compilation." Early execution requires an expensive declarative memory retrieval from long-term memory. Through deliberate practice, declarative rules are converted into compiled production rules ($IF \\to THEN$). Consecutive rules that execute in sequence are merged via "Production Composition" ($P_1 + P_2 \\to P_{12}$), collapsing multiple steps into a single atomic action and bypassing declarative retrieval. Newell & Rosenbloom (1981) demonstrated that this compilation follows the Power Law of Practice ($T = a \\cdot N^{-b}$), where early trials produce massive logarithmic speedups, while expert refinements require exponentially greater practice.',
+    socraticChallenge: 'How can you deliberately practice multi-step command sequences until they compose into single atomic macro-actions?',
+    referencedSection: 'Lesson 13.1 • Section 2: Anderson’s ACT-R: Knowledge Compilation & Production Rules',
+  },
+  {
+    keywords: ['prefrontal to striatal', 'dorsal striatum', 'putamen', 'basal ganglia', 'dlpfc', 'graybiel', 'supervisory control', 'circuit breaker'],
+    title: 'The Prefrontal-to-Striatal Neuroanatomical Handover',
+    summary: 'Automaticity shifts metabolic activity from the prefrontal cortex to the dorsal striatum and cerebellum, unburdening conscious working memory.',
+    takeaway: 'Automaticity is prefrontal deactivation and striatal offloading, requiring supervisory anomaly monitors to prevent mindless automated mistakes.',
+    detailedResponse: 'Functional neuroimaging demonstrates that procedural automaticity is an anatomical handover of control. During early learning, the dorsolateral prefrontal cortex (DLPFC) and anterior cingulate show intense metabolic activity maintaining task goals in conscious working memory. With thousands of repetitions, control migrates to the sensorimotor dorsal striatum (putamen), basal ganglia loops, and cerebellum. DLPFC activation returns to baseline during execution, unburdening prefrontal executive resources for high-level strategy. However, because striatal routines fire automatically without conscious deliberation, performers must maintain a supervisory executive monitoring thread to detect anomalies and interrupt automated habits when context changes.',
+    socraticChallenge: 'What explicit supervisory circuit breakers or verification steps do you use to stop autonomous habits from firing in altered production contexts?',
+    referencedSection: 'Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift',
   },
 ];
 

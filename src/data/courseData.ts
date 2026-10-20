@@ -23,6 +23,7 @@ import { LESSON_PROTOTYPES_VS_EXEMPLARS } from './lesson11_1Data.ts';
 import { LESSON_BOUNDARY_CASES_ISOLATION } from './lesson11_2Data.ts';
 import { LESSON_EDGE_OF_ABILITY_FEEDBACK } from './lesson12_1Data.ts';
 import { LESSON_EXPERT_MENTAL_REPRESENTATIONS } from './lesson12_2Data.ts';
+import { LESSON_FITTS_POSNER_STAGES } from './lesson13_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -345,7 +346,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Three Stages of Skill Acquisition',
           subtitle: 'Cognitive, associative, and autonomous phases of proceduralization',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'paradox-of-automation',
@@ -1167,6 +1168,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_BOUNDARY_CASES_ISOLATION.id]: LESSON_BOUNDARY_CASES_ISOLATION,
   [LESSON_EDGE_OF_ABILITY_FEEDBACK.id]: LESSON_EDGE_OF_ABILITY_FEEDBACK,
   [LESSON_EXPERT_MENTAL_REPRESENTATIONS.id]: LESSON_EXPERT_MENTAL_REPRESENTATIONS,
+  [LESSON_FITTS_POSNER_STAGES.id]: LESSON_FITTS_POSNER_STAGES,
 };
 
 export function getLessonById(id: string): Lesson {
