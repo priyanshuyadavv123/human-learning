@@ -132,6 +132,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'hierarchical-knowledge-representation';
     chapterId = 'ch-8-chunking-schemas';
+  } else if (
+    conceptId.startsWith('concept:gentner_structure_') ||
+    conceptId.startsWith('concept:gick_holyoak_') ||
+    conceptId.startsWith('concept:analogical_encoding_')
+  ) {
+    lessonId = 'structure-mapping-analogy';
+    chapterId = 'ch-9-analogy-bridging';
   }
 
   return {

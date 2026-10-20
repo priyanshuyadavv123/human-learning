@@ -784,6 +784,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:surface_features_guide_correct_triage',
     discrepancyPrompt: 'Previously you may have tackled unfamiliar technical problems by matching visual keywords or UI elements to past tutorials. How does Chi et al.’s findings prove that surface-matching leads to brittle failures, whereas expert triage requires identifying abstract governing principles?',
   },
+  'concept:gentner_structure_mapping_systematicity': {
+    conceptId: 'concept:gentner_structure_mapping_systematicity',
+    title: 'Structure-Mapping Theory & Systematicity (Dedre Gentner, 1983)',
+    prompt: 'Explain Dedre Gentner’s (1983) Structure-Mapping Theory, contrasting object attributes with relational predicates and detailing the Systematicity Principle.',
+    keyCriteria: [
+      'Cites Dedre Gentner (1983) Structure-Mapping Theory',
+      'Distinguishes object attributes (intrinsic entity properties) from relational predicates (inter-entity interactions and causal links)',
+      'Explains that analogy preserves relational structures while dropping isolated object attributes',
+      'Defines the Systematicity Principle: preference for mapping higher-order causal and explanatory networks',
+    ],
+    canonicalAnswer: 'Dedre Gentner (1983) established Structure-Mapping Theory, formalizing how analogies transfer meaning across domains. An analogy is an assertion of relational alignment rather than literal feature similarity: it drops superficial object attributes (e.g., color, size, material) and establishes bijective (one-to-one) correspondence between systems of relational predicates (e.g. REVOLVES_AROUND, ATTRACTS, CONVERGES). Governed by the Systematicity Principle, the cognitive system naturally favors mappings that participate in deeply connected, higher-order causal structures (e.g., CAUSE, IMPLIES) over isolated, independent predicate matches, giving analogies explanatory and predictive power.',
+    lessonSectionAnchor: 'Lesson 9.1 • Section 1: Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle',
+    relatedMisconception: 'misconception:analogies_are_literal_identities',
+    discrepancyPrompt: 'Previously you may have judged analogies by whether the two things "look alike" or share obvious physical qualities. Why does Gentner’s Systematicity Principle prove that the truest analogies discard physical appearance entirely to map interconnected causal laws?',
+  },
+  'concept:gick_holyoak_analogical_retrieval_transfer': {
+    conceptId: 'concept:gick_holyoak_analogical_retrieval_transfer',
+    title: 'The Radiation Problem & Spontaneous Transfer Gating (Gick & Holyoak, 1980)',
+    prompt: 'How did Mary Gick & Keith Holyoak (1980, 1983) demonstrate the dissociation between analogical retrieval and analogical mapping in Duncker’s Radiation Problem?',
+    keyCriteria: [
+      'Cites Gick & Holyoak (1980, 1983) experiments with Karl Duncker’s (1945) Radiation Problem',
+      'Explains that spontaneous transfer from a single analog is notoriously poor (~10%) due to surface-bound retrieval gating',
+      'Explains that a simple metacognitive hint dramatically elevates solution rates (>80%), proving mapping capability is intact',
+      'Details how Schema Induction bridges this gap when multiple diverse analogs are compared',
+    ],
+    canonicalAnswer: 'Gick and Holyoak (1980, 1983) used Duncker’s classic Radiation Problem to uncover a fundamental cognitive dissociation: human minds excel at analogical mapping once prompted, but fail severely at spontaneous retrieval. Subjects who read an isomorphic military fortress story solved the medical radiation problem only 10% of the time without a prompt, because working memory indexes long-term memories via superficial surface cues (medical rays vs soldiers). However, when given a simple hint to consider the earlier story, over 80% immediately applied the convergence solution. Gick and Holyoak showed that comparing two diverse analogs enables "Schema Induction," extracting an abstract convergence model that overcomes surface-bound retrieval gating.',
+    lessonSectionAnchor: 'Lesson 9.1 • Section 2: Gick & Holyoak: The Radiation Problem & Spontaneous Transfer Failure',
+    relatedMisconception: 'misconception:single_example_sufficient_for_transfer',
+    discrepancyPrompt: 'Previously you may have believed that understanding a concept in one context means you can readily spot and use it anywhere. Why does Gick & Holyoak’s 10% spontaneous transfer finding prove that single-example mastery remains locked behind domain surface cues?',
+  },
+  'concept:analogical_encoding_mutual_alignment': {
+    conceptId: 'concept:analogical_encoding_mutual_alignment',
+    title: 'Analogical Encoding & Mutual Alignment (Gentner, Loewenstein & Thompson, 2003)',
+    prompt: 'What is Analogical Encoding, and why is comparative side-by-side case analysis vastly superior for schema abstraction compared to sequential study?',
+    keyCriteria: [
+      'Cites Gentner, Loewenstein & Thompson (2003) Analogical Encoding',
+      'Explains Mutual Alignment: side-by-side juxtaposition cancels out idiosyncratic surface noise and accentuates shared relational predicates',
+      'Contrasts with sequential study, where learners fixate on domain-specific details of each separate case',
+      'Explains how naming the extracted schema creates a symbolic retrieval anchor for future far transfer',
+    ],
+    canonicalAnswer: 'Gentner, Loewenstein, and Thompson (2003) demonstrated that studying two cases sequentially leaves learners fixated on domain-specific vocabulary and details. In contrast, "Analogical Encoding"—placing two structurally isomorphic cases side-by-side with an explicit prompt to analyze how they are alike—triggers mutual alignment in working memory. Surface-level discrepancies (e.g. ship locks in canals vs packet queues in servers) cancel out as irrelevant noise, while shared relational predicates (elastic buffering, throttling, backpressure) are mutually reinforced. This induces a robust, portable relational schema and triples spontaneous transfer to novel problem domains.',
+    lessonSectionAnchor: 'Lesson 9.1 • Section 3: Analogical Encoding: Mutual Alignment & Relational Schema Induction',
+    relatedMisconception: 'misconception:single_example_sufficient_for_transfer',
+    discrepancyPrompt: 'Previously you may have studied concepts one after another in isolation. Why does Gentner’s mutual alignment research show that comparing two disparate cases simultaneously is essential to strip away domain noise and induce portable schemas?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

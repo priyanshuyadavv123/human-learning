@@ -81,6 +81,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'collins-quillian-hierarchical-network': <Network size={18} />,
   'rosch-prototype-basic-level-categories': <Sparkles size={18} />,
   'chi-expert-deep-structure-categorization': <Cpu size={18} />,
+  // Lesson 9.1 Tabs
+  'gentner-structure-mapping-systematicity': <Network size={18} />,
+  'gick-holyoak-convergence-analogical-transfer': <Repeat size={18} />,
+  'analogical-encoding-gentner-comparison': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -522,6 +522,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When encountering an unfamiliar technical error, do you triage by superficial symptom keywords or by fundamental systems invariants?',
     referencedSection: 'Lesson 8.2 • Section 3: Michelene Chi: Deep Structure vs Surface Features in Problem Representation',
   },
+  {
+    keywords: ['gentner', 'structure mapping', 'structure-mapping', 'systematicity', 'relational predicate', 'object attribute', 'smt'],
+    title: 'Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle',
+    summary: 'Analogies project systems of relational predicates across domains while discarding superficial object attributes, guided by the Systematicity Principle.',
+    takeaway: 'Structure-Mapping asserts that true analogies map interconnected causal relations (Systematicity) rather than superficial surface similarities.',
+    detailedResponse: 'Dedre Gentner (1983) formulated Structure-Mapping Theory (SMT), showing that analogical reasoning maps systems of relational predicates (interactions, functions, causal arrows) from a base domain to a target domain while discarding surface object attributes (colors, shapes, materials). Under Gentner’s Systematicity Principle, cognitive architectures strongly prefer mappings that participate in higher-order, explanatory causal systems (such as CAUSE, IMPLIES, CONVERGES) over isolated, arbitrary predicate matches.',
+    socraticChallenge: 'In your current technical challenge, what are the surface attributes you can safely ignore, and what is the underlying relational system that must be preserved?',
+    referencedSection: 'Lesson 9.1 • Section 1: Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle',
+  },
+  {
+    keywords: ['gick', 'holyoak', 'radiation problem', 'duncker', 'fortress', 'convergence schema', 'spontaneous transfer', 'hint'],
+    title: 'Gick & Holyoak: The Radiation Problem & Spontaneous Transfer Failure',
+    summary: 'Learners struggle to retrieve distant analogies spontaneously because memory gates on surface features; schema induction from multiple analogs unlocks transfer.',
+    takeaway: 'Spontaneous analogical transfer from a single example fails ~90% of the time due to surface-bound retrieval, but comparing multiple diverse analogs induces transferable schemas.',
+    detailedResponse: 'Mary Gick and Keith Holyoak (1980, 1983) revealed that when subjects read an isomorphic military fortress story, only 10% spontaneously applied the convergence solution to Duncker’s medical Radiation Problem. However, giving an explicit hint raised success above 80%, proving that failure stems from surface-bound memory retrieval rather than mapping deficiency. Gick and Holyoak showed that comparing two diverse convergence stories triggers Schema Induction, creating an abstract, domain-independent mental model.',
+    socraticChallenge: 'How can you deliberately pair new technical concepts with diverse non-technical analogs to induce portable schemas that overcome surface-bound retrieval?',
+    referencedSection: 'Lesson 9.1 • Section 2: Gick & Holyoak: The Radiation Problem & Spontaneous Transfer Failure',
+  },
+  {
+    keywords: ['analogical encoding', 'mutual alignment', 'loewenstein', 'thompson', 'comparative analysis', 'side-by-side'],
+    title: 'Analogical Encoding: Mutual Alignment & Relational Schema Induction',
+    summary: 'Placing two structurally identical examples side-by-side forces mutual alignment, cancelling surface noise and highlighting deep invariant relations.',
+    takeaway: 'Side-by-side analog comparison triples spontaneous far transfer by cancelling out domain-specific surface noise through mutual alignment.',
+    detailedResponse: 'Dedre Gentner, Jeffrey Loewenstein, and Leigh Thompson (2003) demonstrated that studying examples sequentially leaves knowledge tied to domain-specific jargon and details. Conversely, "Analogical Encoding"—actively comparing two diverse examples side-by-side with an alignment prompt—forces working memory into mutual alignment. Mismatched superficial features cancel each other out, while shared relational predicates (e.g., flow metering, backpressure, rate-limiting) are highlighted, consolidated into long-term memory, and readily transferred to novel domains.',
+    socraticChallenge: 'What two superficially unrelated problems from your past work can you place side-by-side right now to extract a common relational architecture?',
+    referencedSection: 'Lesson 9.1 • Section 3: Analogical Encoding: Mutual Alignment & Relational Schema Induction',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -72,6 +72,10 @@ export const KNOWN_CONCEPTS = [
   'concept:collins_quillian_hierarchical_network_model',
   'concept:rosch_basic_level_categories_primacy',
   'concept:chi_expert_deep_structure_categorization',
+  // Lesson 9.1 Concepts
+  'concept:gentner_structure_mapping_systematicity',
+  'concept:gick_holyoak_analogical_retrieval_transfer',
+  'concept:analogical_encoding_mutual_alignment',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -130,6 +134,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 8.2 Misconceptions
   'misconception:flat_facts_equal_deep_expertise',
   'misconception:surface_features_guide_correct_triage',
+  // Lesson 9.1 Misconceptions
+  'misconception:single_example_sufficient_for_transfer',
+  'misconception:analogies_are_literal_identities',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

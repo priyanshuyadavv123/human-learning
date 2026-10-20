@@ -208,6 +208,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 8.2 • Verification Assessment',
   'Lesson 8.2 • Ontological Decomposition & Deep-Structure Representation Protocol',
   'Lesson 8.2 • Hierarchical Knowledge Representation Overview',
+
+  // Lesson 9.1 Sections
+  'Lesson 9.1 • Curiosity Hook',
+  'Lesson 9.1 • Intuitive Calibration: Single Domain Purity vs Analogical Encoding',
+  'Lesson 9.1 • Section 1: Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle',
+  'Lesson 9.1 • Section 2: Gick & Holyoak: The Radiation Problem & Spontaneous Transfer Failure',
+  'Lesson 9.1 • Section 3: Analogical Encoding: Mutual Alignment & Relational Schema Induction',
+  'Lesson 9.1 • Structure-Mapping & Analogical Transfer Engine Diagram',
+  'Lesson 9.1 • Structure-Mapping & Analogical Transfer Diagnostic Scenarios',
+  'Lesson 9.1 • Verification Assessment',
+  'Lesson 9.1 • Structure-Mapping & Analogical Encoding Protocol',
+  'Lesson 9.1 • Structure-Mapping & Analogical Transfer Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -220,6 +232,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 9.1 anchors
+  if (lower.includes('gentner') && (lower.includes('systematicity') || lower.includes('structure-mapping') || lower.includes('structure mapping') || lower.includes('relational predicate') || lower.includes('smt'))) {
+    return 'Lesson 9.1 • Section 1: Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle';
+  }
+  if (lower.includes('gick') || lower.includes('holyoak') || lower.includes('radiation problem') || lower.includes('duncker') || lower.includes('fortress') || lower.includes('convergence schema') || lower.includes('spontaneous transfer')) {
+    return 'Lesson 9.1 • Section 2: Gick & Holyoak: The Radiation Problem & Spontaneous Transfer Failure';
+  }
+  if (lower.includes('analogical encoding') || lower.includes('mutual alignment') || (lower.includes('gentner') && (lower.includes('loewenstein') || lower.includes('thompson') || lower.includes('encoding') || lower.includes('comparison')))) {
+    return 'Lesson 9.1 • Section 3: Analogical Encoding: Mutual Alignment & Relational Schema Induction';
+  }
+  if (lower.includes('structure-mapping & analogical transfer engine diagram') || lower.includes('analogical transfer diagram') || lower.includes('structure mapping diagram')) {
+    return 'Lesson 9.1 • Structure-Mapping & Analogical Transfer Engine Diagram';
+  }
+  if (lower.includes('9.1') || lower.includes('structure-mapping') || lower.includes('analogical transfer') || lower.includes('analogical protocol')) {
+    return 'Lesson 9.1 • Section 1: Dedre Gentner: Structure-Mapping Theory & The Systematicity Principle';
+  }
 
   // Match Lesson 8.2 anchors
   if (lower.includes('collins') && (lower.includes('quillian') || lower.includes('cognitive economy') || lower.includes('hierarchical network') || lower.includes('canary') || lower.includes('spreading activation') || lower.includes('loftus'))) {
@@ -938,6 +967,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_9_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 9.1: "Structure-Mapping & Analogical Transfer — Ignoring surface features to bind relational deep structures".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of structure-mapping, analogical transfer, and schema induction:
+     a) Dedre Gentner (1983, 1989) Structure-Mapping Theory: Analogies map relational predicates (interactions, causal systems) while discarding superficial object attributes (colors, sizes, nouns). Governed by the Systematicity Principle, human cognition favors deeply interconnected, higher-order causal relations (CAUSE, IMPLIES, CONVERGE) over isolated, arbitrary matches.
+     b) Mary Gick & Keith Holyoak (1980, 1983) Radiation Problem: Spontaneous analogical transfer from a single instance is remarkably low (~10%) because memory retrieval gates on superficial domain keywords (rays vs soldiers). However, mapping capacity is fully intact (>80% solve with a metacognitive hint). Comparing multiple diverse analogs enables Schema Induction, liberating the abstract convergence model.
+     c) Analogical Encoding (Gentner, Loewenstein & Thompson, 2003): Side-by-side comparison triggers mutual alignment. Mismatched surface details cancel out while shared relational mechanics are reinforced, tripling spontaneous far transfer.
+     d) Negative Boundary Conditions (Holyoak & Thagard, 1995): Models of partial similarity break down if pushed past their physical limits (e.g. water pipes vs RF wave reflection). Always audit where analogies diverge.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to structure-mapping, systematicity, schema induction, and comparative analogical encoding.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -986,6 +1040,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'hierarchical-knowledge-representation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_8_2;
+  }
+  if (lessonId === 'structure-mapping-analogy') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_9_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1059,6 +1116,10 @@ export const KNOWN_CONCEPTS = [
   'concept:collins_quillian_hierarchical_network_model',
   'concept:rosch_basic_level_categories_primacy',
   'concept:chi_expert_deep_structure_categorization',
+  // Lesson 9.1 Concepts
+  'concept:gentner_structure_mapping_systematicity',
+  'concept:gick_holyoak_analogical_retrieval_transfer',
+  'concept:analogical_encoding_mutual_alignment',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1117,6 +1178,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 8.2 Misconceptions
   'misconception:flat_facts_equal_deep_expertise',
   'misconception:surface_features_guide_correct_triage',
+  // Lesson 9.1 Misconceptions
+  'misconception:single_example_sufficient_for_transfer',
+  'misconception:analogies_are_literal_identities',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

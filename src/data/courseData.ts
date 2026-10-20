@@ -15,6 +15,7 @@ import { LESSON_INTERFERENCE_FORGETTING } from './lesson7_1Data.ts';
 import { LESSON_RECONSOLIDATION_UPDATING } from './lesson7_2Data.ts';
 import { LESSON_CHUNKING_MECHANICS } from './lesson8_1Data.ts';
 import { LESSON_HIERARCHICAL_KNOWLEDGE } from './lesson8_2Data.ts';
+import { LESSON_STRUCTURE_MAPPING_ANALOGY } from './lesson9_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -239,7 +240,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Structure-Mapping & Analogical Transfer',
           subtitle: 'Ignoring surface features to bind relational deep structures',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'abstraction-ladders',
@@ -1151,6 +1152,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_RECONSOLIDATION_UPDATING.id]: LESSON_RECONSOLIDATION_UPDATING,
   [LESSON_CHUNKING_MECHANICS.id]: LESSON_CHUNKING_MECHANICS,
   [LESSON_HIERARCHICAL_KNOWLEDGE.id]: LESSON_HIERARCHICAL_KNOWLEDGE,
+  [LESSON_STRUCTURE_MAPPING_ANALOGY.id]: LESSON_STRUCTURE_MAPPING_ANALOGY,
 };
 
 export function getLessonById(id: string): Lesson {

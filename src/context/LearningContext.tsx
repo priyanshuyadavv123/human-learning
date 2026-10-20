@@ -203,6 +203,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-tanaka-taylor-expert-shift': 'concept:rosch_basic_level_categories_primacy',
     },
   },
+  'structure-mapping-analogy': {
+    predictionConceptId: 'concept:analogical_encoding_mutual_alignment',
+    predictionMisconceptionId: 'misconception:single_example_sufficient_for_transfer',
+    quizConceptMapping: {
+      'q1-gentner-systematicity-principle': 'concept:gentner_structure_mapping_systematicity',
+      'q2-gick-holyoak-spontaneous-transfer-findings': 'concept:gick_holyoak_analogical_retrieval_transfer',
+      'q3-analogical-encoding-mutual-alignment': 'concept:analogical_encoding_mutual_alignment',
+      'q4-analogy-negative-boundary-conditions': 'concept:gentner_structure_mapping_systematicity',
+    },
+  },
 };
 
 interface LearningContextType {
