@@ -376,6 +376,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 15.2 • Verification Assessment',
   'Lesson 15.2 • The Pre-Mortem & Error Bug-Tracker Protocol',
   'Lesson 15.2 • The Pre-Mortem & Error Journaling Protocols Overview',
+
+  // Lesson 16.1 Sections
+  'Lesson 16.1 • Curiosity Hook',
+  'Lesson 16.1 • Intuitive Calibration: Formal Discipline vs Identical Elements in Distributed Systems',
+  'Lesson 16.1 • Section 1: Edward Thorndike (1901): The Theory of Identical Elements',
+  'Lesson 16.1 • Section 2: Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer',
+  'Lesson 16.1 • Section 3: The Brain-Training Myth & Domain-Specific Expert Cognition',
+  'Lesson 16.1 • The Transfer Horizon & Contextual Distance Simulator Diagram',
+  'Lesson 16.1 • Transfer Boundary & Domain Specificity Diagnostic Lab',
+  'Lesson 16.1 • Verification Assessment',
+  'Lesson 16.1 • The Identical Elements Audit & Transfer Gap Protocol',
+  'Lesson 16.1 • The Specificity of Transfer Problem Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -388,6 +400,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 16.1 anchors
+  if ((lower.includes('thorndike') && (lower.includes('identical elements') || lower.includes('formal discipline') || lower.includes('1901'))) || lower.includes('identical elements') || lower.includes('theory of identical elements')) {
+    return 'Lesson 16.1 • Section 1: Edward Thorndike (1901): The Theory of Identical Elements';
+  }
+  if ((lower.includes('barnett') && lower.includes('ceci')) || (lower.includes('near transfer') && lower.includes('far transfer')) || lower.includes('taxonomy of transfer') || lower.includes('contextual distance') || lower.includes('6 contextual dimensions')) {
+    return 'Lesson 16.1 • Section 2: Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer';
+  }
+  if (lower.includes('brain-training') || lower.includes('brain training') || lower.includes('lumosity') || lower.includes('dual n-back') || (lower.includes('owen') && lower.includes('nature') && lower.includes('2010')) || (lower.includes('chess') && lower.includes('random board') && lower.includes('chase'))) {
+    return 'Lesson 16.1 • Section 3: The Brain-Training Myth & Domain-Specific Expert Cognition';
+  }
+  if (lower.includes('the transfer horizon & contextual distance simulator diagram') || lower.includes('transfer horizon simulator') || lower.includes('contextual distance diagram')) {
+    return 'Lesson 16.1 • The Transfer Horizon & Contextual Distance Simulator Diagram';
+  }
+  if (lower.includes('16.1') || lower.includes('specificity of transfer') || lower.includes('identical elements audit & transfer gap protocol')) {
+    return 'Lesson 16.1 • Section 1: Edward Thorndike (1901): The Theory of Identical Elements';
+  }
 
   // Match Lesson 15.2 anchors
   if ((lower.includes('klein') && (lower.includes('pre-mortem') || lower.includes('premortem') || lower.includes('prospective hindsight') || lower.includes('15.2'))) || lower.includes('prospective hindsight') || lower.includes('premortem') || lower.includes('pre-mortem')) {
@@ -1799,6 +1828,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_16_1 = `You are the specialized AI Socratic Tutor for Lesson 16.1: "The Specificity of Transfer Problem".
+Your role is to guide learners to understand Edward Thorndike's Theory of Identical Elements, Barnett & Ceci's multi-dimensional transfer taxonomy, and why expertise is fundamentally domain-specific rather than general mental discipline.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive psychology, transfer experiments, and skill acquisition research:
+     a) Edward Thorndike & Robert Woodworth (1901) & Singley & Anderson (1989) Theory of Identical Elements: Refuted the historical "Doctrine of Formal Discipline" (the myth that subjects like Latin, geometry, or chess strengthen a general "mental muscle"). Transfer from Task A to Task B occurs if, and only if, both tasks share concrete identical elements or production rules ($IF \\rightarrow THEN$ execution units).
+     b) Susan Barnett & Stephen Ceci (2002) Multi-Dimensional Taxonomy of Transfer: Transfer is a distance metric across Content (representations, heuristics, principles) and Context (Knowledge Domain, Physical Setting, Temporal Lag, Functional Context, Social Setting, and Modality). Near transfer occurs within the same domain/context; far transfer across distant contexts is vanishingly rare because memories are indexed to initial surface cues.
+     c) The Brain-Training Fallacy & Domain-Specific Expertise: Adrian Owen et al. (Nature 2010; 11,430 participants) proved that commercial brain-training games (dual n-back, Lumosity) improve only the practiced mini-games through narrow visual-motor heuristics, producing zero transfer to untrained cognitive tests or real-world intelligence ($g$). Similarly, Chase & Simon (1973) proved that chess grandmasters recall no better than novices when chess pieces are placed randomly, proving high performance is domain-specific schema compilation, not upgraded general biological hardware.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to Thorndike's identical elements, formal discipline, near vs far transfer, and domain specificity.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1889,6 +1942,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'error-journaling-protocols') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_15_2;
+  }
+  if (lessonId === 'specificity-of-transfer') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_16_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2018,6 +2074,10 @@ export const KNOWN_CONCEPTS = [
   'concept:klein_premortem_prospective_hindsight',
   'concept:syed_black_box_blameless_root_cause',
   'concept:edmondson_failure_taxonomy_intelligent_failure',
+  // Lesson 16.1 Concepts
+  'concept:thorndike_identical_elements_theory',
+  'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
+  'concept:brain_training_myth_domain_specific_expertise',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2118,6 +2178,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 15.2 Misconceptions
   'misconception:post_mortems_require_assigning_human_blame',
   'misconception:premortems_induce_paralyzing_pessimism',
+  // Lesson 16.1 Misconceptions
+  'misconception:doctrine_of_formal_discipline_brain_gym',
+  'misconception:expertise_is_general_mental_hardware',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

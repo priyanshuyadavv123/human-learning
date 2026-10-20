@@ -904,6 +904,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What false assumption was at the core of your most recent learning mistake, and how can you patch that mental model bug?',
     referencedSection: 'Lesson 15.2 • Section 3: Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol',
   },
+  // Lesson 16.1 Entries
+  {
+    keywords: ['thorndike', 'identical elements', 'formal discipline', 'latin', 'woodworth', 'singley', 'general mental muscle', '1901'],
+    title: 'Edward Thorndike (1901): The Theory of Identical Elements',
+    summary: 'Transfer between tasks occurs only where concrete identical elements or production rules intersect; formal discipline is a myth.',
+    takeaway: 'Transfer occurs if and only if tasks share concrete identical elements; practicing Latin or chess does not strengthen general intelligence (Thorndike, 1901).',
+    detailedResponse: 'Edward Thorndike and Robert Woodworth (1901) shattered the century-old "Doctrine of Formal Discipline," which claimed that difficult subjects like Latin, chess, or geometry acted like a universal gym for the brain. Thorndike showed that human mental architecture consists of millions of specific functional connections rather than general faculties. Under the Theory of Identical Elements, transfer between Task A and Task B occurs in direct proportion to the shared identical elements (stimuli, responses, and cognitive concepts). Mark Singley and John R. Anderson (1989) later proved within ACT-R that transfer is mathematically determined by the percentage of overlapping production rules ($IF \\rightarrow THEN$ compilation traces) shared between the two domains.',
+    socraticChallenge: 'What specific production rules in your current study routine actually overlap with the real-world performance you want to achieve?',
+    referencedSection: 'Lesson 16.1 • Section 1: Edward Thorndike (1901): The Theory of Identical Elements',
+  },
+  {
+    keywords: ['barnett', 'ceci', 'taxonomy of transfer', 'near transfer', 'far transfer', 'contextual distance', '6 dimensions'],
+    title: 'Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer',
+    summary: 'Transfer degrades rapidly across 6 contextual dimensions: domain, physical setting, temporal lag, functional context, social setting, and modality.',
+    takeaway: 'Far transfer is rare because skills are indexed to surface features; transfer degrades across domain, environment, time, and stress (Barnett & Ceci, 2002).',
+    detailedResponse: 'Susan Barnett and Stephen Ceci (2002) resolved decades of conflicting transfer studies by creating a comprehensive two-factor taxonomy: (1) Content (what is transferred: representations, heuristics, principles), and (2) Context (how far the skill must travel). They identified 6 distinct contextual dimensions across which transfer degrades: Knowledge Domain, Physical Setting, Temporal Lag, Functional Context, Social Setting, and Modality. Near transfer occurs easily within identical classrooms and formats. Spontaneous far transfer across distant contexts is vanishingly rare because learners encode concepts with superficial surface cues rather than abstract relational invariants.',
+    socraticChallenge: 'Which of Barnett & Ceci’s 6 contextual dimensions (e.g. stress, physical setting, modality) is most likely to break your skill transfer during a live interview or crisis?',
+    referencedSection: 'Lesson 16.1 • Section 2: Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer',
+  },
+  {
+    keywords: ['brain-training', 'brain training', 'lumosity', 'dual n-back', 'owen', 'nature 2010', 'chess master memory', 'random board', 'chase simon'],
+    title: 'The Brain-Training Myth & Domain-Specific Expert Cognition',
+    summary: 'Practicing brain-training apps or chess produces narrow task-specific heuristics, with zero transfer to general fluid intelligence.',
+    takeaway: 'Brain games improve only the practiced mini-games; human expertise is domain-specific schema compilation, not upgraded general biological hardware (Owen et al., 2010).',
+    detailedResponse: 'In a landmark Nature study of 11,430 adults, Adrian Owen and colleagues (2010) definitively disproved the commercial brain-training myth. Participants trained for 6 weeks on cognitive mini-games designed to improve reasoning, memory, and attention. While they improved dramatically on the practiced games, they showed zero transfer to closely related benchmark cognitive tests or general intelligence ($g$). The brain optimizes narrow perceptual-motor shortcuts for the specific game interface. Similarly, Chase & Simon (1973) proved that chess grandmasters’ extraordinary recall collapses to complete novice levels when chess pieces are placed randomly on the board. Expertise is ~50,000 domain-specific chunks, not superior general memory hardware.',
+    socraticChallenge: 'Why does spending hours on synthetic brain puzzles provide an illusion of cognitive self-improvement while delivering zero real-world career transfer?',
+    referencedSection: 'Lesson 16.1 • Section 3: The Brain-Training Myth & Domain-Specific Expert Cognition',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

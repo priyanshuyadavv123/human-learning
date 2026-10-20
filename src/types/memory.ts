@@ -128,6 +128,10 @@ export const KNOWN_CONCEPTS = [
   'concept:klein_premortem_prospective_hindsight',
   'concept:syed_black_box_blameless_root_cause',
   'concept:edmondson_failure_taxonomy_intelligent_failure',
+  // Lesson 16.1 Concepts
+  'concept:thorndike_identical_elements_theory',
+  'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
+  'concept:brain_training_myth_domain_specific_expertise',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -228,6 +232,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 15.2 Misconceptions
   'misconception:post_mortems_require_assigning_human_blame',
   'misconception:premortems_induce_paralyzing_pessimism',
+  // Lesson 16.1 Misconceptions
+  'misconception:doctrine_of_formal_discipline_brain_gym',
+  'misconception:expertise_is_general_mental_hardware',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

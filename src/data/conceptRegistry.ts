@@ -1417,6 +1417,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:post_mortems_require_assigning_human_blame',
     discrepancyPrompt: 'Previously you may have treated all mistakes as equal proofs of personal inadequacy. How does Edmondson’s failure taxonomy prove that intelligent failures at the frontier of your ability are the essential engine of breakthrough innovation?',
   },
+  'concept:thorndike_identical_elements_theory': {
+    conceptId: 'concept:thorndike_identical_elements_theory',
+    title: 'Edward Thorndike (1901): The Theory of Identical Elements',
+    prompt: 'Explain Edward Thorndike’s (1901) Theory of Identical Elements and why it disproved the historical "Doctrine of Formal Discipline".',
+    keyCriteria: [
+      'Cites Edward Thorndike & Robert Woodworth (1901) and Singley & Anderson (1989)',
+      'Defines the Theory of Identical Elements: transfer between Task A and Task B occurs if and only if both share concrete identical elements or production rules',
+      'Refutes the Doctrine of Formal Discipline (the myth that subjects like Latin, chess, or geometry generally strengthen the mental muscle of reasoning or memory)',
+      'Explains that human mental architecture consists of specific functional connections rather than general faculties',
+    ],
+    canonicalAnswer: 'Edward Thorndike and Robert Woodworth (1901) shattered the century-old "Doctrine of Formal Discipline," which claimed that difficult subjects like Latin or geometry generally strengthened mental faculties like a muscle. Thorndike established the "Theory of Identical Elements": transfer of learning from Task A to Task B occurs if, and only if, both tasks share specific, concrete identical elements (stimulus-response associations, factual concepts, or procedural operations). Mark Singley and John R. Anderson (1989) formalized this within ACT-R, demonstrating that skill transfer between tasks is mathematically determined by the percentage of overlapping production rules ($IF \\rightarrow THEN$ execution units) shared between them.',
+    lessonSectionAnchor: 'Lesson 16.1 • Section 1: Edward Thorndike (1901): The Theory of Identical Elements',
+    relatedMisconception: 'misconception:doctrine_of_formal_discipline_brain_gym',
+    discrepancyPrompt: 'Previously you may have believed that playing chess, learning Latin, or doing abstract logic puzzles would make you a sharper general thinker in software engineering or business. Why does Thorndike’s Theory of Identical Elements prove that mental skills are overwhelmingly domain-specific?',
+  },
+  'concept:barnett_ceci_multi_dimensional_transfer_taxonomy': {
+    conceptId: 'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
+    title: 'Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer',
+    prompt: 'How do Susan Barnett and Stephen Ceci (2002) classify Near Transfer vs Far Transfer, and what are the 6 contextual dimensions across which transfer degrades?',
+    keyCriteria: [
+      'Cites Susan Barnett & Stephen Ceci (2002) transfer taxonomy',
+      'Distinguishes Near Transfer (same domain, physical context, and modality) from Far Transfer (cross-domain, distant context)',
+      'Lists the 6 contextual dimensions: Knowledge Domain, Physical Setting, Temporal Lag, Functional Context, Social Setting, and Modality',
+      'Explains that spontaneous far transfer is vanishingly rare because memories are indexed to initial surface features',
+    ],
+    canonicalAnswer: 'Susan Barnett and Stephen Ceci (2002) resolved a century of contradictory transfer findings by proposing a comprehensive two-factor taxonomy: (1) Content (what is transferred: representations, heuristics, principles), and (2) Context (how far the skill must travel). They identified 6 distinct contextual dimensions across which transfer rapidly degrades: Knowledge Domain (e.g. physics to biology), Physical Setting (e.g. quiet classroom to loud job site), Temporal Lag (immediate test vs 6 months later), Functional Context (academic exam vs live emergency), Social Setting (individual vs team), and Modality (written text vs verbal action). Spontaneous far transfer is rare because learners index concepts to superficial surface cues of the original context rather than abstract relational invariants.',
+    lessonSectionAnchor: 'Lesson 16.1 • Section 2: Barnett & Ceci (2002): The Multi-Dimensional Taxonomy of Transfer',
+    relatedMisconception: 'misconception:expertise_is_general_mental_hardware',
+    discrepancyPrompt: 'Previously you may have felt frustrated when a concept you aced on an academic exam evaporated when you had to apply it during a real-world emergency. How does Barnett & Ceci’s taxonomy show that contextual distance across environment, stress, and modality acts as a massive barrier to memory retrieval?',
+  },
+  'concept:brain_training_myth_domain_specific_expertise': {
+    conceptId: 'concept:brain_training_myth_domain_specific_expertise',
+    title: 'The Brain-Training Fallacy & Domain-Specific Expert Cognition',
+    prompt: 'Why do brain-training games (e.g. Lumosity, dual n-back) fail to improve general fluid intelligence, and how do Chase & Simon’s chess experiments prove domain specificity?',
+    keyCriteria: [
+      'Cites Adrian Owen et al. (Nature 2010) 11,430-participant brain-training study and Chase & Simon (1973)',
+      'Explains that brain-training apps improve performance on the specific mini-games through narrow visual-motor heuristics without transferring to untrained cognitive tests or real-world tasks',
+      'Explains Chase & Simon (1973): chess grandmasters have extraordinary memory for legal chess boards (~50,000 domain chunks) but drop to novice level on random piece arrangements',
+      'Concludes that human expertise is domain-specific schema compilation, not upgraded general biological hardware',
+    ],
+    canonicalAnswer: 'Adrian Owen and colleagues (Nature 2010) definitively disproved the commercial "brain-training" myth in an 11,430-participant study: while participants improved dramatically on the specific practiced cognitive games, they showed zero transfer to closely related benchmark cognitive tests or real-world tasks. The brain develops narrow, task-specific heuristics and motor timing rather than boosting general fluid intelligence ($g$). This mirrors Chase & Simon’s (1973) classic finding with chess grandmasters: masters possess extraordinary memory for game positions because they have compiled ~50,000 domain-specific perceptual chunks, but when pieces are placed randomly, grandmasters recall no better than novices. High performance is domain-specific schema compilation, not superior general cognitive hardware.',
+    lessonSectionAnchor: 'Lesson 16.1 • Section 3: The Brain-Training Myth & Domain-Specific Expert Cognition',
+    relatedMisconception: 'misconception:doctrine_of_formal_discipline_brain_gym',
+    discrepancyPrompt: 'Previously you may have hoped that practicing dual n-back or brain-puzzle apps would make you generally smarter in coding, writing, and strategic decision-making. Why does Owen et al.’s Nature study prove that brain training only makes you better at brain training?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

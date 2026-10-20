@@ -230,6 +230,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'error-journaling-protocols';
     chapterId = 'ch-15-error-driven';
+  } else if (
+    conceptId.startsWith('concept:thorndike_identical_') ||
+    conceptId.startsWith('concept:barnett_ceci_') ||
+    conceptId.startsWith('concept:brain_training_myth_')
+  ) {
+    lessonId = 'specificity-of-transfer';
+    chapterId = 'ch-16-transfer';
   }
 
   return {

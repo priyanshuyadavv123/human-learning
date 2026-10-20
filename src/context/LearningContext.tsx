@@ -363,6 +363,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:syed_black_box_blameless_root_cause',
     },
   },
+  'specificity-of-transfer': {
+    predictionConceptId: 'concept:thorndike_identical_elements_theory',
+    predictionMisconceptionId: 'misconception:doctrine_of_formal_discipline_brain_gym',
+    quizConceptMapping: {
+      'q1-thorndike-theory-of-identical-elements': 'concept:thorndike_identical_elements_theory',
+      'q2-doctrine-of-formal-discipline-myth': 'concept:thorndike_identical_elements_theory',
+      'q3-barnett-ceci-dimensions-of-transfer': 'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
+      'q4-chess-master-random-board-finding': 'concept:brain_training_myth_domain_specific_expertise',
+      'q1': 'concept:thorndike_identical_elements_theory',
+      'q2': 'concept:thorndike_identical_elements_theory',
+      'q3': 'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
+      'q4': 'concept:brain_training_myth_domain_specific_expertise',
+    },
+  },
 };
 
 interface LearningContextType {

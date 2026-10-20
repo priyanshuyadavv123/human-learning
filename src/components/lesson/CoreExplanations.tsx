@@ -138,6 +138,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'klein-premortem-prospective-hindsight': <Eye size={18} />,
   'syed-black-box-blameless-postmortems': <Network size={18} />,
   'edmondson-failure-taxonomy-error-journaling': <Layers size={18} />,
+  // Lesson 16.1 Tabs
+  'thorndike-identical-elements-theory': <Network size={18} />,
+  'barnett-ceci-transfer-taxonomy': <Layers size={18} />,
+  'brain-training-fallacy-domain-specificity': <Cpu size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

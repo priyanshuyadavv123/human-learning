@@ -29,6 +29,7 @@ import { LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE } from './lesson14_1Data.ts';
 import { LESSON_VARIED_PRACTICE_TRANSFER } from './lesson14_2Data.ts';
 import { LESSON_PRODUCTIVE_FAILURE_GENERATION } from './lesson15_1Data.ts';
 import { LESSON_PREMORTEM_ERROR_JOURNALING } from './lesson15_2Data.ts';
+import { LESSON_SPECIFICITY_OF_TRANSFER } from './lesson16_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -423,9 +424,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'specificity-of-transfer',
           number: '16.1',
           title: 'The Specificity of Transfer Problem',
-          subtitle: "Thorndike's identical elements and why general transfer is rare",
+          subtitle: "Thorndike's identical elements and why general mental discipline is a myth",
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'conditions-for-far-transfer',
@@ -1179,6 +1180,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_VARIED_PRACTICE_TRANSFER.id]: LESSON_VARIED_PRACTICE_TRANSFER,
   [LESSON_PRODUCTIVE_FAILURE_GENERATION.id]: LESSON_PRODUCTIVE_FAILURE_GENERATION,
   [LESSON_PREMORTEM_ERROR_JOURNALING.id]: LESSON_PREMORTEM_ERROR_JOURNALING,
+  [LESSON_SPECIFICITY_OF_TRANSFER.id]: LESSON_SPECIFICITY_OF_TRANSFER,
 };
 
 export function getLessonById(id: string): Lesson {
