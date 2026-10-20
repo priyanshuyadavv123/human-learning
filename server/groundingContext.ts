@@ -160,6 +160,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 6.2 • Verification Assessment',
   'Lesson 6.2 • Targeted Memory Reactivation & Strategic Rest Protocol',
   'Lesson 6.2 • Targeted Memory Reactivation & Rest Cycles Overview',
+
+  // Lesson 7.1 Sections
+  'Lesson 7.1 • Curiosity Hook',
+  'Lesson 7.1 • Intuitive Calibration: Passive Trace Decay vs Interference',
+  'Lesson 7.1 • Section 1: McGeoch & Underwood: Proactive vs Retroactive Interference',
+  'Lesson 7.1 • Section 2: Cue Overload Principle & The Fan Effect (Anderson & Neely)',
+  'Lesson 7.1 • Section 3: Contextual Cue Discrimination & Release from Proactive Inhibition',
+  'Lesson 7.1 • Interference Dynamics & Cue Competition Engine Diagram',
+  'Lesson 7.1 • Interference & Cue Competition Diagnostic Scenarios',
+  'Lesson 7.1 • Verification Assessment',
+  'Lesson 7.1 • Interference Minimization Protocol',
+  'Lesson 7.1 • Proactive and Retroactive Interference Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -172,6 +184,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 7.1 anchors
+  if (lower.includes('mcgeoch') || lower.includes('underwood') || lower.includes('proactive interference') || lower.includes('retroactive interference') || lower.includes('wixted') || lower.includes('trace decay') || lower.includes('pi vs ri')) {
+    return 'Lesson 7.1 • Section 1: McGeoch & Underwood: Proactive vs Retroactive Interference';
+  }
+  if (lower.includes('cue overload') || lower.includes('fan effect') || lower.includes('anderson') || lower.includes('neely') || lower.includes('associative competition') || lower.includes('retrieval competition')) {
+    return 'Lesson 7.1 • Section 2: Cue Overload Principle & The Fan Effect (Anderson & Neely)';
+  }
+  if (lower.includes('wickens') || lower.includes('release from pi') || lower.includes('contextual cue') || lower.includes('cue discrimination') || lower.includes('proactive inhibition') || lower.includes('category shift')) {
+    return 'Lesson 7.1 • Section 3: Contextual Cue Discrimination & Release from Proactive Inhibition';
+  }
+  if (lower.includes('interference dynamics & cue competition engine diagram') || lower.includes('interference diagram') || lower.includes('cue competition diagram')) {
+    return 'Lesson 7.1 • Interference Dynamics & Cue Competition Engine Diagram';
+  }
+  if (lower.includes('7.1') || lower.includes('interference minimization') || lower.includes('interference protocol')) {
+    return 'Lesson 7.1 • Section 1: McGeoch & Underwood: Proactive vs Retroactive Interference';
+  }
 
   // Match Lesson 6.2 anchors
   if (lower.includes('rasch') || lower.includes('rudoy') || lower.includes('targeted memory reactivation') || lower.includes('tmr') || lower.includes('olfactory') || lower.includes('rose scent') || lower.includes('auditory cue') || lower.includes('acoustic anchor') || lower.includes('cued replay')) {
@@ -727,6 +756,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_7_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 7.1: "Proactive and Retroactive Interference — Cue overload, associative competition, and memory protection".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of interference and retrieval dynamics:
+     a) McGeoch (1932) & Underwood (1957): Forgetting is NOT primarily passive spontaneous trace decay over time. Time itself causes no forgetting, just as time causes no iron to rust—it is the chemical reactions occurring in time (oxidation). In memory, retroactive interference (new encoding disrupting old traces) and proactive interference (previously encoded material occluding new traces) cause retrieval failures.
+     b) Cue Overload Principle & The Fan Effect: Watkins & Watkins (1975) and John R. Anderson (1974). As the number of target items associated with a single retrieval cue increases ("the fan"), cue diagnosticity plummets. In ACT-R spreading activation, finite activation splits across competing targets, causing retrieval latencies to soar and error rates to spike.
+     c) Release from Proactive Inhibition (Delos Wickens, 1970): PI builds rapidly across successive trials of semantically similar items (e.g., memorizing list after list of fruits). Shifting categories (e.g., to professions) causes immediate rebound to near 100% recall ("Release from PI") because the retrieval cue discrimination bottleneck is bypassed.
+     d) Wixted (2004) Temporal Consolidation Buffers: New memories require an uninterrupted, low-input consolidation window to undergo synaptic and systems stabilization. Scheduling back-to-back study of similar subjects (e.g., Portuguese immediately after Spanish) triggers severe mutual interference.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to proactive interference, retroactive interference, cue overload, and category shifting.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -763,6 +817,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'targeted-memory-reactivation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_6_2;
+  }
+  if (lessonId === 'proactive-retroactive-interference') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_7_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -820,6 +877,10 @@ export const KNOWN_CONCEPTS = [
   'concept:targeted_memory_reactivation_cueing',
   'concept:wakeful_rest_awake_replay',
   'concept:ultradian_basic_rest_activity_cycle',
+  // Lesson 7.1 Concepts
+  'concept:proactive_vs_retroactive_interference',
+  'concept:cue_overload_fan_effect',
+  'concept:contextual_cue_discrimination_wickens',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -866,6 +927,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 6.2 Misconceptions
   'misconception:hypnopedia_sleep_learning_works',
   'misconception:immediate_post_study_entertainment_harmless',
+  // Lesson 7.1 Misconceptions
+  'misconception:forgetting_is_passive_trace_decay',
+  'misconception:back_to_back_similar_study_synergy',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

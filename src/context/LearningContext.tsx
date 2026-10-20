@@ -163,6 +163,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-brac-ultradian-rhythm': 'concept:ultradian_basic_rest_activity_cycle',
     },
   },
+  'proactive-retroactive-interference': {
+    predictionConceptId: 'concept:proactive_vs_retroactive_interference',
+    predictionMisconceptionId: 'misconception:forgetting_is_passive_trace_decay',
+    quizConceptMapping: {
+      'q1-mcgeoch-interference-origins': 'concept:proactive_vs_retroactive_interference',
+      'q2-cue-overload-fan-effect': 'concept:cue_overload_fan_effect',
+      'q3-wickens-release-from-pi': 'concept:contextual_cue_discrimination_wickens',
+      'q4-wixted-consolidation-retroactive': 'concept:proactive_vs_retroactive_interference',
+    },
+  },
 };
 
 interface LearningContextType {

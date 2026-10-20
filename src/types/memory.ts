@@ -56,6 +56,10 @@ export const KNOWN_CONCEPTS = [
   'concept:targeted_memory_reactivation_cueing',
   'concept:wakeful_rest_awake_replay',
   'concept:ultradian_basic_rest_activity_cycle',
+  // Lesson 7.1 Concepts
+  'concept:proactive_vs_retroactive_interference',
+  'concept:cue_overload_fan_effect',
+  'concept:contextual_cue_discrimination_wickens',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -102,6 +106,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 6.2 Misconceptions
   'misconception:hypnopedia_sleep_learning_works',
   'misconception:immediate_post_study_entertainment_harmless',
+  // Lesson 7.1 Misconceptions
+  'misconception:forgetting_is_passive_trace_decay',
+  'misconception:back_to_back_similar_study_synergy',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

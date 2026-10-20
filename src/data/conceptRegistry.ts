@@ -605,6 +605,50 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:immediate_post_study_entertainment_harmless',
     discrepancyPrompt: 'Previously you may have attempted 5-hour continuous study marathons fueled by caffeine. Why does the chronobiology of the BRAC cycle prove that continuous unspaced learning leads to synaptic exhaustion and degraded encoding?',
   },
+  'concept:proactive_vs_retroactive_interference': {
+    conceptId: 'concept:proactive_vs_retroactive_interference',
+    title: 'Proactive vs Retroactive Interference Dynamics',
+    prompt: 'Define and contrast Proactive Interference (PI) and Retroactive Interference (RI), explain their underlying mechanisms, and describe how Wickens’s category shifts relieve proactive build-up.',
+    keyCriteria: [
+      'Defines Proactive Interference: older memories impede the learning/retrieval of newer information (Underwood, 1957)',
+      'Defines Retroactive Interference: newly learned material impairs retrieval of older consolidated traces (McGeoch, 1932)',
+      'Explains response competition where competing traces occlude the target',
+      'Cites Delos Wickens (1970) on Release from Proactive Interference via semantic shifts',
+    ],
+    canonicalAnswer: 'Interference represents associative competition between memories sharing retrieval channels. Proactive Interference (PI; Underwood, 1957) occurs forward: established prior habits (e.g. Python syntax) compete with and impede the acquisition and execution of new material (e.g. Rust syntax). Retroactive Interference (RI; McGeoch, 1932; Wixted, 2004) occurs backward: newly learned concepts impair retrieval access to previously consolidated schemas. Delos Wickens (1970) proved that proactive interference builds up within a single semantic category, but shifting to a distinct semantic domain immediately purges interference and restores recall to baseline (Release from PI).',
+    lessonSectionAnchor: 'Lesson 7.1 • Section 1: Proactive vs Retroactive Interference',
+    relatedMisconception: 'misconception:forgetting_is_passive_trace_decay',
+    discrepancyPrompt: 'Previously you may have assumed that forgetting is caused simply by time passing and brain cells rusting away. How does McGeoch’s interference theory prove that events occurring in time, rather than time itself, cause memory forgetting?',
+  },
+  'concept:cue_overload_fan_effect': {
+    conceptId: 'concept:cue_overload_fan_effect',
+    title: 'The Cue Overload Principle & The Fan Effect (Anderson, 1974)',
+    prompt: 'What is John R. Anderson’s Cue Overload Principle and the Fan Effect, and why does attaching multiple target memories to a single retrieval cue slow down retrieval and increase errors?',
+    keyCriteria: [
+      'Cites John R. Anderson (1974; Anderson & Neely, 1996) Cue Overload Principle',
+      'Explains that retrieval probability is proportional to associative strength divided by the sum of all competing links',
+      'Defines the Fan Effect: verification latency and error rate increase linearly with the number of associations fanning out from a cue',
+      'Explains occlusion: dominant competitors blocking access to weaker target traces',
+    ],
+    canonicalAnswer: 'John R. Anderson and Colin Neely formulated the Cue Overload Principle: the probability of retrieving a target given a cue decreases as the number of other targets linked to that cue increases. Anderson’s Fan Effect (1974) proved that associative activation is a finite resource; as the "fan" of associations branching from a cue grows, activation splits among all pathways. This increases verification latency and elevates error rates because competing targets generate response competition and occlusion, where the strongest competitor blocks access to the intended target.',
+    lessonSectionAnchor: 'Lesson 7.1 • Section 2: The Cue Overload Principle & The Fan Effect',
+    relatedMisconception: 'misconception:forgetting_is_passive_trace_decay',
+    discrepancyPrompt: 'Previously you may have thought that making a memory "stronger" is enough to guarantee recall. Why does the Fan Effect show that making a retrieval cue unique and uncluttered is just as critical as trace strength?',
+  },
+  'concept:contextual_cue_discrimination_wickens': {
+    conceptId: 'concept:contextual_cue_discrimination_wickens',
+    title: 'Contextual Cue Discrimination & Interference Insulation',
+    prompt: 'How can high-performing learners insulate memories from destructive interference using contextual cue differentiation, interleaved contrastive drills, and temporal rest buffers?',
+    keyCriteria: [
+      'Explains contextual cue differentiation: binding memories to unique domain-specific qualifiers rather than generic cues',
+      'Explains interleaved contrastive practice (Kang & Pashler, 2012) to sharpen discriminative boundaries between confusable concepts',
+      'Cites John Wixted (2004) on temporal rest and sleep buffers to consolidate memories before exposing them to interference',
+    ],
+    canonicalAnswer: 'Learners can insulate memories from catastrophic cross-talk through three architectural defenses: (1) Contextual Cue Differentiation: replacing generic cues with domain-specific tags that eliminate cue fan collisions; (2) Interleaved Contrastive Drilling: studying confusable concepts side-by-side to force the prefrontal cortex to extract precise diagnostic boundaries; and (3) Temporal Rest Buffers: inserting wakeful rest or sleep immediately after encoding, which locks in synaptic consolidation and renders traces resistant to subsequent retroactive interference (Wixted, 2004).',
+    lessonSectionAnchor: 'Lesson 7.1 • Section 3: Architectural Defenses: Context Discrimination & Schema Gating',
+    relatedMisconception: 'misconception:back_to_back_similar_study_synergy',
+    discrepancyPrompt: 'Previously you may have studied two highly similar programming frameworks or foreign languages back-to-back assuming they would synergize. Why does cognitive science prove that studying similar unmastered concepts back-to-back causes catastrophic interference unless explicitly differentiated?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

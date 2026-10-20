@@ -104,6 +104,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'targeted-memory-reactivation';
     chapterId = 'ch-6-sleep-replay';
+  } else if (
+    conceptId.startsWith('concept:proactive_vs_') ||
+    conceptId.startsWith('concept:cue_overload_') ||
+    conceptId.startsWith('concept:contextual_cue_')
+  ) {
+    lessonId = 'proactive-retroactive-interference';
+    chapterId = 'ch-7-interference-reconsolidation';
   }
 
   return {

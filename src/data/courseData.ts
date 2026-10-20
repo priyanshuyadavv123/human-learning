@@ -11,6 +11,7 @@ import { LESSON_LTP_SYNAPTIC_PLASTICITY } from './lesson5_1Data.ts';
 import { LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE } from './lesson5_2Data.ts';
 import { LESSON_SLOW_WAVE_SLEEP_REPLAY } from './lesson6_1Data.ts';
 import { LESSON_TARGETED_MEMORY_REACTIVATION } from './lesson6_2Data.ts';
+import { LESSON_INTERFERENCE_FORGETTING } from './lesson7_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -185,7 +186,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Proactive and Retroactive Interference',
           subtitle: 'Cue overload, associative competition, and memory protection',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'reconsolidation-updating',
@@ -1143,6 +1144,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE.id]: LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE,
   [LESSON_SLOW_WAVE_SLEEP_REPLAY.id]: LESSON_SLOW_WAVE_SLEEP_REPLAY,
   [LESSON_TARGETED_MEMORY_REACTIVATION.id]: LESSON_TARGETED_MEMORY_REACTIVATION,
+  [LESSON_INTERFERENCE_FORGETTING.id]: LESSON_INTERFERENCE_FORGETTING,
 };
 
 export function getLessonById(id: string): Lesson {

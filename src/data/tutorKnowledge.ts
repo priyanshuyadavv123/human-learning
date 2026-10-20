@@ -411,6 +411,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why does pushing past 90 minutes of continuous learning without a rest break yield diminishing cognitive returns?',
     referencedSection: 'Lesson 6.2 • Section 3: Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
   },
+  // Lesson 7.1 Entries
+  {
+    keywords: ['mcgeoch', 'underwood', 'proactive interference', 'retroactive interference', 'trace decay', 'temporal consolidation buffer', 'wixted'],
+    title: 'McGeoch & Underwood: Proactive vs Retroactive Interference',
+    summary: 'Forgetting is not passive decay over time, but active competition between previously learned and newly acquired memories.',
+    takeaway: 'Time does not cause forgetting any more than time causes iron to rust. Forgetting is driven by retroactive and proactive interference competing for shared cues.',
+    detailedResponse: 'John A. McGeoch (1932) and Benton Underwood (1957) demonstrated that forgetting is predominantly caused by interference rather than spontaneous trace decay. Retroactive Interference (RI) occurs when newly encoded information retroactively disrupts access to earlier learned traces. Proactive Interference (PI) occurs when previously stored memories occlude and compete with newly encoded material. John Wixted (2004) proved that new memories require an uninterrupted consolidation buffer; introducing new, semantically similar material immediately after learning disrupts synaptic consolidation and causes massive retroactive interference.',
+    socraticChallenge: 'Why does studying Spanish grammar immediately after French vocabulary degrade recall for both languages?',
+    referencedSection: 'Lesson 7.1 • Section 1: McGeoch & Underwood: Proactive vs Retroactive Interference',
+  },
+  {
+    keywords: ['cue overload', 'fan effect', 'anderson', 'neely', 'associative competition', 'retrieval competition', 'cue diagnosticity'],
+    title: 'The Cue Overload Principle & The Fan Effect (Anderson & Neely)',
+    summary: 'Associating multiple targets with a single retrieval cue splits spreading activation and impairs recall speed and accuracy.',
+    takeaway: 'Associating multiple memory targets with a single cue divides activation and impairs retrieval—differentiate cues to protect memory access.',
+    detailedResponse: 'Watkins & Watkins (1975) established the Cue Overload Principle: the retrieval probability of any single item declines as a function of how many other items share that exact same cue. John R. Anderson formalized this in the ACT-R cognitive architecture as the "Fan Effect" (1974). When a retrieval cue fans out to multiple associative links, finite spreading activation must be divided among all branches. When cue-target competition occurs, retrieval latencies increase and non-target intrusions spike. Distinctive, context-rich retrieval cues prevent activation dilution.',
+    socraticChallenge: 'How does creating distinctive, domain-specific tags avoid cue overload when organizing notes in a single folder?',
+    referencedSection: 'Lesson 7.1 • Section 2: Cue Overload Principle & The Fan Effect (Anderson & Neely)',
+  },
+  {
+    keywords: ['wickens', 'release from pi', 'proactive inhibition', 'category shift', 'cue discrimination', 'contextual cue'],
+    title: 'Contextual Cue Discrimination & Release from Proactive Inhibition',
+    summary: 'Switching cognitive categories resets proactive interference and immediately restores high retrieval performance.',
+    takeaway: 'Shifting semantic domains resets proactive inhibition instantly (Delos Wickens, 1970). Interleaving distinct topics restores high-fidelity recall.',
+    detailedResponse: 'Delos Wickens (1970) discovered the phenomenon of "Release from Proactive Inhibition." When learners memorize successive lists belonging to the same semantic category (e.g., fruit names), recall performance precipitously drops from ~90% on Trial 1 down to ~35% on Trial 3 due to accumulated proactive interference. However, on Trial 4, shifting categories to an unrelated domain (e.g., professions or chemistry terms) causes performance to immediately rebound to ~90%. This proves the memory trace was never lost or decayed—it was simply inaccessible due to cue discrimination failure. Shifting domains restores cue diagnosticity.',
+    socraticChallenge: 'How can you apply Wickens’ release from proactive inhibition to sequence your daily study sessions?',
+    referencedSection: 'Lesson 7.1 • Section 3: Contextual Cue Discrimination & Release from Proactive Inhibition',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

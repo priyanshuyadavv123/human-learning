@@ -65,6 +65,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'targeted-memory-reactivation-mechanisms': <Sparkles size={18} />,
   'wakeful-rest-and-awake-replay': <Eye size={18} />,
   'ultradian-rest-cycles-brac': <RefreshCw size={18} />,
+  // Lesson 7.1 Tabs
+  'proactive-vs-retroactive-dynamics': <Repeat size={18} />,
+  'cue-overload-and-the-fan-effect': <Network size={18} />,
+  'mitigating-interference-through-context-discrimination': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

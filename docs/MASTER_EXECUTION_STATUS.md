@@ -38,7 +38,8 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 4.13 (Lesson 6.1 Slow-Wave Sleep & Neural Replay):** ACCEPTED (15/15 quality standard, 216/216 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Stage 4.14 (Lesson 6.2 Targeted Memory Reactivation & Rest Cycles):** ACCEPTED (15/15 quality standard, 228/228 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 6 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 6.1, 6.2)
-  - **Stage 4.15 (Chapter 7, Lesson 7.1 The Adaptive Value of Forgetting):** NEXT MILESTONE
+  - **Stage 4.15 (Lesson 7.1 Proactive and Retroactive Interference):** ACCEPTED (15/15 quality standard, 240/240 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Stage 4.16 (Chapter 7, Lesson 7.2 Memory Reconsolidation & Updating):** NEXT MILESTONE
 
 ---
 
