@@ -26,6 +26,7 @@ import { LESSON_EXPERT_MENTAL_REPRESENTATIONS } from './lesson12_2Data.ts';
 import { LESSON_FITTS_POSNER_STAGES } from './lesson13_1Data.ts';
 import { LESSON_PARADOX_OF_AUTOMATION } from './lesson13_2Data.ts';
 import { LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE } from './lesson14_1Data.ts';
+import { LESSON_VARIED_PRACTICE_TRANSFER } from './lesson14_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -380,7 +381,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Varied Practice & Structural Invariance',
           subtitle: 'Preventing over-fitting to narrow study conditions',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1173,6 +1174,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_FITTS_POSNER_STAGES.id]: LESSON_FITTS_POSNER_STAGES,
   [LESSON_PARADOX_OF_AUTOMATION.id]: LESSON_PARADOX_OF_AUTOMATION,
   [LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE.id]: LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE,
+  [LESSON_VARIED_PRACTICE_TRANSFER.id]: LESSON_VARIED_PRACTICE_TRANSFER,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -209,6 +209,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'blocked-vs-interleaved-practice';
     chapterId = 'ch-14-interleaving';
+  } else if (
+    conceptId.startsWith('concept:schmidt_schema_') ||
+    conceptId.startsWith('concept:kerr_booth_') ||
+    conceptId.startsWith('concept:encoding_variability_')
+  ) {
+    lessonId = 'varied-practice-transfer';
+    chapterId = 'ch-14-interleaving';
   }
 
   return {

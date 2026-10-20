@@ -820,6 +820,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why do textbook chapter titles give away the hardest part of problem solving, and how can you strip that crutch during practice?',
     referencedSection: 'Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit',
   },
+  // Lesson 14.2 Entries
+  {
+    keywords: ['schmidt', 'schema theory', 'generalized motor program', 'gmp', 'invariants', 'parameters', 'recall schema'],
+    title: 'Schmidt (1975): Schema Theory & Generalized Programs',
+    summary: 'The brain abstracts invariant structural rules and assigns variable runtime parameters to solve novel tasks.',
+    takeaway: 'The brain does not store rigid movements; it stores Generalized Programs with invariants, executing them by assigning runtime parameters (Schmidt, 1975).',
+    detailedResponse: 'Richard Schmidt (1975) resolved the motor storage and novelty paradox with Schema Theory. The central nervous system does not store millions of rigid movement programs. Instead, it stores Generalized Motor Programs (GMPs) defined by structural invariants—such as the relative timing and proportional force relationships of a pattern. When executing a movement, the brain assigns runtime parameters (overall speed, absolute force, scale, or data types). Varied practice forces the brain to construct a "Recall Schema"—a functional mapping between parameters and outcomes that allows it to compute the exact parameters needed for an unpracticed situation.',
+    socraticChallenge: 'How does distinguishing invariant structural rules from mutable surface parameters allow your mind to adapt to unexpected problems?',
+    referencedSection: 'Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs',
+  },
+  {
+    keywords: ['kerr', 'booth', 'beanbag', 'target interpolation', '3-foot', '5-foot', '4-foot', 'over-fitting'],
+    title: 'Kerr & Booth (1978): The Target Interpolation Effect',
+    summary: 'Practicing extreme boundary values enables internal mathematical interpolation, beating constant target drilling.',
+    takeaway: 'Tossing beanbags at 3 ft and 5 ft produces superior accuracy at an unpracticed 4 ft distance than practicing only at 4 ft (Kerr & Booth, 1978).',
+    detailedResponse: 'Robert Kerr and Bernard Booth (1978) proved that constant practice leads to neural over-fitting. In a blind target-tossing study, children who practiced only at a 4-foot target were outperformed on that 4-foot target by children who practiced at 3-foot and 5-foot targets and never touched 4 feet. By bracketing the target extremes, the varied practice group mapped the mathematical slope and intercept of the force-distance parameter function ($y = mx + b$). When tested on 4 feet, their brains easily interpolated the correct parameter. Constant practice merely recorded a single brittle data point that failed under context shifts.',
+    socraticChallenge: 'Why does practicing the extremes above and below a target calibrate your neural interpolation engine better than drilling the target itself?',
+    referencedSection: 'Lesson 14.2 • Section 2: Kerr & Booth (1978): The Target Interpolation Effect',
+  },
+  {
+    keywords: ['smith', 'glenberg', 'encoding variability', 'multi-context', 'room-dependent', 'context-dependent', 'environmental transfer'],
+    title: 'Smith, Glenberg & Bjork (1978): Multi-Context Encoding Variability',
+    summary: 'Studying across diverse physical environments decouples knowledge from incidental sensory cues, enabling robust transfer.',
+    takeaway: 'Studying across multiple rooms decouples memories from physical context, transforming brittle knowledge into abstract semantic schemas (Smith et al., 1978).',
+    detailedResponse: 'Steven Smith, Arthur Glenberg, and Robert Bjork (1978) demonstrated the power of multi-context encoding variability. When information is learned in only one physical room, incidental environmental stimuli (lighting, background odors, acoustics) become bound to the memory trace as accidental retrieval cues. If tested in an unfamiliar room, retrieval fails (context-dependent memory). However, when study is distributed across multiple distinct environments, the brain abstracts away the physical cues, indexing the knowledge purely through internal, semantic relationships. In technical learning, rotating IDEs, fonts, and noise environments bulletproofs recall against high-stakes exam and interview panic.',
+    socraticChallenge: 'What physical or digital crutches are currently bound to your daily study routine, and how can you rotate them to build context independence?',
+    referencedSection: 'Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

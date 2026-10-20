@@ -126,6 +126,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'shea-morgan-contextual-interference': <Network size={18} />,
   'discriminative-contrast-hypothesis': <Eye size={18} />,
   'category-selection-vs-execution': <Layers size={18} />,
+  // Lesson 14.2 Tabs
+  'schmidt-schema-theory-generalized-programs': <Cpu size={18} />,
+  'kerr-booth-target-interpolation': <Network size={18} />,
+  'encoding-variability-environmental-transfer': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

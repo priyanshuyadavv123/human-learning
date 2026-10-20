@@ -116,6 +116,10 @@ export const KNOWN_CONCEPTS = [
   'concept:shea_morgan_contextual_interference_effect',
   'concept:bjork_discriminative_contrast_hypothesis',
   'concept:rohrer_category_selection_retrieval_effort',
+  // Lesson 14.2 Concepts
+  'concept:schmidt_schema_theory_generalized_motor_program',
+  'concept:kerr_booth_variable_practice_interpolation',
+  'concept:encoding_variability_multi_context_robustness',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -207,6 +211,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 14.1 Misconceptions
   'misconception:blocked_practice_yields_superior_retention',
   'misconception:interleaving_causes_destructive_interference',
+  // Lesson 14.2 Misconceptions
+  'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
+  'misconception:environmental_consistency_optimizes_generalized_retrieval',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

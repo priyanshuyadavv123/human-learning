@@ -61,7 +61,9 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 5.6 (Lesson 13.2 The Paradox of Automation):** ACCEPTED (15/15 quality standard, 418/418 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 13 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 13.1, 13.2)
   - **Stage 5.7 (Lesson 14.1 Blocked vs Interleaved Practice):** ACCEPTED (15/15 quality standard, 432/432 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
-  - **Stage 5.8 (Lesson 14.2 Varied Practice & Structural Invariance):** NEXT MILESTONE
+  - **Stage 5.8 (Lesson 14.2 Varied Practice & Structural Invariance):** ACCEPTED (15/15 quality standard, 446/446 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Chapter 14 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 14.1, 14.2)
+  - **Stage 5.9 (Lesson 15.1 Productive Failure & Generation Effects):** NEXT MILESTONE
 
 ---
 
@@ -114,8 +116,8 @@ Every chapter is classified strictly by actual code implementation:
 | :--- | :--- | :--- | :--- | :--- |
 | **ch-12-deliberate-practice** | **12. Ericsson’s Deliberate Practice Framework** | 12.1 The Edge of Ability & Immediate Feedback<br>12.2 Mental Representations in Expert Performance | Naive practice vs deliberate practice, expert mental models, coach-guided feedback. | **ACCEPTED** (2/2 Lessons Complete) |
 | **ch-13-automaticity** | **13. Proceduralization & Automaticity** | 13.1 From Cognitive to Autonomous Stages of Skill<br>13.2 The Paradox of Automation | Fitts & Posner 3-stage model, cognitive arrest, automated execution traps, Lisanne Bainbridge ironies of automation, Mackworth clock vigilance decrement, Abraham Luchins Einstellung effect, Mica Endsley situational awareness levels. | **ACCEPTED** (2/2 Lessons Complete) |
-| **ch-14-interleaving** | **14. Interleaving & Varied Practice** | 14.1 Blocked vs Interleaved Practice<br>14.2 Discrimination Learning & Variability | Blocked practice illusion, contextual interference effect, category discrimination. | **IN PROGRESS** (14.1 NEXT) |
-| **ch-15-error-driven** | **15. Error-Driven Learning & Failure Analysis** | 15.1 Productive Failure & Generation Effects<br>15.2 The Pre-Mortem & Error Journaling Protocols | Productive failure, error tolerance, hypercorrection effect in deliberate practice. | **PLANNED** |
+| **ch-14-interleaving** | **14. Interleaving & Varied Practice** | 14.1 Blocked vs Interleaved Practice<br>14.2 Discrimination Learning & Variability | Blocked practice illusion, contextual interference effect, category discrimination, Schmidt Schema Theory, Kerr & Booth parameter interpolation, Smith-Glenberg-Bjork multi-context encoding variability. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-15-error-driven** | **15. Error-Driven Learning & Failure Analysis** | 15.1 Productive Failure & Generation Effects<br>15.2 The Pre-Mortem & Error Journaling Protocols | Productive failure, error tolerance, hypercorrection effect in deliberate practice. | **IN PROGRESS** (15.1 NEXT) |
 
 ### Part 5: Problem Solving, Transfer & Creative Synthesis (Chapters 16–19)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |

@@ -1282,6 +1282,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:blocked_practice_yields_superior_retention',
     discrepancyPrompt: 'Previously you may have completed homework by doing all 20 problems at the end of Chapter 4. How does Rohrer & Taylor’s work show that the chapter title secretly robbed you of the hardest part of problem solving—learning how to diagnose what formula to use without a hint?',
   },
+  'concept:schmidt_schema_theory_generalized_motor_program': {
+    conceptId: 'concept:schmidt_schema_theory_generalized_motor_program',
+    title: 'Schmidt’s Schema Theory & Generalized Programs (1975)',
+    prompt: 'Explain Richard Schmidt’s (1975) Schema Theory and the fundamental distinction between structural invariants and runtime parameters.',
+    keyCriteria: [
+      'Cites Richard Schmidt (1975) Schema Theory',
+      'Defines Generalized Motor Programs (GMPs) with invariant structural relative timing/topology',
+      'Defines parameters as runtime scaling variables (speed, force, spatial scale, data types)',
+      'Explains that varied practice maps the relationship between parameters and outcomes (Recall Schema)',
+    ],
+    canonicalAnswer: 'Richard Schmidt (1975) formulated Schema Theory to solve the storage and novelty problems in motor control. The brain does not store millions of distinct, rigid execution routines; instead, it stores Generalized Motor Programs (GMPs) defined by structural invariants—such as the relative timing and proportional force relationships of a movement pattern or the core predicate invariant of an algorithm. At runtime, the brain assigns variable parameters (overall speed, absolute force, scale, or domain data types). By practicing across variable conditions, the learner abstracts a "Recall Schema"—a functional mapping that correlates parameter settings with observed outcomes, enabling the generation of appropriate parameters for novel, unpracticed targets.',
+    lessonSectionAnchor: 'Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs',
+    relatedMisconception: 'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
+    discrepancyPrompt: 'Previously you may have believed that practicing an identical task repeatedly carves a deep, perfect groove in your brain. Why does Schmidt’s Schema Theory demonstrate that repeating a single parameter value leaves you with zero ability to compute parameters for novel situations?',
+  },
+  'concept:kerr_booth_variable_practice_interpolation': {
+    conceptId: 'concept:kerr_booth_variable_practice_interpolation',
+    title: 'The Kerr & Booth (1978) Target Interpolation Effect',
+    prompt: 'Describe the Kerr and Booth (1978) beanbag tossing experiment and explain why practicing boundary extremes enables superior interpolation.',
+    keyCriteria: [
+      'Cites Robert Kerr & Bernard Booth (1978) target tossing study',
+      'Contrasts constant practice (at 4 ft) with varied practice (at 3 ft and 5 ft, never at 4 ft)',
+      'Explains that the varied group outperformed the constant group on the unpracticed 4 ft test',
+      'Explains mathematical interpolation: bracketing extremes calibrates the parameter-outcome curve ($y = mx + b$)',
+    ],
+    canonicalAnswer: 'Kerr and Booth (1978) demonstrated the counterintuitive power of parameter interpolation in a classic target-tossing study. Children practiced blind tosses under two schedules: one group practiced exclusively at a 4-foot target (constant practice), while the other group practiced at 3-foot and 5-foot targets, never once tossing at 4 feet (varied practice). When tested on the 4-foot target, the varied group significantly outperformed the constant group. By practicing at 3 ft and 5 ft, the varied group’s neural schema sampled two points that defined the slope and intercept of the force-distance parameter function ($y = mx + b$), allowing effortless interpolation to 4 feet. The constant group only sampled a single point, resulting in brittle parameter calibration.',
+    lessonSectionAnchor: 'Lesson 14.2 • Section 2: Kerr & Booth (1978): The Target Interpolation Effect',
+    relatedMisconception: 'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
+    discrepancyPrompt: 'Previously you may have thought that the only way to master a specific exam question or target distance is to drill that exact target. How does Kerr & Booth’s experiment prove that practicing boundary extremes builds a far more accurate mental model than drilling the target directly?',
+  },
+  'concept:encoding_variability_multi_context_robustness': {
+    conceptId: 'concept:encoding_variability_multi_context_robustness',
+    title: 'Multi-Context Encoding Variability (Smith, Glenberg & Bjork, 1978)',
+    prompt: 'How does studying across multiple physical and digital contexts prevent retrieval failure in novel environments according to Smith, Glenberg & Bjork (1978)?',
+    keyCriteria: [
+      'Cites Steven Smith, Arthur Glenberg, & Robert Bjork (1978) environmental context study',
+      'Explains context-dependent memory (Godden & Baddeley, 1975) and incidental environmental retrieval cues',
+      'Explains that studying across multiple environments decouples memories from physical context',
+      'Explains how multi-context encoding transforms brittle situated knowledge into abstract semantic schemas',
+    ],
+    canonicalAnswer: 'Steven Smith, Arthur Glenberg, and Robert Bjork (1978) proved that studying material across multiple physical environments prevents retrieval failure in unfamiliar test settings. When learning occurs in a single room, incidental sensory features (lighting, acoustics, background odor) become bound to the memory trace as accidental retrieval cues. If tested in an unfamiliar environment, these cues are missing, causing retrieval collapse (context-dependent memory). However, when study is distributed across multiple distinct environments, the memory trace becomes linked to varied contextual cues. The cognitive system abstracts away the physical environment, transforming the knowledge into an independent, purely semantic representation that can be retrieved under novel conditions and high stress.',
+    lessonSectionAnchor: 'Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness',
+    relatedMisconception: 'misconception:environmental_consistency_optimizes_generalized_retrieval',
+    discrepancyPrompt: 'Previously you may have believed that you must always study at the exact same desk with the same lighting to optimize focus. Why does Smith et al.’s encoding variability research prove that environmental consistency actually leaves your memory hostage to that single room?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

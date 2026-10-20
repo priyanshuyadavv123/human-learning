@@ -321,6 +321,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:shea_morgan_contextual_interference_effect',
     },
   },
+  'varied-practice-transfer': {
+    predictionConceptId: 'concept:schmidt_schema_theory_generalized_motor_program',
+    predictionMisconceptionId: 'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
+    quizConceptMapping: {
+      'q1-schmidt-schema-theory-invariants-parameters': 'concept:schmidt_schema_theory_generalized_motor_program',
+      'q2-kerr-booth-target-interpolation-finding': 'concept:kerr_booth_variable_practice_interpolation',
+      'q3-smith-glenberg-bjork-encoding-variability': 'concept:encoding_variability_multi_context_robustness',
+      'q4-overfitting-remedy-in-cognitive-domains': 'concept:schmidt_schema_theory_generalized_motor_program',
+      'q1': 'concept:schmidt_schema_theory_generalized_motor_program',
+      'q2': 'concept:kerr_booth_variable_practice_interpolation',
+      'q3': 'concept:encoding_variability_multi_context_robustness',
+      'q4': 'concept:schmidt_schema_theory_generalized_motor_program',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -340,6 +340,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 14.1 • Verification Assessment',
   'Lesson 14.1 • The Interleaved Study Engine Protocol',
   'Lesson 14.1 • Blocked vs. Interleaved Practice Overview',
+
+  // Lesson 14.2 Sections
+  'Lesson 14.2 • Curiosity Hook',
+  'Lesson 14.2 • Intuitive Calibration: Constant vs Varied Practice in Parameter Interpolation',
+  'Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs',
+  'Lesson 14.2 • Section 2: Kerr & Booth (1978): The Target Interpolation Effect',
+  'Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness',
+  'Lesson 14.2 • The Varied Practice & Parameter Invariance Architecture Diagram',
+  'Lesson 14.2 • The Varied Practice & Invariance Diagnostic Exercise',
+  'Lesson 14.2 • Verification Assessment',
+  'Lesson 14.2 • The Parameter Variation & Context De-Scaffolding Protocol',
+  'Lesson 14.2 • Varied Practice & Structural Invariance Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -352,6 +364,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 14.2 anchors
+  if ((lower.includes('schmidt') && (lower.includes('schema') || lower.includes('motor program') || lower.includes('gmp') || lower.includes('invariants') || lower.includes('parameters') || lower.includes('1975'))) || lower.includes('generalized motor program') || lower.includes('recall schema')) {
+    return 'Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs';
+  }
+  if (lower.includes('kerr') || lower.includes('booth') || lower.includes('beanbag') || lower.includes('target interpolation') || lower.includes('3-foot') || lower.includes('5-foot') || lower.includes('boundary bracketing')) {
+    return 'Lesson 14.2 • Section 2: Kerr & Booth (1978): The Target Interpolation Effect';
+  }
+  if (lower.includes('glenberg') || (lower.includes('encoding variability') && (lower.includes('smith') || lower.includes('context') || lower.includes('room'))) || lower.includes('multi-context') || lower.includes('room-dependent') || (lower.includes('smith') && lower.includes('1978'))) {
+    return 'Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness';
+  }
+  if (lower.includes('the varied practice & parameter invariance architecture diagram') || lower.includes('parameter invariance architecture') || lower.includes('varied practice diagram')) {
+    return 'Lesson 14.2 • The Varied Practice & Parameter Invariance Architecture Diagram';
+  }
+  if (lower.includes('14.2') || lower.includes('varied practice & structural invariance') || lower.includes('parameter variation & context de-scaffolding protocol')) {
+    return 'Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs';
+  }
 
   // Match Lesson 14.1 anchors
   if (lower.includes('shea') || lower.includes('contextual interference') || lower.includes('random schedule') || (lower.includes('blocked') && lower.includes('acquisition') && lower.includes('retention'))) {
@@ -1612,6 +1641,42 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_14_2 = `
+You are the Human Learning Socratic AI Tutor, grounded specifically in Lesson 14.2: "Varied Practice & Structural Invariance: Preventing Over-Fitting to Narrow Study Conditions".
+
+CANONICAL SYLLABUS & SCIENTIFIC SOURCES FOR THIS LESSON:
+- Lesson 14.2 • Curiosity Hook
+- Lesson 14.2 • Intuitive Calibration: Constant vs Varied Practice in Parameter Interpolation
+- Lesson 14.2 • Section 1: Richard Schmidt (1975): Schema Theory & Generalized Motor Programs
+- Lesson 14.2 • Section 2: Kerr & Booth (1978): The Target Interpolation Effect
+- Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness
+- Lesson 14.2 • The Varied Practice & Parameter Invariance Architecture Diagram
+- Lesson 14.2 • The Varied Practice & Invariance Diagnostic Exercise
+- Lesson 14.2 • Verification Assessment
+- Lesson 14.2 • The Parameter Variation & Context De-Scaffolding Protocol
+- Lesson 14.2 • Varied Practice & Structural Invariance Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of motor schema theory, parameter interpolation, and encoding variability:
+     a) Richard Schmidt (1975) Schema Theory of Discrete Motor Skill Learning: The brain does not store millions of rigid movements. It stores Generalized Motor Programs (GMPs) defined by structural invariants (relative timing, proportional force, core logic invariants), and executes them by assigning runtime parameters (speed, absolute force, scale, data types). Varied practice correlates parameter settings with observed outcomes, abstracting a "Recall Schema" that allows parameter generation for novel situations.
+     b) Robert Kerr & Bernard Booth (1978) Target Interpolation Effect: Children who practiced tossing beanbags at 3 ft and 5 ft targets (never touching 4 ft) significantly outperformed children who practiced exclusively at 4 ft when tested on the 4 ft target. Constant practice records a single brittle data point that over-fits neural networks; boundary bracketing maps the slope and intercept of the parameter curve ($y = mx + b$), enabling effortless mathematical interpolation.
+     c) Steven Smith, Arthur Glenberg & Robert Bjork (1978) Multi-Context Encoding Variability: Studying material across multiple physical rooms decouples retrieval from accidental sensory cues (lighting, smell, acoustics). In a novel test environment, single-room learners suffer retrieval collapse (Godden & Baddeley, 1975), while multi-context learners retrieve easily because their representations have been abstracted into pure semantic schemas.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to schema theory, generalized motor programs, parameters vs. invariants, target interpolation, and multi-context encoding variability.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1693,6 +1758,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'blocked-vs-interleaved-practice') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_14_1;
+  }
+  if (lessonId === 'varied-practice-transfer') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_14_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1810,6 +1878,10 @@ export const KNOWN_CONCEPTS = [
   'concept:shea_morgan_contextual_interference_effect',
   'concept:bjork_discriminative_contrast_hypothesis',
   'concept:rohrer_category_selection_retrieval_effort',
+  // Lesson 14.2 Concepts
+  'concept:schmidt_schema_theory_generalized_motor_program',
+  'concept:kerr_booth_variable_practice_interpolation',
+  'concept:encoding_variability_multi_context_robustness',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1901,6 +1973,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 14.1 Misconceptions
   'misconception:blocked_practice_yields_superior_retention',
   'misconception:interleaving_causes_destructive_interference',
+  // Lesson 14.2 Misconceptions
+  'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
+  'misconception:environmental_consistency_optimizes_generalized_retrieval',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
