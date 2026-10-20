@@ -243,6 +243,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-external-memory-buffer-mechanism': 'concept:kirsh_maglio_epistemic_actions_external_buffers',
     },
   },
+  'prototypes-vs-exemplars': {
+    predictionConceptId: 'concept:medin_schaffer_nosofsky_exemplar_gcm',
+    predictionMisconceptionId: 'misconception:single_prototypes_preserve_feature_correlations',
+    quizConceptMapping: {
+      'q1-rosch-typicality-gradient-evidence': 'concept:rosch_prototype_theory_typicality_gradients',
+      'q2-medin-schaffer-correlated-features-advantage': 'concept:medin_schaffer_nosofsky_exemplar_gcm',
+      'q3-nosofsky-gcm-similarity-metric': 'concept:medin_schaffer_nosofsky_exemplar_gcm',
+      'q4-covis-dual-process-neurobiology': 'concept:ashby_covis_dual_system_categorization',
+    },
+  },
 };
 
 interface LearningContextType {

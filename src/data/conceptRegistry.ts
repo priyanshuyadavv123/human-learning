@@ -965,6 +965,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:decorative_graphics_enhance_learning',
     discrepancyPrompt: 'Previously you may have laid out diagrams haphazardly or used flashy 3D perspective art. Why does Tversky’s Principle of Congruence prove that violating universal spatial schemas forces the reader’s brain to waste working memory translating unnatural orientations?',
   },
+  'concept:rosch_prototype_theory_typicality_gradients': {
+    conceptId: 'concept:rosch_prototype_theory_typicality_gradients',
+    title: 'Prototype Theory & Typicality Gradients (Eleanor Rosch, 1975)',
+    prompt: 'How does Eleanor Rosch’s Prototype Theory explain categorization, and what experimental evidence refutes the classical Aristotelian view of category membership?',
+    keyCriteria: [
+      'Cites Eleanor Rosch (1975) Prototype Theory',
+      'Refutes classical Aristotelian view of necessary and sufficient conditions (all-or-nothing membership)',
+      'Explains typicality gradients (graded continuous membership, reaction time differences between central and peripheral members)',
+      'Defines the prototype as an abstract statistical centroid of experienced features',
+    ],
+    canonicalAnswer: 'Eleanor Rosch (1975) dismantled the classical Aristotelian view that categories are defined by rigid necessary and sufficient conditions. In real cognition, category membership is continuous and graded, giving rise to "typicality gradients": subjects verify central members (e.g. robin as bird) hundreds of milliseconds faster than peripheral members (e.g. penguin or ostrich). Rosch demonstrated that the brain constructs an abstract "prototype"—a statistical central tendency or centroid in psychological feature space. Classification of a novel probe is performed by evaluating its psychological distance to this prototype centroid rather than checking a boolean checklist.',
+    lessonSectionAnchor: 'Lesson 11.1 • Section 1: Eleanor Rosch: Prototype Theory & The Death of Classical Categories',
+    relatedMisconception: 'misconception:categories_are_classical_boolean_checklists',
+    discrepancyPrompt: 'Previously you may have assumed that categories are defined by strict boolean checklists. How do Rosch’s typicality gradients prove that human categorization is an analog computation of distance to an idealized statistical centroid?',
+  },
+  'concept:medin_schaffer_nosofsky_exemplar_gcm': {
+    conceptId: 'concept:medin_schaffer_nosofsky_exemplar_gcm',
+    title: 'Exemplar Theory & Generalized Context Model (Medin & Schaffer, Nosofsky)',
+    prompt: 'Why does Exemplar Theory (Medin & Schaffer, 1978; Nosofsky, 1986) succeed over Prototype Theory in handling correlated features and edge cases?',
+    keyCriteria: [
+      'Cites Medin & Schaffer (1978) Context Model and Robert Nosofsky (1986) GCM',
+      'Explains the Correlated Features problem (prototypes average features independently, destroying joint probabilities)',
+      'Defines categorization as summing exponential similarity across stored episodic instances ($S_{ij} = e^{-c \\cdot d_{ij}}$)',
+      'Explains dimensional attention weighting ($w_k$) stretching diagnostic axes in psychological space',
+    ],
+    canonicalAnswer: 'Medin and Schaffer (1978) and Robert Nosofsky (1986, Generalized Context Model) proved that prototype models fail because independent feature averaging strips out feature correlations and rare exceptions (e.g., small size correlating with high speed). Under GCM, the brain stores individual remembered exemplars in episodic memory. When evaluating a new probe, the brain computes its distance to all stored exemplars in multidimensional psychological space, where similarity decays exponentially ($S_{ij} = e^{-c \\cdot d_{ij}}$). Categorization equals the summed similarity across all instances of a category. This preserves multimodal distributions, correlated symptoms, and outlier edge cases that single summary centroids erase.',
+    lessonSectionAnchor: 'Lesson 11.1 • Section 2: Medin, Schaffer & Nosofsky: Exemplar Theory & GCM',
+    relatedMisconception: 'misconception:single_prototypes_preserve_feature_correlations',
+    discrepancyPrompt: 'Previously you may have believed that experts simply have cleaner, more concise abstract rules. Why does Nosofsky’s GCM prove that expert intuition relies on a dense library of specific episodic exemplars capturing subtle symptom correlations?',
+  },
+  'concept:ashby_covis_dual_system_categorization': {
+    conceptId: 'concept:ashby_covis_dual_system_categorization',
+    title: 'Dual-System Categorization: COVIS & Rule-Plus-Exception (Ashby et al., 1998)',
+    prompt: 'What are the two competing neurobiological categorization networks in the COVIS model (Ashby et al., 1998), and how does the Rule-Plus-Exception (RULEX) architecture resolve anomalies?',
+    keyCriteria: [
+      'Cites F. Gregory Ashby et al. (1998) COVIS model',
+      'Explicit hypothesis-testing system (Prefrontal cortex & anterior caudate; verbal, rule-governed, working-memory limited)',
+      'Implicit procedural system (Posterior striatum/putamen & visual cortex; multidimensional similarity, dopamine-mediated)',
+      'Explains Rule-plus-Exception (RULEX): simple explicit rules handle standard cases while discrete episodic exemplars store anomalies',
+    ],
+    canonicalAnswer: 'Ashby et al. (1998) resolved the categorization debate through COVIS, proving that human brains run two competing neurobiological systems: (1) An explicit, hypothesis-testing system mediated by the prefrontal cortex and anterior caudate, which formulates and evaluates conscious verbal rules limited by working memory; and (2) An implicit procedural system mediated by the posterior striatum (putamen) and visual cortex, which learns continuous multidimensional similarity landscapes through dopamine signaling. Under the Rule-Plus-Exception (RULEX) dynamic, humans default to simple verbal rules for speed, while simultaneously storing anomalous violations as discrete episodic exemplars, allowing rapid overrides when edge cases occur.',
+    lessonSectionAnchor: 'Lesson 11.1 • Section 3: Dual-System Categorization: COVIS & Rule-plus-Exception Architectures',
+    relatedMisconception: 'misconception:categories_are_classical_boolean_checklists',
+    discrepancyPrompt: 'Previously you may have thought that the mind must be either purely rule-based or purely associative. How does the COVIS architecture demonstrate that human expertise seamlessly couples prefrontal verbal rules with striatal exemplar similarity?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

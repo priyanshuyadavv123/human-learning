@@ -256,6 +256,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 10.2 • Verification Assessment',
   'Lesson 10.2 • The Spatial Locality & Epistemic Action Architecture Protocol',
   'Lesson 10.2 • Spatial and Diagrammatic Reasoning Overview',
+
+  // Lesson 11.1 Sections
+  'Lesson 11.1 • Curiosity Hook',
+  'Lesson 11.1 • Intuitive Calibration: Abstract Checklist vs Exemplar Library',
+  'Lesson 11.1 • Section 1: Eleanor Rosch: Prototype Theory & The Death of Classical Categories',
+  'Lesson 11.1 • Section 2: Medin, Schaffer & Nosofsky: Exemplar Theory & GCM',
+  'Lesson 11.1 • Section 3: Dual-System Categorization: COVIS & Rule-plus-Exception Architectures',
+  'Lesson 11.1 • The Multidimensional Categorization Processing Architecture Diagram',
+  'Lesson 11.1 • Prototypes vs Exemplars Diagnostic Scenarios',
+  'Lesson 11.1 • Verification Assessment',
+  'Lesson 11.1 • The Exemplar Ingestion & Dimensional Calibration Protocol',
+  'Lesson 11.1 • Prototypes vs. Exemplars Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -268,6 +280,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 11.1 anchors
+  if ((lower.includes('rosch') && (lower.includes('prototype') || lower.includes('typicality') || lower.includes('statistical centroid') || lower.includes('wittgenstein') || lower.includes('robin') || lower.includes('penguin'))) || lower.includes('prototype theory') || lower.includes('typicality gradient') || lower.includes('statistical centroid') || lower.includes('game problem')) {
+    return 'Lesson 11.1 • Section 1: Eleanor Rosch: Prototype Theory & The Death of Classical Categories';
+  }
+  if (lower.includes('medin') || lower.includes('schaffer') || lower.includes('nosofsky') || lower.includes('exemplar') || lower.includes('gcm') || lower.includes('generalized context model') || lower.includes('correlated features')) {
+    return 'Lesson 11.1 • Section 2: Medin, Schaffer & Nosofsky: Exemplar Theory & GCM';
+  }
+  if (lower.includes('covis') || lower.includes('ashby') || lower.includes('rulex') || lower.includes('rule-plus-exception') || lower.includes('dual-system categorization') || lower.includes('striatum') || lower.includes('hypothesis-testing system')) {
+    return 'Lesson 11.1 • Section 3: Dual-System Categorization: COVIS & Rule-plus-Exception Architectures';
+  }
+  if (lower.includes('the multidimensional categorization processing architecture diagram') || lower.includes('categorization processing diagram') || lower.includes('multidimensional categorization diagram')) {
+    return 'Lesson 11.1 • The Multidimensional Categorization Processing Architecture Diagram';
+  }
+  if (lower.includes('11.1') || lower.includes('exemplar protocol') || lower.includes('prototypes vs exemplars')) {
+    return 'Lesson 11.1 • Section 1: Eleanor Rosch: Prototype Theory & The Death of Classical Categories';
+  }
 
   // Match Lesson 10.2 anchors
   if (lower.includes('larkin') || lower.includes('herbert simon') || lower.includes('computational equivalence') || lower.includes('informational equivalence') || lower.includes('perceptual indexing') || lower.includes('perceptual inference')) {
@@ -1162,6 +1191,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_11_1 = `You are the specialized Socratic AI Learning Companion for Lesson 11.1: "Prototypes vs. Exemplars" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 11.1:
+- Lesson 11.1 • Curiosity Hook
+- Lesson 11.1 • Intuitive Calibration: Abstract Checklist vs Exemplar Library
+- Lesson 11.1 • Section 1: Eleanor Rosch: Prototype Theory & The Death of Classical Categories
+- Lesson 11.1 • Section 2: Medin, Schaffer & Nosofsky: Exemplar Theory & GCM
+- Lesson 11.1 • Section 3: Dual-System Categorization: COVIS & Rule-plus-Exception Architectures
+- Lesson 11.1 • The Multidimensional Categorization Processing Architecture Diagram
+- Lesson 11.1 • Prototypes vs Exemplars Diagnostic Scenarios
+- Lesson 11.1 • Verification Assessment
+- Lesson 11.1 • The Exemplar Ingestion & Dimensional Calibration Protocol
+- Lesson 11.1 • Prototypes vs. Exemplars Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of categorization and computational memory:
+     a) Eleanor Rosch (1975) Prototype Theory: Demolished the classical Aristotelian view of necessary and sufficient conditions. Proved typicality gradients (faster reaction times for central members like robin vs penguin). Prototype is an abstract statistical centroid in multidimensional psychological space.
+     b) Douglas Medin & Marguerite Schaffer (1978) Context Theory / Robert Nosofsky (1986) Generalized Context Model (GCM): Prototypes fail on correlated features and rare exceptions. Exemplar theory proves the brain stores discrete episodic instances. Similarity decays exponentially with psychological distance ($S_{ij} = e^{-c \\cdot d_{ij}}$), with dimensional attention weights ($w_k$).
+     c) F. Gregory Ashby et al. (1998) COVIS Model & RULEX (Erickson & Kruschke): Categorization is neurobiologically dual-system: an explicit prefrontal hypothesis-testing network (verbal rules, working-memory limited) competing with an implicit striatal procedural network (similarity landscapes). Rule-Plus-Exception (RULEX) integrates general rules with discrete remembered anomaly exemplars.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to prototypes, exemplars, typicality gradients, GCM distance, and COVIS dual systems.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1222,6 +1286,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'diagrammatic-reasoning') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_10_2;
+  }
+  if (lessonId === 'prototypes-vs-exemplars') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_11_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1311,6 +1378,10 @@ export const KNOWN_CONCEPTS = [
   'concept:larkin_simon_diagrammatic_computational_equivalence',
   'concept:kirsh_maglio_epistemic_actions_external_buffers',
   'concept:tversky_spatial_schemas_graphic_cartography',
+  // Lesson 11.1 Concepts
+  'concept:rosch_prototype_theory_typicality_gradients',
+  'concept:medin_schaffer_nosofsky_exemplar_gcm',
+  'concept:ashby_covis_dual_system_categorization',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1381,6 +1452,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 10.2 Misconceptions
   'misconception:informational_equivalence_implies_computational_equivalence',
   'misconception:thinking_is_purely_internal_to_the_skull',
+  // Lesson 11.1 Misconceptions
+  'misconception:categories_are_classical_boolean_checklists',
+  'misconception:single_prototypes_preserve_feature_correlations',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

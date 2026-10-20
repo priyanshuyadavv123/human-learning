@@ -88,6 +88,10 @@ export const KNOWN_CONCEPTS = [
   'concept:larkin_simon_diagrammatic_computational_equivalence',
   'concept:kirsh_maglio_epistemic_actions_external_buffers',
   'concept:tversky_spatial_schemas_graphic_cartography',
+  // Lesson 11.1 Concepts
+  'concept:rosch_prototype_theory_typicality_gradients',
+  'concept:medin_schaffer_nosofsky_exemplar_gcm',
+  'concept:ashby_covis_dual_system_categorization',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -158,6 +162,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 10.2 Misconceptions
   'misconception:informational_equivalence_implies_computational_equivalence',
   'misconception:thinking_is_purely_internal_to_the_skull',
+  // Lesson 11.1 Misconceptions
+  'misconception:categories_are_classical_boolean_checklists',
+  'misconception:single_prototypes_preserve_feature_correlations',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

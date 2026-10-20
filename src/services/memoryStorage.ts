@@ -160,6 +160,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'diagrammatic-reasoning';
     chapterId = 'ch-10-dual-coding';
+  } else if (
+    conceptId.startsWith('concept:rosch_prototype_theory_') ||
+    conceptId.startsWith('concept:medin_schaffer_') ||
+    conceptId.startsWith('concept:ashby_covis_')
+  ) {
+    lessonId = 'prototypes-vs-exemplars';
+    chapterId = 'ch-11-categorization';
   }
 
   return {

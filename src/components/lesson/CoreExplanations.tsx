@@ -97,6 +97,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'larkin-simon-computational-advantage': <Cpu size={18} />,
   'kirsh-maglio-epistemic-actions': <Repeat size={18} />,
   'tversky-spatial-schemas-mapping': <Network size={18} />,
+  // Lesson 11.1 Tabs
+  'rosch-prototype-theory-typicality': <Network size={18} />,
+  'medin-schaffer-exemplar-theory-gcm': <Cpu size={18} />,
+  'hybrid-dual-process-categorization': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
