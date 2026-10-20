@@ -258,6 +258,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'subgoal-labeling-scaffolding';
     chapterId = 'ch-17-heuristics';
+  } else if (
+    conceptId.startsWith('concept:dunning_kruger_') ||
+    conceptId.startsWith('concept:brier_score_') ||
+    conceptId.startsWith('concept:objective_calibration_')
+  ) {
+    lessonId = 'dunning-kruger-calibration';
+    chapterId = 'ch-18-biases-epistemic';
   }
 
   return {

@@ -144,6 +144,10 @@ export const KNOWN_CONCEPTS = [
   'concept:catrambone_subgoal_labeling_schema',
   'concept:margulieux_faded_subgoal_scaffolding',
   'concept:sweller_renkl_worked_example_fading',
+  // Lesson 18.1 Concepts
+  'concept:dunning_kruger_metacognitive_dual_burden',
+  'concept:brier_score_epistemic_calibration_curve',
+  'concept:objective_calibration_mirror_debiasing',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -256,6 +260,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 17.2 Misconceptions
   'misconception:linear_step_memorization_equals_problem_solving',
   'misconception:unassisted_discovery_surpasses_scaffolded_examples',
+  // Lesson 18.1 Misconceptions
+  'misconception:high_confidence_indicates_high_accuracy',
+  'misconception:dunning_kruger_only_affects_unintelligent_people',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

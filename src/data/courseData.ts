@@ -33,6 +33,7 @@ import { LESSON_SPECIFICITY_OF_TRANSFER } from './lesson16_1Data.ts';
 import { LESSON_CONDITIONS_FOR_FAR_TRANSFER } from './lesson16_2Data.ts';
 import { LESSON_MEANS_END_WORKING_BACKWARD } from './lesson17_1Data.ts';
 import { LESSON_SUBGOAL_LABELING_SCAFFOLDING } from './lesson17_2Data.ts';
+import { LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION } from './lesson18_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -477,7 +478,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Overconfidence & Epistemic Calibration',
           subtitle: 'Dunning-Kruger curves and constructing objective calibration mirrors',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'sunk-cost-study-biases',
@@ -1187,6 +1188,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_CONDITIONS_FOR_FAR_TRANSFER.id]: LESSON_CONDITIONS_FOR_FAR_TRANSFER,
   [LESSON_MEANS_END_WORKING_BACKWARD.id]: LESSON_MEANS_END_WORKING_BACKWARD,
   [LESSON_SUBGOAL_LABELING_SCAFFOLDING.id]: LESSON_SUBGOAL_LABELING_SCAFFOLDING,
+  [LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION.id]: LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION,
 };
 
 export function getLessonById(id: string): Lesson {

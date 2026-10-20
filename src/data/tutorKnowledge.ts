@@ -1016,6 +1016,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why does generating the final step of a complex project first build more confidence than starting from a terrifying blank screen?',
     referencedSection: 'Lesson 17.2 • Section 3: Renkl & Atkinson (2002): The Backward Fading Scaffolding Architecture',
   },
+  // Lesson 18.1 Entries
+  {
+    keywords: ['kruger', 'dunning', 'dunning-kruger', 'dual burden', 'incompetence', 'unskilled and unaware', 'false consensus', 'bottom quartile'],
+    title: 'Justin Kruger & David Dunning (1999): The Dual Burden of Incompetence',
+    summary: 'The knowledge required to perform correctly is the exact same knowledge required to evaluate performance, blinding novices to their errors.',
+    takeaway: 'Incompetence carries a dual burden: novices make errors and lack the mental models to recognize their own failure (Kruger & Dunning, 1999).',
+    detailedResponse: 'Justin Kruger and David Dunning (1999) discovered that across cognitive tasks, incompetent individuals suffer a "dual burden": the intellectual deficit that leads them to make mistakes also deprives them of the metacognitive tools to recognize error. Participants scoring in the 12th percentile consistently estimated their competence in the 62nd percentile. Conversely, top performers suffer from a false-consensus bias, assuming problems easy for them are easy for everyone. Kruger & Dunning proved that the only intervention that cures novice overconfidence is training in genuine domain competence, which arms their prefrontal cortex with normative schemas to perceive mistakes.',
+    socraticChallenge: 'When you first start learning an unfamiliar discipline, why is your feeling of supreme confidence a warning sign of the Dunning-Kruger dual burden?',
+    referencedSection: 'Lesson 18.1 • Section 1: Kruger & Dunning (1999): The Dual Burden of Incompetence',
+  },
+  {
+    keywords: ['brier', 'calibration curve', 'epistemic calibration', 'overconfidence bias', 'identity line', 'lichtenstein', 'fischhoff', 'brier score'],
+    title: 'Epistemic Calibration Curves & Brier Score Decomposition',
+    summary: 'Perfect calibration requires subjective probability to match empirical accuracy; human intuition systematically sags below the identity line.',
+    takeaway: 'Human confidence outstrips accuracy: 90% subjective certainty yields only ~65% empirical correctness; track Brier scores to align with reality.',
+    detailedResponse: 'Epistemic calibration measures whether subjective confidence reflects true empirical probability. On a calibration graph, a perfectly calibrated learner follows the 45-degree identity line ($y = x$): when 80% confident, they are correct 80% of the time. Sarah Lichtenstein and Baruch Fischhoff (1982) demonstrated that uncalibrated human intuition consistently sags below the identity line, displaying severe Overconfidence Bias. Glenn Brier (1950) formulated the Brier Score ($Brier = \\frac{1}{N}\\sum(f_i - o_i)^2$) to quantify probability error. Lower Brier scores indicate superior epistemic mastery, decomposing into calibration reliability, discrimination resolution, and environmental uncertainty.',
+    socraticChallenge: 'If you state 10 predictions with 90% confidence and only 6 come true, what is your calibration gap, and what does it reveal about your intuition?',
+    referencedSection: 'Lesson 18.1 • Section 2: Epistemic Calibration Curves & Brier Score Decomposition',
+  },
+  {
+    keywords: ['considering the opposite', 'calibration mirror', 'calibration mirrors', 'tetlock', 'superforecasting', 'lord', 'debiasing', 'rlpfc', 'acc'],
+    title: 'Objective Calibration Mirrors & "Considering the Opposite" (Lord et al., 1984)',
+    summary: 'Counter-factual retrieval debiasing forces working memory to search for disconfirming evidence, neutralizing confirmatory memory bias.',
+    takeaway: 'Puncture overconfidence by actively writing 2 reasons why your hypothesis might fail before checking the answer (Lord et al., 1984; Tetlock, 2015).',
+    detailedResponse: 'Human memory is afflicted with a confirmatory retrieval bias: when evaluating an idea, the brain automatically surfaces confirming evidence while suppressing counter-arguments. Charles Lord, Mark Lepper, and Elizabeth Preston (1984) proved that forcing individuals to "Consider the Opposite"—generating at least two concrete reasons why their hypothesis could be wrong—recruits the Anterior Cingulate Cortex (ACC) and rostrolateral prefrontal cortex (rlPFC / BA 10). Philip Tetlock (2015) in Superforecasting showed that combining this counter-factual reasoning with an Objective Calibration Mirror (logging numerical probabilities in discrete buckets before testing) systematically drives Brier scores toward world-class calibration.',
+    socraticChallenge: 'Before committing to your next technical decision, what are two specific, plausible mechanisms that could cause it to fail completely in production?',
+    referencedSection: 'Lesson 18.1 • Section 3: Constructing Calibration Mirrors & Debiasing Protocols',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

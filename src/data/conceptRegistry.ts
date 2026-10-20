@@ -1597,6 +1597,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:unassisted_discovery_surpasses_scaffolded_examples',
     discrepancyPrompt: 'Previously you may have believed that the quickest way to learn complex problem solving is to dive directly into blank-slate practice problems. How does Renkl & Atkinson’s backward fading paradigm demonstrate that incrementally withdrawing sub-goal support preserves working memory while ensuring deep schema construction?',
   },
+  'concept:dunning_kruger_metacognitive_dual_burden': {
+    conceptId: 'concept:dunning_kruger_metacognitive_dual_burden',
+    title: 'Kruger & Dunning (1999): The Dual Burden of Incompetence',
+    prompt: 'What is the cognitive mechanism underlying the Dunning-Kruger effect, and why does incompetence create a "dual burden" in novice metacognition?',
+    keyCriteria: [
+      'Cites Justin Kruger & David Dunning (1999) JPSP landmark study',
+      'Defines the Dual Burden: the exact same knowledge deficit that causes poor performance also deprives the novice of the metacognitive competence needed to recognize poor performance',
+      'Explains the asymmetry: bottom-quartile performers severely overestimate their percentile (~60th-70th percentile), while top-quartile performers suffer the false-consensus effect (underestimating relative superiority)',
+      'Shows that training novices in actual competence is the only intervention that corrects their overinflated self-assessments',
+    ],
+    canonicalAnswer: 'Justin Kruger and David Dunning (1999) proved that in complex cognitive domains, incompetence carries a "dual burden": the knowledge deficits that lead individuals to make erroneous decisions and poor choices simultaneously rob them of the metacognitive capacity required to recognize what constitutes high competence. In their classic trials, participants scoring in the bottom 12th percentile on logical reasoning and grammar estimated their performance in the 62nd percentile. Because novices lack internal normative models, they cannot calibrate against errors. Conversely, top-quartile performers suffer from a false-consensus illusion, assuming problems easy for them are equally easy for others. Kruger & Dunning demonstrated that the only reliable way to reduce novice overconfidence is to train them in genuine domain competence, which equips their prefrontal monitoring systems to perceive their own previous errors.',
+    lessonSectionAnchor: 'Lesson 18.1 • Section 1: Kruger & Dunning (1999): The Dual Burden of Incompetence',
+    relatedMisconception: 'misconception:dunning_kruger_only_affects_unintelligent_people',
+    discrepancyPrompt: 'Previously you may have thought that the Dunning-Kruger effect is just a character flaw of arrogant people. Why does Kruger & Dunning’s dual burden prove that whenever you enter a brand-new technical domain, your brain is structurally incapable of assessing its own incompetence?',
+  },
+  'concept:brier_score_epistemic_calibration_curve': {
+    conceptId: 'concept:brier_score_epistemic_calibration_curve',
+    title: 'Epistemic Calibration Curves & Brier Score Decomposition',
+    prompt: 'How is epistemic calibration mathematically measured, and what does the Brier Score reveal about the relationship between subjective confidence and objective accuracy?',
+    keyCriteria: [
+      'Defines Calibration: when subjective probability matches empirical hit rate (P(Correct | Confidence = c) = c)',
+      'Explains the Overconfidence Bias: calibration curves consistently sit below the 45-degree identity line (e.g. 90% confident assertions are only 65%-70% accurate)',
+      'Formulates the Brier Score: Brier = (1/N) * sum(f_i - o_i)^2 and its decomposition into Reliability (calibration), Resolution (discrimination), and Uncertainty',
+      'Explains how calibration curves diagnose cognitive bias in learners and professionals',
+    ],
+    canonicalAnswer: 'Epistemic calibration measures the concordance between subjective confidence estimates and empirical reality. Perfect calibration occurs when assertions stated with X% confidence prove correct exactly X% of the time, forming an identity line (y = x) on a calibration curve. In human cognition (Lichtenstein, Fischhoff & Phillips, 1982), calibration curves consistently sag below the identity line: individuals expressing 90% or 100% subjective certainty typically achieve only 65% to 75% objective accuracy. The Brier Score (Brier = (1/N) * sum(f_i - o_i)^2) quantifies epistemic accuracy, decomposing into Reliability (the calibration gap), Resolution (the ability to assign distinct probabilities to differing outcomes), and irreducible Uncertainty. Measuring Brier scores replaces vague feelings of knowing with mathematical calibration metrics.',
+    lessonSectionAnchor: 'Lesson 18.1 • Section 2: Epistemic Calibration Curves & Brier Score Decomposition',
+    relatedMisconception: 'misconception:high_confidence_indicates_high_accuracy',
+    discrepancyPrompt: 'Previously you may have trusted high intuitive confidence as a reliable indicator that you mastered a concept. How do calibration curves prove that human confidence systematically outstrips empirical accuracy unless subjected to objective verification?',
+  },
+  'concept:objective_calibration_mirror_debiasing': {
+    conceptId: 'concept:objective_calibration_mirror_debiasing',
+    title: 'Objective Calibration Mirrors & Epistemic Debiasing Protocols',
+    prompt: 'How do "Calibration Mirrors" and the "Considering the Opposite" debiasing protocol puncture metacognitive illusions and align confidence with reality?',
+    keyCriteria: [
+      'Cites Lord, Lepper & Preston (1984) and Philip Tetlock (2015) Superforecasting debiasing methods',
+      'Explains the cognitive mechanism of "Considering the Opposite": actively generating counter-evidence forces retrieval of disconfirming causal pathways, overcoming the confirmatory retrieval bias of memory',
+      'Details Calibration Mirrors: logging confidence distributions into discretized buckets (50%, 60%, 70%, 80%, 90%, 100%) and plotting observed empirical hit rates over time',
+      'Explains the neurobiology of error monitoring: Anterior Cingulate Cortex (ACC) and Rostrolateral Prefrontal Cortex (rlPFC / BA 10) recruitment',
+    ],
+    canonicalAnswer: 'Metacognitive overconfidence is reinforced by memory’s confirmatory retrieval bias: when evaluating a belief, the brain automatically searches for corroborating evidence while suppressing counter-examples (Koriat, 1997). To dismantle this illusion, learners must implement Objective Calibration Mirrors. Developed in decision science and superforecasting (Tetlock, 2015), this protocol requires logging explicit numerical confidence ratings into discrete probability buckets before checking answers, generating empirical calibration curves. Pairing this with Lord, Lepper & Preston’s (1984) "Considering the Opposite" protocol—actively generating at least two concrete reasons why the current hypothesis might be false—recruits the Anterior Cingulate Cortex and rostrolateral prefrontal cortex (rlPFC), neutralizing fluency heuristics and driving Brier score convergence toward perfect calibration.',
+    lessonSectionAnchor: 'Lesson 18.1 • Section 3: Constructing Calibration Mirrors & Debiasing Protocols',
+    relatedMisconception: 'misconception:high_confidence_indicates_high_accuracy',
+    discrepancyPrompt: 'Previously you may have assumed that self-reflection alone can correct overconfidence. Why does Tetlock’s calibration mirror prove that without quantitative tracking of confidence against objective outcomes, your brain remains trapped in confirmation bias?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

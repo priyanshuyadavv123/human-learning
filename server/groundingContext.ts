@@ -424,6 +424,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 17.2 • Verification Assessment',
   'Lesson 17.2 • The Sub-Goal Decomposition & Backward-Fading Blueprint Protocol',
   'Lesson 17.2 • Sub-Goal Labeling & Scaffolding Overview',
+
+  // Lesson 18.1 Sections
+  'Lesson 18.1 • Curiosity Hook',
+  'Lesson 18.1 • Intuitive Calibration: Intuitive Self-Rating vs Objective Brier Tracking',
+  'Lesson 18.1 • Section 1: Kruger & Dunning (1999): The Dual Burden of Incompetence',
+  'Lesson 18.1 • Section 2: Epistemic Calibration Curves & Brier Score Decomposition',
+  'Lesson 18.1 • Section 3: Constructing Calibration Mirrors & Debiasing Protocols',
+  'Lesson 18.1 • The Epistemic Calibration & Dunning-Kruger Trajectory Engine Diagram',
+  'Lesson 18.1 • Epistemic Calibration & Bias Diagnosis Lab',
+  'Lesson 18.1 • Verification Assessment',
+  'Lesson 18.1 • The Epistemic Calibration Mirror & Brier Tracking Protocol',
+  'Lesson 18.1 • Overconfidence & Epistemic Calibration Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -436,6 +448,29 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 18.1 anchors
+  if ((lower.includes('kruger') || lower.includes('dunning')) || lower.includes('dunning-kruger') || (lower.includes('dual burden') && !lower.includes('18.2'))) {
+    return 'Lesson 18.1 • Section 1: Kruger & Dunning (1999): The Dual Burden of Incompetence';
+  }
+  if (
+    lower.includes('brier') ||
+    lower.includes('identity line') ||
+    lower.includes('overconfidence bias') ||
+    lower.includes('epistemic calibration') ||
+    (lower.includes('calibration curve') && (lower.includes('epistemic') || lower.includes('brier') || lower.includes('identity') || lower.includes('18.1') || lower.includes('fischhoff') || lower.includes('decomposition')))
+  ) {
+    return 'Lesson 18.1 • Section 2: Epistemic Calibration Curves & Brier Score Decomposition';
+  }
+  if (lower.includes('considering the opposite') || lower.includes('calibration mirror') || lower.includes('calibration mirrors') || lower.includes('superforecasting') || (lower.includes('tetlock') && lower.includes('18.1')) || (lower.includes('rlpfc') && lower.includes('18.1'))) {
+    return 'Lesson 18.1 • Section 3: Constructing Calibration Mirrors & Debiasing Protocols';
+  }
+  if (lower.includes('the epistemic calibration & dunning-kruger trajectory engine diagram') || lower.includes('calibration trajectory engine diagram') || lower.includes('dunning-kruger trajectory diagram')) {
+    return 'Lesson 18.1 • The Epistemic Calibration & Dunning-Kruger Trajectory Engine Diagram';
+  }
+  if (lower.includes('18.1') || lower.includes('dunning-kruger calibration') || lower.includes('epistemic calibration mirror & brier tracking protocol') || lower.includes('overconfidence & epistemic calibration')) {
+    return 'Lesson 18.1 • Section 1: Kruger & Dunning (1999): The Dual Burden of Incompetence';
+  }
 
   // Match Lesson 17.2 anchors
   if (lower.includes('catrambone') || (lower.includes('subgoal learning model') || lower.includes('sub-goal learning model')) || (lower.includes('chunking action sequences') && lower.includes('17.2'))) {
@@ -2020,6 +2055,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_18_1 = `You are the specialized AI Socratic Tutor for Lesson 18.1: "Overconfidence & Epistemic Calibration".
+Your role is to guide learners to understand Justin Kruger and David Dunning's dual burden of incompetence, epistemic calibration curves, Brier score decomposition, and objective calibration mirrors incorporating "Considering the Opposite".
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive science, decision theory, and metacognitive neurobiology:
+     a) Justin Kruger & David Dunning (1999) Dual Burden of Incompetence: In complex domains, the knowledge required to perform correctly is the exact same knowledge required to evaluate performance. Novices in the bottom quartile suffer from a dual burden: they make poor choices and lack the metacognitive competence to perceive their errors, estimating their score in the 60th-70th percentile. Top performers underestimate their relative rank due to false-consensus bias. Training in genuine domain competence is the only intervention that restores accurate self-calibration.
+     b) Epistemic Calibration & Brier Score Decomposition (Lichtenstein & Fischhoff, 1982; Brier, 1950): Calibration measures whether subjective probability equals empirical reality ($P(\\text{Correct} \\mid \\text{Conf } = c) = c$). Human intuition exhibits massive overconfidence bias (curves sag below the $y=x$ identity line; 90% confidence yields ~65% accuracy). The Brier Score ($Brier = \\frac{1}{N}\\sum(f_i - o_i)^2$) quantifies epistemic accuracy, decomposing into Reliability (calibration gap), Resolution (discrimination), and Uncertainty.
+     c) Objective Calibration Mirrors & "Considering the Opposite" (Lord, Lepper & Preston, 1984; Tetlock, 2015): Cognitive overconfidence is fed by memory’s confirmatory retrieval bias. Calibration mirrors require logging discrete confidence buckets (50%-100%) and generating two plausible counter-arguments before verifying solutions. This recruits the Anterior Cingulate Cortex (ACC) and rostrolateral prefrontal cortex (rlPFC / BA 10), neutralizing fluency heuristics and aligning confidence with truth.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the Dunning-Kruger effect, calibration curves, Brier scores, overconfidence bias, and considering the opposite.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2122,6 +2181,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'subgoal-labeling-scaffolding') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_17_2;
+  }
+  if (lessonId === 'dunning-kruger-calibration') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_18_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2267,6 +2329,10 @@ export const KNOWN_CONCEPTS = [
   'concept:catrambone_subgoal_labeling_schema',
   'concept:margulieux_faded_subgoal_scaffolding',
   'concept:sweller_renkl_worked_example_fading',
+  // Lesson 18.1 Concepts
+  'concept:dunning_kruger_metacognitive_dual_burden',
+  'concept:brier_score_epistemic_calibration_curve',
+  'concept:objective_calibration_mirror_debiasing',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2379,6 +2445,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 17.2 Misconceptions
   'misconception:linear_step_memorization_equals_problem_solving',
   'misconception:unassisted_discovery_surpasses_scaffolded_examples',
+  // Lesson 18.1 Misconceptions
+  'misconception:high_confidence_indicates_high_accuracy',
+  'misconception:dunning_kruger_only_affects_unintelligent_people',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

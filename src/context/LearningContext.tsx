@@ -419,6 +419,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:sweller_renkl_worked_example_fading',
     },
   },
+  'dunning-kruger-calibration': {
+    predictionConceptId: 'concept:dunning_kruger_metacognitive_dual_burden',
+    predictionMisconceptionId: 'misconception:high_confidence_indicates_high_accuracy',
+    quizConceptMapping: {
+      'q1-kruger-dunning-dual-burden': 'concept:dunning_kruger_metacognitive_dual_burden',
+      'q2-brier-score-calibration-curve': 'concept:brier_score_epistemic_calibration_curve',
+      'q3-considering-opposite-debiasing': 'concept:objective_calibration_mirror_debiasing',
+      'q4-expert-false-consensus-underconfidence': 'concept:dunning_kruger_metacognitive_dual_burden',
+      'q1': 'concept:dunning_kruger_metacognitive_dual_burden',
+      'q2': 'concept:brier_score_epistemic_calibration_curve',
+      'q3': 'concept:objective_calibration_mirror_debiasing',
+      'q4': 'concept:dunning_kruger_metacognitive_dual_burden',
+    },
+  },
 };
 
 interface LearningContextType {
