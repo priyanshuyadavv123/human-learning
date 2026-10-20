@@ -1072,6 +1072,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What objective score threshold and deadline can you set right now to decide whether your current study workflow is truly working?',
     referencedSection: 'Lesson 18.2 • Section 3: Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
   },
+  {
+    keywords: ['default mode network', 'dmn', 'raichle', 'incubation neurobiology', 'central executive network', 'cen', 'dlpfc', 'mpfc', 'pcc'],
+    title: 'The Neurobiology of Incubation: DMN vs Executive Control',
+    summary: 'Relaxing prefrontal executive focus allows the Default Mode Network to activate wide, remote cortical connections (Raichle et al., 2001).',
+    takeaway: 'Stepping away from an impasse deactivates executive lateral inhibition and recruits the Default Mode Network for broad associative synthesis (Raichle et al., 2001; Christoff, 2009).',
+    detailedResponse: 'Marcus Raichle et al. (2001) mapped the Default Mode Network (DMN)—comprising the medial prefrontal cortex (mPFC), posterior cingulate cortex (PCC), and angular gyrus. During high-focus analytical problem solving, the Central Executive Network (dlPFC) narrows attention, which creates intense lateral inhibition that silences remote conceptual connections. When you step away from the desk, the Salience Network shifts balance to the DMN. This relaxes prefrontal inhibitory gating, allowing spontaneous, sub-threshold activation to diffuse across wide cortical associative networks and spark creative breakthroughs.',
+    socraticChallenge: 'When you are stuck on a difficult technical problem, how does continued desk grinding reinforce mental ruts rather than solving them?',
+    referencedSection: 'Lesson 19.1 • Section 1: The Neurobiology of Incubation: DMN vs Executive Control',
+  },
+  {
+    keywords: ['spreading activation', 'sub-threshold search', 'rstg', 'gamma-band', 'collins and loftus', 'aha moment', 'jung-beeman', 'bowden'],
+    title: 'Spreading Activation & Unconscious Sub-Threshold Search',
+    summary: 'Unconscious associative search ripples through semantic networks until remote nodes bind, triggering a 40 Hz gamma burst in the right hemisphere.',
+    takeaway: 'Sub-threshold activation diffuses through semantic memory during incubation until remote nodes bind in the rSTG, producing an electrophysiological gamma burst (Bowden & Jung-Beeman, 2004).',
+    detailedResponse: 'Collins & Loftus (1975) demonstrated that semantic memory functions as an associative network where activation spreads autonomously along relational links. During conscious effort, dominant candidate hypotheses exert lateral inhibition on weaker paths. During incubation, dominant activations decay rapidly, while diffuse sub-threshold activation ripples across distant semantic boundaries. Bowden & Jung-Beeman (2004) proved that sudden insight occurs when these streams converge in the right anterior superior temporal gyrus (rSTG), producing a sudden burst of high-frequency 40 Hz gamma waves ~300ms before conscious awareness.',
+    socraticChallenge: 'Why do you think dominant, obvious answers must decay in memory before novel, remote combinations can breach conscious awareness?',
+    referencedSection: 'Lesson 19.1 • Section 2: Spreading Activation & Unconscious Sub-Threshold Search',
+  },
+  {
+    keywords: ['baird', 'smallwood', 'fixation forgetting', 'low-load activity', 'undemanding task', 'incubation protocol', 'walking incubation'],
+    title: 'Fixation Forgetting & The Strategic Incubation Protocol',
+    summary: 'Undemanding low-load activities optimize insight by promoting fixation forgetting without hijacking central executive resources (Baird et al., 2012).',
+    takeaway: 'Engage in undemanding, low-cognitive-load activities like walking to foster fixation forgetting and DMN mind-wandering while avoiding executive drain (Baird et al., 2012).',
+    detailedResponse: 'Smith & Blankenship (1991) established the "Fixation Forgetting" hypothesis: incubation works because time away allows false assumptions, misleading clues, and cognitive sets to decay from working memory. Baird et al. (2012) tested four incubation conditions and discovered that an undemanding, low-load task (like a routine walk or light chores) produced a ~40% increase in creative insight compared to continuous work, demanding puzzles, or passive rest. Low-load tasks anchor perceptual attention to prevent rumination without exhausting the Central Executive Network.',
+    socraticChallenge: 'What undemanding physical activity can you integrate into your daily problem-solving routine as a dedicated incubation window?',
+    referencedSection: 'Lesson 19.1 • Section 3: Fixation Forgetting & The Strategic Incubation Protocol',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

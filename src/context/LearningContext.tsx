@@ -447,6 +447,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:cognitive_dissonance_discrepancy_sunsetting',
     },
   },
+  'incubation-default-mode': {
+    predictionConceptId: 'concept:default_mode_network_incubation',
+    predictionMisconceptionId: 'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
+    quizConceptMapping: {
+      'q1-dmn-vs-ecn': 'concept:default_mode_network_incubation',
+      'q2-baird-low-load-finding': 'concept:cognitive_fixation_release_baird_smallwood',
+      'q3-spreading-activation-decay': 'concept:unconscious_associative_search_spreading_activation',
+      'q4-rstg-gamma-signature': 'concept:unconscious_associative_search_spreading_activation',
+      'q1': 'concept:default_mode_network_incubation',
+      'q2': 'concept:cognitive_fixation_release_baird_smallwood',
+      'q3': 'concept:unconscious_associative_search_spreading_activation',
+      'q4': 'concept:unconscious_associative_search_spreading_activation',
+    },
+  },
 };
 
 interface LearningContextType {

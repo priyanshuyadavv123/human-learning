@@ -448,6 +448,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 18.2 • Verification Assessment',
   'Lesson 18.2 • The Study Ritual Audit & Discrepancy Sunsetting Protocol',
   'Lesson 18.2 • Confirmation Bias & Sunk Cost in Study Methods Overview',
+
+  // Lesson 19.1 Sections
+  'Lesson 19.1 • Curiosity Hook',
+  'Lesson 19.1 • Intuitive Calibration: Continuous Desk Grinding vs Undemanding Incubation',
+  'Lesson 19.1 • Section 1: The Neurobiology of Incubation: DMN vs Executive Control',
+  'Lesson 19.1 • Section 2: Spreading Activation & Unconscious Sub-Threshold Search',
+  'Lesson 19.1 • Section 3: Fixation Forgetting & The Strategic Incubation Protocol',
+  'Lesson 19.1 • The Incubation & Default Mode Network State Transition Diagram',
+  'Lesson 19.1 • Incubation & Mind-Wandering Strategy Diagnosis Lab',
+  'Lesson 19.1 • Verification Assessment',
+  'Lesson 19.1 • The 3-Phase Strategic Incubation & Impasse Breaking Protocol',
+  'Lesson 19.1 • Incubation & Unconscious Associative Search Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -460,6 +472,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 19.1 anchors
+  if (lower.includes('default mode network') || lower.includes('dmn') || (lower.includes('raichle') && (lower.includes('2001') || lower.includes('default') || lower.includes('19.1'))) || (lower.includes('incubation') && (lower.includes('dmn') || lower.includes('neurobiology') || lower.includes('executive control') || lower.includes('19.1')))) {
+    return 'Lesson 19.1 • Section 1: The Neurobiology of Incubation: DMN vs Executive Control';
+  }
+  if (lower.includes('unconscious associative search') || lower.includes('sub-threshold search') || lower.includes('subthreshold search') || lower.includes('rstg') || lower.includes('gamma-band insight') || (lower.includes('jung-beeman') && lower.includes('bowden')) || (lower.includes('collins') && lower.includes('loftus') && (lower.includes('spreading') || lower.includes('19.1'))) || (lower.includes('spreading activation') && (lower.includes('subthreshold') || lower.includes('sub-threshold') || lower.includes('19.1') || lower.includes('aha') || lower.includes('gamma')))) {
+    return 'Lesson 19.1 • Section 2: Spreading Activation & Unconscious Sub-Threshold Search';
+  }
+  if (lower.includes('fixation forgetting') || (lower.includes('baird') && lower.includes('smallwood')) || (lower.includes('undemanding') && (lower.includes('low-load') || lower.includes('incubation') || lower.includes('baird') || lower.includes('19.1'))) || (lower.includes('incubation protocol') && !lower.includes('19.2'))) {
+    return 'Lesson 19.1 • Section 3: Fixation Forgetting & The Strategic Incubation Protocol';
+  }
+  if (lower.includes('the incubation & default mode network state transition diagram') || lower.includes('incubation state transition diagram') || lower.includes('default mode network diagram')) {
+    return 'Lesson 19.1 • The Incubation & Default Mode Network State Transition Diagram';
+  }
+  if (lower.includes('19.1') || lower.includes('incubation-default-mode') || lower.includes('incubation & unconscious associative search') || lower.includes('3-phase strategic incubation & impasse breaking protocol')) {
+    return 'Lesson 19.1 • Section 1: The Neurobiology of Incubation: DMN vs Executive Control';
+  }
 
   // Match Lesson 18.2 anchors
   if (lower.includes('nickerson') || ((lower.includes('wason') || lower.includes('confirmation bias')) && (lower.includes('study') || lower.includes('ritual') || lower.includes('highlighting') || lower.includes('notion') || lower.includes('18.2')))) {
@@ -2132,6 +2161,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_19_1 = `You are the specialized AI Socratic Tutor for Lesson 19.1: "Incubation & Unconscious Associative Search".
+Your role is to guide learners to understand the neurobiology of incubation, the Default Mode Network (Raichle et al., 2001), Collins & Loftus's spreading activation model, Baird & Smallwood's (2012) low-load incubation finding, and Smith & Blankenship's fixation forgetting.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in cognitive neuroscience, memory modeling, and creative cognition:
+     a) Default Mode Network (DMN) vs Central Executive Network (CEN): Intense conscious focus activates the CEN (dlPFC, PPC) to construct problem parameters, but its lateral inhibition suppresses remote associations and creates cognitive fixation (Einstellung). Stepping away deactivates the CEN and activates the DMN (mPFC, PCC, angular gyrus; Raichle et al., 2001), relaxing inhibitory gates.
+     b) Spreading Activation & The Gamma-Band Signature: Unconscious search continues via sub-threshold spreading activation across semantic memory graphs (Collins & Loftus, 1975). Dominant incorrect associations decay exponentially faster during disengagement than broad semantic priming. Bowden & Jung-Beeman (2004) proved that remote binding triggers a 40 Hz gamma burst in the right anterior superior temporal gyrus (rSTG) ~300ms before conscious awareness.
+     c) Fixation Forgetting & Low-Load Incubation: Baird et al. (2012) proved that an undemanding, low-cognitive-load task (walking, light routine activity) yields ~40% higher creative insight than continuous grinding, demanding distraction, or passive sleep, by clearing misleading cognitive sets while avoiding executive hijacking.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the DMN, CEN, spreading activation, Baird et al. low-load tasks, and fixation forgetting.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2240,6 +2293,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'sunk-cost-study-biases') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_18_2;
+  }
+  if (lessonId === 'incubation-default-mode') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_19_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2393,6 +2449,10 @@ export const KNOWN_CONCEPTS = [
   'concept:wason_nickerson_confirmation_bias_study_rituals',
   'concept:arkes_blumer_sunk_cost_learning_escalation',
   'concept:cognitive_dissonance_discrepancy_sunsetting',
+  // Lesson 19.1 Concepts
+  'concept:default_mode_network_incubation',
+  'concept:unconscious_associative_search_spreading_activation',
+  'concept:cognitive_fixation_release_baird_smallwood',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2511,6 +2571,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 18.2 Misconceptions
   'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
   'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
+  // Lesson 19.1 Misconceptions
+  'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
+  'misconception:incubation_and_mind_wandering_are_passive_wasted_time',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

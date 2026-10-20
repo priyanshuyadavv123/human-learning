@@ -152,6 +152,10 @@ export const KNOWN_CONCEPTS = [
   'concept:wason_nickerson_confirmation_bias_study_rituals',
   'concept:arkes_blumer_sunk_cost_learning_escalation',
   'concept:cognitive_dissonance_discrepancy_sunsetting',
+  // Lesson 19.1 Concepts
+  'concept:default_mode_network_incubation',
+  'concept:unconscious_associative_search_spreading_activation',
+  'concept:cognitive_fixation_release_baird_smallwood',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -270,6 +274,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 18.2 Misconceptions
   'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
   'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
+  // Lesson 19.1 Misconceptions
+  'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
+  'misconception:incubation_and_mind_wandering_are_passive_wasted_time',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

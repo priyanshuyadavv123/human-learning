@@ -272,6 +272,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'sunk-cost-study-biases';
     chapterId = 'ch-18-biases-epistemic';
+  } else if (
+    conceptId.startsWith('concept:default_mode_network_') ||
+    conceptId.startsWith('concept:unconscious_associative_') ||
+    conceptId.startsWith('concept:cognitive_fixation_')
+  ) {
+    lessonId = 'incubation-default-mode';
+    chapterId = 'ch-19-creative-insight';
   }
 
   return {

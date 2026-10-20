@@ -35,6 +35,7 @@ import { LESSON_MEANS_END_WORKING_BACKWARD } from './lesson17_1Data.ts';
 import { LESSON_SUBGOAL_LABELING_SCAFFOLDING } from './lesson17_2Data.ts';
 import { LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION } from './lesson18_1Data.ts';
 import { LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY } from './lesson18_2Data.ts';
+import { LESSON_INCUBATION_DEFAULT_MODE } from './lesson19_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -503,7 +504,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Incubation & Unconscious Associative Search',
           subtitle: 'Default mode network activation during mind-wandering and rest',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'combinatorial-play-synthesis',
@@ -1191,6 +1192,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_SUBGOAL_LABELING_SCAFFOLDING.id]: LESSON_SUBGOAL_LABELING_SCAFFOLDING,
   [LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION.id]: LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION,
   [LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY.id]: LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY,
+  [LESSON_INCUBATION_DEFAULT_MODE.id]: LESSON_INCUBATION_DEFAULT_MODE,
 };
 
 export function getLessonById(id: string): Lesson {
