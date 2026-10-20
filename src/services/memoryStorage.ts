@@ -46,6 +46,14 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'spaced-repetition-scheduling';
     chapterId = 'ch-2-retrieval-spacing';
+  } else if (
+    conceptId.startsWith('concept:reward_prediction_') ||
+    conceptId.startsWith('concept:hypercorrection_') ||
+    conceptId.startsWith('concept:calibrated_feedback_triad') ||
+    conceptId === 'concept:calibrated_feedback_prediction_error'
+  ) {
+    lessonId = 'calibrated-error-signals';
+    chapterId = 'ch-3-deliberate-practice';
   }
 
   return {

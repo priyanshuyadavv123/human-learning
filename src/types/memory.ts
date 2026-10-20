@@ -24,6 +24,10 @@ export const KNOWN_CONCEPTS = [
   'concept:ebbinghaus_forgetting_curve',
   'concept:spaced_scheduling_stability_expansion',
   'concept:optimal_retention_lag_ratio',
+  // Lesson 3.1 Concepts
+  'concept:reward_prediction_error_signaling',
+  'concept:hypercorrection_effect_high_confidence',
+  'concept:calibrated_feedback_triad',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -46,6 +50,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 2.2 Misconceptions
   'misconception:cramming_is_efficient_for_long_term',
   'misconception:linear_review_intervals',
+  // Lesson 3.1 Misconceptions
+  'misconception:errors_should_be_avoided_at_all_costs',
+  'misconception:immediate_praise_enhances_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

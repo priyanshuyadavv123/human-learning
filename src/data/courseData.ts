@@ -3,6 +3,7 @@ import { LESSON_ILLUSION_OF_COMPETENCE } from './lesson1_2Data.ts';
 import { LESSON_COGNITIVE_LOAD_SCHEMA } from './lesson1_3Data.ts';
 import { LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY } from './lesson2_1Data.ts';
 import { LESSON_SPACED_SCHEDULING } from './lesson2_2Data.ts';
+import { LESSON_CALIBRATED_ERROR_SIGNALS } from './lesson3_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -77,9 +78,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'calibrated-error-signals',
           number: '3.1',
           title: 'Calibrated Error Signals',
-          subtitle: 'Prediction errors, tight feedback loops, and self-correction',
-          readingTimeMinutes: 14,
-          isAvailable: false,
+          subtitle: 'Prediction Errors, Feedback Loops, and Self-Correction',
+          readingTimeMinutes: 16,
+          isAvailable: true,
         },
         {
           id: 'personal-learning-operating-system',
@@ -1127,6 +1128,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_COGNITIVE_LOAD_SCHEMA.id]: LESSON_COGNITIVE_LOAD_SCHEMA,
   [LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY.id]: LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY,
   [LESSON_SPACED_SCHEDULING.id]: LESSON_SPACED_SCHEDULING,
+  [LESSON_CALIBRATED_ERROR_SIGNALS.id]: LESSON_CALIBRATED_ERROR_SIGNALS,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -193,6 +193,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Are your review intervals expanding dynamically based on performance, or are you reviewing at a rigid linear cadence?',
     referencedSection: 'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers',
   },
+  {
+    keywords: ['reward prediction error', 'prediction error', 'schultz', 'dopamine burst', 'rpe', 'delta ='],
+    title: 'Reward Prediction Errors & Dopaminergic Plasticity',
+    summary: 'Midbrain dopamine fires not for rewards, but for prediction errors (δ = Actual - Expected).',
+    takeaway: 'Dopamine neurons fire for mathematical prediction errors: δ = R_actual - V_expected. When an outcome matches expectations, learning halts; unexpected discrepancies trigger synaptic plasticity.',
+    detailedResponse: 'In 1997, Wolfram Schultz demonstrated that midbrain dopamine neurons in the substantia nigra and ventral tegmental area (VTA) do not fire in response to rewards or correct answers themselves. Instead, they fire in response to Prediction Errors—the difference between what your internal model predicted and what reality produced. When reality exceeds expectation, dopamine bursts strengthen synapses; when reality is worse, dips signal model updates.',
+    socraticChallenge: 'Can you recall a recent technical problem where you were certain your code would work, but it failed? How did that error reshape your mental model?',
+    referencedSection: 'Lesson 3.1 • Section 1: Reward Prediction Errors & Dopaminergic Plasticity',
+  },
+  {
+    keywords: ['hypercorrection', 'butterfield', 'high confidence error', 'epistemic surprise', 'p300'],
+    title: 'The Hypercorrection Effect & Epistemic Surprise',
+    summary: 'High-confidence errors are corrected faster and more permanently than hesitant guesses.',
+    takeaway: 'High-confidence errors trigger epistemic surprise, causing a massive P300 attention surge that prioritizes corrective feedback and locks in durable schema updates.',
+    detailedResponse: 'Butterfield & Metcalfe (2001, 2006) revealed the Hypercorrection Effect: errors made with the highest subjective confidence are corrected significantly faster and more durably on subsequent retests than errors made with low confidence. The vast cognitive discrepancy between certainty and corrective reality triggers an involuntary attention surge (P300 ERP wave), focusing cognitive resources on the explanation.',
+    socraticChallenge: 'Why is making a confident mistake mathematically and biologically superior for learning compared to making a timid guess?',
+    referencedSection: 'Lesson 3.1 • Section 2: The Hypercorrection Effect & Epistemic Surprise',
+  },
+  {
+    keywords: ['calibrated feedback', 'hattie', 'timperley', 'feed-up', 'feed-back', 'feed-forward', 'feedback triad'],
+    title: 'The Architecture of Calibrated Feedback',
+    summary: 'Effective feedback answers Feed-up, Feed-back, and Feed-forward at the task and process levels.',
+    takeaway: 'Effective feedback focuses on task and process mechanisms (Feed-up, Feed-back, Feed-forward). Person-level praise distracts cognitive resources toward ego protection with near-zero learning gains.',
+    detailedResponse: 'John Hattie and Helen Timperley (2007) synthesized over 500 meta-analyses and proved that feedback must answer three essential questions: 1) Feed-up: Where am I going? (the goal); 2) Feed-back: How am I doing? (the current state); and 3) Feed-forward: Where to next? (actionable correction). In contrast, person praise ("You are smart!") carries almost zero learning value (d ≈ 0.12) because it directs attention away from the task and toward ego defense.',
+    socraticChallenge: 'Look at the last piece of feedback you received. Did it provide actionable feed-forward direction, or was it merely person-level praise?',
+    referencedSection: 'Lesson 3.1 • Section 3: The Architecture of Calibrated Feedback',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -33,6 +33,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'ebbinghaus-decay-curve': <RefreshCw size={18} />,
   'expanding-intervals-sm2-fsrs': <Cpu size={18} />,
   'spacing-effect-optimal-lags': <Repeat size={18} />,
+  // Lesson 3.1 Tabs
+  'reward-prediction-error': <Sparkles size={18} />,
+  'hypercorrection-epistemic-surprise': <Eye size={18} />,
+  'architecture-calibrated-feedback': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

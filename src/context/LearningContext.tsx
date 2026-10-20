@@ -83,6 +83,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-lapse-reset-rule': 'concept:spaced_scheduling_stability_expansion',
     },
   },
+  'calibrated-error-signals': {
+    predictionConceptId: 'concept:reward_prediction_error_signaling',
+    predictionMisconceptionId: 'misconception:errors_should_be_avoided_at_all_costs',
+    quizConceptMapping: {
+      'q1-schultz-dopamine-rpe': 'concept:reward_prediction_error_signaling',
+      'q2-butterfield-hypercorrection': 'concept:hypercorrection_effect_high_confidence',
+      'q3-hattie-feedback-levels': 'concept:calibrated_feedback_triad',
+      'q4-pre-commitment-necessity': 'concept:reward_prediction_error_signaling',
+    },
+  },
 };
 
 interface LearningContextType {

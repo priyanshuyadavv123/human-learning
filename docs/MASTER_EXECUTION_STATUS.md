@@ -55,7 +55,7 @@ Every chapter is classified strictly by actual code implementation:
 | :--- | :--- | :--- | :--- | :--- |
 | **ch-1-architecture** | **1. The Architecture of Human Memory** | 1.1 How Learning Actually Works<br>1.2 The Illusion of Competence<br>1.3 Cognitive Load & Schema Construction | Attention serial bottleneck, working memory capacity limits, schema consolidation, perceptual fluency illusion, generation effect, delayed JOLs, tripartite load, worked example effect, expertise reversal. | **ACCEPTED** (3/3 Lessons Complete) |
 | **ch-2-retrieval-spacing** | **2. The Retrieval & Spacing Engine** | 2.1 The Testing Effect & Desirable Difficulty<br>2.2 Spaced Scheduling Algorithms | Retrieval effort vs storage strength, forgetting curve decay, expanding interval scheduling, desirable difficulty, synaptic reconsolidation, stability multipliers, Ebbinghaus decay kinetics. | **ACCEPTED** (2/2 Lessons Complete) |
-| **ch-3-deliberate-practice** | **3. Feedback Loops & Meta-Cognition** | 3.1 Calibrated Error Signals<br>3.2 The Personal Learning Operating System | Prediction errors, calibration vs overconfidence, deliberate practice loops. | **IN PROGRESS** (3.1 NEXT) |
+| **ch-3-deliberate-practice** | **3. Feedback Loops & Meta-Cognition** | 3.1 Calibrated Error Signals<br>3.2 The Personal Learning Operating System | Reward prediction error signaling, hypercorrection effect, calibrated feedback triad, error loop pathologies, Hattie-Timperley feed-up/back/forward, deliberate practice systems. | **IN PROGRESS** (3.1 ACCEPTED, 3.2 NEXT) |
 | **ch-4-attention-executive** | **4. Attention, Focus & Executive Function** | 4.1 The Serial Bottleneck & Attentional Control<br>4.2 Distraction Economics & Deep Work Protocols | Selective filter gating, task-switching residue, executive depletion vs recovery. | **PLANNED** |
 
 ### Part 2: Memory Consolidation, Sleep & Neural Plasticity (Chapters 5–7)
@@ -129,20 +129,21 @@ Every implemented lesson must satisfy the 15-point educational quality benchmark
 
 ## 5. Current Test & Quality Metrics
 
-- **Vitest Suite:** 96 passing tests across 14 test files (100% pass rate).
-- **Linter (`oxlint`):** 0 warnings, 0 errors across 44 files.
-- **Build (`tsc -b && vite build`):** Clean build (119ms).
+- **Vitest Suite:** 144 passing tests across 18 test files (100% pass rate).
+- **Linter (`oxlint`):** 0 warnings, 0 errors across 52 files.
+- **Build (`tsc -b && vite build`):** Clean production build (130ms).
 - **Bundle Security:** 0 leaked secrets; no server SDK in client bundle.
-- **Browser CDP Verification:** 100% automated E2E pass for Lesson 1.2 (`scratch/test-lesson1_2-e2e.mjs`).
-- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling.
+- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.2, 1.3, 2.1, 2.2, and 3.1 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
+- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across 20 registered concepts.
 
 ---
 
 ## 6. Immediate Next Milestone
 
-**Implement Lesson 1.3: "Cognitive Load & Schema Construction — Working Memory Limits and the Architecture of Expertise"**
-- Define canonical lesson data in `src/data/lesson1_3Data.ts`.
-- Satisfy all 15 points of the Reusable Lesson Quality Standard (John Sweller, George Miller, Nelson Cowan citations).
-- Register concepts (`concept:cognitive_load_intrinsic_germane_extraneous`, `concept:expertise_reversal_effect`, `concept:worked_example_fading`) in `conceptRegistry.ts`.
-- Add Lesson 1.3 section anchors to `server/groundingContext.ts`.
-- Expand unit tests and execute browser CDP verification.
+**Stage 4.8: Implement Lesson 3.2: "The Personal Learning Operating System — Metacognitive Calibration, Deliberate Practice Loops, and Autonomous Study Workflows"**
+- Complete Chapter 3 by creating `src/data/lesson3_2Data.ts`.
+- Satisfy all 15 points of the Reusable Lesson Quality Standard (K. Anders Ericsson deliberate practice, Dunlosky & Metcalfe metacognitive monitoring, Zimmerman self-regulated learning).
+- Register concepts (`concept:deliberate_practice_reps`, `concept:metacognitive_monitoring_calibration`, `concept:autonomous_learning_operating_system`) in `conceptRegistry.ts`.
+- Add Lesson 3.2 section anchors and tutor system prompt to `server/groundingContext.ts`.
+- Add local fallback knowledge entries to `src/data/tutorKnowledge.ts`.
+- Expand unit tests with `src/test/lesson3_2Data.test.ts` and execute browser CDP verification.

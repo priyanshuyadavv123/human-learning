@@ -246,6 +246,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:cramming_is_efficient_for_long_term',
     discrepancyPrompt: 'Previously you may have studied everything the weekend before an exam. Why does spacing study sessions across a 15–20% lag ratio produce vastly superior retention for long-term career mastery?',
   },
+  'concept:reward_prediction_error_signaling': {
+    conceptId: 'concept:reward_prediction_error_signaling',
+    title: 'Reward Prediction Errors & Dopamine Signaling',
+    prompt: 'How does the neurobiology of Reward Prediction Errors (RPEs) in midbrain dopamine circuits drive synaptic plasticity during learning?',
+    keyCriteria: [
+      'Cites Wolfram Schultz (1997)',
+      'Explains that dopamine neurons fire in response to discrepancy between expected outcome and actual outcome',
+      'Differentiates positive RPE (better than expected), negative RPE (worse than expected), and zero RPE (expected outcome)',
+      'Explains that zero prediction error causes learning stagnation',
+    ],
+    canonicalAnswer: 'Wolfram Schultz (1997) discovered that midbrain dopamine neurons do not fire for rewards themselves, but for Reward Prediction Errors (RPE = Actual Outcome - Expected Outcome). When an outcome perfectly matches expectation (RPE = 0), zero dopamine delta occurs and synaptic plasticity halts. When a surprise or discrepancy occurs, phasic dopamine bursts or dips drive synaptic weight adjustments, forcing neocortical models to update.',
+    lessonSectionAnchor: 'Lesson 3.1 • Section 1: Reward Prediction Errors & Dopaminergic Plasticity',
+    relatedMisconception: 'misconception:errors_should_be_avoided_at_all_costs',
+    discrepancyPrompt: 'Previously you may have thought that dopamine is just a pleasure molecule that rewards you when you are right. How does prediction error signaling prove that dopamine is actually an error-driven learning signal?',
+  },
+  'concept:hypercorrection_effect_high_confidence': {
+    conceptId: 'concept:hypercorrection_effect_high_confidence',
+    title: 'The Hypercorrection Effect',
+    prompt: 'What is the Hypercorrection Effect (Butterfield & Metcalfe), and why are high-confidence errors corrected more easily and permanently than low-confidence errors?',
+    keyCriteria: [
+      'Cites Butterfield & Metcalfe (2001, 2006)',
+      'Explains that discovering an error when you were confident triggers high surprise and attentional capture',
+      'Mentions electrophysiological P300 event-related potential surge',
+      'Explains that corrective feedback during surprise results in superior reconsolidation',
+    ],
+    canonicalAnswer: 'The Hypercorrection Effect (Butterfield & Metcalfe, 2001) is the counter-intuitive phenomenon wherein errors committed with high confidence are corrected dramatically more easily and durably on subsequent retests than errors made with low confidence. Finding out you are wrong when you were certain you were right generates a massive prediction error, eliciting an involuntary surge of focal attention (reflected in the P300 brainwave) and deeply encoding the corrective feedback.',
+    lessonSectionAnchor: 'Lesson 3.1 • Section 2: The Hypercorrection Effect & Epistemic Surprise',
+    relatedMisconception: 'misconception:errors_should_be_avoided_at_all_costs',
+    discrepancyPrompt: 'Previously you may have dreaded making confident mistakes on technical quizzes. Why does cognitive science prove that a high-confidence mistake with corrective feedback creates the most durable learning event?',
+  },
+  'concept:calibrated_feedback_triad': {
+    conceptId: 'concept:calibrated_feedback_triad',
+    title: 'The Calibrated Feedback Architecture',
+    prompt: 'According to Hattie & Timperley (2007), what are the three essential feedback questions, and why is praise ineffective compared to task/process discrepancy feedback?',
+    keyCriteria: [
+      'Cites Hattie & Timperley (2007)',
+      'Identifies the 3 feedback levels: Feed-Up (Where am I going?), Feed-Back (How am I going?), Feed-Forward (Where to next?)',
+      'Explains that ego-level praise ("You are so smart") distracts from task/process focus and reduces resilience',
+      'Explains that calibrated discrepancy feedback minimizes the gap between current and target performance',
+    ],
+    canonicalAnswer: 'Hattie & Timperley (2007) established that effective feedback addresses three questions: Feed-Up (Where am I going? - clear target standard), Feed-Back (How am I going? - precise discrepancy signal), and Feed-Forward (Where to next? - actionable corrective action). Person-level praise ("Good job!", "You\'re brilliant") has near-zero effect on learning and creates defensive fragility, whereas process-level discrepancy feedback directly guides schema restructuring.',
+    lessonSectionAnchor: 'Lesson 3.1 • Section 3: The Architecture of Calibrated Feedback',
+    relatedMisconception: 'misconception:immediate_praise_enhances_learning',
+    discrepancyPrompt: 'Previously you may have valued motivational cheerleading or vague encouragement. Why does empirical feedback science show that actionable discrepancy signals are far more effective for engineering mastery?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

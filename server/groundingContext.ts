@@ -64,6 +64,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 2.2 • Verification Assessment',
   'Lesson 2.2 • Personal Spaced Retrieval Calendar Protocol',
   'Lesson 2.2 • Spaced Scheduling Overview',
+
+  // Lesson 3.1 Sections
+  'Lesson 3.1 • Curiosity Hook',
+  'Lesson 3.1 • Intuitive Calibration: Passive vs Discrepancy Feedback',
+  'Lesson 3.1 • Section 1: Reward Prediction Errors & Dopaminergic Plasticity',
+  'Lesson 3.1 • Section 2: The Hypercorrection Effect & Epistemic Surprise',
+  'Lesson 3.1 • Section 3: The Architecture of Calibrated Feedback',
+  'Lesson 3.1 • Error-Calibrated Learning Engine Diagram',
+  'Lesson 3.1 • Error Calibration Diagnostic Scenarios',
+  'Lesson 3.1 • Verification Assessment',
+  'Lesson 3.1 • Daily Prediction Error Journal Protocol',
+  'Lesson 3.1 • Error-Calibrated Feedback Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -76,6 +88,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 3.1 anchors
+  if (lower.includes('prediction error') || lower.includes('rpe') || lower.includes('schultz') || lower.includes('dopamine') || lower.includes('delta =') || lower.includes('reward prediction')) {
+    return 'Lesson 3.1 • Section 1: Reward Prediction Errors & Dopaminergic Plasticity';
+  }
+  if (lower.includes('hypercorrection') || lower.includes('butterfield') || lower.includes('metcalfe') || lower.includes('p300') || lower.includes('epistemic surprise') || lower.includes('high confidence error')) {
+    return 'Lesson 3.1 • Section 2: The Hypercorrection Effect & Epistemic Surprise';
+  }
+  if (lower.includes('hattie') || lower.includes('timperley') || lower.includes('feed-up') || lower.includes('feed-back') || lower.includes('feed-forward') || lower.includes('calibrated feedback')) {
+    return 'Lesson 3.1 • Section 3: The Architecture of Calibrated Feedback';
+  }
+  if (lower.includes('error-calibrated learning engine') || lower.includes('error engine') || lower.includes('error-calibrated')) {
+    return 'Lesson 3.1 • Error-Calibrated Learning Engine Diagram';
+  }
+  if (lower.includes('3.1') || lower.includes('prediction error journal') || lower.includes('calibrated error')) {
+    return 'Lesson 3.1 • Section 1: Reward Prediction Errors & Dopaminergic Plasticity';
+  }
 
   // Match Lesson 2.2 anchors
   if (lower.includes('ebbinghaus') || lower.includes('forgetting curve') || lower.includes('decay') || lower.includes('permastore') || lower.includes('savings method')) {
@@ -295,6 +324,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_3_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 3.1: "Calibrated Error Signals — Prediction Errors, Feedback Loops, and Self-Correction".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical science of prediction errors and feedback loops:
+     a) Reward Prediction Errors (RPE): Wolfram Schultz (1997) showed that midbrain dopamine neurons fire for delta = R_actual - V_expected. When outcomes match expectations (delta = 0), firing is flat. Bursts signal unexpected success, while dips signal negative surprise. Prediction error is the biological trigger of synaptic plasticity.
+     b) The Hypercorrection Effect: Butterfield & Metcalfe (2001, 2006) proved that errors committed with high subjective confidence are corrected significantly faster and more durably than hesitant errors. The massive epistemic surprise triggers an involuntary P300 attention surge that prioritizes corrective feedback.
+     c) Hattie & Timperley (2007) Feedback Triad: Effective feedback operates at the Task and Process levels across three vital questions: Where am I going? (Feed-up), How am I doing? (Feed-back), and Where to next? (Feed-forward). Person-level praise ("Good job!", "You're smart!") directs attention to self-preservation and carries near-zero learning effect (d = 0.12).
+     d) Pre-Commitment Hypothesis: Forcing learners to commit an explicit prediction before viewing results generates the cognitive prediction error necessary to update schemas.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to prediction errors, hypercorrection, and feedback loops.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -307,6 +361,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'spaced-repetition-scheduling') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_2_2;
+  }
+  if (lessonId === 'calibrated-error-signals') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_3_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -332,6 +389,10 @@ export const KNOWN_CONCEPTS = [
   'concept:ebbinghaus_forgetting_curve',
   'concept:spaced_scheduling_stability_expansion',
   'concept:optimal_retention_lag_ratio',
+  // Lesson 3.1 Concepts
+  'concept:reward_prediction_error_signaling',
+  'concept:hypercorrection_effect_high_confidence',
+  'concept:calibrated_feedback_triad',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -354,6 +415,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 2.2 Misconceptions
   'misconception:cramming_is_efficient_for_long_term',
   'misconception:linear_review_intervals',
+  // Lesson 3.1 Misconceptions
+  'misconception:errors_should_be_avoided_at_all_costs',
+  'misconception:immediate_praise_enhances_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
