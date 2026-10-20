@@ -34,6 +34,7 @@ import { LESSON_CONDITIONS_FOR_FAR_TRANSFER } from './lesson16_2Data.ts';
 import { LESSON_MEANS_END_WORKING_BACKWARD } from './lesson17_1Data.ts';
 import { LESSON_SUBGOAL_LABELING_SCAFFOLDING } from './lesson17_2Data.ts';
 import { LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION } from './lesson18_1Data.ts';
+import { LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY } from './lesson18_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -486,7 +487,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Confirmation Bias & Sunk Cost in Study Methods',
           subtitle: 'Abandoning familiar but empirically bankrupt learning rituals',
           readingTimeMinutes: 14,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1189,6 +1190,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_MEANS_END_WORKING_BACKWARD.id]: LESSON_MEANS_END_WORKING_BACKWARD,
   [LESSON_SUBGOAL_LABELING_SCAFFOLDING.id]: LESSON_SUBGOAL_LABELING_SCAFFOLDING,
   [LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION.id]: LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION,
+  [LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY.id]: LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY,
 };
 
 export function getLessonById(id: string): Lesson {

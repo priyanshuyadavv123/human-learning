@@ -433,6 +433,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:dunning_kruger_metacognitive_dual_burden',
     },
   },
+  'sunk-cost-study-biases': {
+    predictionConceptId: 'concept:wason_nickerson_confirmation_bias_study_rituals',
+    predictionMisconceptionId: 'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
+    quizConceptMapping: {
+      'q1-wason-nickerson-confirmation-bias-rituals': 'concept:wason_nickerson_confirmation_bias_study_rituals',
+      'q2-arkes-blumer-sunk-cost-learning-systems': 'concept:arkes_blumer_sunk_cost_learning_escalation',
+      'q3-festinger-cognitive-dissonance-learning-styles': 'concept:cognitive_dissonance_discrepancy_sunsetting',
+      'q4-annie-duke-kill-criteria-sunsetting': 'concept:cognitive_dissonance_discrepancy_sunsetting',
+      'q1': 'concept:wason_nickerson_confirmation_bias_study_rituals',
+      'q2': 'concept:arkes_blumer_sunk_cost_learning_escalation',
+      'q3': 'concept:cognitive_dissonance_discrepancy_sunsetting',
+      'q4': 'concept:cognitive_dissonance_discrepancy_sunsetting',
+    },
+  },
 };
 
 interface LearningContextType {

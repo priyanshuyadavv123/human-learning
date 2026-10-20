@@ -1044,6 +1044,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Before committing to your next technical decision, what are two specific, plausible mechanisms that could cause it to fail completely in production?',
     referencedSection: 'Lesson 18.1 • Section 3: Constructing Calibration Mirrors & Debiasing Protocols',
   },
+  // Lesson 18.2 Entries
+  {
+    keywords: ['nickerson', 'wason study rituals', 'confirmation bias in study', 'positive test strategy', 'highlighting myth', 'rereading myth', 'dunlosky utility'],
+    title: 'Wason & Nickerson: Confirmation Bias in Study Rituals',
+    summary: 'Learners adopt a positive test strategy, choosing passive rereading to feel fluent while avoiding diagnostic tests that expose ignorance.',
+    takeaway: 'Highlighting and rereading are rigged positive tests: they feel fluent but produce low utility (Dunlosky, 2013; Nickerson, 1998).',
+    detailedResponse: 'Peter Wason (1960) and Raymond Nickerson (1998) showed that Confirmation Bias leads students to adopt a "positive test strategy" in their learning habits. Students repeatedly re-read and highlight text because ease of processing provides immediate, satisfying feelings of fluency that confirm their competence belief. Conversely, students avoid closed-book retrieval testing because encountering errors falsifies their illusion of mastery. By mistaking visual familiarity for deep cognitive storage, learners insulate ineffective study rituals from reality.',
+    socraticChallenge: 'Why does closing your textbook and trying to write a summary from memory reveal far more about your actual knowledge than highlighting three paragraphs?',
+    referencedSection: 'Lesson 18.2 • Section 1: Wason & Nickerson: Confirmation Bias in Study Rituals',
+  },
+  {
+    keywords: ['arkes', 'blumer', 'sunk cost fallacy in study', 'sunk cost learning', 'waste aversion', 'escalation of commitment', 'notion notes trap'],
+    title: 'Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems',
+    summary: 'Unrecoverable past investments of time and effort compel learners to irrationally cling to bankrupt, low-utility study methods.',
+    takeaway: 'Past hours spent on ineffective study rituals are sunk costs: continuing them will never recover the past, only steal your future mastery (Arkes & Blumer, 1985).',
+    detailedResponse: 'Hal Arkes and Catherine Blumer (1985; Thaler, 1980) proved that humans irrationally escalate commitment to a failing strategy once an investment of time, money, or effort has been made. When a student spends 150 hours building elaborate, aesthetic color-coded summary notebooks, discovering that passive review has near-zero retention utility triggers acute waste aversion. Admitting the notes are ineffective feels like admitting 150 hours were wasted. Rather than writing off the sunk cost and switching to active retrieval, students double down on rereading to justify their prior sacrifice.',
+    socraticChallenge: 'If you had zero notes written today, what single study technique would you choose to master your subject in the shortest possible time?',
+    referencedSection: 'Lesson 18.2 • Section 2: Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems',
+  },
+  {
+    keywords: ['festinger', 'annie duke', 'kill criteria', 'habit sunsetting', 'cognitive dissonance in study', 'learning styles excuse', 'neuromyth defense'],
+    title: 'Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
+    summary: 'Pre-committed kill criteria neutralize motivated reasoning and cognitive dissonance, enabling clean pivots away from bankrupt study habits.',
+    takeaway: 'Set pre-committed kill criteria: decide the objective failure threshold and deadline in advance to sunset bankrupt study habits without emotional debt (Annie Duke, 2022).',
+    detailedResponse: 'Leon Festinger’s (1957) Cognitive Dissonance Theory explains that when scientific evidence challenges a cherished study habit, learners experience acute psychological discomfort. To reduce dissonance without changing behavior, they rationalize: "Science says highlighting is ineffective, but it works for my personal visual learning style!" (Pashler et al., 2008). To break through this motivated reasoning, Annie Duke (2022) in Quit recommends Pre-Committed Kill Criteria. By establishing objective performance thresholds in advance (e.g., if diagnostic test score < 75% by Day 14, terminate the method), learners execute clean, unemotional pivots to high-utility learning systems.',
+    socraticChallenge: 'What objective score threshold and deadline can you set right now to decide whether your current study workflow is truly working?',
+    referencedSection: 'Lesson 18.2 • Section 3: Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

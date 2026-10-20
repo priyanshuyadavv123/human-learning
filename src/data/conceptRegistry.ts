@@ -1642,6 +1642,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:high_confidence_indicates_high_accuracy',
     discrepancyPrompt: 'Previously you may have assumed that self-reflection alone can correct overconfidence. Why does Tetlock’s calibration mirror prove that without quantitative tracking of confidence against objective outcomes, your brain remains trapped in confirmation bias?',
   },
+  'concept:wason_nickerson_confirmation_bias_study_rituals': {
+    conceptId: 'concept:wason_nickerson_confirmation_bias_study_rituals',
+    title: 'Wason & Nickerson: Confirmation Bias in Study Rituals',
+    prompt: 'How does Confirmation Bias (Wason, Nickerson) cause learners to perpetuate ineffective study habits like passive highlighting and rereading while actively avoiding diagnostic testing?',
+    keyCriteria: [
+      'Cites Peter Wason (1960) 2-4-6 hypothesis testing and Raymond Nickerson (1998) confirmation bias taxonomy',
+      'Explains positive test strategy: learners seek scenarios that confirm their perceived competence (rereading familiar passages, solving easy practice problems) while systematically avoiding falsification (closed-book retrieval)',
+      'Shows how ease of processing is conflated with evidence of learning',
+      'Explains how ambiguous feedback is interpreted as proof of mastery',
+    ],
+    canonicalAnswer: 'Peter Wason (1960) and Raymond Nickerson (1998) established that human hypothesis testing is fundamentally distorted by Confirmation Bias: people overwhelmingly seek evidence that supports their existing beliefs while actively avoiding or ignoring disconfirming data. In learning methodologies, students adopt a "positive test strategy": they re-read highlighted passages and solve familiar, unchallenging problems because these rituals yield immediate cognitive fluency and confirm their feeling of mastery. Conversely, they resist closed-book retrieval practice or difficult diagnostic pre-tests because encountering errors would falsify their competence hypothesis. By interpreting ease of processing as confirmatory proof of learning, students remain trapped in ineffective rituals.',
+    lessonSectionAnchor: 'Lesson 18.2 • Section 1: Wason & Nickerson: Confirmation Bias in Study Rituals',
+    relatedMisconception: 'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
+    discrepancyPrompt: 'Previously you may have believed that re-reading highlighted notes is effective because it feels fluent and satisfying. Why does Wason & Nickerson’s confirmation bias research prove that this fluency is simply a positive test strategy that shields you from discovering what you don’t know?',
+  },
+  'concept:arkes_blumer_sunk_cost_learning_escalation': {
+    conceptId: 'concept:arkes_blumer_sunk_cost_learning_escalation',
+    title: 'Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems',
+    prompt: 'What is the Sunk Cost Fallacy in skill acquisition, and how does it drive learners to escalate commitment to obsolete or bankrupt study methods?',
+    keyCriteria: [
+      'Cites Hal Arkes & Catherine Blumer (1985) and Richard Thaler (1980) on sunk costs',
+      'Explains the psychological mechanism: individuals commit additional resources to a failing course of action to justify past unrecoverable investments of time, money, or effort',
+      'Applies to learning systems: spending months building elaborate aesthetic Notion/GoodNotes databases, expensive flashcard decks, or proprietary course subscriptions prevents pivoting to evidence-based retrieval',
+      'Differentiates forward-looking utility from past sunk investments',
+    ],
+    canonicalAnswer: 'Hal Arkes and Catherine Blumer (1985; Thaler, 1980) demonstrated that humans display a powerful irrational tendency to continue an endeavor once an investment of money, effort, or time has been made—the Sunk Cost Fallacy. In educational practice, learners often invest dozens of hours crafting elaborate aesthetic color-coded summary notebooks, building thousands of low-utility digital flashcards, or paying thousands of dollars for certification courses. When cognitive science reveals that these methods have negligible long-term utility (Dunlosky et al., 2013), learners experience the psychological pain of "waste aversion." Rather than writing off the sunk time and switching to active retrieval and interleaved problem solving, they double down on the failing ritual to justify their prior sacrifice.',
+    lessonSectionAnchor: 'Lesson 18.2 • Section 2: Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems',
+    relatedMisconception: 'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
+    discrepancyPrompt: 'Previously you may have hesitated to discard a huge set of summary notes because of how many hours you spent making them. How does Arkes & Blumer’s sunk cost research prove that continuing to review low-utility notes wastes future time without recovering a single second of the past?',
+  },
+  'concept:cognitive_dissonance_discrepancy_sunsetting': {
+    conceptId: 'concept:cognitive_dissonance_discrepancy_sunsetting',
+    title: 'Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
+    prompt: 'How can learners overcome cognitive dissonance and motivated reasoning to systematically sunset bankrupt study habits using pre-committed kill criteria?',
+    keyCriteria: [
+      'Cites Leon Festinger (1957) Cognitive Dissonance and Annie Duke (2022) Quit pre-committed kill criteria',
+      'Explains motivated reasoning: when confronted with scientific proof that a cherished study ritual is ineffective, learners rationalize (e.g., "science doesn\'t apply to my visual learning style") to protect their self-image',
+      'Formulates the Discrepancy Sunsetting Protocol: setting objective performance kill criteria in advance (e.g., if retrieval test score < 75% after 2 weeks, sunset the method immediately)',
+      'Differentiates identity defense from rational epistemic updating',
+    ],
+    canonicalAnswer: 'Leon Festinger’s (1957) Cognitive Dissonance Theory reveals that when learners encounter empirical evidence contradicting their study rituals, they experience psychological distress. To resolve this tension without changing behavior, they engage in motivated reasoning—rationalizing that "empirical science doesn’t apply to me because of my unique learning style." To break this epistemic trap, learners must adopt Annie Duke’s (2022) Pre-Committed "Kill Criteria" and habit sunsetting protocols. Before beginning an intervention, the learner defines explicit, objective metrics (e.g. "If my delayed closed-book retrieval score is below 70% after 14 days, I will permanently sunset this note-taking ritual"). Pre-committing to kill criteria decouples method termination from identity threat, enabling friction-free epistemic updating.',
+    lessonSectionAnchor: 'Lesson 18.2 • Section 3: Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
+    relatedMisconception: 'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
+    discrepancyPrompt: 'Previously you may have excused your favorite study habit by telling yourself that you learn differently from everyone else. How does Festinger’s cognitive dissonance theory explain this rationalization as an ego-defense mechanism rather than a biological truth?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

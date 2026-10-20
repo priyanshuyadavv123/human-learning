@@ -148,6 +148,10 @@ export const KNOWN_CONCEPTS = [
   'concept:dunning_kruger_metacognitive_dual_burden',
   'concept:brier_score_epistemic_calibration_curve',
   'concept:objective_calibration_mirror_debiasing',
+  // Lesson 18.2 Concepts
+  'concept:wason_nickerson_confirmation_bias_study_rituals',
+  'concept:arkes_blumer_sunk_cost_learning_escalation',
+  'concept:cognitive_dissonance_discrepancy_sunsetting',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -263,6 +267,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 18.1 Misconceptions
   'misconception:high_confidence_indicates_high_accuracy',
   'misconception:dunning_kruger_only_affects_unintelligent_people',
+  // Lesson 18.2 Misconceptions
+  'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
+  'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

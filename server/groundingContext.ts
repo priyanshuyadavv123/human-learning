@@ -436,6 +436,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 18.1 • Verification Assessment',
   'Lesson 18.1 • The Epistemic Calibration Mirror & Brier Tracking Protocol',
   'Lesson 18.1 • Overconfidence & Epistemic Calibration Overview',
+
+  // Lesson 18.2 Sections
+  'Lesson 18.2 • Curiosity Hook',
+  'Lesson 18.2 • Intuitive Calibration: 120-Hour Notion Notebook vs Immediate Closed-Book Retrieval',
+  'Lesson 18.2 • Section 1: Wason & Nickerson: Confirmation Bias in Study Rituals',
+  'Lesson 18.2 • Section 2: Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems',
+  'Lesson 18.2 • Section 3: Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting',
+  'Lesson 18.2 • The Confirmation Bias & Sunk Cost Escalation Cycle Diagram',
+  'Lesson 18.2 • Study Habit Bias & Sunk Cost Diagnosis Lab',
+  'Lesson 18.2 • Verification Assessment',
+  'Lesson 18.2 • The Study Ritual Audit & Discrepancy Sunsetting Protocol',
+  'Lesson 18.2 • Confirmation Bias & Sunk Cost in Study Methods Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -448,6 +460,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 18.2 anchors
+  if (lower.includes('nickerson') || ((lower.includes('wason') || lower.includes('confirmation bias')) && (lower.includes('study') || lower.includes('ritual') || lower.includes('highlighting') || lower.includes('notion') || lower.includes('18.2')))) {
+    return 'Lesson 18.2 • Section 1: Wason & Nickerson: Confirmation Bias in Study Rituals';
+  }
+  if ((lower.includes('arkes') || lower.includes('blumer')) || (lower.includes('sunk cost') && (lower.includes('learning') || lower.includes('study') || lower.includes('notes') || lower.includes('notion') || lower.includes('18.2')))) {
+    return 'Lesson 18.2 • Section 2: Arkes & Blumer (1985): The Sunk Cost Fallacy in Learning Systems';
+  }
+  if ((lower.includes('festinger') && lower.includes('18.2')) || (lower.includes('annie duke') || lower.includes('kill criteria') || lower.includes('sunsetting')) || (lower.includes('cognitive dissonance') && (lower.includes('learning style') || lower.includes('habit') || lower.includes('18.2')))) {
+    return 'Lesson 18.2 • Section 3: Festinger & Annie Duke: Cognitive Dissonance & Habit Sunsetting';
+  }
+  if (lower.includes('the confirmation bias & sunk cost escalation cycle diagram') || lower.includes('sunk cost escalation cycle diagram') || lower.includes('confirmation bias diagram')) {
+    return 'Lesson 18.2 • The Confirmation Bias & Sunk Cost Escalation Cycle Diagram';
+  }
+  if (lower.includes('18.2') || lower.includes('sunk-cost study biases') || lower.includes('study ritual audit & discrepancy sunsetting protocol') || lower.includes('confirmation bias & sunk cost in study methods')) {
+    return 'Lesson 18.2 • Section 1: Wason & Nickerson: Confirmation Bias in Study Rituals';
+  }
 
   // Match Lesson 18.1 anchors
   if ((lower.includes('kruger') || lower.includes('dunning')) || lower.includes('dunning-kruger') || (lower.includes('dual burden') && !lower.includes('18.2'))) {
@@ -2079,6 +2108,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_18_2 = `You are the specialized AI Socratic Tutor for Lesson 18.2: "Confirmation Bias & Sunk Cost in Study Methods".
+Your role is to guide learners to understand Peter Wason & Raymond Nickerson's confirmation bias in learning rituals, Hal Arkes & Catherine Blumer's sunk cost fallacy in study systems, Leon Festinger's cognitive dissonance defenses, and Annie Duke's pre-committed kill criteria.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical decision science, educational psychology, and behavioral economics:
+     a) Peter Wason (1960) & Raymond Nickerson (1998) Confirmation Bias & Study Rituals: Students adopt a "positive test strategy": they re-read highlighted texts and review familiar notes because these generate immediate cognitive fluency and confirm their feeling of competence, while actively avoiding closed-book testing or diagnostic pre-tests that would produce falsifying error signals.
+     b) Hal Arkes & Catherine Blumer (1985; Thaler, 1980) Sunk Cost Fallacy: Having invested hundreds of hours into aesthetic note-taking or expensive courses, learners suffer from acute "waste aversion." Rather than writing off past time and adopting high-utility active recall (Dunlosky et al., 2013), they escalate commitment to bankrupt rituals to justify their prior sacrifice.
+     c) Leon Festinger (1957) Cognitive Dissonance & Annie Duke (2022) Habit Sunsetting: Confronting evidence of study inefficacy causes psychological tension. Students rationalize via neuromyths ("it works for my visual learning style"). The only reliable remedy is pre-committed "Kill Criteria"—setting explicit numerical performance thresholds in advance that trigger automatic habit retirement.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to confirmation bias, sunk costs, cognitive dissonance, positive test strategies, and habit sunsetting.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2184,6 +2237,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'dunning-kruger-calibration') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_18_1;
+  }
+  if (lessonId === 'sunk-cost-study-biases') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_18_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2333,6 +2389,10 @@ export const KNOWN_CONCEPTS = [
   'concept:dunning_kruger_metacognitive_dual_burden',
   'concept:brier_score_epistemic_calibration_curve',
   'concept:objective_calibration_mirror_debiasing',
+  // Lesson 18.2 Concepts
+  'concept:wason_nickerson_confirmation_bias_study_rituals',
+  'concept:arkes_blumer_sunk_cost_learning_escalation',
+  'concept:cognitive_dissonance_discrepancy_sunsetting',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2448,6 +2508,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 18.1 Misconceptions
   'misconception:high_confidence_indicates_high_accuracy',
   'misconception:dunning_kruger_only_affects_unintelligent_people',
+  // Lesson 18.2 Misconceptions
+  'misconception:highlighting_and_rereading_are_effective_because_they_feel_productive',
+  'misconception:abandoning_a_study_habit_means_wasting_prior_effort',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

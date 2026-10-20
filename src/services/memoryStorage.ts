@@ -265,6 +265,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'dunning-kruger-calibration';
     chapterId = 'ch-18-biases-epistemic';
+  } else if (
+    conceptId.startsWith('concept:wason_nickerson_') ||
+    conceptId.startsWith('concept:arkes_blumer_') ||
+    conceptId.startsWith('concept:cognitive_dissonance_')
+  ) {
+    lessonId = 'sunk-cost-study-biases';
+    chapterId = 'ch-18-biases-epistemic';
   }
 
   return {
