@@ -251,6 +251,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'means-end-working-backward';
     chapterId = 'ch-17-heuristics';
+  } else if (
+    conceptId.startsWith('concept:catrambone_subgoal_') ||
+    conceptId.startsWith('concept:margulieux_faded_') ||
+    conceptId.startsWith('concept:sweller_renkl_')
+  ) {
+    lessonId = 'subgoal-labeling-scaffolding';
+    chapterId = 'ch-17-heuristics';
   }
 
   return {

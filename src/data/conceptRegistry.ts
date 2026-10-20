@@ -1552,6 +1552,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:forward_trial_and_error_is_most_natural_and_efficient',
     discrepancyPrompt: 'Previously you may have tried to juggle multiple nested sub-tasks in your head, only to realize you had forgotten why you started the sub-task in the first place. How does Koechlin’s discovery of frontopolar cognitive branching explain this executive stack overflow?',
   },
+  'concept:catrambone_subgoal_labeling_schema': {
+    conceptId: 'concept:catrambone_subgoal_labeling_schema',
+    title: 'Richard Catrambone (1995, 1998): Sub-Goal Labeling in Example-Based Learning',
+    prompt: 'How does Richard Catrambone’s Sub-Goal Learning Model alter how novices process worked examples, and why does it significantly improve novel problem solving (transfer)?',
+    keyCriteria: [
+      'Cites Richard Catrambone (1995, 1996, 1998) Sub-Goal Learning Model',
+      'Explains that novices naturally encode worked examples as linear, disconnected algorithmic steps without functional organization',
+      'Explains that explicit sub-goal labels visually and semantically group steps into functional cognitive chunks',
+      'Demonstrates that sub-goal labels shift attention from superficial surface syntax to underlying conceptual schemas, enabling successful transfer to problems with novel surface features',
+    ],
+    canonicalAnswer: 'Richard Catrambone (1995, 1996, 1998) demonstrated that when novices study conventional worked examples, they tend to memorize linear, superficial sequences of calculation steps rather than grasping the overarching functional architecture. When encountering a novel problem that alters surface features, their rote sequence collapses. Catrambone’s Sub-Goal Learning Model proved that providing explicit, visually distinct functional labels for clusters of steps (e.g. "Calculate total resistance", "Isolate unknown variable") forces learners to chunk tactical steps into coherent cognitive units. This functional organization forms deep hierarchical schemas in long-term memory, dramatically accelerating novel problem solving and transfer performance.',
+    lessonSectionAnchor: 'Lesson 17.2 • Section 1: Catrambone’s Sub-Goal Learning Model: Chunking Action Sequences',
+    relatedMisconception: 'misconception:linear_step_memorization_equals_problem_solving',
+    discrepancyPrompt: 'Previously you may have believed that following step-by-step tutorial instructions linearly is sufficient to master a skill. Why does Catrambone’s sub-goal research prove that without functional sub-goal labels, learners fail when tested on novel variations?',
+  },
+  'concept:margulieux_faded_subgoal_scaffolding': {
+    conceptId: 'concept:margulieux_faded_subgoal_scaffolding',
+    title: 'Lauren Margulieux (2016, 2019): Subgoal-Labeled Instructional Scaffolding',
+    prompt: 'How does Lauren Margulieux’s research on subgoal-labeled instructional text and audio-visual scaffolding improve performance and transfer in technical domains like programming and STEM?',
+    keyCriteria: [
+      'Cites Lauren Margulieux et al. (2012, 2016, 2019) research on subgoal-labeled instructional materials',
+      'Explains the cognitive mechanism: subgoals serve as mental landmarks or cognitive signposts that reduce extraneous cognitive load during task execution',
+      'Shows that learners using subgoal labels spend less time stuck in disorientation, construct better mental models, and perform significantly higher on novel transfer tasks',
+      'Discusses cross-domain applicability in computer programming, engineering, mathematics, and app design',
+    ],
+    canonicalAnswer: 'Lauren Margulieux and colleagues (2012, 2016, 2019) demonstrated across extensive empirical trials in computer science and STEM education that subgoal labels serve as critical cognitive signposts during complex procedural learning. Technical tutorials often overwhelm novice working memory with syntactic and procedural minutiae. By structuring instructions around functional subgoals (e.g., "Set up data structures", "Process inputs conditionally", "Output formatted response"), learners develop a modular mental representation. Margulieux showed that learners exposed to subgoal-labeled materials solve novel programming and engineering problems with significantly fewer errors, reduced extraneous cognitive load, and greater independence than those given identical step-by-step instructions without subgoal framing.',
+    lessonSectionAnchor: 'Lesson 17.2 • Section 2: Margulieux et al.: Subgoal Labeling Across Technical Domains & Coding',
+    relatedMisconception: 'misconception:unassisted_discovery_surpasses_scaffolded_examples',
+    discrepancyPrompt: 'Previously you may have thought that detailed line-by-line coding tutorials are clear enough for novices. Why does Margulieux’s empirical research show that learners get lost in syntax unless explicit functional subgoal labels guide their mental chunking?',
+  },
+  'concept:sweller_renkl_worked_example_fading': {
+    conceptId: 'concept:sweller_renkl_worked_example_fading',
+    title: 'Sweller, Renkl & Atkinson (2002): Backward Fading & Cognitive Load Scaffolding',
+    prompt: 'How does the Backward Fading paradigm (Renkl, Atkinson, Sweller) transition learners from fully worked examples to unassisted problem solving without triggering cognitive overload?',
+    keyCriteria: [
+      'Cites John Sweller (Cognitive Load Theory) and Alexander Renkl & Robert Atkinson (2002) Fading Worked Examples',
+      'Explains the progression: full worked example -> completion problems with backward fading (last step faded first) -> fully independent problem solving',
+      'Explains the expertise reversal effect: advanced learners suffer cognitive load from heavy scaffolding, but novices suffer working memory collapse from unguided problem solving',
+      'Demonstrates that backward fading leverages the "working backward" principle by anchoring novices to the goal state while they complete the penultimate step',
+    ],
+    canonicalAnswer: 'Alexander Renkl, Robert Atkinson, and John Sweller (2002) developed the "Fading" paradigm to bridge the gap between studying worked examples and autonomous problem solving. Novices face a dilemma: while unguided problem solving overloads working memory with means-ends search, passive worked examples can induce superficial reading. In backward fading, students begin with a complete, fully worked example with subgoal labels. In the next problem, the final subgoal step is "faded" (left for the student to solve). In subsequent problems, successive prior subgoals are faded until the student generates the complete solution from scratch. Because the learner begins by completing the final sub-goal nearest the destination, intrinsic cognitive load remains manageable, schemas are incrementally internalized, and the expertise reversal effect is gracefully managed.',
+    lessonSectionAnchor: 'Lesson 17.2 • Section 3: Renkl & Atkinson (2002): The Backward Fading Scaffolding Architecture',
+    relatedMisconception: 'misconception:unassisted_discovery_surpasses_scaffolded_examples',
+    discrepancyPrompt: 'Previously you may have believed that the quickest way to learn complex problem solving is to dive directly into blank-slate practice problems. How does Renkl & Atkinson’s backward fading paradigm demonstrate that incrementally withdrawing sub-goal support preserves working memory while ensuring deep schema construction?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

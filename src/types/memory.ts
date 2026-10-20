@@ -140,6 +140,10 @@ export const KNOWN_CONCEPTS = [
   'concept:newell_simon_means_ends_analysis_problem_space',
   'concept:polya_working_backward_regressus_heuristic',
   'concept:frontopolar_cortex_ba10_subgoal_branching',
+  // Lesson 17.2 Concepts
+  'concept:catrambone_subgoal_labeling_schema',
+  'concept:margulieux_faded_subgoal_scaffolding',
+  'concept:sweller_renkl_worked_example_fading',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -249,6 +253,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 17.1 Misconceptions
   'misconception:forward_trial_and_error_is_most_natural_and_efficient',
   'misconception:hill_climbing_always_leads_to_global_optimum',
+  // Lesson 17.2 Misconceptions
+  'misconception:linear_step_memorization_equals_problem_solving',
+  'misconception:unassisted_discovery_surpasses_scaffolded_examples',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

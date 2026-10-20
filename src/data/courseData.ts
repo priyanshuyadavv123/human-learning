@@ -32,6 +32,7 @@ import { LESSON_PREMORTEM_ERROR_JOURNALING } from './lesson15_2Data.ts';
 import { LESSON_SPECIFICITY_OF_TRANSFER } from './lesson16_1Data.ts';
 import { LESSON_CONDITIONS_FOR_FAR_TRANSFER } from './lesson16_2Data.ts';
 import { LESSON_MEANS_END_WORKING_BACKWARD } from './lesson17_1Data.ts';
+import { LESSON_SUBGOAL_LABELING_SCAFFOLDING } from './lesson17_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -460,7 +461,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Sub-Goal Labeling & Scaffolding',
           subtitle: 'Breaking complex problems into independently solvable cognitive chunks',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1185,6 +1186,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_SPECIFICITY_OF_TRANSFER.id]: LESSON_SPECIFICITY_OF_TRANSFER,
   [LESSON_CONDITIONS_FOR_FAR_TRANSFER.id]: LESSON_CONDITIONS_FOR_FAR_TRANSFER,
   [LESSON_MEANS_END_WORKING_BACKWARD.id]: LESSON_MEANS_END_WORKING_BACKWARD,
+  [LESSON_SUBGOAL_LABELING_SCAFFOLDING.id]: LESSON_SUBGOAL_LABELING_SCAFFOLDING,
 };
 
 export function getLessonById(id: string): Lesson {

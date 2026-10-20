@@ -988,6 +988,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why does writing your project sub-goals down on an external board prevent executive stack overflow and brain fog?',
     referencedSection: 'Lesson 17.1 • Section 3: The Neurobiology of Sub-Goaling & Frontopolar Cortex (BA 10)',
   },
+  // Lesson 17.2 Entries
+  {
+    keywords: ['catrambone', 'subgoal learning model', 'sub-goal learning model', 'subgoal labels', 'sub-goal labels', 'worked examples', 'action sequences', 'tutorial paralysis'],
+    title: 'Richard Catrambone (1995, 1998): The Sub-Goal Learning Model',
+    summary: 'Novices memorize brittle linear step sequences; explicit sub-goal labels chunk tactical operations into modular functional schemas.',
+    takeaway: 'Sub-goal labels group tactical steps into functional cognitive chunks, flipping novice novel transfer from 20% to over 70% (Catrambone, 1998).',
+    detailedResponse: 'Richard Catrambone (1995, 1998) showed that conventional worked examples fail in transfer because novices process them as arbitrary linear commands ($Step_1 \\rightarrow Step_2 \\dots$). Saturated working memory cannot spontaneously induce underlying functional intent. Providing explicit, meaningful Sub-Goal Labels forces working memory to chunk 2-4 tactical operations into a single functional unit. This stimulates elaborative self-explanation, builds a hierarchical problem space in long-term memory, and enables successful adaptation when novel surface problems alter tactical parameters.',
+    socraticChallenge: 'How does giving a functional name to a group of code lines prevent you from memorizing fragile syntax without understanding?',
+    referencedSection: 'Lesson 17.2 • Section 1: Catrambone’s Sub-Goal Learning Model: Chunking Action Sequences',
+  },
+  {
+    keywords: ['margulieux', 'subgoal labeling in stem', 'programming subgoals', 'coding tutorials', 'disorientation', 'extraneous load', 'nasa-tlx', 'guzdial'],
+    title: 'Lauren Margulieux (2016, 2019): Subgoal Labeling in Technical & STEM Domains',
+    summary: 'In software engineering and STEM education, subgoal labels act as structural landmarks, suppressing cognitive load and boosting transfer.',
+    takeaway: 'In dense coding and engineering tutorials, subgoal labels act as cognitive landmarks that cut disorientation and boost transfer by +30%–50% (Margulieux, 2016).',
+    detailedResponse: 'Lauren Margulieux, Richard Catrambone, and Mark Guzdial (2012, 2016, 2019) demonstrated across computer programming and engineering courses that subgoal labels solve the crisis of syntactic overload. Novices reading code are easily overwhelmed by variable definitions, syntax rules, and APIs. Structuring tutorials around functional sub-goals (e.g., "Define Data Contracts", "Manage Async Stream", "Update UI State") liberates germane cognitive bandwidth. Learners with subgoal labels experience significantly lower extraneous load (measured via NASA-TLX/Paas scales), spend less time disoriented, and score substantially higher on novel transfer tasks.',
+    socraticChallenge: 'When learning a new programming language or tool, how can you organize your notes around functional sub-goals rather than language syntax?',
+    referencedSection: 'Lesson 17.2 • Section 2: Margulieux et al.: Subgoal Labeling Across Technical Domains & Coding',
+  },
+  {
+    keywords: ['renkl', 'atkinson', 'backward fading', 'faded worked examples', 'scaffolding fading', 'completion problems', 'expertise reversal effect', 'sweller fading'],
+    title: 'Renkl & Atkinson (2002): The Backward Fading Architecture',
+    summary: 'Progressively fading worked examples starting from the final sub-goal preserves cognitive bandwidth while transitioning learners to autonomy.',
+    takeaway: 'Backward fading anchors novices to the goal state by having them generate the final sub-goal first, bridging examples to autonomy without cognitive overload (Renkl & Atkinson, 2002).',
+    detailedResponse: 'Alexander Renkl, Robert Atkinson, and John Sweller (2002) engineered the Backward Fading paradigm to solve the novice-to-expert transition problem. Novices cannot handle unguided problem solving due to working memory limits, but passive worked examples become counter-productive for intermediate learners (the Expertise Reversal Effect, Kalyuga et al., 2003). In backward fading, students study a complete worked example, and in the next problem are tasked with generating only the final sub-goal (nearest the goal state). Subsequent problems fade the penultimate sub-goal, then the first, until the student generates the complete solution unassisted. This maintains proximity to the goal and shields working memory from search uncertainty.',
+    socraticChallenge: 'Why does generating the final step of a complex project first build more confidence than starting from a terrifying blank screen?',
+    referencedSection: 'Lesson 17.2 • Section 3: Renkl & Atkinson (2002): The Backward Fading Scaffolding Architecture',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

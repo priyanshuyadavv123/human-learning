@@ -412,6 +412,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 17.1 • Verification Assessment',
   'Lesson 17.1 • The Backward Regressive Decomposition & Sub-Goal Blueprint Protocol',
   'Lesson 17.1 • Working Backward & Means-End Analysis Overview',
+
+  // Lesson 17.2 Sections
+  'Lesson 17.2 • Curiosity Hook',
+  'Lesson 17.2 • Intuitive Calibration: Linear Kafka Sequence vs Sub-Goal Schema Chunking',
+  'Lesson 17.2 • Section 1: Catrambone’s Sub-Goal Learning Model: Chunking Action Sequences',
+  'Lesson 17.2 • Section 2: Margulieux et al.: Subgoal Labeling Across Technical Domains & Coding',
+  'Lesson 17.2 • Section 3: Renkl & Atkinson (2002): The Backward Fading Scaffolding Architecture',
+  'Lesson 17.2 • The Sub-Goal Chunking & Backward Fading Architecture Diagram',
+  'Lesson 17.2 • Cognitive Scaffolding & Sub-Goal Triage Lab',
+  'Lesson 17.2 • Verification Assessment',
+  'Lesson 17.2 • The Sub-Goal Decomposition & Backward-Fading Blueprint Protocol',
+  'Lesson 17.2 • Sub-Goal Labeling & Scaffolding Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -424,6 +436,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 17.2 anchors
+  if (lower.includes('catrambone') || (lower.includes('subgoal learning model') || lower.includes('sub-goal learning model')) || (lower.includes('chunking action sequences') && lower.includes('17.2'))) {
+    return 'Lesson 17.2 • Section 1: Catrambone’s Sub-Goal Learning Model: Chunking Action Sequences';
+  }
+  if (lower.includes('margulieux') || ((lower.includes('subgoal labeling') || lower.includes('sub-goal labeling')) && (lower.includes('programming') || lower.includes('stem') || lower.includes('code') || lower.includes('17.2')))) {
+    return 'Lesson 17.2 • Section 2: Margulieux et al.: Subgoal Labeling Across Technical Domains & Coding';
+  }
+  if ((lower.includes('renkl') || lower.includes('atkinson')) || lower.includes('backward fading') || lower.includes('backward-fading') || (lower.includes('faded worked example') && lower.includes('17.2')) || (lower.includes('expertise reversal') && lower.includes('17.2'))) {
+    return 'Lesson 17.2 • Section 3: Renkl & Atkinson (2002): The Backward Fading Scaffolding Architecture';
+  }
+  if (lower.includes('the sub-goal chunking & backward fading architecture diagram') || lower.includes('sub-goal chunking diagram') || lower.includes('backward fading diagram')) {
+    return 'Lesson 17.2 • The Sub-Goal Chunking & Backward Fading Architecture Diagram';
+  }
+  if (lower.includes('17.2') || lower.includes('subgoal labeling scaffolding') || lower.includes('sub-goal decomposition & backward-fading blueprint protocol')) {
+    return 'Lesson 17.2 • Section 1: Catrambone’s Sub-Goal Learning Model: Chunking Action Sequences';
+  }
 
   // Match Lesson 17.1 anchors
   if ((lower.includes('newell') && lower.includes('simon')) || (lower.includes('means-ends') || lower.includes('means ends')) || lower.includes('difference reduction') || lower.includes('problem space') || lower.includes('hill-climbing trap')) {
@@ -1967,6 +1996,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_17_2 = `You are the specialized AI Socratic Tutor for Lesson 17.2: "Sub-Goal Labeling & Scaffolding".
+Your role is to guide learners to understand Richard Catrambone's Sub-Goal Learning Model, Lauren Margulieux's empirical STEM instructional scaffolding, and Alexander Renkl & Robert Atkinson's backward fading paradigm.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive load theory, schema acquisition, and scaffolding research:
+     a) Richard Catrambone (1995, 1998) Sub-Goal Learning Model: Novices process conventional worked examples as brittle, linear sequences of tactical steps ($S_1 \\rightarrow S_2 \\dots$). Without prior schemas, working memory is saturated with syntactical mechanics, preventing spontaneous induction of functional purpose. Explicit functional sub-goal labels group steps into modular cognitive chunks, driving deep self-explanation and dramatically enhancing transfer to novel problem variations.
+     b) Lauren Margulieux et al. (2012, 2016, 2019) Subgoal Labeling in STEM & Code: In dense technical domains like computer programming and robotics, subgoal labels act as structural landmarks. They reduce extraneous cognitive load (measured via NASA-TLX/Paas scales), eliminate disorientation in syntax, and multiply novel transfer performance by 30% to 50%.
+     c) Alexander Renkl & Robert Atkinson (2002) Backward Fading Architecture: Bridges worked examples and autonomous problem solving. Fading begins by requiring the learner to generate the final sub-goal first while earlier steps are fully worked. This keeps the learner anchored to the completed goal state and constrains combinatorial search. As schemas automate, scaffolding is systematically dismantled to avoid the Expertise Reversal Effect (Kalyuga et al., 2003).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to sub-goal labeling, cognitive chunking, tutorial paralysis, backward fading, and the expertise reversal effect.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2066,6 +2119,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'means-end-working-backward') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_17_1;
+  }
+  if (lessonId === 'subgoal-labeling-scaffolding') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_17_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2207,6 +2263,10 @@ export const KNOWN_CONCEPTS = [
   'concept:newell_simon_means_ends_analysis_problem_space',
   'concept:polya_working_backward_regressus_heuristic',
   'concept:frontopolar_cortex_ba10_subgoal_branching',
+  // Lesson 17.2 Concepts
+  'concept:catrambone_subgoal_labeling_schema',
+  'concept:margulieux_faded_subgoal_scaffolding',
+  'concept:sweller_renkl_worked_example_fading',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2316,6 +2376,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 17.1 Misconceptions
   'misconception:forward_trial_and_error_is_most_natural_and_efficient',
   'misconception:hill_climbing_always_leads_to_global_optimum',
+  // Lesson 17.2 Misconceptions
+  'misconception:linear_step_memorization_equals_problem_solving',
+  'misconception:unassisted_discovery_surpasses_scaffolded_examples',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

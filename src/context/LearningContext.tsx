@@ -405,6 +405,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:frontopolar_cortex_ba10_subgoal_branching',
     },
   },
+  'subgoal-labeling-scaffolding': {
+    predictionConceptId: 'concept:catrambone_subgoal_labeling_schema',
+    predictionMisconceptionId: 'misconception:linear_step_memorization_equals_problem_solving',
+    quizConceptMapping: {
+      'q1-catrambone-subgoal-learning-model': 'concept:catrambone_subgoal_labeling_schema',
+      'q2-margulieux-subgoal-scaffolding-stem': 'concept:margulieux_faded_subgoal_scaffolding',
+      'q3-sweller-renkl-backward-fading-architecture': 'concept:sweller_renkl_worked_example_fading',
+      'q4-expertise-reversal-and-scaffolding-fade': 'concept:sweller_renkl_worked_example_fading',
+      'q1': 'concept:catrambone_subgoal_labeling_schema',
+      'q2': 'concept:margulieux_faded_subgoal_scaffolding',
+      'q3': 'concept:sweller_renkl_worked_example_fading',
+      'q4': 'concept:sweller_renkl_worked_example_fading',
+    },
+  },
 };
 
 interface LearningContextType {
