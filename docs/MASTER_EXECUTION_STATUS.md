@@ -43,7 +43,9 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Chapter 7 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 7.1, 7.2)
   - **PART 2 TOTAL STATUS (Chapters 5–7, 6 Lessons Total):** 100% COMPLETE & ACCEPTED!
   - **Stage 4.17 (Lesson 8.1 The Mechanics of Chunking):** ACCEPTED (15/15 quality standard, 264/264 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
-  - **Stage 4.18 (Chapter 8, Lesson 8.2 Hierarchical Knowledge Representation):** NEXT MILESTONE
+  - **Stage 4.18 (Lesson 8.2 Hierarchical Knowledge Representation):** ACCEPTED (15/15 quality standard, 278/278 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Chapter 8 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 8.1, 8.2)
+  - **Stage 4.19 (Chapter 9, Lesson 9.1 Structure-Mapping & Analogical Transfer):** NEXT MILESTONE
 
 ---
 
@@ -79,15 +81,15 @@ Every chapter is classified strictly by actual code implementation:
 ### Part 2: Memory Consolidation, Sleep & Neural Plasticity (Chapters 5–7)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **ch-5-consolidation** | **5. Synaptic & Systems Consolidation** | 5.1 Long-Term Potentiation & Synaptic Plasticity<br>5.2 Hippocampal-Neocortical Dialogue | Hebbian plasticity, Bliss & Lømo (1973), NMDA coincidence detector (Mg²⁺ plug, Ca²⁺ influx, CaMKII activation), Early-LTP vs Late-LTP, nuclear CREB activation, Frey & Morris synaptic tagging, structural mushroom spine enlargement. | **IN PROGRESS** (5.1 ACCEPTED, 5.2 NEXT) |
-| **ch-6-sleep-replay** | **6. Sleep, Replay & Offline Learning** | 6.1 Slow-Wave Sleep & Neural Replay<br>6.2 Targeted Memory Reactivation & Rest Cycles | Hippocampal sharp-wave ripples, sleep-dependent consolidation, rest intervals. | **PLANNED** |
-| **ch-7-interference-reconsolidation** | **7. Forgetting, Interference & Memory Reconsolidation** | 7.1 Proactive and Retroactive Interference<br>7.2 Memory Reconsolidation & Updating | Cue-overload, active suppression vs decay, destabilization upon retrieval. | **PLANNED** |
+| **ch-5-consolidation** | **5. Synaptic & Systems Consolidation** | 5.1 Long-Term Potentiation & Synaptic Plasticity<br>5.2 Hippocampal-Neocortical Dialogue | Hebbian plasticity, Bliss & Lømo (1973), NMDA coincidence detector (Mg²⁺ plug, Ca²⁺ influx, CaMKII activation), Early-LTP vs Late-LTP, nuclear CREB activation, Frey & Morris synaptic tagging, structural mushroom spine enlargement. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-6-sleep-replay** | **6. Sleep, Replay & Offline Learning** | 6.1 Slow-Wave Sleep & Neural Replay<br>6.2 Targeted Memory Reactivation & Rest Cycles | Hippocampal sharp-wave ripples, sleep-dependent consolidation, rest intervals. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-7-interference-reconsolidation** | **7. Forgetting, Interference & Memory Reconsolidation** | 7.1 Proactive and Retroactive Interference<br>7.2 Memory Reconsolidation & Updating | Cue-overload, active suppression vs decay, destabilization upon retrieval. | **ACCEPTED** (2/2 Lessons Complete) |
 
 ### Part 3: Schema Construction, Mental Models & Concept Formation (Chapters 8–11)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **ch-8-chunking-schemas** | **8. Schema Induction & Chunking** | 8.1 The Mechanics of Chunking<br>8.2 Hierarchical Knowledge Representation | Working memory chunk expansion, semantic hierarchies, cognitive economy. | **PLANNED** |
-| **ch-9-analogy-bridging** | **9. Analogy, Metaphor & Conceptual Bridging** | 9.1 Structure-Mapping & Analogical Transfer<br>9.2 Abstraction Ladders | Surface feature distraction, relational mapping, isomorphic problem solving. | **PLANNED** |
+| **ch-8-chunking-schemas** | **8. Schema Induction & Chunking** | 8.1 The Mechanics of Chunking<br>8.2 Hierarchical Knowledge Representation | Working memory chunk expansion, semantic hierarchies, cognitive economy, basic-level categories, deep-structure problem representation. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-9-analogy-bridging** | **9. Analogy, Metaphor & Conceptual Bridging** | 9.1 Structure-Mapping & Analogical Transfer<br>9.2 Abstraction Ladders | Surface feature distraction, relational mapping, isomorphic problem solving. | **IN PROGRESS** (9.1 NEXT) |
 | **ch-10-dual-coding** | **10. Dual Coding & Multimodal Representation** | 10.1 Paivio's Dual Coding Theory<br>10.2 Spatial and Diagrammatic Thinking | Non-verbal and verbal cognitive systems, diagrammatic reasoning, multimedia effect. | **PLANNED** |
 | **ch-11-categorization** | **11. Categorization & Dimensional Analysis** | 11.1 Prototypes vs Exemplars<br>11.2 Feature Isolation & Boundary Cases | Exemplar-based inference, boundary testing, categorical perception. | **PLANNED** |
 

@@ -125,6 +125,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'chunking-mechanics';
     chapterId = 'ch-8-chunking-schemas';
+  } else if (
+    conceptId.startsWith('concept:collins_quillian_') ||
+    conceptId.startsWith('concept:rosch_basic_') ||
+    conceptId.startsWith('concept:chi_expert_')
+  ) {
+    lessonId = 'hierarchical-knowledge-representation';
+    chapterId = 'ch-8-chunking-schemas';
   }
 
   return {

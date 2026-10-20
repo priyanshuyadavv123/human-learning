@@ -14,6 +14,7 @@ import { LESSON_TARGETED_MEMORY_REACTIVATION } from './lesson6_2Data.ts';
 import { LESSON_INTERFERENCE_FORGETTING } from './lesson7_1Data.ts';
 import { LESSON_RECONSOLIDATION_UPDATING } from './lesson7_2Data.ts';
 import { LESSON_CHUNKING_MECHANICS } from './lesson8_1Data.ts';
+import { LESSON_HIERARCHICAL_KNOWLEDGE } from './lesson8_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -222,7 +223,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Hierarchical Knowledge Representation',
           subtitle: 'Building trees, graphs, and ontological maps of domain concepts',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1149,6 +1150,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_INTERFERENCE_FORGETTING.id]: LESSON_INTERFERENCE_FORGETTING,
   [LESSON_RECONSOLIDATION_UPDATING.id]: LESSON_RECONSOLIDATION_UPDATING,
   [LESSON_CHUNKING_MECHANICS.id]: LESSON_CHUNKING_MECHANICS,
+  [LESSON_HIERARCHICAL_KNOWLEDGE.id]: LESSON_HIERARCHICAL_KNOWLEDGE,
 };
 
 export function getLessonById(id: string): Lesson {

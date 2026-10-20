@@ -495,6 +495,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you deliberately build externalized retrieval structures to protect your cognitive context from constant workplace interruptions?',
     referencedSection: 'Lesson 8.1 • Section 3: Ericsson & Kintsch: Long-Term Working Memory (LTWM)',
   },
+  {
+    keywords: ['collins', 'quillian', 'cognitive economy', 'hierarchical network', 'canary', 'semantic network', 'inheritance', 'spreading activation', 'loftus'],
+    title: 'Collins & Quillian: Hierarchical Network Model & Cognitive Economy',
+    summary: 'Semantic memory organizes concepts into inheritance trees where shared properties are stored at the highest subsuming category node to optimize biological storage.',
+    takeaway: 'Cognitive economy minimizes neural storage by storing attributes at superordinate nodes, requiring hierarchical tree traversal during verification.',
+    detailedResponse: 'Allan Collins and Ross Quillian (1969) proved that concepts in semantic memory are stored in an ontological inheritance hierarchy. Governed by cognitive economy, properties are placed at the highest applicable category node (e.g. "breathes" at animal, "flies" at bird, "can sing" at canary) rather than duplicated at every instance. Verification reaction times increase linearly with the number of hierarchical levels traversed. When typicality effects revealed network nuances, Collins and Loftus (1975) introduced Spreading Activation Theory along weighted associative pathways.',
+    socraticChallenge: 'When you organize a new domain, do you store duplicated facts or establish inheritance hierarchies anchored by superordinate principles?',
+    referencedSection: 'Lesson 8.2 • Section 1: Collins & Quillian: Hierarchical Network Model & Cognitive Economy',
+  },
+  {
+    keywords: ['rosch', 'basic level', 'basic-level', 'prototype', 'superordinate', 'subordinate', 'tanaka', 'taylor', 'cue validity', 'category default'],
+    title: 'Eleanor Rosch: Basic-Level Categories & The Cognitive Default',
+    summary: 'The basic level of categorization provides the optimal cognitive trade-off between distinctiveness and informativeness, though expertise shifts this default downward.',
+    takeaway: 'Basic-level concepts maximize cue validity with minimal processing effort; domain expertise transforms subordinate nuances into effortless basic-level defaults.',
+    detailedResponse: 'Eleanor Rosch (1976) demonstrated that categories exist across superordinate, basic, and subordinate levels. The basic level (e.g., guitar, dog, table) is cognitively privileged: it maximizes cue validity and shared physical shape while requiring minimal cognitive effort. Adults name objects fastest at the basic level, and children learn basic words first. However, Tanaka and Taylor (1991) proved that domain experts exhibit a downward basic-level shift: expert birdwatchers or dog judges categorize subordinate specimens as quickly as non-experts identify basic-level animals.',
+    socraticChallenge: 'In your primary domain of expertise, what subordinate concepts have become so automatic that you perceive them with basic-level immediacy?',
+    referencedSection: 'Lesson 8.2 • Section 2: Eleanor Rosch: Basic-Level Categories & The Cognitive Default',
+  },
+  {
+    keywords: ['chi', 'feltovich', 'glaser', 'deep structure', 'surface feature', 'physics problem', 'problem categorization', 'production rules'],
+    title: 'Michelene Chi: Deep Structure vs Surface Features in Problem Representation',
+    summary: 'Novices classify problems by superficial objects and keywords, whereas experts classify problems by governing fundamental laws containing procedural action rules.',
+    takeaway: 'Expert schemas organize around deep governing principles embedded with production rules, making problem triage immune to misleading surface features.',
+    detailedResponse: 'Michelene Chi, Paul Feltovich, and Robert Glaser (1981) demonstrated that novices classify problems based on surface features (e.g., pulleys, inclined planes, text keywords), whereas experts categorize by deep physical principles (e.g., Conservation of Energy, Newton\'s Second Law). Expert schemas are not passive labels; they contain embedded production rules (condition-action pairings) that immediately dictate forward-directed solution paths and prevent cognitive entrapment by superficial cues.',
+    socraticChallenge: 'When encountering an unfamiliar technical error, do you triage by superficial symptom keywords or by fundamental systems invariants?',
+    referencedSection: 'Lesson 8.2 • Section 3: Michelene Chi: Deep Structure vs Surface Features in Problem Representation',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

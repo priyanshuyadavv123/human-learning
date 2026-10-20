@@ -193,6 +193,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-ericsson-ltwm-interruption-resilience': 'concept:long_term_working_memory_retrieval_structures',
     },
   },
+  'hierarchical-knowledge-representation': {
+    predictionConceptId: 'concept:collins_quillian_hierarchical_network_model',
+    predictionMisconceptionId: 'misconception:flat_facts_equal_deep_expertise',
+    quizConceptMapping: {
+      'q1-collins-quillian-cognitive-economy': 'concept:collins_quillian_hierarchical_network_model',
+      'q2-rosch-basic-level-primacy': 'concept:rosch_basic_level_categories_primacy',
+      'q3-chi-expert-categorization': 'concept:chi_expert_deep_structure_categorization',
+      'q4-tanaka-taylor-expert-shift': 'concept:rosch_basic_level_categories_primacy',
+    },
+  },
 };
 
 interface LearningContextType {

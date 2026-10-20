@@ -196,6 +196,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 8.1 • Verification Assessment',
   'Lesson 8.1 • Relational Chunking & Template Decomposition Protocol',
   'Lesson 8.1 • The Mechanics of Chunking Overview',
+
+  // Lesson 8.2 Sections
+  'Lesson 8.2 • Curiosity Hook',
+  'Lesson 8.2 • Intuitive Calibration: Flat Facts vs Hierarchical Trees',
+  'Lesson 8.2 • Section 1: Collins & Quillian: Hierarchical Network Model & Cognitive Economy',
+  'Lesson 8.2 • Section 2: Eleanor Rosch: Basic-Level Categories & The Cognitive Default',
+  'Lesson 8.2 • Section 3: Michelene Chi: Deep Structure vs Surface Features in Problem Representation',
+  'Lesson 8.2 • Hierarchical Knowledge Architecture & Ontological Tree Diagram',
+  'Lesson 8.2 • Hierarchical Knowledge Diagnostic Scenarios',
+  'Lesson 8.2 • Verification Assessment',
+  'Lesson 8.2 • Ontological Decomposition & Deep-Structure Representation Protocol',
+  'Lesson 8.2 • Hierarchical Knowledge Representation Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -208,6 +220,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 8.2 anchors
+  if (lower.includes('collins') && (lower.includes('quillian') || lower.includes('cognitive economy') || lower.includes('hierarchical network') || lower.includes('canary') || lower.includes('spreading activation') || lower.includes('loftus'))) {
+    return 'Lesson 8.2 • Section 1: Collins & Quillian: Hierarchical Network Model & Cognitive Economy';
+  }
+  if (lower.includes('rosch') || lower.includes('basic-level') || lower.includes('basic level') || lower.includes('superordinate') || lower.includes('subordinate') || lower.includes('prototype theory') || lower.includes('cue validity') || lower.includes('tanaka')) {
+    return 'Lesson 8.2 • Section 2: Eleanor Rosch: Basic-Level Categories & The Cognitive Default';
+  }
+  if (lower.includes('michelene chi') || (lower.includes('chi') && (lower.includes('feltovich') || lower.includes('physics') || lower.includes('deep structure') || lower.includes('categorization of physics'))) || lower.includes('surface feature') || lower.includes('production rule')) {
+    return 'Lesson 8.2 • Section 3: Michelene Chi: Deep Structure vs Surface Features in Problem Representation';
+  }
+  if (lower.includes('hierarchical knowledge architecture') || lower.includes('ontological tree diagram') || lower.includes('hierarchical diagram') || lower.includes('ontology diagram')) {
+    return 'Lesson 8.2 • Hierarchical Knowledge Architecture & Ontological Tree Diagram';
+  }
+  if (lower.includes('8.2') || lower.includes('hierarchical knowledge') || lower.includes('ontological protocol')) {
+    return 'Lesson 8.2 • Section 1: Collins & Quillian: Hierarchical Network Model & Cognitive Economy';
+  }
 
   // Match Lesson 8.1 anchors
   if (lower.includes('de groot') || lower.includes('chase') || (lower.includes('simon') && (lower.includes('50,000') || lower.includes('chess') || lower.includes('perceptual'))) || lower.includes('chunking mechanics') || lower.includes('relational compression')) {
@@ -885,6 +914,30 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_8_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 8.2: "Hierarchical Knowledge Representation — Building trees, graphs, and ontological maps of domain concepts".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of semantic hierarchies, category theory, and expert representation:
+     a) Collins & Quillian (1969) Hierarchical Network Model & Cognitive Economy: Concepts are organized in an inheritance hierarchy. Properties are stored at the highest applicable category node to prevent redundant storage. Verification reaction time scales linearly with network levels traversed. When typicality effects surfaced, Collins & Loftus (1975) advanced Spreading Activation Theory along weighted semantic links.
+     b) Eleanor Rosch (1976) Prototype Theory & Basic-Level Primacy: Concepts exist at Superordinate, Basic, and Subordinate levels. The basic level (e.g., dog, chair) is cognitively privileged, maximizing cue validity and within-category perceptual resemblance while requiring minimal processing effort. Crucially, domain expertise drives a downward shift (Tanaka & Taylor, 1991): bird or dog experts identify subordinate specimens at the instantaneous speed non-experts identify basic-level objects.
+     c) Michelene Chi et al. (1981) Deep Structure Categorization: Novices sort domain problems by surface features (pulleys, inclined planes, wording). Experts sort the exact same problems by governing deep physical laws (Conservation of Energy, Newton's 2nd Law) containing embedded procedural production rules (condition-action pairings).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to hierarchical network organization, basic-level category defaults, and deep-structure schema representation.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -930,6 +983,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'chunking-mechanics') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_8_1;
+  }
+  if (lessonId === 'hierarchical-knowledge-representation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_8_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -999,6 +1055,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chunking_mechanics_relational_compression',
   'concept:template_theory_cores_slots_gobet',
   'concept:long_term_working_memory_retrieval_structures',
+  // Lesson 8.2 Concepts
+  'concept:collins_quillian_hierarchical_network_model',
+  'concept:rosch_basic_level_categories_primacy',
+  'concept:chi_expert_deep_structure_categorization',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1054,6 +1114,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 8.1 Misconceptions
   'misconception:expertise_enlarges_raw_working_memory_hardware',
   'misconception:surface_features_define_expert_categories',
+  // Lesson 8.2 Misconceptions
+  'misconception:flat_facts_equal_deep_expertise',
+  'misconception:surface_features_guide_correct_triage',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

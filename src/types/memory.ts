@@ -68,6 +68,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chunking_mechanics_relational_compression',
   'concept:template_theory_cores_slots_gobet',
   'concept:long_term_working_memory_retrieval_structures',
+  // Lesson 8.2 Concepts
+  'concept:collins_quillian_hierarchical_network_model',
+  'concept:rosch_basic_level_categories_primacy',
+  'concept:chi_expert_deep_structure_categorization',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -123,6 +127,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 8.1 Misconceptions
   'misconception:expertise_enlarges_raw_working_memory_hardware',
   'misconception:surface_features_define_expert_categories',
+  // Lesson 8.2 Misconceptions
+  'misconception:flat_facts_equal_deep_expertise',
+  'misconception:surface_features_guide_correct_triage',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -739,6 +739,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:expertise_enlarges_raw_working_memory_hardware',
     discrepancyPrompt: 'Previously you may have struggled to recover your mental train of thought after a 2-minute distraction. How does the Long-Term Working Memory framework explain why externalized retrieval structures prevent catastrophic state loss during task switching?',
   },
+  'concept:collins_quillian_hierarchical_network_model': {
+    conceptId: 'concept:collins_quillian_hierarchical_network_model',
+    title: 'Hierarchical Network Model & Cognitive Economy (Collins & Quillian, 1969)',
+    prompt: 'How did Allan Collins & Ross Quillian (1969) demonstrate hierarchical semantic organization, and what is the principle of cognitive economy?',
+    keyCriteria: [
+      'Cites Collins & Quillian (1969) sentence verification experiments',
+      'Defines the principle of cognitive economy (properties stored at the highest possible subsuming category node)',
+      'Explains reaction time differences based on semantic node distance (e.g. Canary is a bird vs Canary is an animal)',
+      'Explains the transition to Spreading Activation Theory (Collins & Loftus, 1975) to resolve typicality effects',
+    ],
+    canonicalAnswer: 'Collins and Quillian (1969) established the Hierarchical Network Model of semantic memory using sentence verification reaction times. They demonstrated that concepts are stored in a nested tree structure (e.g., canary -> bird -> animal) governed by cognitive economy: shared properties are stored only at the highest applicable category node (e.g., "can breathe" at animal, "has wings" at bird, "can sing" at canary) to minimize redundant biological storage. Reaction times systematically increased with the number of hierarchical levels traversed (0 levels: ~1,300 ms for "canary is a canary"; 1 level: ~1,380 ms for "canary is a bird"; 2 levels: ~1,470 ms for "canary is an animal"). When typicality effects violated strict hierarchy, Collins & Loftus (1975) developed Spreading Activation Theory, demonstrating that activation radiates along relational links of varying semantic distance.',
+    lessonSectionAnchor: 'Lesson 8.2 • Section 1: Collins & Quillian: Hierarchical Network Model & Cognitive Economy',
+    relatedMisconception: 'misconception:flat_facts_equal_deep_expertise',
+    discrepancyPrompt: 'Previously you may have memorized concepts as isolated, flat flashcards. Why does Collins & Quillian’s cognitive economy model prove that human memory organizes knowledge into nested inheritance trees, where properties must be anchored to superordinate nodes?',
+  },
+  'concept:rosch_basic_level_categories_primacy': {
+    conceptId: 'concept:rosch_basic_level_categories_primacy',
+    title: 'Basic-Level Categorization & Prototype Theory (Eleanor Rosch, 1976)',
+    prompt: 'What makes the "basic level" cognitively privileged in Eleanor Rosch’s (1976) taxonomy, and how do experts shift this cognitive default?',
+    keyCriteria: [
+      'Cites Eleanor Rosch (1976) taxonomy levels: Superordinate, Basic, Subordinate',
+      'Explains why the basic level maximizes cue validity and category resemblance with minimal cognitive effort',
+      'Describes how children learn basic-level terms first and adults identify objects fastest at the basic level',
+      'Explains the expert downward shift (Tanaka & Taylor, 1991): experts process subordinate domain items with basic-level speed',
+    ],
+    canonicalAnswer: 'Eleanor Rosch (1976) identified a three-tiered taxonomic structure: superordinate (e.g. musical instrument, vehicle), basic level (e.g. guitar, car), and subordinate (e.g. 1968 Fender Stratocaster, Tesla Model 3). The basic level is cognitively privileged because it maximizes cue validity and category resemblance with minimal processing effort: objects share a common overall shape, similar motor programs for interaction, and high within-category perceptual similarity. Children acquire basic-level names first, and adults identify basic-level objects fastest. However, domain expertise shifts this default downward (Tanaka & Taylor, 1991): dog judges or bird watchers process subordinate category distinctions at the instantaneous velocity typical of basic-level identification, reflecting deeply consolidated schema differentiation.',
+    lessonSectionAnchor: 'Lesson 8.2 • Section 2: Eleanor Rosch: Basic-Level Categories & The Cognitive Default',
+    relatedMisconception: 'misconception:surface_features_guide_correct_triage',
+    discrepancyPrompt: 'Previously you may have thought that experts memorize thousands of obscure subordinate names through brute repetition. How does Rosch and Tanaka & Taylor’s downward basic-level shift demonstrate that expertise transforms subordinate nuances into instantaneous perceptual defaults?',
+  },
+  'concept:chi_expert_deep_structure_categorization': {
+    conceptId: 'concept:chi_expert_deep_structure_categorization',
+    title: 'Deep-Structure Problem Categorization (Chi, Feltovich & Glaser, 1981)',
+    prompt: 'How did Michelene Chi and colleagues (1981) show the fundamental difference between novice and expert problem categorization in physics?',
+    keyCriteria: [
+      'Cites Chi, Feltovich & Glaser (1981) Categorization and Representation of Physics Problems',
+      'Differentiates novice surface feature grouping (pulleys, inclined planes, friction) from expert deep principle grouping (Conservation of Energy, Newton’s Second Law)',
+      'Explains that expert schemas contain procedural production rules (condition-action pairings) linked to governing principles',
+      'Connects categorization directly to problem-solving efficiency and transfer',
+    ],
+    canonicalAnswer: 'Michelene Chi, Paul Feltovich, and Robert Glaser (1981) conducted landmark experiments showing that novices categorize physics problems based on superficial surface features (e.g., "problems with inclined planes", "problems with rotating pulleys", "blocks on springs"). In contrast, experts categorize the exact same problems by their governing deep structural physical laws (e.g., "Conservation of Energy", "Newton’s Second Law: F = ma"). Crucially, expert schemas do not merely classify; they contain embedded production rules (condition-action pairings) specifying when and how specific formulas must be deployed. Because experts activate deep structural schemas during initial triage, their subsequent solution strategies are forward-directed, efficient, and robust against misleading cosmetic variations.',
+    lessonSectionAnchor: 'Lesson 8.2 • Section 3: Michelene Chi: Deep Structure vs Surface Features in Problem Representation',
+    relatedMisconception: 'misconception:surface_features_guide_correct_triage',
+    discrepancyPrompt: 'Previously you may have tackled unfamiliar technical problems by matching visual keywords or UI elements to past tutorials. How does Chi et al.’s findings prove that surface-matching leads to brittle failures, whereas expert triage requires identifying abstract governing principles?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

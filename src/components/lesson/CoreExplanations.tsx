@@ -77,6 +77,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'de-groot-chase-simon-chunking': <Network size={18} />,
   'template-theory-gobet-simon': <Cpu size={18} />,
   'long-term-working-memory-ericsson': <Bookmark size={18} />,
+  // Lesson 8.2 Tabs
+  'collins-quillian-hierarchical-network': <Network size={18} />,
+  'rosch-prototype-basic-level-categories': <Sparkles size={18} />,
+  'chi-expert-deep-structure-categorization': <Cpu size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
