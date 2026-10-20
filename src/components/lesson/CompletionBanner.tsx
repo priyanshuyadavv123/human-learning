@@ -194,7 +194,7 @@ export const CompletionBanner: React.FC = () => {
               Lesson 1.2: The Illusion of Competence
             </div>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
-              Why recognition feels identical to mastery (scheduled for Phase 2).
+              Why recognition feels identical to mastery — fluency bias, overconfidence, and objective self-testing.
             </p>
           </div>
 
@@ -209,7 +209,7 @@ export const CompletionBanner: React.FC = () => {
               color: 'var(--text-muted)',
             }}
           >
-            Phase 1 Complete — Ready for Review
+            Lesson 1.1 Complete — Core Principles Verified
           </div>
         </div>
       )}

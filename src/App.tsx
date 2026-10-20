@@ -12,6 +12,7 @@ import { InteractiveExercise } from './components/lesson/InteractiveExercise.tsx
 import { QuizSection } from './components/lesson/QuizSection.tsx';
 import { PracticalTask } from './components/lesson/PracticalTask.tsx';
 import { CompletionBanner } from './components/lesson/CompletionBanner.tsx';
+import { SpacedReviewSession } from './components/review/SpacedReviewSession.tsx';
 
 const WorkspaceContent: React.FC = () => {
   return (
@@ -45,6 +46,7 @@ export function App() {
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw', overflow: 'hidden' }}>
         <Header />
         <WorkspaceContent />
+        <SpacedReviewSession />
       </div>
     </LearningProvider>
   );

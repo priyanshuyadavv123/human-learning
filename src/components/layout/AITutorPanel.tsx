@@ -23,6 +23,7 @@ import {
   type ChatHistoryItem,
   type TutorHealthStatus 
 } from '../../services/tutorService.ts';
+import type { ConceptId, CognitiveMisconceptionId } from '../../types/memory.ts';
 
 interface DialogueMessage {
   id: string;
@@ -42,8 +43,13 @@ function generateMsgId(prefix: string): string {
   return `${prefix}-${globalMsgId}`;
 }
 
+function isConceptDue(nextReviewDueAt: string): boolean {
+  const dueMs = Date.parse(nextReviewDueAt);
+  return !Number.isNaN(dueMs) && dueMs <= Date.now();
+}
+
 export const AITutorPanel: React.FC = () => {
-  const { isTutorOpen, setTutorOpen } = useLearning();
+  const { isTutorOpen, setTutorOpen, learnerMemory } = useLearning();
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
@@ -112,7 +118,27 @@ export const AITutorPanel: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const result = await queryTutor(trimmed, history, 'how-learning-actually-works');
+      const activeMisconceptions: string[] = [];
+      const dueConceptIds: string[] = [];
+
+      if (learnerMemory?.conceptStates) {
+        for (const [cId, state] of Object.entries(learnerMemory.conceptStates)) {
+          if (state.activeMisconceptions && state.activeMisconceptions.length > 0) {
+            activeMisconceptions.push(...state.activeMisconceptions);
+          }
+          if (isConceptDue(state.nextReviewDueAt)) {
+            dueConceptIds.push(cId);
+          }
+        }
+      }
+
+      const learnerContext = {
+        activeMisconceptions: Array.from(new Set(activeMisconceptions)).slice(0, 2) as CognitiveMisconceptionId[],
+        dueConceptIds: dueConceptIds.slice(0, 2) as ConceptId[],
+        recentOutcome: learnerMemory?.delayedReviews?.slice(-1)[0]?.evaluatedOutcome,
+      };
+
+      const result = await queryTutor(trimmed, history, 'how-learning-actually-works', learnerContext);
 
       const tutorMsg: DialogueMessage = {
         id: generateMsgId('tutor'),

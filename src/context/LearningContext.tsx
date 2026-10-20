@@ -5,6 +5,23 @@ import type {
   LessonProgressState, 
   ExerciseCategory 
 } from '../types/learning.ts';
+import type { 
+  LearnerMemoryStoreV2, 
+  ConceptId, 
+  EvaluatedOutcome, 
+  LearnerSelfRating, 
+  ExplicitConfidence, 
+  DelayedReviewEvent, 
+  BaselineLessonEvidence 
+} from '../types/memory.ts';
+import { 
+  loadLearnerMemory, 
+  saveLearnerMemory, 
+  resetLearnerMemory, 
+  exportLearnerMemoryJson, 
+  validateMemoryStoreSchema 
+} from '../services/memoryStorage.ts';
+import { scheduleNextReview } from '../services/spacedRetrieval.ts';
 import { LESSON_HOW_LEARNING_WORKS } from '../data/courseData.ts';
 
 interface LearningContextType {
@@ -33,9 +50,24 @@ interface LearningContextType {
   setPracticalAnswer: (stepId: string, text: string) => void;
   completePracticalTask: () => void;
   completeLesson: () => void;
-  
   // Metrics
   progressPercent: number;
+
+  // Learner Memory & Spaced Review (Phase 3B)
+  learnerMemory: LearnerMemoryStoreV2;
+  dueReviewsCount: number;
+  isReviewModalOpen: boolean;
+  setReviewModalOpen: (open: boolean) => void;
+  recordDelayedReview: (input: {
+    conceptId: ConceptId;
+    evaluatedOutcome: EvaluatedOutcome;
+    learnerSelfRating?: LearnerSelfRating;
+    explicitConfidence?: ExplicitConfidence;
+    discrepancyAcknowledged?: boolean;
+  }) => void;
+  resetMemory: () => void;
+  exportMemoryJson: () => string;
+  importMemoryJson: (json: string) => { success: boolean; error?: string };
 }
 
 const STORAGE_KEY = 'human_learning_platform_progress_v1';
@@ -79,6 +111,89 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // UI Drawer states (responsive)
   const [isLeftSidebarOpen, setLeftSidebarOpen] = useState<boolean>(true);
   const [isTutorOpen, setTutorOpen] = useState<boolean>(true);
+
+  // Learner Memory & Review Modal State (Phase 3B)
+  const [learnerMemory, setLearnerMemory] = useState<LearnerMemoryStoreV2>(() => loadLearnerMemory());
+  const [isReviewModalOpen, setReviewModalOpen] = useState<boolean>(false);
+
+  const [mountTime] = useState(() => Date.now());
+
+  useEffect(() => {
+    saveLearnerMemory(learnerMemory);
+  }, [learnerMemory]);
+
+  const dueReviewsCount = Object.values(learnerMemory.conceptStates).filter(c => {
+    const dueMs = Date.parse(c.nextReviewDueAt);
+    return !Number.isNaN(dueMs) && dueMs <= mountTime;
+  }).length;
+
+  const recordDelayedReview = (input: {
+    conceptId: ConceptId;
+    evaluatedOutcome: EvaluatedOutcome;
+    learnerSelfRating?: LearnerSelfRating;
+    explicitConfidence?: ExplicitConfidence;
+    discrepancyAcknowledged?: boolean;
+  }) => {
+    const currentState = learnerMemory.conceptStates[input.conceptId];
+    if (!currentState) return;
+
+    const nowIso = new Date().toISOString();
+    const scheduleResult = scheduleNextReview({
+      currentState,
+      evaluatedOutcome: input.evaluatedOutcome,
+      learnerSelfRating: input.learnerSelfRating,
+      explicitConfidence: input.explicitConfidence,
+      discrepancyAcknowledged: input.discrepancyAcknowledged,
+      identifiedMisconception: currentState.activeMisconceptions[0],
+      nowIso,
+    });
+
+    const delayedReviewEvent: DelayedReviewEvent = {
+      id: `delayed-rev-${Date.now()}-${input.conceptId}`,
+      conceptId: input.conceptId,
+      reviewedAt: nowIso,
+      elapsedDaysSinceLastReview: scheduleResult.elapsedDays,
+      evaluatedOutcome: input.evaluatedOutcome,
+      learnerSelfRating: input.learnerSelfRating,
+      explicitConfidence: input.explicitConfidence,
+      discrepancyAcknowledged: input.discrepancyAcknowledged,
+      previousIntervalDays: currentState.reviewIntervalDays,
+      newIntervalDays: scheduleResult.updatedState.reviewIntervalDays,
+      isDelayedRetrieval: true, // STRICT
+    };
+
+    setLearnerMemory(prev => ({
+      ...prev,
+      lastActiveAt: nowIso,
+      delayedReviews: [...prev.delayedReviews, delayedReviewEvent],
+      conceptStates: {
+        ...prev.conceptStates,
+        [input.conceptId]: scheduleResult.updatedState,
+      },
+    }));
+  };
+
+  const resetMemory = () => {
+    const fresh = resetLearnerMemory();
+    setLearnerMemory(fresh);
+  };
+
+  const exportMemoryJson = () => exportLearnerMemoryJson(learnerMemory);
+
+  const importMemoryJson = (jsonStr: string): { success: boolean; error?: string } => {
+    try {
+      const parsed = JSON.parse(jsonStr);
+      const validation = validateMemoryStoreSchema(parsed);
+      if (!validation.valid || !validation.store) {
+        return { success: false, error: validation.error || 'Invalid backup data' };
+      }
+      saveLearnerMemory(validation.store);
+      setLearnerMemory(validation.store);
+      return { success: true };
+    } catch {
+      return { success: false, error: 'Malformed JSON string' };
+    }
+  };
 
   // Lesson state storage
   const [userProgress, setUserProgress] = useState<UserProgress>(() => {
@@ -157,6 +272,45 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       predictionAnswer: optionId,
       predictionSubmitted: true,
     }));
+
+    const isEmpiricalWinner = optionId === 'opt-retrieval';
+    setLearnerMemory(prev => {
+      const existing = prev.baselineEvidence.find(b => b.sourceType === 'prediction');
+      if (existing) return prev;
+
+      const newEv: BaselineLessonEvidence = {
+        id: `baseline-pred-${optionId}`,
+        conceptId: 'concept:testing_effect_retrieval_strength',
+        recordedAt: new Date().toISOString(),
+        sourceType: 'prediction',
+        sourceItemId: optionId,
+        outcome: isEmpiricalWinner ? 'correct' : 'incorrect',
+        explicitConfidence: isEmpiricalWinner ? 'medium' : 'high',
+        identifiedMisconception: isEmpiricalWinner ? undefined : 'misconception:rereading_fluency_illusion',
+        isDelayedRetrieval: false,
+      };
+
+      const retrievalConcept = prev.conceptStates['concept:testing_effect_retrieval_strength'];
+      const activeMisconceptions = isEmpiricalWinner
+        ? retrievalConcept.activeMisconceptions
+        : (retrievalConcept.activeMisconceptions.includes('misconception:rereading_fluency_illusion')
+            ? retrievalConcept.activeMisconceptions
+            : [...retrievalConcept.activeMisconceptions, 'misconception:rereading_fluency_illusion' as const]);
+
+      return {
+        ...prev,
+        baselineEvidence: [...prev.baselineEvidence, newEv],
+        conceptStates: {
+          ...prev.conceptStates,
+          'concept:testing_effect_retrieval_strength': {
+            ...retrievalConcept,
+            stage: isEmpiricalWinner ? retrievalConcept.stage : 'reinforcing',
+            hypercorrectionPending: !isEmpiricalWinner,
+            activeMisconceptions,
+          },
+        },
+      };
+    });
   };
 
   const setExplanationTab = (tabId: string) => {
@@ -231,6 +385,29 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       quizSubmitted: true,
       quizScore: scorePercent,
     }));
+
+    setLearnerMemory(prev => {
+      const newEvidence: BaselineLessonEvidence[] = [];
+      const nowIso = new Date().toISOString();
+      questions.forEach(q => {
+        const userOpt = currentAnswers[q.id];
+        const isCorrect = userOpt === q.correctOptionId;
+        newEvidence.push({
+          id: `baseline-quiz-${q.id}`,
+          conceptId: 'concept:working_memory_capacity_limits',
+          recordedAt: nowIso,
+          sourceType: 'quiz_question',
+          sourceItemId: `${q.id}:${userOpt || 'unanswered'}`,
+          outcome: isCorrect ? 'correct' : 'incorrect',
+          isDelayedRetrieval: false,
+        });
+      });
+
+      return {
+        ...prev,
+        baselineEvidence: [...prev.baselineEvidence, ...newEvidence],
+      };
+    });
 
     return { score: scorePercent, passed };
   };
@@ -315,6 +492,14 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         completePracticalTask,
         completeLesson,
         progressPercent: calculateProgress(),
+        learnerMemory,
+        dueReviewsCount,
+        isReviewModalOpen,
+        setReviewModalOpen,
+        recordDelayedReview,
+        resetMemory,
+        exportMemoryJson,
+        importMemoryJson,
       }}
     >
       {children}

@@ -1,6 +1,14 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import Groq from 'groq-sdk';
-import { TUTOR_SYSTEM_INSTRUCTION, resolveValidSection } from './groundingContext.ts';
+import { 
+  TUTOR_SYSTEM_INSTRUCTION, 
+  KNOWN_LESSON_SECTIONS, 
+  KNOWN_CONCEPTS,
+  KNOWN_MISCONCEPTIONS,
+  type SanitizedLearnerContext,
+  formatLearnerContextDirective,
+  resolveValidSection 
+} from './groundingContext.ts';
 
 export interface ChatHistoryTurn {
   role: 'user' | 'model';
@@ -11,6 +19,7 @@ export interface TutorChatRequestBody {
   message: string;
   history?: ChatHistoryTurn[];
   lessonId?: string;
+  learnerContext?: SanitizedLearnerContext;
 }
 
 export interface StructuredTutorResponse {
@@ -198,12 +207,50 @@ export function validateChatRequest(body: unknown): {
     }
   }
 
+  let sanitizedContext: SanitizedLearnerContext | undefined;
+  if (b.learnerContext && typeof b.learnerContext === 'object') {
+    const ctx = b.learnerContext as Record<string, unknown>;
+    let activeMisconceptions: SanitizedLearnerContext['activeMisconceptions'];
+    if (Array.isArray(ctx.activeMisconceptions)) {
+      const valid = ctx.activeMisconceptions.filter((m): m is typeof KNOWN_MISCONCEPTIONS[number] => 
+        typeof m === 'string' && (KNOWN_MISCONCEPTIONS as readonly string[]).includes(m)
+      );
+      if (valid.length > 0) {
+        activeMisconceptions = valid.slice(0, 2);
+      }
+    }
+
+    let dueConceptIds: SanitizedLearnerContext['dueConceptIds'];
+    if (Array.isArray(ctx.dueConceptIds)) {
+      const valid = ctx.dueConceptIds.filter((c): c is typeof KNOWN_CONCEPTS[number] => 
+        typeof c === 'string' && (KNOWN_CONCEPTS as readonly string[]).includes(c)
+      );
+      if (valid.length > 0) {
+        dueConceptIds = valid.slice(0, 2);
+      }
+    }
+
+    let recentOutcome: SanitizedLearnerContext['recentOutcome'];
+    if (ctx.recentOutcome === 'correct' || ctx.recentOutcome === 'partially_correct' || ctx.recentOutcome === 'incorrect') {
+      recentOutcome = ctx.recentOutcome;
+    }
+
+    if (activeMisconceptions || dueConceptIds || recentOutcome) {
+      sanitizedContext = {
+        activeMisconceptions,
+        dueConceptIds,
+        recentOutcome,
+      };
+    }
+  }
+
   return {
     valid: true,
     data: {
       message: trimmedMessage,
       history: sanitizedHistory,
       lessonId: typeof b.lessonId === 'string' ? b.lessonId : 'how-learning-actually-works',
+      learnerContext: sanitizedContext,
     },
   };
 }
@@ -343,14 +390,17 @@ export async function handleTutorChatRequest(
   const preferredModel = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
   const groq = new Groq({ apiKey: apiKey.trim() });
 
-  // Assemble messages array: system instruction + previous turns + current user message
+  // Assemble messages array: system instruction + pedagogical context directive + previous turns + current user message
+  const contextDirective = formatLearnerContextDirective(validation.data.learnerContext);
+  const systemInstruction = TUTOR_SYSTEM_INSTRUCTION + contextDirective;
+
   const messages: Array<{
     role: 'system' | 'user' | 'assistant';
     content: string;
   }> = [
     {
       role: 'system',
-      content: TUTOR_SYSTEM_INSTRUCTION,
+      content: systemInstruction,
     },
   ];
 
@@ -401,6 +451,7 @@ export async function handleTutorChatRequest(
               referencedSection: {
                 type: 'string',
                 description: 'The exact matching section name from Lesson 1.1 syllabus list',
+                enum: [...KNOWN_LESSON_SECTIONS],
               },
             },
             required: ['title', 'takeaway', 'detailedResponse', 'socraticChallenge', 'referencedSection'],

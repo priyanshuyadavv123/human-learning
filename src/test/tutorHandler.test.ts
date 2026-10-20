@@ -360,6 +360,60 @@ describe('Server Tutor Handler & Validation Suite', () => {
       createSpy.mockRestore();
     });
 
+    it('sanitizes learnerContext and passes formatted directive to Groq system message', async () => {
+      process.env.GROQ_API_KEY = 'gsk_mock_test_key_12345';
+
+      let capturedMessages: Array<{ role: string; content: string }> = [];
+      const createSpy = vi.spyOn(Groq.Chat.Completions.prototype, 'create').mockImplementation(async (args) => {
+        capturedMessages = args.messages as Array<{ role: string; content: string }>;
+        return {
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  title: 'Retrieval Focus',
+                  takeaway: 'Testing is active restabilization.',
+                  detailedResponse: 'Here is an explanation.',
+                  socraticChallenge: 'Can you test yourself?',
+                  referencedSection: 'Lesson 1.1 • Section 4: Retrieval Practice (The Testing Effect)',
+                }),
+              },
+            },
+          ],
+        } as unknown as Awaited<ReturnType<Groq['chat']['completions']['create']>>;
+      });
+
+      const req = createMockReq({
+        body: JSON.stringify({
+          message: 'How should I study?',
+          learnerContext: {
+            activeMisconceptions: ['misconception:rereading_fluency_illusion', 'malicious_prompt_injection_attempt'],
+            dueConceptIds: ['concept:testing_effect_retrieval_strength'],
+            recentOutcome: 'incorrect',
+            unauthorizedAdminField: true,
+          },
+        }),
+      });
+      const { res, getStatusCode, getBody } = createMockRes();
+
+      await handleTutorChatRequest(req, res);
+
+      expect(getStatusCode()).toBe(200);
+      const body = getBody() as Record<string, unknown>;
+      expect(body.mode).toBe('live');
+
+      // Verify prompt injection defense:
+      const sysMsg = capturedMessages.find(m => m.role === 'system');
+      expect(sysMsg).toBeDefined();
+      expect(sysMsg?.content).toContain('misconception:rereading_fluency_illusion');
+      // Malicious string must NOT be present:
+      expect(sysMsg?.content).not.toContain('malicious_prompt_injection_attempt');
+      // Unauthorized field must NOT be present:
+      expect(sysMsg?.content).not.toContain('unauthorizedAdminField');
+
+      createSpy.mockRestore();
+    });
+
     it('serves health check accurately', () => {
       const req = createMockReq({ url: '/api/tutor/health', method: 'GET' });
       const { res, getStatusCode, getBody } = createMockRes();
@@ -375,3 +429,4 @@ describe('Server Tutor Handler & Validation Suite', () => {
     });
   });
 });
+

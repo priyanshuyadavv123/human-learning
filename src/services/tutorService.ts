@@ -1,8 +1,15 @@
 import { findTutorAnswer, type TutorKnowledgeEntry } from '../data/tutorKnowledge.ts';
+import type { ConceptId, CognitiveMisconceptionId, EvaluatedOutcome } from '../types/memory.ts';
 
 export interface ChatHistoryItem {
   role: 'user' | 'model';
   text: string;
+}
+
+export interface TutorLearnerContext {
+  activeMisconceptions?: CognitiveMisconceptionId[];
+  dueConceptIds?: ConceptId[];
+  recentOutcome?: EvaluatedOutcome;
 }
 
 export interface TutorServiceResult {
@@ -52,7 +59,8 @@ export async function checkTutorHealth(): Promise<TutorHealthStatus> {
 export async function queryTutor(
   message: string,
   history: ChatHistoryItem[] = [],
-  lessonId = 'how-learning-actually-works'
+  lessonId = 'how-learning-actually-works',
+  learnerContext?: TutorLearnerContext
 ): Promise<TutorServiceResult> {
   const trimmed = message.trim();
   if (!trimmed) {
@@ -75,6 +83,7 @@ export async function queryTutor(
         message: trimmed,
         history,
         lessonId,
+        learnerContext,
       }),
     });
 

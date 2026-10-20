@@ -75,3 +75,48 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
+
+export const KNOWN_CONCEPTS = [
+  'concept:attention_serial_bottleneck',
+  'concept:working_memory_capacity_limits',
+  'concept:schema_chunking_consolidation',
+  'concept:testing_effect_retrieval_strength',
+  'concept:calibrated_feedback_prediction_error',
+] as const;
+
+export type ConceptId = typeof KNOWN_CONCEPTS[number];
+
+export const KNOWN_MISCONCEPTIONS = [
+  'misconception:multitasking_parallel_myth',
+  'misconception:working_memory_unlimited_illusion',
+  'misconception:video_recorder_memory_myth',
+  'misconception:rereading_fluency_illusion',
+  'misconception:feedback_avoidance_confirmation_bias',
+] as const;
+
+export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
+
+export interface SanitizedLearnerContext {
+  activeMisconceptions?: CognitiveMisconceptionId[];
+  dueConceptIds?: ConceptId[];
+  recentOutcome?: 'correct' | 'partially_correct' | 'incorrect';
+}
+
+export function formatLearnerContextDirective(context?: SanitizedLearnerContext): string {
+  if (!context) return '';
+  const parts: string[] = [];
+
+  if (context.activeMisconceptions && context.activeMisconceptions.length > 0) {
+    const list = context.activeMisconceptions.join(', ');
+    parts.push(`- The learner recently exhibited active misconception(s): [${list}]. Gently probe their conceptual model using Socratic inquiry without lecturing.`);
+  }
+
+  if (context.recentOutcome === 'incorrect') {
+    parts.push('- The learner recently experienced a retrieval lapse. Frame the error constructively as an opportunity to restabilize neural traces.');
+  }
+
+  if (parts.length === 0) return '';
+
+  return `\n\nACTIVE PEDAGOGICAL GUIDANCE FOR THIS LEARNER (DEMONSTRATED EVIDENCE):\n${parts.join('\n')}\n`;
+}
+

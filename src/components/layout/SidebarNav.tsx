@@ -17,7 +17,11 @@ export const SidebarNav: React.FC = () => {
     activeLessonId, 
     setActiveLessonId, 
     lessonState,
-    progressPercent
+    progressPercent,
+    dueReviewsCount,
+    setReviewModalOpen,
+    exportMemoryJson,
+    resetMemory,
   } = useLearning();
 
   // Keep track of which chapters are expanded
@@ -113,6 +117,30 @@ export const SidebarNav: React.FC = () => {
           <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
             {PRIMARY_COURSE.subtitle}
           </p>
+        </div>
+
+        {/* Spaced Review Due Button */}
+        <div style={{ padding: '10px 12px', borderBottom: '1px solid var(--border-subtle)', backgroundColor: dueReviewsCount > 0 ? 'var(--accent-subtle)' : 'var(--bg-surface)' }}>
+          <button
+            onClick={() => setReviewModalOpen(true)}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '6px 10px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: dueReviewsCount > 0 ? 'var(--bg-surface)' : 'var(--bg-surface-subtle)',
+              border: `1px solid ${dueReviewsCount > 0 ? 'var(--accent-primary)' : 'var(--border-subtle)'}`,
+              color: dueReviewsCount > 0 ? 'var(--accent-primary)' : 'var(--text-secondary)',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+            }}
+          >
+            <span>{dueReviewsCount > 0 ? `● ${dueReviewsCount} Spaced Review${dueReviewsCount > 1 ? 's' : ''} Due` : 'Spaced Recall Review'}</span>
+            <span style={{ fontSize: '0.75rem' }}>{dueReviewsCount > 0 ? 'Start' : 'Practice'} &rarr;</span>
+          </button>
         </div>
 
         {/* Chapters & Lessons Tree */}
@@ -317,11 +345,55 @@ export const SidebarNav: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
             <BookOpen size={13} color="var(--accent-primary)" />
-            <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>Phase 1 Core Curriculum</span>
+            <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>Human Cognition Syllabus</span>
           </div>
-          <p style={{ lineHeight: 1.35 }}>
+          <p style={{ lineHeight: 1.35, marginBottom: '6px' }}>
             Evidence-grounded learning manual.
           </p>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button
+              onClick={() => {
+                const json = exportMemoryJson();
+                const blob = new Blob([json], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `human-learning-memory-${new Date().toISOString().slice(0, 10)}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                color: 'var(--accent-primary)',
+                fontSize: '0.6875rem',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              Export Memory
+            </button>
+            <span style={{ color: 'var(--border-subtle)' }}>•</span>
+            <button
+              onClick={() => {
+                if (window.confirm('Reset your scheduled spaced retrieval reviews? Lesson completion checkmarks will remain intact.')) {
+                  resetMemory();
+                }
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                color: 'var(--text-muted)',
+                fontSize: '0.6875rem',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              Reset Schedule
+            </button>
+          </div>
         </div>
       </aside>
     </>

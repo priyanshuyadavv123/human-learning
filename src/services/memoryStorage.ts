@@ -1,0 +1,252 @@
+import { 
+  type LearnerMemoryStoreV2, 
+  type ConceptReviewState, 
+  type BaselineLessonEvidence,
+  type DelayedReviewEvent,
+  KNOWN_CONCEPTS,
+  type ConceptId,
+} from '../types/memory.ts';
+import type { UserProgress } from '../types/learning.ts';
+import { calculateNextDueTimestamp } from './spacedRetrieval.ts';
+
+export const MEMORY_STORAGE_KEY_V2 = 'human_learning_memory_v2';
+export const LEGACY_STORAGE_KEY_V1 = 'human_learning_platform_progress_v1';
+export const BACKUP_STORAGE_KEY_V1 = 'human_learning_progress_v1_backup';
+
+export function createDefaultConceptState(conceptId: ConceptId, nowIso: string): ConceptReviewState {
+  return {
+    conceptId,
+    lessonId: 'how-learning-actually-works',
+    chapterId: 'ch-1-architecture',
+    stage: 'untested',
+    reviewIntervalDays: 1,
+    easeFactor: 2.0,
+    totalAttempts: 0,
+    consecutiveSuccesses: 0,
+    nextReviewDueAt: calculateNextDueTimestamp(nowIso, 1),
+    activeMisconceptions: [],
+    hypercorrectionPending: false,
+  };
+}
+
+export function createInitialMemoryStore(nowIso = new Date().toISOString()): LearnerMemoryStoreV2 {
+  const conceptStates: Record<ConceptId, ConceptReviewState> = {} as Record<ConceptId, ConceptReviewState>;
+  for (const c of KNOWN_CONCEPTS) {
+    conceptStates[c] = createDefaultConceptState(c, nowIso);
+  }
+
+  return {
+    schemaVersion: 2,
+    lastActiveAt: nowIso,
+    baselineEvidence: [],
+    delayedReviews: [],
+    conceptStates,
+  };
+}
+
+/**
+ * Maps legacy lesson progress into baseline evidence without claiming delayed review.
+ */
+export function migrateV1ToV2(v1Data: UserProgress, nowIso = new Date().toISOString()): LearnerMemoryStoreV2 {
+  const store = createInitialMemoryStore(nowIso);
+  const lesson1 = v1Data.lessonStates?.['how-learning-actually-works'];
+  if (!lesson1) {
+    return store;
+  }
+
+  const baselineEvidence: BaselineLessonEvidence[] = [];
+
+  // 1. Initial prediction
+  if (lesson1.predictionSubmitted && lesson1.predictionAnswer) {
+    const isEmpiricalWinner = lesson1.predictionAnswer === 'opt-retrieval';
+    baselineEvidence.push({
+      id: `baseline-pred-${lesson1.predictionAnswer}`,
+      conceptId: 'concept:testing_effect_retrieval_strength',
+      recordedAt: nowIso,
+      sourceType: 'prediction',
+      sourceItemId: lesson1.predictionAnswer,
+      outcome: isEmpiricalWinner ? 'correct' : 'incorrect',
+      explicitConfidence: isEmpiricalWinner ? 'medium' : 'high',
+      identifiedMisconception: isEmpiricalWinner ? undefined : 'misconception:rereading_fluency_illusion',
+      isDelayedRetrieval: false, // STRICT: baseline evidence only
+    });
+
+    if (!isEmpiricalWinner) {
+      store.conceptStates['concept:testing_effect_retrieval_strength'].activeMisconceptions.push('misconception:rereading_fluency_illusion');
+      store.conceptStates['concept:testing_effect_retrieval_strength'].hypercorrectionPending = true;
+      store.conceptStates['concept:testing_effect_retrieval_strength'].stage = 'reinforcing';
+    }
+  }
+
+  // 2. Exercise scenarios
+  if (lesson1.exerciseSubmitted && lesson1.exerciseAnswers) {
+    for (const [scenarioId, cat] of Object.entries(lesson1.exerciseAnswers)) {
+      let targetConcept: ConceptId = 'concept:attention_serial_bottleneck';
+      if (cat === 'working-memory-overload') targetConcept = 'concept:working_memory_capacity_limits';
+      if (cat === 'schema-consolidation') targetConcept = 'concept:schema_chunking_consolidation';
+      if (cat === 'illusion-of-competence') targetConcept = 'concept:testing_effect_retrieval_strength';
+
+      baselineEvidence.push({
+        id: `baseline-exercise-${scenarioId}`,
+        conceptId: targetConcept,
+        recordedAt: nowIso,
+        sourceType: 'exercise_scenario',
+        sourceItemId: scenarioId,
+        outcome: 'correct',
+        isDelayedRetrieval: false,
+      });
+    }
+  }
+
+  // 3. Quiz answers
+  if (lesson1.quizSubmitted && lesson1.quizAnswers) {
+    for (const [qId, optId] of Object.entries(lesson1.quizAnswers)) {
+      baselineEvidence.push({
+        id: `baseline-quiz-${qId}`,
+        conceptId: 'concept:working_memory_capacity_limits',
+        recordedAt: nowIso,
+        sourceType: 'quiz_question',
+        sourceItemId: `${qId}:${optId}`,
+        outcome: 'correct',
+        isDelayedRetrieval: false,
+      });
+    }
+  }
+
+  store.baselineEvidence = baselineEvidence;
+  return store;
+}
+
+/**
+ * Loads learner memory store from localStorage with automatic migration and backup.
+ */
+export function loadLearnerMemory(nowIso = new Date().toISOString()): LearnerMemoryStoreV2 {
+  try {
+    const rawV2 = localStorage.getItem(MEMORY_STORAGE_KEY_V2);
+    if (rawV2) {
+      const parsed = JSON.parse(rawV2);
+      const validation = validateMemoryStoreSchema(parsed);
+      if (validation.valid && validation.store) {
+        return validation.store;
+      }
+      console.warn('[Memory Storage] Corrupted or invalid V2 store found, attempting backup and recovery.');
+    }
+
+    // Attempt migration from V1 if present
+    const rawV1 = localStorage.getItem(LEGACY_STORAGE_KEY_V1);
+    if (rawV1) {
+      // Save safety backup of original V1 before doing anything
+      try {
+        localStorage.setItem(BACKUP_STORAGE_KEY_V1, rawV1);
+      } catch {}
+
+      const parsedV1 = JSON.parse(rawV1) as UserProgress;
+      const migrated = migrateV1ToV2(parsedV1, nowIso);
+      saveLearnerMemory(migrated);
+      return migrated;
+    }
+  } catch (err) {
+    console.warn('[Memory Storage] Error during storage load, returning safe initial store:', err);
+  }
+
+  const initial = createInitialMemoryStore(nowIso);
+  saveLearnerMemory(initial);
+  return initial;
+}
+
+/**
+ * Saves learner memory store to localStorage.
+ */
+export function saveLearnerMemory(store: LearnerMemoryStoreV2): boolean {
+  try {
+    localStorage.setItem(MEMORY_STORAGE_KEY_V2, JSON.stringify(store));
+    return true;
+  } catch (err) {
+    console.warn('[Memory Storage] Failed to save memory store to localStorage:', err);
+    return false;
+  }
+}
+
+/**
+ * Resets memory store while preserving legacy progress and theme.
+ */
+export function resetLearnerMemory(nowIso = new Date().toISOString()): LearnerMemoryStoreV2 {
+  const fresh = createInitialMemoryStore(nowIso);
+  try {
+    localStorage.removeItem(MEMORY_STORAGE_KEY_V2);
+    saveLearnerMemory(fresh);
+  } catch {}
+  return fresh;
+}
+
+/**
+ * Exports memory store to a formatted JSON string for learner download.
+ */
+export function exportLearnerMemoryJson(store: LearnerMemoryStoreV2): string {
+  return JSON.stringify(store, null, 2);
+}
+
+/**
+ * Strictly validates an imported memory store JSON structure before applying it.
+ */
+export function validateMemoryStoreSchema(data: unknown): {
+  valid: boolean;
+  error?: string;
+  store?: LearnerMemoryStoreV2;
+} {
+  if (!data || typeof data !== 'object') {
+    return { valid: false, error: 'Backup data must be a JSON object.' };
+  }
+
+  const s = data as Record<string, unknown>;
+
+  if (s.schemaVersion !== 2) {
+    return { valid: false, error: `Unsupported schema version: ${s.schemaVersion}. Expected 2.` };
+  }
+
+  if (!Array.isArray(s.baselineEvidence)) {
+    return { valid: false, error: 'Field "baselineEvidence" must be an array.' };
+  }
+
+  for (const b of s.baselineEvidence) {
+    if (!b || typeof b !== 'object' || (b as BaselineLessonEvidence).isDelayedRetrieval !== false) {
+      return { valid: false, error: 'Baseline evidence must have isDelayedRetrieval set to false.' };
+    }
+  }
+
+  if (!Array.isArray(s.delayedReviews)) {
+    return { valid: false, error: 'Field "delayedReviews" must be an array.' };
+  }
+
+  for (const r of s.delayedReviews) {
+    if (!r || typeof r !== 'object' || (r as DelayedReviewEvent).isDelayedRetrieval !== true) {
+      return { valid: false, error: 'Delayed reviews must have isDelayedRetrieval set to true.' };
+    }
+  }
+
+  if (!s.conceptStates || typeof s.conceptStates !== 'object') {
+    return { valid: false, error: 'Field "conceptStates" must be an object.' };
+  }
+
+  const concepts = s.conceptStates as Record<string, unknown>;
+  for (const key of KNOWN_CONCEPTS) {
+    const c = concepts[key] as Record<string, unknown> | undefined;
+    if (!c) {
+      return { valid: false, error: `Missing required concept state for: ${key}` };
+    }
+    if (typeof c.reviewIntervalDays !== 'number' || c.reviewIntervalDays < 1) {
+      return { valid: false, error: `Invalid reviewIntervalDays for concept ${key}. Must be >= 1.` };
+    }
+    if (typeof c.easeFactor !== 'number' || c.easeFactor < 1.3 || c.easeFactor > 2.5) {
+      return { valid: false, error: `Invalid easeFactor for concept ${key}. Must be in [1.3, 2.5].` };
+    }
+    if (typeof c.nextReviewDueAt !== 'string') {
+      return { valid: false, error: `Missing nextReviewDueAt for concept ${key}.` };
+    }
+  }
+
+  return {
+    valid: true,
+    store: data as LearnerMemoryStoreV2,
+  };
+}
