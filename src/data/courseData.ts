@@ -1,6 +1,7 @@
 import type { Course, Lesson } from '../types/learning.ts';
 import { LESSON_ILLUSION_OF_COMPETENCE } from './lesson1_2Data.ts';
 import { LESSON_COGNITIVE_LOAD_SCHEMA } from './lesson1_3Data.ts';
+import { LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY } from './lesson2_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -51,9 +52,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'testing-effect-mechanics',
           number: '2.1',
           title: 'The Testing Effect & Desirable Difficulty',
-          subtitle: 'Why struggling to recall is the active ingredient of consolidation',
+          subtitle: 'Why Retrieval Practice Modifies Memory While Rereading Leaves It Unaltered',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'spaced-repetition-scheduling',
@@ -1123,6 +1124,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_HOW_LEARNING_WORKS.id]: LESSON_HOW_LEARNING_WORKS,
   [LESSON_ILLUSION_OF_COMPETENCE.id]: LESSON_ILLUSION_OF_COMPETENCE,
   [LESSON_COGNITIVE_LOAD_SCHEMA.id]: LESSON_COGNITIVE_LOAD_SCHEMA,
+  [LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY.id]: LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -40,6 +40,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 1.3 • Verification Assessment',
   'Lesson 1.3 • Faded Scaffolding Protocol',
   'Lesson 1.3 • Schema Architecture Overview',
+
+  // Lesson 2.1 Sections
+  'Lesson 2.1 • Curiosity Hook',
+  'Lesson 2.1 • Intuitive Calibration: SSSS vs STTT',
+  'Lesson 2.1 • Section 1: The Testing Effect & Memory Modification',
+  'Lesson 2.1 • Section 2: Storage vs. Retrieval Strength',
+  'Lesson 2.1 • Section 3: Desirable Difficulties & Synaptic Reconsolidation',
+  'Lesson 2.1 • Retrieval & Modification Engine Diagram',
+  'Lesson 2.1 • Retrieval Engineering Diagnostic Scenarios',
+  'Lesson 2.1 • Verification Assessment',
+  'Lesson 2.1 • Free-Recall Calibration Protocol',
+  'Lesson 2.1 • Testing Effect Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -52,6 +64,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 2.1 anchors
+  if (lower.includes('roediger') || lower.includes('karpicke') || lower.includes('testing effect') || lower.includes('modifier hypothesis') || lower.includes('retrieval practice')) {
+    return 'Lesson 2.1 • Section 1: The Testing Effect & Memory Modification';
+  }
+  if (lower.includes('storage strength') || lower.includes('retrieval strength') || lower.includes('theory of disuse') || lower.includes('bjork')) {
+    return 'Lesson 2.1 • Section 2: Storage vs. Retrieval Strength';
+  }
+  if (lower.includes('reconsolidation') || lower.includes('destabilization') || lower.includes('nader') || lower.includes('dudai') || lower.includes('labile')) {
+    return 'Lesson 2.1 • Section 3: Desirable Difficulties & Synaptic Reconsolidation';
+  }
+  if (lower.includes('modification engine') || lower.includes('retrieval engine')) {
+    return 'Lesson 2.1 • Retrieval & Modification Engine Diagram';
+  }
+  if (lower.includes('2.1')) {
+    return 'Lesson 2.1 • Section 1: The Testing Effect & Memory Modification';
+  }
 
   // Match Lesson 1.3 anchors
   if (lower.includes('tripartite') || lower.includes('intrinsic') || lower.includes('extraneous') || lower.includes('germane') || lower.includes('element interactivity')) {
@@ -187,12 +216,40 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_2_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 2.1: "The Testing Effect & Desirable Difficulty — Why Retrieval Practice Modifies Memory While Rereading Leaves It Unaltered".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical science of retrieval practice and memory dynamics:
+     a) The Testing Effect (Retrieval Practice): Testing is a memory modifier, not a passive measurement tool. Repeated retrieval (STTT) produces dramatically higher long-term retention than repeated study (SSSS) despite feeling subjectively harder (Roediger & Karpicke, 2006).
+     b) Bjork’s New Theory of Disuse: Storage Strength (permanent durability) vs. Retrieval Strength (momentary accessibility). The gain in Storage Strength from retrieval is inversely proportional to current Retrieval Strength: Delta SS = f(1/RS). When retrieval feels effortful, storage gains are maximized (Bjork & Bjork, 1992, 2011).
+     c) Desirable Difficulties: Conditions that slow immediate performance during practice but enhance long-term retention and transfer. Boundary condition: difficulty is desirable ONLY if the learner has the requisite background schemas to resolve it (Bjork, 1994).
+     d) Synaptic Reconsolidation: Retrieval destabilizes memory traces into a labile, plastic state via NMDA receptor signaling and protein degradation, allowing de novo protein synthesis to re-stabilize and fortify the trace with new contextual associations (Nader et al., 2000; Dudai, 2004).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to retrieval practice, storage strength, and desirable difficulty.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
   }
   if (lessonId === 'cognitive-load-schema') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_3;
+  }
+  if (lessonId === 'testing-effect-mechanics') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_2_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -210,6 +267,10 @@ export const KNOWN_CONCEPTS = [
   'concept:cognitive_load_tripartite',
   'concept:worked_example_faded_scaffolding',
   'concept:expertise_reversal_schema_automation',
+  // Lesson 2.1 Concepts
+  'concept:storage_vs_retrieval_strength',
+  'concept:desirable_difficulty_framework',
+  'concept:reconsolidation_trace_updating',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -225,6 +286,10 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 1.3 Misconceptions
   'misconception:unguided_struggle_always_superior',
   'misconception:more_information_always_helps',
+  // Lesson 2.1 Misconceptions
+  'misconception:testing_is_only_for_grading',
+  'misconception:current_performance_equals_learning',
+  'misconception:struggle_means_poor_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -25,6 +25,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'tripartite-cognitive-load': <Cpu size={18} />,
   'worked-example-split-attention': <Bookmark size={18} />,
   'expertise-reversal-schema-automation': <Network size={18} />,
+  // Lesson 2.1 Tabs
+  'retrieval-practice-testing-effect': <Repeat size={18} />,
+  'storage-vs-retrieval-strength': <Network size={18} />,
+  'desirable-difficulties-reconsolidation': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

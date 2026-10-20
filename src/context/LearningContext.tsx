@@ -32,7 +32,7 @@ interface LessonConceptMapping {
   quizConceptMapping: Record<string, ConceptId>;
 }
 
-const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
+export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
   'how-learning-actually-works': {
     predictionConceptId: 'concept:testing_effect_retrieval_strength',
     predictionMisconceptionId: 'misconception:rereading_fluency_illusion',
@@ -61,6 +61,16 @@ const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q2-worked-example-mechanism': 'concept:worked_example_faded_scaffolding',
       'q3-expertise-reversal': 'concept:expertise_reversal_schema_automation',
       'q4-chunking-architecture': 'concept:schema_chunking_consolidation',
+    },
+  },
+  'testing-effect-mechanics': {
+    predictionConceptId: 'concept:testing_effect_retrieval_strength',
+    predictionMisconceptionId: 'misconception:testing_is_only_for_grading',
+    quizConceptMapping: {
+      'q1-roediger-karpicke-findings': 'concept:testing_effect_retrieval_strength',
+      'q2-bjork-storage-retrieval-strength': 'concept:storage_vs_retrieval_strength',
+      'q3-desirable-difficulty-criterion': 'concept:desirable_difficulty_framework',
+      'q4-reconsolidation-neurobiology': 'concept:reconsolidation_trace_updating',
     },
   },
 };

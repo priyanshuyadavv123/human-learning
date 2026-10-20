@@ -146,7 +146,7 @@ export const SidebarNav: React.FC = () => {
         {/* Chapters & Lessons Tree */}
         <div style={{ flex: 1, padding: '12px 8px', overflowY: 'auto' }}>
           {PRIMARY_COURSE.chapters.map((chapter) => {
-            const isExpanded = !!expandedChapters[chapter.id];
+            const isExpanded = expandedChapters[chapter.id] ?? chapter.lessons.some(l => l.id === activeLessonId);
 
             return (
               <div key={chapter.id} style={{ marginBottom: '10px' }}>

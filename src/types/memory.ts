@@ -16,6 +16,10 @@ export const KNOWN_CONCEPTS = [
   'concept:cognitive_load_tripartite',
   'concept:worked_example_faded_scaffolding',
   'concept:expertise_reversal_schema_automation',
+  // Lesson 2.1 Concepts
+  'concept:storage_vs_retrieval_strength',
+  'concept:desirable_difficulty_framework',
+  'concept:reconsolidation_trace_updating',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -31,6 +35,10 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 1.3 Misconceptions
   'misconception:unguided_struggle_always_superior',
   'misconception:more_information_always_helps',
+  // Lesson 2.1 Misconceptions
+  'misconception:testing_is_only_for_grading',
+  'misconception:current_performance_equals_learning',
+  'misconception:struggle_means_poor_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

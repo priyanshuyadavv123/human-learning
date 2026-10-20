@@ -113,7 +113,7 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     referencedSection: 'Lesson 1.1 • Section 6 (Practical Task)',
   },
   {
-    keywords: ['generation', 'generation effect', 'slamecka', 'desirable difficulty', 'bjork', 'storage strength', 'retrieval strength'],
+    keywords: ['generation', 'generation effect', 'slamecka', 'generative retrieval', 'reconstruction'],
     title: 'The Generation Effect & Desirable Difficulties',
     summary: 'Self-generated information is retained significantly better than passive reading.',
     takeaway: 'Generating words, code, or solutions from memory creates deeper neural traces than reading them, even when the generation process feels effortful and halting.',
@@ -147,6 +147,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     detailedResponse: 'For beginners, studying annotated worked solutions paired with faded completion problems significantly outperforms unguided problem solving (The Worked Example Effect). However, as learners acquire automated long-term schemas, step-by-step guidance becomes redundant and actively interferes with their internal representations (The Expertise Reversal Effect, Kalyuga et al., 2003). Scaffolding must dynamically fade.',
     socraticChallenge: 'Are you currently treating yourself as a novice (benefiting from worked examples) or as an expert (benefiting from unguided problem solving)?',
     referencedSection: 'Lesson 1.3 • Section 2: The Worked Example & Split-Attention Effects',
+  },
+  {
+    keywords: ['roediger', 'karpicke', 'testing effect', 'retrieval practice', 'sttt', 'ssss', 'modifier hypothesis'],
+    title: 'The Testing Effect & Memory Modification',
+    summary: 'Testing is an active memory modifier, not a passive measurement.',
+    takeaway: 'Repeated retrieval practice (STTT) inverts immediate study gains, delivering over 50% higher retention after 1 week compared to rereading (SSSS).',
+    detailedResponse: 'Roediger & Karpicke (2006) proved that testing acts as a powerful memory modifier, triggering synaptic reconsolidation. While repeated reading (SSSS) gives higher scores at 5 minutes due to working-memory recency, it results in catastrophic forgetting over time. Repeated testing (STTT) halts forgetting, yielding ~67% retention at 1 week versus 40% for rereaders. Retrieval actively reconstructs and consolidates neural access routes.',
+    socraticChallenge: 'How much of your study time is currently spent on input (reading/watching) versus output (retrieving from memory)?',
+    referencedSection: 'Lesson 2.1 • Section 1: The Testing Effect & Memory Modification',
+  },
+  {
+    keywords: ['storage strength', 'retrieval strength', 'new theory of disuse', 'bjork', 'inverse storage'],
+    title: 'Storage Strength vs. Retrieval Strength',
+    summary: 'Current access ease is an unfaithful indicator of permanent durability.',
+    takeaway: 'Gains in permanent Storage Strength are inversely proportional to current Retrieval Strength. The harder an answer is to recall, the more you learn by retrieving it.',
+    detailedResponse: 'Robert & Elizabeth Bjork’s New Theory of Disuse establishes that every memory trace has two independent dimensions: Retrieval Strength (current temporary accessibility) and Storage Strength (permanent biological durability). When Retrieval Strength is high, retrieving requires zero effort and produces near-zero gains in Storage Strength. Practicing retrieval after a delay when Retrieval Strength is low triggers massive permanent storage gains.',
+    socraticChallenge: 'Why does an answer that comes to mind instantly during a study session fail to prove you will remember it in an exam next week?',
+    referencedSection: 'Lesson 2.1 • Section 2: Storage vs. Retrieval Strength',
+  },
+  {
+    keywords: ['desirable difficulty', 'reconsolidation', 'destabilization', 'labile', 'protein synthesis', 'dudai', 'nader'],
+    title: 'Desirable Difficulties & Synaptic Reconsolidation',
+    summary: 'Effortful struggle destabilizes traces, triggering neuroplastic reconsolidation.',
+    takeaway: 'Retrieving a memory transiently returns it to a plastic, labile state. Synaptic reconsolidation then re-stabilizes it with updated cues, cementing long-term mastery.',
+    detailedResponse: 'A desirable difficulty (Bjork, 1994) is an instructional challenge that slows immediate performance during training but produces superior long-term durability and transfer. Neurobiologically, effortful retrieval destabilizes the synaptic trace via NMDA receptors and protein degradation (Nader et al., 2000), placing it into a labile state. During the subsequent reconsolidation window, new protein synthesis re-stabilizes the trace, integrating new cues and making it permanently resistant to decay (Dudai, 2004).',
+    socraticChallenge: 'When you encounter difficulty retrieving a concept, do you perceive it as a sign of failure or as the active biological trigger of reconsolidation?',
+    referencedSection: 'Lesson 2.1 • Section 3: Desirable Difficulties & Synaptic Reconsolidation',
   },
 ];
 

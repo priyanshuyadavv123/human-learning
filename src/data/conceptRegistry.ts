@@ -156,6 +156,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:more_information_always_helps',
     discrepancyPrompt: 'Previously you may have assumed that more instructional guidance is always better. Why does detailed scaffolding actively impair performance once a learner reaches proficiency?',
   },
+  'concept:storage_vs_retrieval_strength': {
+    conceptId: 'concept:storage_vs_retrieval_strength',
+    title: 'Storage Strength vs. Retrieval Strength',
+    prompt: 'According to Bjork’s New Theory of Disuse, how do Storage Strength and Retrieval Strength fundamentally differ, and why does current performance fail to predict long-term retention?',
+    keyCriteria: [
+      'Distinguishes Storage Strength (permanent trace durability) from Retrieval Strength (current momentary access)',
+      'Cites Bjork & Bjork’s New Theory of Disuse',
+      'Explains that high retrieval strength masks low storage strength (e.g. cramming/rereading)',
+      'Explains that retrieval practice when retrieval strength is low maximizes storage strength gains',
+    ],
+    canonicalAnswer: 'Under Bjork’s New Theory of Disuse, Retrieval Strength measures momentary access to a memory trace under current cues, while Storage Strength reflects how deeply rooted and durable the trace is over time. When Retrieval Strength is high (e.g. right after reading), retrieving information requires little effort and produces minimal gains in Storage Strength. When Retrieval Strength is low (after a delay), successful effortful retrieval produces massive increments in Storage Strength.',
+    lessonSectionAnchor: 'Lesson 2.1 • Section 2: Storage Strength vs. Retrieval Strength',
+    relatedMisconception: 'misconception:current_performance_equals_learning',
+    discrepancyPrompt: 'Previously you may have judged how well you know something by how easily it came to mind right after studying. Why does immediate ease of access give a misleading signal of permanent durability?',
+  },
+  'concept:desirable_difficulty_framework': {
+    conceptId: 'concept:desirable_difficulty_framework',
+    title: 'The Desirable Difficulty Framework',
+    prompt: 'What constitutes a "Desirable Difficulty" (Bjork, 1994), and how does it differ from unproductive frustration?',
+    keyCriteria: [
+      'Defines desirable difficulty as conditions that slow down apparent learning during training but dramatically enhance long-term retention and transfer',
+      'Cites Robert Bjork (1994)',
+      'Contrasts desirable difficulty with undesirable difficulty (lacking prerequisite schemas)',
+      'Notes examples: spacing, testing, interleaving, and varied practice',
+    ],
+    canonicalAnswer: 'A desirable difficulty (Robert Bjork) is an instructional manipulation that introduces challenge, slows immediate acquisition, and induces apparent error during practice, but leads to deeper encoding, superior long-term durability, and robust transfer. A difficulty is "desirable" only if the learner has the foundational knowledge to respond successfully to the challenge; without prerequisite schemas, difficulty becomes pure unproductive frustration.',
+    lessonSectionAnchor: 'Lesson 2.1 • Section 2: Desirable Difficulties in Practice',
+    relatedMisconception: 'misconception:struggle_means_poor_learning',
+    discrepancyPrompt: 'Previously you may have felt that a study session where everything feels smooth and error-free is the most effective. Why do conditions that introduce effortful challenge produce superior long-term retention?',
+  },
+  'concept:reconsolidation_trace_updating': {
+    conceptId: 'concept:reconsolidation_trace_updating',
+    title: 'Retrieval Reconsolidation & Memory Modification',
+    prompt: 'Why is human memory not like a video playback, and how does the neurobiological process of retrieval-induced reconsolidation fundamentally modify retrieved memories?',
+    keyCriteria: [
+      'Explains that retrieval is an active modifying event, not neutral playback',
+      'Explains that retrieving a trace places it into a transient labile, destabilized state',
+      'Explains reconsolidation: protein synthesis re-stabilizes the trace with new contextual associations',
+      'Cites Nader et al. (2000) or Dudai (2004)',
+    ],
+    canonicalAnswer: 'Every act of retrieval alters the retrieved memory. Neurobiologically, recalling a memory destabilizes its synaptic trace, returning it to a labile, plastic state (Nader et al., 2000; Dudai, 2004). During reconsolidation, new protein synthesis re-stabilizes the trace, integrating new cues, emotional contexts, and semantic associations into the original trace, strengthening future accessibility and restructuring schemas.',
+    lessonSectionAnchor: 'Lesson 2.1 • Section 3: Neurobiology of Reconsolidation',
+    relatedMisconception: 'misconception:testing_is_only_for_grading',
+    discrepancyPrompt: 'Previously you might have viewed testing as merely reading data out of memory without altering the data. How does neurobiological reconsolidation prove that retrieval actively modifies and strengthens what is remembered?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

@@ -15,24 +15,36 @@ export const BACKUP_STORAGE_KEY_V1 = 'human_learning_progress_v1_backup';
 
 export function createDefaultConceptState(conceptId: ConceptId, nowIso: string): ConceptReviewState {
   let lessonId = 'how-learning-actually-works';
+  let chapterId = 'ch-1-architecture';
+
   if (
     conceptId.startsWith('concept:fluency_') || 
     conceptId.startsWith('concept:generation_') || 
     conceptId.startsWith('concept:delayed_judgment')
   ) {
     lessonId = 'illusion-of-competence';
+    chapterId = 'ch-1-architecture';
   } else if (
     conceptId.startsWith('concept:cognitive_load_') || 
     conceptId.startsWith('concept:worked_example_') || 
     conceptId.startsWith('concept:expertise_reversal_')
   ) {
     lessonId = 'cognitive-load-schema';
+    chapterId = 'ch-1-architecture';
+  } else if (
+    conceptId.startsWith('concept:storage_vs_retrieval_') ||
+    conceptId.startsWith('concept:desirable_difficulty_') ||
+    conceptId.startsWith('concept:reconsolidation_') ||
+    conceptId === 'concept:testing_effect_retrieval_strength'
+  ) {
+    lessonId = 'testing-effect-mechanics';
+    chapterId = 'ch-2-retrieval-spacing';
   }
 
   return {
     conceptId,
     lessonId,
-    chapterId: 'ch-1-architecture',
+    chapterId,
     stage: 'untested',
     reviewIntervalDays: 1,
     easeFactor: 2.0,
