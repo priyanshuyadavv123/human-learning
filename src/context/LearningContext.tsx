@@ -103,6 +103,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-process-vs-outcome-goals': 'concept:deliberate_practice_reps',
     },
   },
+  'attention-serial-control': {
+    predictionConceptId: 'concept:task_switching_attention_residue',
+    predictionMisconceptionId: 'misconception:multitasking_is_efficient',
+    quizConceptMapping: {
+      'q1-broadbent-filter-bottleneck': 'concept:attentional_serial_filter_gating',
+      'q2-leroy-attention-residue': 'concept:task_switching_attention_residue',
+      'q3-posner-acc-executive': 'concept:attentional_serial_filter_gating',
+      'q4-miller-cohen-biased-competition': 'concept:executive_control_depletion_restoration',
+    },
+  },
 };
 
 interface LearningContextType {

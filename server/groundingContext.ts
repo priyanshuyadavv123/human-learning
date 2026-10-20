@@ -88,6 +88,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 3.2 • Verification Assessment',
   'Lesson 3.2 • Daily Deliberate Practice Sprint Protocol',
   'Lesson 3.2 • Deliberate Practice & Self-Regulation Overview',
+
+  // Lesson 4.1 Sections
+  'Lesson 4.1 • Curiosity Hook',
+  'Lesson 4.1 • Intuitive Calibration: Partial Attention vs Monotask',
+  'Lesson 4.1 • Section 1: Broadbent’s Filter & Posner’s Tripartite Attentional Networks',
+  'Lesson 4.1 • Section 2: Sophie Leroy’s Attention Residue & Task-Switching Economics',
+  'Lesson 4.1 • Section 3: Prefrontal Biased Competition & Executive Energy Recovery',
+  'Lesson 4.1 • Attentional Filter & Executive Control Diagram',
+  'Lesson 4.1 • Attentional Dynamics Diagnostic Scenarios',
+  'Lesson 4.1 • Verification Assessment',
+  'Lesson 4.1 • Attention Shielding Monotask Protocol',
+  'Lesson 4.1 • Attentional Bottleneck & Focus Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -100,6 +112,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 4.1 anchors
+  if (lower.includes('broadbent') || lower.includes('filter model') || lower.includes('posner') || lower.includes('dichotic') || lower.includes('alerting') || lower.includes('orienting') || lower.includes('cocktail party')) {
+    return 'Lesson 4.1 • Section 1: Broadbent’s Filter & Posner’s Tripartite Attentional Networks';
+  }
+  if (lower.includes('leroy') || lower.includes('attention residue') || lower.includes('task-switching') || lower.includes('task switching') || lower.includes('switching cost') || lower.includes('zeigarnik')) {
+    return 'Lesson 4.1 • Section 2: Sophie Leroy’s Attention Residue & Task-Switching Economics';
+  }
+  if (lower.includes('biased competition') || lower.includes('glycogen') || lower.includes('central fatigue') || lower.includes('miller') || lower.includes('cohen') || lower.includes('executive fatigue') || lower.includes('choice architecture')) {
+    return 'Lesson 4.1 • Section 3: Prefrontal Biased Competition & Executive Energy Recovery';
+  }
+  if (lower.includes('attentional filter & executive control diagram') || lower.includes('attentional filter diagram')) {
+    return 'Lesson 4.1 • Attentional Filter & Executive Control Diagram';
+  }
+  if (lower.includes('4.1') || lower.includes('attention shielding protocol')) {
+    return 'Lesson 4.1 • Section 1: Broadbent’s Filter & Posner’s Tripartite Attentional Networks';
+  }
 
   // Match Lesson 3.2 anchors
   if (lower.includes('ericsson') || lower.includes('deliberate practice') || lower.includes('10,000 hour') || lower.includes('edge of ability') || lower.includes('mental representation')) {
@@ -403,6 +432,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_4_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 4.1: "The Serial Bottleneck & Attentional Control — Anterior Cingulate Gating and Task-Switching Residue Economics".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical science of attention and executive control:
+     a) Broadbent's Filter & Posner's Networks: Donald Broadbent (1958) demonstrated that conscious attention is a strictly serial bottleneck. Michael Posner (1990) revealed the tripartite architecture: Alerting, Orienting, and Executive Control (mediated by the dorsal Anterior Cingulate Cortex and dlPFC). The ACC monitors conflict between goals and distractors, directing prefrontal resources to suppress noise (Botvinick et al., 2001).
+     b) Sophie Leroy's Attention Residue: Dr. Sophie Leroy (2009) proved that task-switching leaves attention residue—uncompleted sub-goals of Task A remain active in working memory, impairing processing speed and accuracy on Task B for up to 25 minutes. Quick checks are never free.
+     c) Prefrontal Biased Competition: Miller & Cohen (2001) showed that the dlPFC enforces focus by emitting top-down excitatory signals that bias neural competition toward task goals. Because sustaining this control depletes astrocytic glycogen and builds prefrontal glutamate, environmental choice architecture (quarantining distractors) is vastly superior to raw willpower.
+     d) The Monotask Protocol: 60-90 minute residue-shielded blocks, externalizing intrusive thoughts onto paper parking lots to close Zeigarnik loops, followed by non-cognitive rest.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to attention gating, attention residue, and executive energy.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -421,6 +475,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'personal-learning-operating-system') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_3_2;
+  }
+  if (lessonId === 'attention-serial-control') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_4_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -454,6 +511,10 @@ export const KNOWN_CONCEPTS = [
   'concept:deliberate_practice_reps',
   'concept:metacognitive_monitoring_calibration',
   'concept:autonomous_learning_operating_system',
+  // Lesson 4.1 Concepts
+  'concept:attentional_serial_filter_gating',
+  'concept:task_switching_attention_residue',
+  'concept:executive_control_depletion_restoration',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -482,6 +543,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 3.2 Misconceptions
   'misconception:experience_equals_expertise',
   'misconception:talent_is_fixed_innate',
+  // Lesson 4.1 Misconceptions
+  'misconception:multitasking_is_efficient',
+  'misconception:willpower_can_overcome_constant_distraction',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

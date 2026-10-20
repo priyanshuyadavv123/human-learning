@@ -56,7 +56,7 @@ Every chapter is classified strictly by actual code implementation:
 | **ch-1-architecture** | **1. The Architecture of Human Memory** | 1.1 How Learning Actually Works<br>1.2 The Illusion of Competence<br>1.3 Cognitive Load & Schema Construction | Attention serial bottleneck, working memory capacity limits, schema consolidation, perceptual fluency illusion, generation effect, delayed JOLs, tripartite load, worked example effect, expertise reversal. | **ACCEPTED** (3/3 Lessons Complete) |
 | **ch-2-retrieval-spacing** | **2. The Retrieval & Spacing Engine** | 2.1 The Testing Effect & Desirable Difficulty<br>2.2 Spaced Scheduling Algorithms | Retrieval effort vs storage strength, forgetting curve decay, expanding interval scheduling, desirable difficulty, synaptic reconsolidation, stability multipliers, Ebbinghaus decay kinetics. | **ACCEPTED** (2/2 Lessons Complete) |
 | **ch-3-deliberate-practice** | **3. Feedback Loops & Meta-Cognition** | 3.1 Calibrated Error Signals<br>3.2 The Personal Learning Operating System | Reward prediction error signaling, hypercorrection effect, calibrated feedback triad, error loop pathologies, Hattie-Timperley feed-up/back/forward, deliberate practice systems, Zimmerman SRL triad, metacognitive calibration. | **ACCEPTED** (2/2 Lessons Complete) |
-| **ch-4-attention-executive** | **4. Attention, Focus & Executive Function** | 4.1 The Serial Bottleneck & Attentional Control<br>4.2 Distraction Economics & Deep Work Protocols | Selective filter gating, task-switching residue, executive depletion vs recovery. | **PLANNED** |
+| **ch-4-attention-executive** | **4. Attention, Focus & Executive Function** | 4.1 The Serial Bottleneck & Attentional Control<br>4.2 Distraction Economics & Deep Work Protocols | Broadbent sensory filter gating, Posner tripartite attentional networks, Sophie Leroy task-switching attention residue, Miller-Cohen biased competition, executive depletion and restoration. | **IN PROGRESS** (4.1 ACCEPTED, 4.2 NEXT) |
 
 ### Part 2: Memory Consolidation, Sleep & Neural Plasticity (Chapters 5–7)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
@@ -129,21 +129,21 @@ Every implemented lesson must satisfy the 15-point educational quality benchmark
 
 ## 5. Current Test & Quality Metrics
 
-- **Vitest Suite:** 156 passing tests across 19 test files (100% pass rate).
-- **Linter (`oxlint`):** 0 warnings, 0 errors across 54 files.
-- **Build (`tsc -b && vite build`):** Clean production build (121ms).
+- **Vitest Suite:** 168 passing tests across 20 test files (100% pass rate).
+- **Linter (`oxlint`):** 0 warnings, 0 errors across 56 files.
+- **Build (`tsc -b && vite build`):** Clean production build (116ms).
 - **Bundle Security:** 0 leaked secrets; no server SDK in client bundle.
-- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.2, 1.3, 2.1, 2.2, 3.1, and 3.2 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
-- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across 23 registered concepts.
+- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.2, 1.3, 2.1, 2.2, 3.1, 3.2, and 4.1 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
+- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across 26 registered concepts.
 
 ---
 
 ## 6. Immediate Next Milestone
 
-**Stage 4.9: Implement Lesson 4.1: "The Serial Bottleneck & Attentional Control — Anterior Cingulate Gating and Task-Switching Residue Economics"**
-- Begin Chapter 4 by creating `src/data/lesson4_1Data.ts`.
-- Satisfy all 15 points of the Reusable Lesson Quality Standard (Broadbent filter model, Posner attentional networks, Sophie Leroy task-switching residue, Miller & Cohen prefrontal cognitive control).
-- Register concepts (`concept:attentional_serial_filter_gating`, `concept:task_switching_attention_residue`, `concept:executive_control_depletion_restoration`) in `conceptRegistry.ts`.
-- Add Lesson 4.1 section anchors and tutor system prompt to `server/groundingContext.ts`.
+**Stage 4.10: Implement Lesson 4.2: "Distraction Economics & Deep Work Protocols — Defending Working Memory from Constant Micro-Interruptions"**
+- Complete Chapter 4 and Part 1 of the curriculum by creating `src/data/lesson4_2Data.ts`.
+- Satisfy all 15 points of the Reusable Lesson Quality Standard (Gloria Mark distraction recovery dynamics, Cal Newport deep work architecture, Matthew Crawford attentional commons, intentionality protocols).
+- Register concepts (`concept:distraction_recovery_latency`, `concept:deep_work_chamber_architecture`, `concept:attentional_commons_environmental_design`) in `conceptRegistry.ts`.
+- Add Lesson 4.2 section anchors and tutor system prompt to `server/groundingContext.ts`.
 - Add local fallback knowledge entries to `src/data/tutorKnowledge.ts`.
-- Expand unit tests with `src/test/lesson4_1Data.test.ts` and execute browser CDP verification.
+- Expand unit tests with `src/test/lesson4_2Data.test.ts` and execute browser CDP verification.

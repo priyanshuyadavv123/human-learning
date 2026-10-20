@@ -247,6 +247,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How do you currently verify that you actually understand a complex concept before concluding your study session?',
     referencedSection: 'Lesson 3.2 • Section 3: Metacognitive Calibration & The Personal Learning Stack',
   },
+  {
+    keywords: ['broadbent', 'filter model', 'posner', 'dichotic', 'alerting network', 'orienting network', 'sensory gate'],
+    title: 'Broadbent’s Filter & Posner’s Tripartite Attentional Networks',
+    summary: 'Sensory inputs enter in parallel, but conscious working memory is restricted to a strictly serial bottleneck.',
+    takeaway: 'Conscious attention is strictly serial. Posner’s tripartite networks (Alerting, Orienting, Executive Control) gate sensory inputs, with the ACC monitoring conflict.',
+    detailedResponse: 'Donald Broadbent (1958) demonstrated using dichotic listening experiments that human conscious attention possesses a strict physical bottleneck: sensory stores receive vast parallel inputs, but only one selected semantic channel passes through to working memory. Michael Posner (1990) established that attention is governed by three networks: Alerting (arousal), Orienting (spatial attention), and Executive Control. In the executive network, the dorsal Anterior Cingulate Cortex (ACC) monitors conflict between goals and distractions, directing prefrontal resources to suppress noise.',
+    socraticChallenge: 'What sensory distractions in your workspace currently trigger involuntary orienting responses and force your ACC into conflict suppression?',
+    referencedSection: 'Lesson 4.1 • Section 1: Broadbent’s Filter & Posner’s Tripartite Attentional Networks',
+  },
+  {
+    keywords: ['attention residue', 'leroy', 'task switching', 'task-switching', 'switch cost', 'zeigarnik loop', 'quick check'],
+    title: 'Sophie Leroy’s Attention Residue & Task-Switching Economics',
+    summary: 'Switching away from incomplete tasks leaves attention residue that impairs problem solving for up to 25 minutes.',
+    takeaway: 'There is no such thing as a "quick check." Switching away from an unfinished task leaves attention residue, halving cognitive capacity for up to 25 minutes.',
+    detailedResponse: 'Dr. Sophie Leroy (2009) proved that human attention does not transition cleanly between tasks. When you switch away from an uncompleted task, unresolved sub-goals linger in working memory as Attention Residue, consuming central executive bandwidth and significantly degrading accuracy and speed on the new task. Reconfiguring the prefrontal task-set incurs a heavy switching cost, requiring 15 to 25 minutes of warm-up reconstruction to regain peak focus.',
+    socraticChallenge: 'How often do you switch to communication channels during compile waits or minor roadblocks, and how does that lingering residue affect your focus?',
+    referencedSection: 'Lesson 4.1 • Section 2: Sophie Leroy’s Attention Residue & Task-Switching Economics',
+  },
+  {
+    keywords: ['biased competition', 'miller and cohen', 'central fatigue', 'glycogen depletion', 'choice architecture', 'willpower depletion'],
+    title: 'Prefrontal Biased Competition & Executive Energy Recovery',
+    summary: 'The prefrontal cortex enforces focus via top-down biasing, but metabolic glycogen depletion requires environmental choice architecture.',
+    takeaway: 'Top-down prefrontal biasing consumes metabolic glycogen. Eliminate distractions with physical choice architecture rather than relying on exhausting willpower.',
+    detailedResponse: 'Earl Miller and Jonathan Cohen (2001) established that stimuli compete for neural dominance. The dorsolateral prefrontal cortex (dlPFC) enforces focus by sending top-down excitatory biasing signals to task-relevant pathways. However, continuous biasing depletes astrocytic glycogen and accumulates glutamate in prefrontal networks, leading to central executive fatigue. Because resisting sensory cues consumes finite metabolic reserves, designing environments that eliminate sensory distractions (choice architecture) is far more effective than relying on willpower.',
+    socraticChallenge: 'How could you redesign your physical and digital desk environment so you don’t need to spend willpower resisting distractions?',
+    referencedSection: 'Lesson 4.1 • Section 3: Prefrontal Biased Competition & Executive Energy Recovery',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

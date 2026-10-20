@@ -32,6 +32,10 @@ export const KNOWN_CONCEPTS = [
   'concept:deliberate_practice_reps',
   'concept:metacognitive_monitoring_calibration',
   'concept:autonomous_learning_operating_system',
+  // Lesson 4.1 Concepts
+  'concept:attentional_serial_filter_gating',
+  'concept:task_switching_attention_residue',
+  'concept:executive_control_depletion_restoration',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -60,6 +64,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 3.2 Misconceptions
   'misconception:experience_equals_expertise',
   'misconception:talent_is_fixed_innate',
+  // Lesson 4.1 Misconceptions
+  'misconception:multitasking_is_efficient',
+  'misconception:willpower_can_overcome_constant_distraction',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

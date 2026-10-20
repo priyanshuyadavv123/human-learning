@@ -5,6 +5,7 @@ import { LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY } from './lesson2_1Data.ts';
 import { LESSON_SPACED_SCHEDULING } from './lesson2_2Data.ts';
 import { LESSON_CALIBRATED_ERROR_SIGNALS } from './lesson3_1Data.ts';
 import { LESSON_PERSONAL_LEARNING_OS } from './lesson3_2Data.ts';
+import { LESSON_ATTENTION_SERIAL_CONTROL } from './lesson4_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -104,8 +105,8 @@ export const PRIMARY_COURSE: Course = {
           number: '4.1',
           title: 'The Serial Bottleneck & Attentional Control',
           subtitle: 'Anterior cingulate gating and task-switching residue economics',
-          readingTimeMinutes: 15,
-          isAvailable: false,
+          readingTimeMinutes: 16,
+          isAvailable: true,
         },
         {
           id: 'distraction-economics',
@@ -1131,6 +1132,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_SPACED_SCHEDULING.id]: LESSON_SPACED_SCHEDULING,
   [LESSON_CALIBRATED_ERROR_SIGNALS.id]: LESSON_CALIBRATED_ERROR_SIGNALS,
   [LESSON_PERSONAL_LEARNING_OS.id]: LESSON_PERSONAL_LEARNING_OS,
+  [LESSON_ATTENTION_SERIAL_CONTROL.id]: LESSON_ATTENTION_SERIAL_CONTROL,
 };
 
 export function getLessonById(id: string): Lesson {

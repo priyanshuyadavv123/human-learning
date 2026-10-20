@@ -336,6 +336,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:talent_is_fixed_innate',
     discrepancyPrompt: 'Previously you may have sat down to study without structured planning or post-session reflection. Why does Zimmerman’s cybernetic loop transform scattered study hours into high-velocity deliberate practice?',
   },
+  'concept:attentional_serial_filter_gating': {
+    conceptId: 'concept:attentional_serial_filter_gating',
+    title: 'Attentional Serial Filter Gating (Broadbent & Posner)',
+    prompt: 'How does the human brain gate sensory information according to Donald Broadbent’s filter model and Michael Posner’s tripartite attentional networks?',
+    keyCriteria: [
+      'Cites Donald Broadbent (1958) and Michael Posner (1990)',
+      'Explains that sensory input enters in parallel but conscious working memory is restricted to a serial bottleneck',
+      'Identifies Posner\'s three networks: Alerting, Orienting, and Executive Control',
+      'Identifies the role of the Anterior Cingulate Cortex (ACC) in conflict monitoring and distractor suppression',
+    ],
+    canonicalAnswer: 'Donald Broadbent (1958) demonstrated that human attention possesses a strict physical bottleneck: sensory stores receive parallel inputs, but only one selected semantic channel passes through to conscious working memory. Michael Posner (1990) established that attention is governed by three networks: Alerting (arousal), Orienting (spatial attention), and Executive Control. In the executive network, the dorsal Anterior Cingulate Cortex (ACC) continuously monitors conflict between goals and distractions, directing the prefrontal cortex to expend metabolic energy suppressing sensory noise.',
+    lessonSectionAnchor: 'Lesson 4.1 • Section 1: Broadbent’s Filter & Posner’s Tripartite Attentional Networks',
+    relatedMisconception: 'misconception:multitasking_is_efficient',
+    discrepancyPrompt: 'Previously you may have thought that multitasking is a badge of productivity. Why does the biological serial bottleneck prove that attempting to multitask merely fragments working memory and depletes executive energy?',
+  },
+  'concept:task_switching_attention_residue': {
+    conceptId: 'concept:task_switching_attention_residue',
+    title: 'Task-Switching Economics & Sophie Leroy’s Attention Residue',
+    prompt: 'What is Attention Residue as identified by Sophie Leroy (2009), and how does frequent task-switching impair technical problem solving?',
+    keyCriteria: [
+      'Cites Dr. Sophie Leroy (2009)',
+      'Defines attention residue: working memory traces of Task A lingering after switching to Task B',
+      'Explains that uncompleted tasks create open loops (Zeigarnik effect)',
+      'Quantifies the 15–25 minute cognitive recovery penalty required to re-establish deep context',
+    ],
+    canonicalAnswer: 'Dr. Sophie Leroy (2009) proved that human attention does not switch contexts cleanly. When switching away from an uncompleted task, open sub-goals linger in working memory as Attention Residue, consuming central executive bandwidth and significantly degrading problem-solving accuracy and working memory capacity on the new task. Reconfiguring task-sets incurs an asymmetric switching cost requiring 15 to 25 minutes of warm-up reconstruction to regain peak focus.',
+    lessonSectionAnchor: 'Lesson 4.1 • Section 2: Sophie Leroy’s Attention Residue & Task-Switching Economics',
+    relatedMisconception: 'misconception:multitasking_is_efficient',
+    discrepancyPrompt: 'Previously you may have justified "quick checks" of communication channels while waiting for code to compile. Why does attention residue research demonstrate that even 30-second glances contaminate technical reasoning for nearly half an hour?',
+  },
+  'concept:executive_control_depletion_restoration': {
+    conceptId: 'concept:executive_control_depletion_restoration',
+    title: 'Prefrontal Biased Competition & Executive Energy Recovery',
+    prompt: 'How does the Prefrontal Cortex enforce focus over distractions according to Miller & Cohen (2001), and why is choice architecture superior to raw willpower?',
+    keyCriteria: [
+      'Cites Earl Miller & Jonathan Cohen (2001)',
+      'Explains the Biased Competition Model: dlPFC emits top-down biasing signals to amplify task-relevant circuits',
+      'Explains astrocytic glycogen depletion and glutamate accumulation causing central executive fatigue',
+      'Explains why choice architecture (environmental shielding) is neurobiologically superior to conscious willpower',
+    ],
+    canonicalAnswer: 'Earl Miller and Jonathan Cohen (2001) showed that sensory stimuli compete for neural dominance in the brain. The dorsolateral prefrontal cortex (dlPFC) enforces focus by sending top-down excitatory biasing signals to task-relevant pathways. However, continuous biasing depletes astrocytic glycogen and accumulates glutamate in prefrontal networks, leading to central executive fatigue. Because resisting sensory cues consumes finite metabolic reserves, designing environments that eliminate sensory distractions (choice architecture) is far more effective than relying on willpower.',
+    lessonSectionAnchor: 'Lesson 4.1 • Section 3: Prefrontal Biased Competition & Executive Energy Recovery',
+    relatedMisconception: 'misconception:willpower_can_overcome_constant_distraction',
+    discrepancyPrompt: 'Previously you may have believed that strong-willed engineers should be able to ignore notification pings on their desk. Why does neurobiology prove that every resisted cue drains prefrontal energy, making environmental quarantine essential?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

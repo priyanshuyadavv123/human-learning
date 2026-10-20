@@ -61,6 +61,14 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'personal-learning-operating-system';
     chapterId = 'ch-3-deliberate-practice';
+  } else if (
+    conceptId.startsWith('concept:attentional_serial_') ||
+    conceptId.startsWith('concept:task_switching_') ||
+    conceptId.startsWith('concept:executive_control_') ||
+    conceptId === 'concept:attention_serial_bottleneck'
+  ) {
+    lessonId = 'attention-serial-control';
+    chapterId = 'ch-4-attention-executive';
   }
 
   return {
