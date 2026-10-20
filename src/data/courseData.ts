@@ -28,6 +28,7 @@ import { LESSON_PARADOX_OF_AUTOMATION } from './lesson13_2Data.ts';
 import { LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE } from './lesson14_1Data.ts';
 import { LESSON_VARIED_PRACTICE_TRANSFER } from './lesson14_2Data.ts';
 import { LESSON_PRODUCTIVE_FAILURE_GENERATION } from './lesson15_1Data.ts';
+import { LESSON_PREMORTEM_ERROR_JOURNALING } from './lesson15_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -403,10 +404,10 @@ export const PRIMARY_COURSE: Course = {
         {
           id: 'error-journaling-protocols',
           number: '15.2',
-          title: 'The Error Journaling Protocol',
+          title: 'The Pre-Mortem & Error Journaling Protocols',
           subtitle: 'Systematic classification and root-cause post-mortems of learning bugs',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1177,6 +1178,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE.id]: LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE,
   [LESSON_VARIED_PRACTICE_TRANSFER.id]: LESSON_VARIED_PRACTICE_TRANSFER,
   [LESSON_PRODUCTIVE_FAILURE_GENERATION.id]: LESSON_PRODUCTIVE_FAILURE_GENERATION,
+  [LESSON_PREMORTEM_ERROR_JOURNALING.id]: LESSON_PREMORTEM_ERROR_JOURNALING,
 };
 
 export function getLessonById(id: string): Lesson {

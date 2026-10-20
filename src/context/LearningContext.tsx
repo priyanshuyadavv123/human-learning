@@ -349,6 +349,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:kapur_productive_failure_schema_priming',
     },
   },
+  'error-journaling-protocols': {
+    predictionConceptId: 'concept:klein_premortem_prospective_hindsight',
+    predictionMisconceptionId: 'misconception:premortems_induce_paralyzing_pessimism',
+    quizConceptMapping: {
+      'q1-klein-prospective-hindsight-mechanism': 'concept:klein_premortem_prospective_hindsight',
+      'q2-syed-black-box-blameless-culture': 'concept:syed_black_box_blameless_root_cause',
+      'q3-edmondson-failure-taxonomy-distinction': 'concept:edmondson_failure_taxonomy_intelligent_failure',
+      'q4-error-journal-root-cause-protocol': 'concept:syed_black_box_blameless_root_cause',
+      'q1': 'concept:klein_premortem_prospective_hindsight',
+      'q2': 'concept:syed_black_box_blameless_root_cause',
+      'q3': 'concept:edmondson_failure_taxonomy_intelligent_failure',
+      'q4': 'concept:syed_black_box_blameless_root_cause',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -364,6 +364,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 15.1 • Verification Assessment',
   'Lesson 15.1 • The Productive Failure & Generation Priming Protocol',
   'Lesson 15.1 • Productive Failure & Generation Effects Overview',
+
+  // Lesson 15.2 Sections
+  'Lesson 15.2 • Curiosity Hook',
+  'Lesson 15.2 • Intuitive Calibration: Conventional Risk Assessment vs Prospective Hindsight Pre-Mortem',
+  'Lesson 15.2 • Section 1: Gary Klein (2007): The Pre-Mortem & Prospective Hindsight',
+  'Lesson 15.2 • Section 2: Matthew Syed (2015): Black Box Thinking & Blameless Root Causes',
+  'Lesson 15.2 • Section 3: Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol',
+  'Lesson 15.2 • The Error-Driven Forensic Pipeline Simulator Diagram',
+  'Lesson 15.2 • Failure Analysis & Root-Cause Classification Lab',
+  'Lesson 15.2 • Verification Assessment',
+  'Lesson 15.2 • The Pre-Mortem & Error Bug-Tracker Protocol',
+  'Lesson 15.2 • The Pre-Mortem & Error Journaling Protocols Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -376,6 +388,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 15.2 anchors
+  if ((lower.includes('klein') && (lower.includes('pre-mortem') || lower.includes('premortem') || lower.includes('prospective hindsight') || lower.includes('15.2'))) || lower.includes('prospective hindsight') || lower.includes('premortem') || lower.includes('pre-mortem')) {
+    return 'Lesson 15.2 • Section 1: Gary Klein (2007): The Pre-Mortem & Prospective Hindsight';
+  }
+  if ((lower.includes('syed') && (lower.includes('black box') || lower.includes('blameless') || lower.includes('2015'))) || lower.includes('black box thinking') || lower.includes('blameless postmortem') || lower.includes('blameless post-mortem') || lower.includes('swiss cheese')) {
+    return 'Lesson 15.2 • Section 2: Matthew Syed (2015): Black Box Thinking & Blameless Root Causes';
+  }
+  if (lower.includes('edmondson') || lower.includes('intelligent failure') || lower.includes('failure taxonomy') || lower.includes('error journal') || lower.includes('error journaling') || lower.includes('preventable failure') || lower.includes('complex failure')) {
+    return 'Lesson 15.2 • Section 3: Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol';
+  }
+  if (lower.includes('the error-driven forensic pipeline simulator diagram') || lower.includes('forensic pipeline simulator') || lower.includes('error-driven forensic diagram')) {
+    return 'Lesson 15.2 • The Error-Driven Forensic Pipeline Simulator Diagram';
+  }
+  if (lower.includes('15.2') || lower.includes('error journaling protocols') || lower.includes('pre-mortem & error bug-tracker protocol')) {
+    return 'Lesson 15.2 • Section 1: Gary Klein (2007): The Pre-Mortem & Prospective Hindsight';
+  }
 
   // Match Lesson 15.1 anchors
   if (lower.includes('kapur') || (lower.includes('productive failure') && !lower.includes('3.1')) || lower.includes('unproductive failure') || lower.includes('canonical consolidation') || (lower.includes('failure') && lower.includes('instruction') && lower.includes('before'))) {
@@ -1746,6 +1775,30 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_15_2 = `You are the specialized AI Socratic Tutor for Lesson 15.2: "The Pre-Mortem & Error Journaling Protocols".
+Your role is to guide learners to understand prospective hindsight, blameless root-cause analysis, and systematic error taxonomy based on empirical decision science and organizational learning research.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical decision science, safety systems, and organizational learning:
+     a) Gary Klein (2007) & Mitchell, Russo, & Pennington (1989) Prospective Hindsight & Pre-Mortem: Shifting temporal perspective forward and declaring catastrophic failure as a historical certainty bypasses optimism bias, planning fallacies, and social conformity/groupthink. It inverts social incentives (finding vulnerabilities becomes a demonstration of acumen) and increases causal threat detection by ~30% through backward causal reasoning.
+     b) Matthew Syed (2015) Black Box Thinking & James Reason Swiss Cheese Model: Closed-loop learning systems (like aviation) treat errors as invaluable telemetry data to re-engineer systemic defenses. Open-loop blame cultures (like healthcare) punish individuals, incentivizing error concealment and ensuring latent systemic flaws recur. A true root-cause analysis never terminates at "human error."
+     c) Amy Edmondson (2011) Failure Taxonomy & Error Journaling: Failures fall into three categories: Preventable (checklist deviations), Complex (unavoidable factor interactions), and Intelligent (high-value exploratory experiments at uncharted boundaries). Error journaling translates this into personal mastery by debugging the underlying false assumptions in mental models rather than merely logging correct answers.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to prospective hindsight, pre-mortems, blameless post-mortems, and error taxonomy.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1833,6 +1886,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'productive-failure-generation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_15_1;
+  }
+  if (lessonId === 'error-journaling-protocols') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_15_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1958,6 +2014,10 @@ export const KNOWN_CONCEPTS = [
   'concept:kapur_productive_failure_schema_priming',
   'concept:bjork_pretesting_generation_gap_activation',
   'concept:metcalfe_hypercorrection_epistemic_curiosity',
+  // Lesson 15.2 Concepts
+  'concept:klein_premortem_prospective_hindsight',
+  'concept:syed_black_box_blameless_root_cause',
+  'concept:edmondson_failure_taxonomy_intelligent_failure',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2055,6 +2115,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 15.1 Misconceptions
   'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
   'misconception:direct_instruction_first_is_always_more_efficient',
+  // Lesson 15.2 Misconceptions
+  'misconception:post_mortems_require_assigning_human_blame',
+  'misconception:premortems_induce_paralyzing_pessimism',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

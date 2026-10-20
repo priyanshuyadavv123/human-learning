@@ -223,6 +223,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'productive-failure-generation';
     chapterId = 'ch-15-error-driven';
+  } else if (
+    conceptId.startsWith('concept:klein_premortem_') ||
+    conceptId.startsWith('concept:syed_black_box_') ||
+    conceptId.startsWith('concept:edmondson_failure_')
+  ) {
+    lessonId = 'error-journaling-protocols';
+    chapterId = 'ch-15-error-driven';
   }
 
   return {

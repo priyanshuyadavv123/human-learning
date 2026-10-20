@@ -134,6 +134,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'kapur-productive-failure-architecture': <Network size={18} />,
   'bjork-pretesting-generation-gap-activation': <Sparkles size={18} />,
   'metcalfe-hypercorrection-epistemic-curiosity': <RefreshCw size={18} />,
+  // Lesson 15.2 Tabs
+  'klein-premortem-prospective-hindsight': <Eye size={18} />,
+  'syed-black-box-blameless-postmortems': <Network size={18} />,
+  'edmondson-failure-taxonomy-error-journaling': <Layers size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -1372,6 +1372,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
     discrepancyPrompt: 'Previously you may have felt embarrassed or discouraged when you were 100% confident in an answer that turned out to be dead wrong. How does Metcalfe’s hypercorrection effect show that being confidently wrong is the ultimate neurobiological catalyst for permanent memory updating?',
   },
+  'concept:klein_premortem_prospective_hindsight': {
+    conceptId: 'concept:klein_premortem_prospective_hindsight',
+    title: 'Gary Klein (2007): The Pre-Mortem & Prospective Hindsight',
+    prompt: 'How does Gary Klein’s Pre-Mortem technique and the principle of prospective hindsight identify ~30% more fatal flaws than conventional risk reviews?',
+    keyCriteria: [
+      'Cites Gary Klein (2007) and Mitchell, Russo, & Pennington (1989)',
+      'Defines Prospective Hindsight: reasoning backward from a declared certain failure rather than forward from a hope of success',
+      'Explains how it bypasses optimism bias, the planning fallacy, and social conformity/groupthink',
+      'Explains that team members are socially rewarded for diagnosing failure rather than penalized for pessimism',
+    ],
+    canonicalAnswer: 'Gary Klein (2007), drawing on the prospective hindsight research of Mitchell, Russo, and Pennington (1989), proved that assuming catastrophic failure has already occurred increases threat identification by ~30% compared to conventional forward risk reviews. In standard planning, optimism bias, the planning fallacy, and social pressures to conform cause team members to censor their doubts. The Pre-Mortem inverts the social incentive landscape by asking everyone to imagine: "It is six months from now, and this project has suffered a total, embarrassing disaster. Write the history of how it happened." Because failure is established as a historical certainty, participants can safely deploy backward causal reasoning, connecting subtle warning signs and unstated edge cases without looking disloyal or pessimistic.',
+    lessonSectionAnchor: 'Lesson 15.2 • Section 1: Gary Klein (2007): The Pre-Mortem & Prospective Hindsight',
+    relatedMisconception: 'misconception:premortems_induce_paralyzing_pessimism',
+    discrepancyPrompt: 'Previously you may have feared that imagining catastrophic failure before launching a project would paralyze your motivation or make you sound cynical. How does Klein’s prospective hindsight show that assuming disaster as a certainty is the most potent cognitive mechanism for proactively bulletproofing your plans?',
+  },
+  'concept:syed_black_box_blameless_root_cause': {
+    conceptId: 'concept:syed_black_box_blameless_root_cause',
+    title: 'Matthew Syed (2015): Black Box Thinking & Blameless Root Causes',
+    prompt: 'Contrast closed-loop vs open-loop learning systems according to Matthew Syed (2015), and explain why stopping at "human error" perpetuates systemic failure.',
+    keyCriteria: [
+      'Cites Matthew Syed (2015) Black Box Thinking and James Reason’s Swiss Cheese Model',
+      'Distinguishes Closed-Loop systems (aviation, where errors are telemetry data that update processes) from Open-Loop systems (healthcare/blame culture, where errors are concealed or punished)',
+      'Explains that stopping at "human error" or "carelessness" treats symptoms and conceals latent design traps',
+      'Explains blameless root-cause analysis as systemic redesign rather than personal scapegoating',
+    ],
+    canonicalAnswer: 'Matthew Syed (2015) in Black Box Thinking demonstrated that sustainable mastery requires a closed-loop learning system. In aviation, every incident produces flight data recorder telemetry that is investigated without blame to identify systemic vulnerabilities (James Reason’s Swiss Cheese Model). In contrast, open-loop blame cultures (historically prevalent in healthcare) treat errors as moral failings or individual carelessness. Blaming individuals creates a catastrophic feedback failure: people hide mistakes, and the latent systemic flaws remain intact to ensnare the next operator. A true root-cause analysis never terminates at "human error"; it redesigns the environment, checklists, and interfaces to make human error physically or procedurally impossible.',
+    lessonSectionAnchor: 'Lesson 15.2 • Section 2: Matthew Syed (2015): Black Box Thinking & Blameless Root Causes',
+    relatedMisconception: 'misconception:post_mortems_require_assigning_human_blame',
+    discrepancyPrompt: 'Previously you may have thought that when something goes wrong, holding someone accountable means finding out who made the mistake and punishing them. How does Syed’s Black Box principle demonstrate that blaming individuals actually guarantees that the exact same catastrophe will happen again?',
+  },
+  'concept:edmondson_failure_taxonomy_intelligent_failure': {
+    conceptId: 'concept:edmondson_failure_taxonomy_intelligent_failure',
+    title: 'Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol',
+    prompt: 'Explain Amy Edmondson’s (2011) failure taxonomy (Preventable, Complex, Intelligent) and how it applies to personal error journaling in high-stakes learning.',
+    keyCriteria: [
+      'Cites Amy Edmondson (2011) Harvard Business Review taxonomy of failure',
+      'Distinguishes Preventable Failures (deviations from known checklists), Complex Failures (unpredictable factor interactions), and Intelligent Failures (frontier exploratory trials)',
+      'Explains psychological safety as the prerequisite for candid error detection',
+      'Explains how the Error Journaling Protocol debugs mental model flaws (underlying false assumptions) rather than merely logging correct answers',
+    ],
+    canonicalAnswer: 'Amy Edmondson (2011) established that high-performing organizations distinguish between three distinct types of failure: (1) Preventable Failures: deviations from established checklists in routine operations (remedied via checklist training); (2) Complex Failures: unavoidable multi-factor surprises in complex systems (remedied via fast-response protocols); and (3) Intelligent Failures: novel discoveries at uncharted frontiers where small-scale failure yields critical knowledge (celebrated and shared). In personal learning, the Error Journaling Protocol translates this framework by treating learning mistakes as software bugs. Instead of feeling shame, the learner logs the manifest symptom, identifies the flawed mental model assumption, and installs a permanent cognitive schema patch.',
+    lessonSectionAnchor: 'Lesson 15.2 • Section 3: Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol',
+    relatedMisconception: 'misconception:post_mortems_require_assigning_human_blame',
+    discrepancyPrompt: 'Previously you may have treated all mistakes as equal proofs of personal inadequacy. How does Edmondson’s failure taxonomy prove that intelligent failures at the frontier of your ability are the essential engine of breakthrough innovation?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

@@ -876,6 +876,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why are your most confident mistakes actually your greatest opportunities for permanent memory updates?',
     referencedSection: 'Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect',
   },
+  // Lesson 15.2 Entries
+  {
+    keywords: ['klein', 'premortem', 'pre-mortem', 'prospective hindsight', 'mitchell', 'planning fallacy', 'disaster scenario'],
+    title: 'Gary Klein (2007): The Pre-Mortem & Prospective Hindsight',
+    summary: 'Assuming project disaster as a historical certainty bypasses optimism bias and increases causal threat detection by 30%.',
+    takeaway: 'Declaring that a project has already failed catastrophically breaks social conformity and identifies 30% more fatal vulnerabilities (Klein, 2007).',
+    detailedResponse: 'Gary Klein (2007) and Mitchell, Russo, & Pennington (1989) proved that prospective hindsight—imagining an event has already occurred in the future—radically enhances root-cause diagnosis. Conventional risk reviews ask "What could go wrong?", which triggers social deference, groupthink, and optimism bias. In a Pre-Mortem, the team leader states: "It is six months from now, and this initiative has suffered an embarrassing, total collapse. Write the history of how it happened." Because failure is established as an accomplished fact, team members are socially rewarded for forensic insight, unlocking backward causal reasoning that exposes subtle architectural and process vulnerabilities.',
+    socraticChallenge: 'How does assuming your next major project has already completely failed make you more creative at preventing disaster?',
+    referencedSection: 'Lesson 15.2 • Section 1: Gary Klein (2007): The Pre-Mortem & Prospective Hindsight',
+  },
+  {
+    keywords: ['syed', 'black box thinking', 'blameless', 'postmortem', 'post-mortem', 'swiss cheese', 'open-loop', 'closed-loop'],
+    title: 'Matthew Syed (2015): Black Box Thinking & Blameless Post-Mortems',
+    summary: 'Aviation treats errors as data to re-engineer systemic defenses; blame cultures punish people and ensure identical errors recur.',
+    takeaway: 'Root cause analysis must never terminate at "human error"; stopping at blame leaves systemic traps intact to claim the next operator (Syed, 2015).',
+    detailedResponse: 'Matthew Syed (2015) in Black Box Thinking demonstrated that sustainable mastery requires a closed-loop learning system. In aviation, every crash produces flight recorder telemetry that is investigated without personal scapegoating to repair latent system weaknesses (James Reason’s Swiss Cheese Model). In punitive blame cultures, mistakes are treated as individual carelessness or moral failure. This causes individuals to conceal errors, keeping the feedback loop open and guaranteeing that identical traps will claim future operators. True learning organizations treat errors as free diagnostic data to harden checklists, tools, and interfaces.',
+    socraticChallenge: 'Why does firing or blaming someone for an honest mistake guarantee that another person will repeat it tomorrow?',
+    referencedSection: 'Lesson 15.2 • Section 2: Matthew Syed (2015): Black Box Thinking & Blameless Root Causes',
+  },
+  {
+    keywords: ['edmondson', 'failure taxonomy', 'intelligent failure', 'preventable failure', 'complex failure', 'error journal', 'error bug tracker'],
+    title: 'Amy Edmondson (2011): Failure Taxonomy & The Error Journaling Protocol',
+    summary: 'Classify failures into Preventable (process slips), Complex (system clashes), or Intelligent (frontier discoveries) to debug mental models.',
+    takeaway: 'Treat your errors like software bugs: distinguish preventable slips from intelligent experiments, and log the false assumption that caused the bug (Edmondson, 2011).',
+    detailedResponse: 'Amy Edmondson (2011) categorized failures into a clear spectrum: (1) Preventable Failures (deviations from established checklists, solved with execution discipline); (2) Complex Failures (unavoidable interactions in multi-factor systems, solved with fast-response protocols); and (3) Intelligent Failures (well-designed experiments at the frontier of knowledge where failure produces novel data). Translating this into personal learning yields the Error Journaling Protocol: treat learning errors not as emotional shortcomings, but as cognitive software bugs. Document the manifest symptom, the flawed assumption in your mental model, and install a concrete schema patch.',
+    socraticChallenge: 'What false assumption was at the core of your most recent learning mistake, and how can you patch that mental model bug?',
+    referencedSection: 'Lesson 15.2 • Section 3: Amy Edmondson (2011): The Failure Spectrum & The Error Journaling Protocol',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

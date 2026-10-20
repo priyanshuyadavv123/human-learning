@@ -124,6 +124,10 @@ export const KNOWN_CONCEPTS = [
   'concept:kapur_productive_failure_schema_priming',
   'concept:bjork_pretesting_generation_gap_activation',
   'concept:metcalfe_hypercorrection_epistemic_curiosity',
+  // Lesson 15.2 Concepts
+  'concept:klein_premortem_prospective_hindsight',
+  'concept:syed_black_box_blameless_root_cause',
+  'concept:edmondson_failure_taxonomy_intelligent_failure',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -221,6 +225,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 15.1 Misconceptions
   'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
   'misconception:direct_instruction_first_is_always_more_efficient',
+  // Lesson 15.2 Misconceptions
+  'misconception:post_mortems_require_assigning_human_blame',
+  'misconception:premortems_induce_paralyzing_pessimism',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
