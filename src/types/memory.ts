@@ -52,6 +52,10 @@ export const KNOWN_CONCEPTS = [
   'concept:neural_replay_temporal_compression',
   'concept:triple_phase_locking_consolidation',
   'concept:synaptic_homeostasis_downscaling',
+  // Lesson 6.2 Concepts
+  'concept:targeted_memory_reactivation_cueing',
+  'concept:wakeful_rest_awake_replay',
+  'concept:ultradian_basic_rest_activity_cycle',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -95,6 +99,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 6.1 Misconceptions
   'misconception:sleep_is_passive_quiescence',
   'misconception:rem_sleep_is_primary_for_declarative_facts',
+  // Lesson 6.2 Misconceptions
+  'misconception:hypnopedia_sleep_learning_works',
+  'misconception:immediate_post_study_entertainment_harmless',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

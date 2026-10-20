@@ -97,6 +97,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'slow-wave-sleep-replay';
     chapterId = 'ch-6-sleep-replay';
+  } else if (
+    conceptId.startsWith('concept:targeted_memory_') ||
+    conceptId.startsWith('concept:wakeful_rest_') ||
+    conceptId.startsWith('concept:ultradian_')
+  ) {
+    lessonId = 'targeted-memory-reactivation';
+    chapterId = 'ch-6-sleep-replay';
   }
 
   return {

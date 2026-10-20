@@ -383,6 +383,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How does global synaptic downscaling during Slow-Wave Sleep prevent new learning from saturating the next day?',
     referencedSection: 'Lesson 6.1 • Section 3: Synaptic Homeostasis Hypothesis vs Active Systems Consolidation',
   },
+  // Lesson 6.2 Fallback Entries
+  {
+    keywords: ['targeted memory reactivation', 'tmr', 'rasch', 'rudoy', 'cued replay', 'rose scent', 'olfactory cue', 'auditory cue', 'acoustic anchor'],
+    title: 'Targeted Memory Reactivation (TMR; Rasch et al., 2007)',
+    summary: 'Subtle sensory cues delivered during Slow-Wave Sleep selectively bias hippocampal Sharp-Wave Ripples to replay specific waking memories.',
+    takeaway: 'TMR uses sensory cues to steer offline consolidation during Slow-Wave Sleep, selectively rescuing specific memories from forgetting and boosting retention by 20%–50%.',
+    detailedResponse: 'Targeted Memory Reactivation (TMR) proves that offline memory consolidation can be experimentally guided. In 2007, Rasch et al. presented a rose odor during spatial learning and re-presented it during subsequent Slow-Wave Sleep; morning retention surged from 61% to over 84%. In 2009, Rudoy et al. demonstrated item-specific auditory cueing: playing soft sounds associated with individual items selectively rescued those exact memories without waking the participant. Crucially, TMR cannot teach new facts (hypnopedia is false); it only reactivates and restabilizes previously encoded daytime traces.',
+    socraticChallenge: 'Why does sensory cueing during slow-wave sleep selectively strengthen memories without causing conscious awakenings?',
+    referencedSection: 'Lesson 6.2 • Section 1: Targeted Memory Reactivation (TMR): The Science of Cued Replay',
+  },
+  {
+    keywords: ['wakeful rest', 'dewar', 'tambini', 'davachi', 'awake replay', 'retroactive interference', '10-minute rest', 'dewar protocol'],
+    title: 'Wakeful Rest & Awake Replay (Dewar et al., 2012)',
+    summary: 'Taking 10 minutes of quiet, eyes-closed wakeful rest immediately following study boosts retention by ~35% by triggering awake sharp-wave ripples.',
+    takeaway: 'Immediate post-study wakeful rest shields fragile synaptic plasticity tags from retroactive interference, allowing awake sharp-wave ripples to initiate early consolidation.',
+    detailedResponse: 'Michaela Dewar (2012, 2014) and Lila Davachi (Tambini et al., 2010) demonstrated that memory consolidation begins immediately during wakefulness. Taking 10 minutes of quiet, eyes-closed wakeful rest—with zero phone, music, or conversation—boosts long-term retention by over 35%. During quiet rest, the hippocampus fires awake Sharp-Wave Ripples, strengthening functional connectivity to the neocortex. Immediately engaging with digital media or new tasks floods sensory channels, causing catastrophic retroactive interference that wipes out nascent synaptic tags before consolidation takes root.',
+    socraticChallenge: 'How does checking your phone immediately after an intense learning session interfere with awake hippocampal replay?',
+    referencedSection: 'Lesson 6.2 • Section 2: Wakeful Rest & Awake Sharp-Wave Ripples',
+  },
+  {
+    keywords: ['ultradian', 'brac', 'basic rest-activity cycle', 'kleitman', '90-minute', '90/15', 'rest cycle', 'hypnopedia'],
+    title: 'Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
+    summary: 'Aligning high-intensity learning sprints with 90-minute biological ultradian rhythms prevents synaptic fatigue and maximizes consolidation.',
+    takeaway: 'Human neuroenergetics cycle in 80–100 minute rhythms (BRAC). Scribing study into 90-minute blocks followed by 10–15 minutes of rest prevents adenosine saturation and enhances consolidation.',
+    detailedResponse: 'Nathaniel Kleitman discovered the Basic Rest-Activity Cycle (BRAC), showing that the 90-minute cycle of nocturnal sleep continues across daytime wakefulness. During 80–100 minutes of continuous high-level cognitive focus, prefrontal networks exhaust cellular glycogen and accumulate extracellular adenosine, degrading attentional control and encoding fidelity. Structuring study into 90-minute intense sprints followed by 10–15 minutes of low-stimulus wakeful rest matches human chronobiology, optimizing the ratio of robust synaptic tagging to offline consolidation.',
+    socraticChallenge: 'Why does pushing past 90 minutes of continuous learning without a rest break yield diminishing cognitive returns?',
+    referencedSection: 'Lesson 6.2 • Section 3: Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

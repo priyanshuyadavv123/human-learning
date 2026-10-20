@@ -153,6 +153,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-shy-synaptic-homeostasis': 'concept:synaptic_homeostasis_downscaling',
     },
   },
+  'targeted-memory-reactivation': {
+    predictionConceptId: 'concept:targeted_memory_reactivation_cueing',
+    predictionMisconceptionId: 'misconception:hypnopedia_sleep_learning_works',
+    quizConceptMapping: {
+      'q1-rasch-tmr-olfactory-finding': 'concept:targeted_memory_reactivation_cueing',
+      'q2-dewar-wakeful-rest-mechanism': 'concept:wakeful_rest_awake_replay',
+      'q3-tmr-limitation-hypnopedia': 'concept:targeted_memory_reactivation_cueing',
+      'q4-brac-ultradian-rhythm': 'concept:ultradian_basic_rest_activity_cycle',
+    },
+  },
 };
 
 interface LearningContextType {

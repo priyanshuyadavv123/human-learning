@@ -61,6 +61,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'sharp-wave-ripples-and-place-cells': <Repeat size={18} />,
   'triple-phase-coupling-orchestration': <Sparkles size={18} />,
   'synaptic-homeostasis-and-cognitive-architectures': <Network size={18} />,
+  // Lesson 6.2 Tabs
+  'targeted-memory-reactivation-mechanisms': <Sparkles size={18} />,
+  'wakeful-rest-and-awake-replay': <Eye size={18} />,
+  'ultradian-rest-cycles-brac': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -560,6 +560,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:sleep_is_passive_quiescence',
     discrepancyPrompt: 'Previously you may have imagined that learning requires synapses to grow continuously larger and stronger without limit. Why would unbounded synaptic growth lead to catastrophic brain energy failure and loss of signal-to-noise clarity without sleep downscaling?',
   },
+  'concept:targeted_memory_reactivation_cueing': {
+    conceptId: 'concept:targeted_memory_reactivation_cueing',
+    title: 'Targeted Memory Reactivation (TMR) & Cued Replay',
+    prompt: 'How does Targeted Memory Reactivation (TMR; Rasch et al., 2007; Rudoy et al., 2009) selectively steer hippocampal replay during Slow-Wave Sleep, and what are its empirical limits?',
+    keyCriteria: [
+      'Cites Rasch et al. (2007) olfactory cueing and Rudoy et al. (2009) auditory cueing',
+      'Explains that sensory cues during Slow-Wave Sleep activate the sensory thalamus without arousal',
+      'Explains that cues selectively bias Sharp-Wave Ripples toward tagged memory ensembles',
+      'Explicitly refutes hypnopedia (TMR cannot encode new facts, only restabilize waking memories)',
+    ],
+    canonicalAnswer: 'Targeted Memory Reactivation (TMR) uses sensory cues (odors or subtle acoustic tones) associated with waking learning to steer offline consolidation during Slow-Wave Sleep. Rasch et al. (2007) and Rudoy et al. (2009) demonstrated that delivering sub-arousal cues during SWS selectively biases hippocampal Sharp-Wave Ripples to replay the cued memory ensembles, rescuing them from forgetting and boosting retention by 20% to 50%. TMR cannot teach novel information during sleep (hypnopedia is a myth); it only restabilizes previously encoded daytime traces.',
+    lessonSectionAnchor: 'Lesson 6.2 • Section 1: Targeted Memory Reactivation (TMR): The Science of Cued Replay',
+    relatedMisconception: 'misconception:hypnopedia_sleep_learning_works',
+    discrepancyPrompt: 'Previously you may have wondered if you could learn fluent Mandarin while sleeping by playing audio tapes. Why does TMR prove that sleep can only selectively amplify existing waking memories, not encode novel facts from scratch?',
+  },
+  'concept:wakeful_rest_awake_replay': {
+    conceptId: 'concept:wakeful_rest_awake_replay',
+    title: 'Wakeful Rest & Awake Sharp-Wave Ripples (The Dewar Protocol)',
+    prompt: 'Explain why taking 10 minutes of quiet, eyes-closed wakeful rest immediately after learning produces a ~35% boost in long-term retention (Dewar et al., 2012; Tambini et al., 2010).',
+    keyCriteria: [
+      'Cites Michaela Dewar (2012) and Lila Davachi (Tambini et al., 2010)',
+      'Explains awake Sharp-Wave Ripples occurring in quiet resting states',
+      'Explains that immediate sensory stimulation (social media, email) causes retroactive interference, destroying fragile synaptic tags',
+      'Identifies the 10-minute digital blackout buffer protocol',
+    ],
+    canonicalAnswer: 'Tambini et al. (2010) and Dewar et al. (2012) discovered that systems consolidation begins immediately during wakefulness. When learners sit in quiet, eyes-closed wakeful rest for 10 minutes with zero sensory stimulation, the hippocampus discharges awake Sharp-Wave Ripples, boosting hippocampal-cortical connectivity and improving long-term retention by over 35%. Immediately checking phones or switching to demanding tasks causes retroactive interference, flooding the perforant path and destroying fragile synaptic plasticity tags before consolidation can occur.',
+    lessonSectionAnchor: 'Lesson 6.2 • Section 2: Wakeful Rest & Awake Sharp-Wave Ripples',
+    relatedMisconception: 'misconception:immediate_post_study_entertainment_harmless',
+    discrepancyPrompt: 'Previously you may have opened your smartphone to scroll social feeds immediately after studying. Why does the Dewar protocol prove that immediate post-study sensory input catastrophically erases freshly encoded memories through retroactive interference?',
+  },
+  'concept:ultradian_basic_rest_activity_cycle': {
+    conceptId: 'concept:ultradian_basic_rest_activity_cycle',
+    title: 'Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
+    prompt: 'What is Nathaniel Kleitman\'s Basic Rest-Activity Cycle (BRAC), and how does scheduling study in 90-minute blocks followed by low-stimulus rest optimize cognitive stamina and consolidation?',
+    keyCriteria: [
+      'Cites Nathaniel Kleitman\'s Basic Rest-Activity Cycle (BRAC)',
+      'Explains 80–100 minute ultradian rhythms operating across wakefulness and sleep',
+      'Explains local synaptic fatigue, extracellular adenosine accumulation, and glycogen depletion during continuous focus',
+      'Formulates the 90/15 deep work/offline consolidation rhythm',
+    ],
+    canonicalAnswer: 'Nathaniel Kleitman demonstrated that the 90-minute ultradian rhythm governing nocturnal sleep stages also drives daytime alertness in the Basic Rest-Activity Cycle (BRAC). High-intensity cognitive focus across 80–100 minutes depletes local neural glycogen and accumulates extracellular adenosine in prefrontal cortex networks. Structuring cognitive work into 90-minute focused sprints followed by 10–15 minutes of low-stimulus wakeful rest aligns with human neuroenergetics, maximizing the ratio of high-fidelity synaptic tagging to immediate offline consolidation.',
+    lessonSectionAnchor: 'Lesson 6.2 • Section 3: Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
+    relatedMisconception: 'misconception:immediate_post_study_entertainment_harmless',
+    discrepancyPrompt: 'Previously you may have attempted 5-hour continuous study marathons fueled by caffeine. Why does the chronobiology of the BRAC cycle prove that continuous unspaced learning leads to synaptic exhaustion and degraded encoding?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

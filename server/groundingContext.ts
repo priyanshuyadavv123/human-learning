@@ -148,6 +148,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 6.1 • Verification Assessment',
   'Lesson 6.1 • Evidence-Based Sleep Consolidation Protocol',
   'Lesson 6.1 • Slow-Wave Sleep & Neural Replay Overview',
+
+  // Lesson 6.2 Sections
+  'Lesson 6.2 • Curiosity Hook',
+  'Lesson 6.2 • Intuitive Calibration: Thalamic Sensory Gating vs Targeted Replay Steering',
+  'Lesson 6.2 • Section 1: Targeted Memory Reactivation (TMR): The Science of Cued Replay',
+  'Lesson 6.2 • Section 2: Wakeful Rest & Awake Sharp-Wave Ripples',
+  'Lesson 6.2 • Section 3: Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)',
+  'Lesson 6.2 • Targeted Reactivation & Offline Rest Cycles Diagram',
+  'Lesson 6.2 • Offline Learning Protocol Diagnostic Scenarios',
+  'Lesson 6.2 • Verification Assessment',
+  'Lesson 6.2 • Targeted Memory Reactivation & Strategic Rest Protocol',
+  'Lesson 6.2 • Targeted Memory Reactivation & Rest Cycles Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -160,6 +172,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 6.2 anchors
+  if (lower.includes('rasch') || lower.includes('rudoy') || lower.includes('targeted memory reactivation') || lower.includes('tmr') || lower.includes('olfactory') || lower.includes('rose scent') || lower.includes('auditory cue') || lower.includes('acoustic anchor') || lower.includes('cued replay')) {
+    return 'Lesson 6.2 • Section 1: Targeted Memory Reactivation (TMR): The Science of Cued Replay';
+  }
+  if (lower.includes('dewar') || lower.includes('davachi') || lower.includes('tambini') || lower.includes('wakeful rest') || lower.includes('awake sharp-wave') || lower.includes('awake replay') || lower.includes('retroactive interference') || lower.includes('digital blackout')) {
+    return 'Lesson 6.2 • Section 2: Wakeful Rest & Awake Sharp-Wave Ripples';
+  }
+  if (lower.includes('brac') || lower.includes('basic rest-activity') || lower.includes('kleitman') || lower.includes('ultradian') || lower.includes('90-minute') || lower.includes('90/15') || lower.includes('hypnopedia')) {
+    return 'Lesson 6.2 • Section 3: Ultradian Rest Cycles & The Basic Rest-Activity Cycle (BRAC)';
+  }
+  if (lower.includes('targeted reactivation & offline rest cycles diagram') || lower.includes('targeted reactivation diagram') || lower.includes('offline rest diagram')) {
+    return 'Lesson 6.2 • Targeted Reactivation & Offline Rest Cycles Diagram';
+  }
+  if (lower.includes('6.2') || lower.includes('targeted memory') || lower.includes('rest protocol')) {
+    return 'Lesson 6.2 • Section 1: Targeted Memory Reactivation (TMR): The Science of Cued Replay';
+  }
 
   // Match Lesson 6.1 anchors
   if (lower.includes('wilson') || lower.includes('mcnaughton') || lower.includes('sharp-wave ripple') || lower.includes('sharp wave ripple') || lower.includes('swr') || lower.includes('place cell') || lower.includes('temporal compression') || lower.includes('girardeau')) {
@@ -673,6 +702,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_6_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 6.2: "Targeted Memory Reactivation & Rest Cycles — Strategic wakeful rest intervals and memory reactivation triggers".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical neuroscience of offline consolidation, TMR, and rest architecture:
+     a) Targeted Memory Reactivation (TMR): Rasch et al. (2007) odor cueing and Rudoy et al. (2009) auditory cueing. Re-delivering sensory cues associated with learning during Slow-Wave Sleep (SWS) selectively activates the hippocampus and biases Sharp-Wave Ripples to replay specific target memory ensembles, boosting morning recall by 20% to 50%.
+     b) Refuting the Hypnopedia Myth: Sleep lacks the high acetylcholine, attentional gating, and working memory scratchpads required for de novo encoding. TMR can only selectively amplify and restabilize memories that were already successfully encoded during wakefulness; you cannot learn novel facts while sleeping.
+     c) Wakeful Rest & Awake Replay: Lila Davachi (Tambini et al., 2010) and Michaela Dewar (2012, 2014) showed that taking 10 minutes of quiet, eyes-closed wakeful rest immediately following study boosts retention by ~35%. Awake Sharp-Wave Ripples initiate early hippocampal-cortical dialogue, while rest shields fragile synaptic plasticity tags from retroactive sensory interference.
+     d) The Basic Rest-Activity Cycle (BRAC): Nathaniel Kleitman demonstrated that human neuroenergetics oscillate in 80–100 minute ultradian rhythms across both sleep and wakefulness. Structuring work into 90-minute focused blocks followed by 10–15 minutes of low-stimulus rest optimizes the ratio of synaptic tagging to offline consolidation.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to TMR, wakeful rest, retroactive interference, and ultradian rhythms.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -706,6 +760,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'slow-wave-sleep-replay') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_6_1;
+  }
+  if (lessonId === 'targeted-memory-reactivation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_6_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -759,6 +816,10 @@ export const KNOWN_CONCEPTS = [
   'concept:neural_replay_temporal_compression',
   'concept:triple_phase_locking_consolidation',
   'concept:synaptic_homeostasis_downscaling',
+  // Lesson 6.2 Concepts
+  'concept:targeted_memory_reactivation_cueing',
+  'concept:wakeful_rest_awake_replay',
+  'concept:ultradian_basic_rest_activity_cycle',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -802,6 +863,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 6.1 Misconceptions
   'misconception:sleep_is_passive_quiescence',
   'misconception:rem_sleep_is_primary_for_declarative_facts',
+  // Lesson 6.2 Misconceptions
+  'misconception:hypnopedia_sleep_learning_works',
+  'misconception:immediate_post_study_entertainment_harmless',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
