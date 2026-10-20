@@ -73,6 +73,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-reconsolidation-neurobiology': 'concept:reconsolidation_trace_updating',
     },
   },
+  'spaced-repetition-scheduling': {
+    predictionConceptId: 'concept:spaced_scheduling_stability_expansion',
+    predictionMisconceptionId: 'misconception:cramming_is_efficient_for_long_term',
+    quizConceptMapping: {
+      'q1-ebbinghaus-kinetics': 'concept:ebbinghaus_forgetting_curve',
+      'q2-fsrs-stability-expansion': 'concept:spaced_scheduling_stability_expansion',
+      'q3-cepeda-optimal-lag': 'concept:optimal_retention_lag_ratio',
+      'q4-lapse-reset-rule': 'concept:spaced_scheduling_stability_expansion',
+    },
+  },
 };
 
 interface LearningContextType {

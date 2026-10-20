@@ -29,6 +29,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'retrieval-practice-testing-effect': <Repeat size={18} />,
   'storage-vs-retrieval-strength': <Network size={18} />,
   'desirable-difficulties-reconsolidation': <RefreshCw size={18} />,
+  // Lesson 2.2 Tabs
+  'ebbinghaus-decay-curve': <RefreshCw size={18} />,
+  'expanding-intervals-sm2-fsrs': <Cpu size={18} />,
+  'spacing-effect-optimal-lags': <Repeat size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

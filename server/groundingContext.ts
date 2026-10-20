@@ -52,6 +52,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 2.1 • Verification Assessment',
   'Lesson 2.1 • Free-Recall Calibration Protocol',
   'Lesson 2.1 • Testing Effect Overview',
+
+  // Lesson 2.2 Sections
+  'Lesson 2.2 • Curiosity Hook',
+  'Lesson 2.2 • Intuitive Calibration: Massed vs Expanding Spaced',
+  'Lesson 2.2 • Section 1: The Ebbinghaus Decay Curve & Mathematical Kinetics',
+  'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers',
+  'Lesson 2.2 • Section 3: The Spacing Effect & Empirical Lag Ratios',
+  'Lesson 2.2 • Spaced Scheduling & Stability Engine Diagram',
+  'Lesson 2.2 • Spaced Scheduling Diagnostic Scenarios',
+  'Lesson 2.2 • Verification Assessment',
+  'Lesson 2.2 • Personal Spaced Retrieval Calendar Protocol',
+  'Lesson 2.2 • Spaced Scheduling Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -64,6 +76,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 2.2 anchors
+  if (lower.includes('ebbinghaus') || lower.includes('forgetting curve') || lower.includes('decay') || lower.includes('permastore') || lower.includes('savings method')) {
+    return 'Lesson 2.2 • Section 1: The Ebbinghaus Decay Curve & Mathematical Kinetics';
+  }
+  if (lower.includes('fsrs') || lower.includes('sm-2') || lower.includes('sm2') || lower.includes('stability multiplier') || lower.includes('wozniak') || lower.includes('ease factor') || lower.includes('lapse')) {
+    return 'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers';
+  }
+  if (lower.includes('cepeda') || lower.includes('lag ratio') || lower.includes('optimal lag') || lower.includes('spacing effect') || lower.includes('distributed practice')) {
+    return 'Lesson 2.2 • Section 3: The Spacing Effect & Empirical Lag Ratios';
+  }
+  if (lower.includes('stability engine') || lower.includes('spaced scheduling engine')) {
+    return 'Lesson 2.2 • Spaced Scheduling & Stability Engine Diagram';
+  }
+  if (lower.includes('2.2') || lower.includes('spaced scheduling') || lower.includes('spaced repetition')) {
+    return 'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers';
+  }
 
   // Match Lesson 2.1 anchors
   if (lower.includes('roediger') || lower.includes('karpicke') || lower.includes('testing effect') || lower.includes('modifier hypothesis') || lower.includes('retrieval practice')) {
@@ -241,6 +270,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_2_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 2.2: "Spaced Scheduling Algorithms — Decay Curves, Stability Intervals, and Adaptive Review Cadences".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the mathematical and empirical science of spaced repetition:
+     a) Ebbinghaus Forgetting Curve: Memory decay is non-linear—steep negative exponential decay R(t) = exp(-t/S), with >50% loss occurring in the first 24-48 hours. Early review is essential to avoid complete trace extinction (Ebbinghaus, 1885).
+     b) Stability Expansion & Algorithmic Schedulers: SM-2 and FSRS model memory using Stability (S) and Retrievability (R). Each successful retrieval multiplies stability by an Ease Factor (e.g. 1.5–2.5x), geometrically expanding review intervals (Wozniak, 1990; Ye, 2022).
+     c) Optimal Lag Ratios: The optimal inter-study spacing gap is roughly 10% to 20% of the target retention interval (Cepeda et al., 2006).
+     d) The Lapse Reset Rule: When a retrieval failure occurs, stability collapses and the interval MUST reset to Day 1 for immediate restabilization.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to spaced scheduling, decay curves, and interval multipliers.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -250,6 +304,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'testing-effect-mechanics') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_2_1;
+  }
+  if (lessonId === 'spaced-repetition-scheduling') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_2_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -271,6 +328,10 @@ export const KNOWN_CONCEPTS = [
   'concept:storage_vs_retrieval_strength',
   'concept:desirable_difficulty_framework',
   'concept:reconsolidation_trace_updating',
+  // Lesson 2.2 Concepts
+  'concept:ebbinghaus_forgetting_curve',
+  'concept:spaced_scheduling_stability_expansion',
+  'concept:optimal_retention_lag_ratio',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -290,6 +351,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:testing_is_only_for_grading',
   'misconception:current_performance_equals_learning',
   'misconception:struggle_means_poor_learning',
+  // Lesson 2.2 Misconceptions
+  'misconception:cramming_is_efficient_for_long_term',
+  'misconception:linear_review_intervals',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -175,6 +175,24 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When you encounter difficulty retrieving a concept, do you perceive it as a sign of failure or as the active biological trigger of reconsolidation?',
     referencedSection: 'Lesson 2.1 • Section 3: Desirable Difficulties & Synaptic Reconsolidation',
   },
+  {
+    keywords: ['ebbinghaus', 'forgetting curve', 'exponential decay', 'decay curve', 'permastore'],
+    title: 'The Ebbinghaus Forgetting Curve & Decay Kinetics',
+    summary: 'Memory decay is steep and exponential, with >50% lost in the first 24–48 hours.',
+    takeaway: 'Human forgetting is steepest immediately after learning. Early review (within 24–48 hours) is mandatory to prevent complete trace extinction.',
+    detailedResponse: 'Hermann Ebbinghaus (1885) established that memory decay follows a negative exponential or power-law curve: over 50% of newly encoded information is lost within the first day. However, each subsequent effortful retrieval flattens the curve, progressively extending retention into Bahrick’s "permastore"—a consolidated state where decay effectively halts.',
+    socraticChallenge: 'How soon after learning a complex concept do you currently schedule your first retrieval review?',
+    referencedSection: 'Lesson 2.2 • Section 1: The Ebbinghaus Decay Curve & Mathematical Kinetics',
+  },
+  {
+    keywords: ['spaced repetition', 'fsrs', 'sm-2', 'sm2', 'stability expansion', 'ease factor', 'interval multiplier', 'cepeda', 'optimal lag'],
+    title: 'Spaced Scheduling Algorithms & Stability Expansion',
+    summary: 'Expanding intervals multiply trace stability upon successful retrieval.',
+    takeaway: 'Multiply intervals geometrically (1d → 3d → 8d → 20d → 50d) to catch memories at ~90% retrievability. Optimal spacing gaps are 10–20% of your target delay.',
+    detailedResponse: 'Spaced scheduling algorithms (SM-2, FSRS) model memory via Retrievability (R) and Stability (S). When you successfully recall an item at the verge of forgetting (R ≈ 90%), stability is multiplied by an ease factor (typically 1.5–2.5x), extending the next interval geometrically. Cepeda et al. (2006) proved that the optimal spacing gap is roughly 10% to 20% of the target retention delay.',
+    socraticChallenge: 'Are your review intervals expanding dynamically based on performance, or are you reviewing at a rigid linear cadence?',
+    referencedSection: 'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

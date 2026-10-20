@@ -23,7 +23,9 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 4.4 (Lesson 1.3 Cognitive Load & Schema Construction):** ACCEPTED (15/15 quality standard, 108/108 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 1 Total Status:** COMPLETE & ACCEPTED (3/3 Lessons: 1.1, 1.2, 1.3)
   - **Stage 4.5 (Lesson 2.1 The Testing Effect & Desirable Difficulty):** ACCEPTED (15/15 quality standard, 120/120 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
-  - **Stage 4.6 (Lesson 2.2 Spaced Scheduling Algorithms):** NEXT MILESTONE
+  - **Stage 4.6 (Lesson 2.2 Spaced Scheduling Algorithms):** ACCEPTED (15/15 quality standard, 132/132 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Chapter 2 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 2.1, 2.2)
+  - **Stage 4.7 (Chapter 3, Lesson 3.1 Calibrated Error Signals):** NEXT MILESTONE
 
 ---
 
@@ -52,8 +54,8 @@ Every chapter is classified strictly by actual code implementation:
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **ch-1-architecture** | **1. The Architecture of Human Memory** | 1.1 How Learning Actually Works<br>1.2 The Illusion of Competence<br>1.3 Cognitive Load & Schema Construction | Attention serial bottleneck, working memory capacity limits, schema consolidation, perceptual fluency illusion, generation effect, delayed JOLs, tripartite load, worked example effect, expertise reversal. | **ACCEPTED** (3/3 Lessons Complete) |
-| **ch-2-retrieval-spacing** | **2. The Retrieval & Spacing Engine** | 2.1 The Testing Effect & Desirable Difficulty<br>2.2 Spaced Scheduling Algorithms | Retrieval effort vs storage strength, forgetting curve decay, expanding interval scheduling, desirable difficulty, synaptic reconsolidation. | **IN PROGRESS** (2.1 ACCEPTED; 2.2 NEXT) |
-| **ch-3-deliberate-practice** | **3. Feedback Loops & Meta-Cognition** | 3.1 Calibrated Error Signals<br>3.2 The Personal Learning Operating System | Prediction errors, calibration vs overconfidence, deliberate practice loops. | **PLANNED** |
+| **ch-2-retrieval-spacing** | **2. The Retrieval & Spacing Engine** | 2.1 The Testing Effect & Desirable Difficulty<br>2.2 Spaced Scheduling Algorithms | Retrieval effort vs storage strength, forgetting curve decay, expanding interval scheduling, desirable difficulty, synaptic reconsolidation, stability multipliers, Ebbinghaus decay kinetics. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-3-deliberate-practice** | **3. Feedback Loops & Meta-Cognition** | 3.1 Calibrated Error Signals<br>3.2 The Personal Learning Operating System | Prediction errors, calibration vs overconfidence, deliberate practice loops. | **IN PROGRESS** (3.1 NEXT) |
 | **ch-4-attention-executive** | **4. Attention, Focus & Executive Function** | 4.1 The Serial Bottleneck & Attentional Control<br>4.2 Distraction Economics & Deep Work Protocols | Selective filter gating, task-switching residue, executive depletion vs recovery. | **PLANNED** |
 
 ### Part 2: Memory Consolidation, Sleep & Neural Plasticity (Chapters 5–7)

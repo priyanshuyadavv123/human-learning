@@ -2,6 +2,7 @@ import type { Course, Lesson } from '../types/learning.ts';
 import { LESSON_ILLUSION_OF_COMPETENCE } from './lesson1_2Data.ts';
 import { LESSON_COGNITIVE_LOAD_SCHEMA } from './lesson1_3Data.ts';
 import { LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY } from './lesson2_1Data.ts';
+import { LESSON_SPACED_SCHEDULING } from './lesson2_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -60,9 +61,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'spaced-repetition-scheduling',
           number: '2.2',
           title: 'Spaced Scheduling Algorithms',
-          subtitle: 'Decay curves, stability intervals, and adaptive review cadences',
+          subtitle: 'Decay Curves, Stability Intervals, and Adaptive Review Cadences',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1125,6 +1126,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_ILLUSION_OF_COMPETENCE.id]: LESSON_ILLUSION_OF_COMPETENCE,
   [LESSON_COGNITIVE_LOAD_SCHEMA.id]: LESSON_COGNITIVE_LOAD_SCHEMA,
   [LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY.id]: LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY,
+  [LESSON_SPACED_SCHEDULING.id]: LESSON_SPACED_SCHEDULING,
 };
 
 export function getLessonById(id: string): Lesson {

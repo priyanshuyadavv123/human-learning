@@ -39,6 +39,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'testing-effect-mechanics';
     chapterId = 'ch-2-retrieval-spacing';
+  } else if (
+    conceptId.startsWith('concept:ebbinghaus_') ||
+    conceptId.startsWith('concept:spaced_scheduling_') ||
+    conceptId.startsWith('concept:optimal_retention_')
+  ) {
+    lessonId = 'spaced-repetition-scheduling';
+    chapterId = 'ch-2-retrieval-spacing';
   }
 
   return {

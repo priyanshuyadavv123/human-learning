@@ -201,6 +201,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:testing_is_only_for_grading',
     discrepancyPrompt: 'Previously you might have viewed testing as merely reading data out of memory without altering the data. How does neurobiological reconsolidation prove that retrieval actively modifies and strengthens what is remembered?',
   },
+  'concept:ebbinghaus_forgetting_curve': {
+    conceptId: 'concept:ebbinghaus_forgetting_curve',
+    title: 'The Ebbinghaus Forgetting Curve & Decay Kinetics',
+    prompt: 'Describe the mathematical trajectory of the Ebbinghaus Forgetting Curve and explain why human forgetting is exponential or power-law rather than linear.',
+    keyCriteria: [
+      'Identifies Hermann Ebbinghaus (1885)',
+      'Explains that retention drops steepest immediately following encoding and flattens over time',
+      'Contrasts exponential/power-law decay with linear decay',
+      'Explains the "savings" metric in relearning',
+    ],
+    canonicalAnswer: 'Hermann Ebbinghaus (1885) discovered that memory retention decays as an exponential or power-law curve: forgetting is steepest in the first minutes and hours following initial study, then flattens asymptotically over days and weeks. Because forgetting is non-linear, review sessions scheduled linearly (e.g. every 5 days) either arrive too late (after the trace has decayed past recall) or waste effort when retrieval strength is still saturated.',
+    lessonSectionAnchor: 'Lesson 2.2 • Section 1: The Ebbinghaus Decay Curve & Mathematical Kinetics',
+    relatedMisconception: 'misconception:linear_review_intervals',
+    discrepancyPrompt: 'Previously you may have assumed that memory fades at a constant, steady rate each day. Why does empirical decay show that the vast majority of forgetting happens within the first 24 to 48 hours?',
+  },
+  'concept:spaced_scheduling_stability_expansion': {
+    conceptId: 'concept:spaced_scheduling_stability_expansion',
+    title: 'Spaced Scheduling & Stability Expansion',
+    prompt: 'How do expanding interval scheduling algorithms (e.g. SM-2, FSRS) mathematically expand memory stability after each successful retrieval?',
+    keyCriteria: [
+      'Defines Memory Stability (S) as the time required for retrievability to drop to a target threshold',
+      'Explains that each successful retrieval multiplies stability by an Ease Factor or expansion coefficient',
+      'Cites Piotr Wozniak (SuperMemo) or modern FSRS',
+      'Explains that lapses reset stability to prevent accumulated failure',
+    ],
+    canonicalAnswer: 'Expanding interval algorithms (Wozniak\'s SM-2, modern FSRS) model memory using Retrievability (R) and Stability (S). Stability represents the half-life of the memory trace. Every time a learner successfully retrieves information at the verge of forgetting, the trace\'s stability is multiplied by an ease factor (e.g. 1.5–2.5x), extending the interval geometrically (1 day -> 3 days -> 8 days -> 21 days). If a lapse occurs, interval collapses to prevent trace extinction.',
+    lessonSectionAnchor: 'Lesson 2.2 • Section 2: Expanding Interval Algorithms & Stability Multipliers',
+    relatedMisconception: 'misconception:cramming_is_efficient_for_long_term',
+    discrepancyPrompt: 'Previously you may have reviewed notes at random or fixed dates. How does multiplying intervals based on demonstrated retrieval performance maximize long-term retention while minimizing review time?',
+  },
+  'concept:optimal_retention_lag_ratio': {
+    conceptId: 'concept:optimal_retention_lag_ratio',
+    title: 'The Spacing Effect & Optimal Lag Ratios',
+    prompt: 'According to empirical meta-analyses (Cepeda et al., 2006; Rohrer & Taylor), what is the optimal study gap or lag ratio relative to the desired retention test delay?',
+    keyCriteria: [
+      'Cites Cepeda et al. (2006) or Rohrer & Taylor',
+      'Explains that optimal inter-study lag is roughly 10% to 20% of the retention interval',
+      'Explains that lags that are too short act like massed cramming, while lags that are too long cause trace extinction',
+      'Explains that longer desired retention demands longer spacing gaps between sessions',
+    ],
+    canonicalAnswer: 'In a massive empirical study across thousands of learners, Cepeda et al. (2006) proved that the optimal spacing gap (inter-study interval) is non-linear and corresponds to roughly 10% to 20% of the desired retention interval (the delay before the final exam or real-world application). To remember something for 1 year, practice sessions should be spaced roughly 3 to 6 weeks apart; spacing gaps that are too short collapse into massed practice, while gaps that are too long result in zero retrieval access.',
+    lessonSectionAnchor: 'Lesson 2.2 • Section 3: The Spacing Effect & Empirical Lag Ratios',
+    relatedMisconception: 'misconception:cramming_is_efficient_for_long_term',
+    discrepancyPrompt: 'Previously you may have studied everything the weekend before an exam. Why does spacing study sessions across a 15–20% lag ratio produce vastly superior retention for long-term career mastery?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

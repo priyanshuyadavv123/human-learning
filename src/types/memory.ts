@@ -20,6 +20,10 @@ export const KNOWN_CONCEPTS = [
   'concept:storage_vs_retrieval_strength',
   'concept:desirable_difficulty_framework',
   'concept:reconsolidation_trace_updating',
+  // Lesson 2.2 Concepts
+  'concept:ebbinghaus_forgetting_curve',
+  'concept:spaced_scheduling_stability_expansion',
+  'concept:optimal_retention_lag_ratio',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -39,6 +43,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:testing_is_only_for_grading',
   'misconception:current_performance_equals_learning',
   'misconception:struggle_means_poor_learning',
+  // Lesson 2.2 Misconceptions
+  'misconception:cramming_is_efficient_for_long_term',
+  'misconception:linear_review_intervals',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
