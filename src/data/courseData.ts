@@ -21,6 +21,7 @@ import { LESSON_PAIVIO_DUAL_CODING } from './lesson10_1Data.ts';
 import { LESSON_DIAGRAMMATIC_REASONING } from './lesson10_2Data.ts';
 import { LESSON_PROTOTYPES_VS_EXEMPLARS } from './lesson11_1Data.ts';
 import { LESSON_BOUNDARY_CASES_ISOLATION } from './lesson11_2Data.ts';
+import { LESSON_EDGE_OF_ABILITY_FEEDBACK } from './lesson12_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -319,7 +320,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Edge of Ability & Immediate Feedback',
           subtitle: 'Designing practice regimens that target specific sub-skill deficits',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'expert-mental-representations',
@@ -1163,6 +1164,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_DIAGRAMMATIC_REASONING.id]: LESSON_DIAGRAMMATIC_REASONING,
   [LESSON_PROTOTYPES_VS_EXEMPLARS.id]: LESSON_PROTOTYPES_VS_EXEMPLARS,
   [LESSON_BOUNDARY_CASES_ISOLATION.id]: LESSON_BOUNDARY_CASES_ISOLATION,
+  [LESSON_EDGE_OF_ABILITY_FEEDBACK.id]: LESSON_EDGE_OF_ABILITY_FEEDBACK,
 };
 
 export function getLessonById(id: string): Lesson {

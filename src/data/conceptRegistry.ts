@@ -1055,6 +1055,53 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:interior_examples_calibrate_boundaries',
     discrepancyPrompt: 'Previously you may have spent your study time reviewing familiar, typical examples. Why does Vapnik’s support vector theorem prove that reviewing interior examples provides zero new information for sharpening your decision boundaries?',
   },
+  'concept:ericsson_deliberate_practice_four_pillars': {
+    conceptId: 'concept:ericsson_deliberate_practice_four_pillars',
+    title: 'The Four Pillars of Deliberate Practice (K. Anders Ericsson, 1993)',
+    prompt: 'What are the four mandatory pillars of Deliberate Practice (Ericsson et al., 1993), and why does work experience fail to predict expert performance?',
+    keyCriteria: [
+      'Cites K. Anders Ericsson (1993, 2006) deliberate practice framework',
+      'Pillar 1: Well-defined specific sub-skill deficit goal',
+      'Pillar 2: Full concentration at the edge of ability (disrupting homeostasis)',
+      'Pillar 3: Immediate informative error feedback',
+      'Pillar 4: Repetition with immediate mental representation correction',
+    ],
+    canonicalAnswer: 'K. Anders Ericsson (1993, 2006) proved that professional experience shows near-zero correlation with elite performance because routine work automates inside the comfort zone, maintaining physiological homeostasis. Deliberate practice is a structured, effortful activity governed by four mandatory pillars: (1) A well-defined specific goal targeting a sub-skill deficit; (2) Full concentration at the edge of current ability, disrupting biological homeostasis; (3) Immediate, informative error feedback; and (4) High-repetition error correction where failed attempts are immediately re-executed with updated mental representations.',
+    lessonSectionAnchor: 'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice',
+    relatedMisconception: 'misconception:experience_equals_expert_performance',
+    discrepancyPrompt: 'Previously you may have believed that 10 years of writing production code makes someone an expert. How does Ericsson’s deliberate practice research prove that without structured edge-of-ability strain and immediate feedback, experience merely automates mediocrity?',
+  },
+  'concept:fitts_posner_autonomous_stage_plateau': {
+    conceptId: 'concept:fitts_posner_autonomous_stage_plateau',
+    title: 'Fitts & Posner’s Three Stages & The Autonomy Plateau',
+    prompt: 'Describe Fitts & Posner’s (1967) three stages of skill acquisition and explain why reaching the autonomous stage causes skill stagnation.',
+    keyCriteria: [
+      'Cites Paul Fitts & Michael Posner (1967) Human Performance',
+      'Stage 1: Cognitive (conscious trial, heavy working memory load, high error rate)',
+      'Stage 2: Associative (fewer errors, patterns linked into larger chunks)',
+      'Stage 3: Autonomous (fluid, automated, effortless execution)',
+      'Explains that autonomy induces homeostatic stability, freezing neuroplastic remodeling unless deliberate practice forces skills back to the cognitive stage',
+    ],
+    canonicalAnswer: 'Fitts and Posner (1967) showed that motor and cognitive skills progress across three sequential stages: (1) Cognitive (deliberate, conscious trial-and-error with heavy working memory load); (2) Associative (errors drop, sub-skills coalesce into fluid chunks); and (3) Autonomous (execution becomes fast, effortless, and automated). While autonomy is efficient for daily routine, it arrests further development: biological homeostasis stops synaptic remodeling once execution feels comfortable. Deliberate practice deliberately destabilizes autonomy, forcing the performer back into the conscious cognitive stage where mental models can be refined.',
+    lessonSectionAnchor: 'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice',
+    relatedMisconception: 'misconception:experience_equals_expert_performance',
+    discrepancyPrompt: 'Previously you may have celebrated when a technical task began feeling completely effortless. Why does Fitts & Posner’s autonomy model prove that effortless execution is the exact neurological signal that your learning has stopped?',
+  },
+  'concept:wilson_85_percent_rule_optimal_learning': {
+    conceptId: 'concept:wilson_85_percent_rule_optimal_learning',
+    title: 'The 85% Rule & Immediate Error Feedback Calibration (Wilson et al., 2019)',
+    prompt: 'What is the 85% Rule for optimal learning (Wilson et al., 2019), and why is sub-second feedback latency critical for synaptic credit assignment?',
+    keyCriteria: [
+      'Cites Robert Wilson et al. (2019) Nature Communications',
+      'Defines the 85% Rule (optimal learning rate occurs at ~85% accuracy / ~15% error rate)',
+      'Explains that 0% error yields zero prediction error gradients, while 50% error causes noise/demoralization',
+      'Explains immediate feedback solving the credit assignment problem before neural context decays',
+    ],
+    canonicalAnswer: 'Robert Wilson and colleagues (2019) proved mathematically across biological and artificial neural networks that the rate of learning is maximized when task difficulty is calibrated to produce an ~85% success rate (the "85% Rule"). A 0% error rate generates zero prediction errors, triggering zero synaptic plasticity. Conversely, a 50% error rate causes catastrophic cognitive noise. The 15% error edge provides the optimal informational gradient for neuroplastic remodeling. Furthermore, feedback must be immediate: low-latency feedback solves the "credit assignment problem" by matching the discrepancy signal directly to the transient neural activation pattern in working memory before trace decay occurs.',
+    lessonSectionAnchor: 'Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties',
+    relatedMisconception: 'misconception:error_free_practice_indicates_optimal_learning',
+    discrepancyPrompt: 'Previously you may have judged a practice session successful only if you answered every question correctly without errors. Why does the 85% Rule prove that zero-error practice is wasted time that generates zero neuroplastic adaptation?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

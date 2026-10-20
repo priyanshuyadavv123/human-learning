@@ -263,6 +263,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-klayman-ha-positive-test-strategy': 'concept:wason_246_falsification_confirmation_bias',
     },
   },
+  'edge-of-ability-feedback': {
+    predictionConceptId: 'concept:ericsson_deliberate_practice_four_pillars',
+    predictionMisconceptionId: 'misconception:experience_equals_expert_performance',
+    quizConceptMapping: {
+      'q1-ericsson-deliberate-practice-definition': 'concept:ericsson_deliberate_practice_four_pillars',
+      'q2-fitts-posner-autonomous-plateau': 'concept:fitts_posner_autonomous_stage_plateau',
+      'q3-wilson-85-percent-rule-learning-rate': 'concept:wilson_85_percent_rule_optimal_learning',
+      'q4-immediate-feedback-credit-assignment': 'concept:ericsson_deliberate_practice_four_pillars',
+    },
+  },
 };
 
 interface LearningContextType {

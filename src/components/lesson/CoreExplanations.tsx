@@ -105,6 +105,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'wason-246-confirmation-falsification': <Eye size={18} />,
   'winston-near-misses-feature-isolation': <Repeat size={18} />,
   'vapnik-support-vectors-margin-maximization': <Cpu size={18} />,
+  // Lesson 12.1 Tabs
+  'ericsson-deliberate-practice-foundations': <Network size={18} />,
+  'feedback-latency-error-calibration': <RefreshCw size={18} />,
+  'edge-of-ability-desirable-difficulty': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

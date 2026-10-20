@@ -174,6 +174,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'boundary-cases-isolation';
     chapterId = 'ch-11-categorization';
+  } else if (
+    conceptId.startsWith('concept:ericsson_deliberate_') ||
+    conceptId.startsWith('concept:fitts_posner_') ||
+    conceptId.startsWith('concept:wilson_85_')
+  ) {
+    lessonId = 'edge-of-ability-feedback';
+    chapterId = 'ch-12-deliberate-practice';
   }
 
   return {

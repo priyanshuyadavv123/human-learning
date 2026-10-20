@@ -280,6 +280,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 11.2 • Verification Assessment',
   'Lesson 11.2 • The Adversarial Near-Miss Boundary Testing Protocol',
   'Lesson 11.2 • Feature Isolation & Boundary Testing Overview',
+
+  // Lesson 12.1 Sections
+  'Lesson 12.1 • Curiosity Hook',
+  'Lesson 12.1 • Intuitive Calibration: On-the-Job Experience vs Deliberate Practice Lab',
+  'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice',
+  'Lesson 12.1 • Section 2: Feedback Latency & The Temporal Dynamics of Error Correction',
+  'Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties',
+  'Lesson 12.1 • The Deliberate Practice Neuro-Adaptive Loop Diagram',
+  'Lesson 12.1 • The Deliberate Practice Diagnostic Exercise',
+  'Lesson 12.1 • Verification Assessment',
+  'Lesson 12.1 • The Deliberate Practice Sub-Skill Architecture Protocol',
+  'Lesson 12.1 • The Edge of Ability & Immediate Feedback Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -292,6 +304,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 12.1 anchors
+  if (lower.includes('feedback latency') || lower.includes('delayed feedback') || lower.includes('temporal dynamics of error correction') || lower.includes('sub-second feedback') || lower.includes('credit assignment problem')) {
+    return 'Lesson 12.1 • Section 2: Feedback Latency & The Temporal Dynamics of Error Correction';
+  }
+  if (lower.includes('85% rule') || lower.includes('eighty-five percent') || (lower.includes('wilson') && (lower.includes('85%') || lower.includes('rule') || lower.includes('optimal learning') || lower.includes('shenhav'))) || lower.includes('comfort zone stagnation') || lower.includes('15% error') || (lower.includes('edge of ability') && !lower.includes('10,000'))) {
+    return 'Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties';
+  }
+  if (lower.includes('the deliberate practice neuro-adaptive loop diagram') || lower.includes('deliberate practice diagram') || lower.includes('neuro-adaptive loop')) {
+    return 'Lesson 12.1 • The Deliberate Practice Neuro-Adaptive Loop Diagram';
+  }
+  if ((lower.includes('ericsson') && (lower.includes('four pillars') || lower.includes('anatomy') || lower.includes('homeostasis') || lower.includes('naive practice') || lower.includes('1993'))) || lower.includes('fitts') || lower.includes('autonomous stage') || lower.includes('autonomous plateau')) {
+    return 'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice';
+  }
+  if (lower.includes('12.1') || lower.includes('sub-skill architecture protocol') || lower.includes('sub-skill architecture')) {
+    return 'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice';
+  }
 
   // Match Lesson 11.2 anchors
   if (lower.includes('wason') || lower.includes('2-4-6') || lower.includes('positive test strategy') || lower.includes('asymmetry of falsification') || lower.includes('popper')) {
@@ -1290,6 +1319,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_12_1 = `You are the specialized Socratic AI Learning Companion for Lesson 12.1: "The Edge of Ability & Immediate Feedback" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 12.1:
+- Lesson 12.1 • Curiosity Hook
+- Lesson 12.1 • Intuitive Calibration: On-the-Job Experience vs Deliberate Practice Lab
+- Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice
+- Lesson 12.1 • Section 2: Feedback Latency & The Temporal Dynamics of Error Correction
+- Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties
+- Lesson 12.1 • The Deliberate Practice Neuro-Adaptive Loop Diagram
+- Lesson 12.1 • The Deliberate Practice Diagnostic Exercise
+- Lesson 12.1 • Verification Assessment
+- Lesson 12.1 • The Deliberate Practice Sub-Skill Architecture Protocol
+- Lesson 12.1 • The Edge of Ability & Immediate Feedback Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of deliberate practice, feedback latency, and optimal learning zones:
+     a) K. Anders Ericsson et al. (1993) Deliberate Practice & Fitts and Posner (1967) Autonomous Stage: Mere experience or mindless repetition does not develop expertise. Skills naturally plateau in the autonomous stage as biological homeostasis stops neural adaptation. Deliberate practice requires 4 mandatory pillars: (1) well-defined specific deficit goals, (2) full concentration at the edge of ability, (3) immediate informative feedback, and (4) repetitive error correction.
+     b) Feedback Latency & Credit Assignment (Ericsson, 2006): Delaying feedback by hours or days dissociates the error signal from the active cognitive state in working memory, preventing synaptic credit assignment. Instantaneous, sub-second automated feedback acts as a cognitive mirror that halts error consolidation.
+     c) Wilson et al. (2019) 85% Rule & Yerkes-Dodson (1908): The rate of learning is mathematically maximized when error rate is ~15% (85% accuracy). Zero errors produce zero adaptation signals; excessive errors collapse working memory.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to deliberate practice, the 85% rule, sub-skill decomposition, feedback latency, and homeostasis disruption.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1356,6 +1420,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'boundary-cases-isolation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_11_2;
+  }
+  if (lessonId === 'edge-of-ability-feedback') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_12_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1453,6 +1520,10 @@ export const KNOWN_CONCEPTS = [
   'concept:wason_246_falsification_confirmation_bias',
   'concept:winston_near_misses_feature_isolation',
   'concept:vapnik_support_vectors_decision_margin',
+  // Lesson 12.1 Concepts
+  'concept:ericsson_deliberate_practice_four_pillars',
+  'concept:fitts_posner_autonomous_stage_plateau',
+  'concept:wilson_85_percent_rule_optimal_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1529,6 +1600,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 11.2 Misconceptions
   'misconception:positive_instances_prove_mental_model',
   'misconception:interior_examples_calibrate_boundaries',
+  // Lesson 12.1 Misconceptions
+  'misconception:experience_equals_expert_performance',
+  'misconception:error_free_practice_indicates_optimal_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

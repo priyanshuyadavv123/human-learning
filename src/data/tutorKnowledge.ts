@@ -684,6 +684,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you shift your study time away from comfortable interior examples toward cataloging ambiguous borderline support vectors?',
     referencedSection: 'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin',
   },
+  {
+    keywords: ['ericsson', 'deliberate practice', 'four pillars', 'autonomous stage', 'fitts', 'posner', 'homeostasis', 'naive practice', 'comfort zone'],
+    title: 'K. Anders Ericsson: The Anatomy of Deliberate Practice',
+    summary: 'Accumulating routine work hours arrests skill development in the autonomous stage; mastery requires deliberate practice that forces biological systems out of homeostasis.',
+    takeaway: 'Experience alone automates mediocrity; deliberate practice targets specific sub-skill deficits at the edge of ability with immediate corrective feedback.',
+    detailedResponse: 'K. Anders Ericsson et al. (1993) demonstrated that routine workplace experience shows near-zero correlation with expert performance once basic proficiency is reached. Under Fitts & Posner’s (1967) skill model, tasks naturally automate into an "autonomous stage" where execution maintains biological and neural homeostasis, arresting further cognitive adaptation. To break through plateaus, performance must be subjected to Deliberate Practice with 4 mandatory pillars: (1) well-defined specific goals targeting sub-skill deficits, (2) intense concentration at the edge of ability, (3) immediate informative error feedback, and (4) repetitive refinement with updated mental representations.',
+    socraticChallenge: 'Which specific sub-skill in your current engineering work is currently operating on comfortable autopilot, and how could you deliberately disrupt that automaticity?',
+    referencedSection: 'Lesson 12.1 • Section 1: K. Anders Ericsson: The Anatomy of Deliberate Practice',
+  },
+  {
+    keywords: ['feedback latency', 'delayed feedback', 'temporal dynamics', 'sub-second feedback', 'credit assignment', 'automated harness'],
+    title: 'Feedback Latency & Temporal Credit Assignment',
+    summary: 'Delaying feedback by days decouples error signals from active neural traces; sub-second automated feedback enables precise credit assignment and schema updating.',
+    takeaway: 'The rate of skill acquisition is strictly bounded by feedback turnaround time; sub-second discrepancy signals prevent error consolidation.',
+    detailedResponse: 'In cybernetics and cognitive architecture, the efficiency of learning is an inverse function of feedback latency. When an engineer or student receives feedback days or weeks after execution (such as standard asynchronous PR reviews), the neural activation context of the error has decayed from working memory. This creates the "Credit Assignment Problem"—the brain cannot determine which exact intermediate thought or decision caused the defect. Sub-second automated feedback (unit test harnesses, real-time linters, compiler diagnostics) delivers discrepancy signals while the causal mental model is still active, driving instantaneous synaptic calibration.',
+    socraticChallenge: 'What is the turnaround time of your primary feedback loops today, and how could you re-engineer them to deliver verification signals within seconds?',
+    referencedSection: 'Lesson 12.1 • Section 2: Feedback Latency & The Temporal Dynamics of Error Correction',
+  },
+  {
+    keywords: ['edge of ability', '85% rule', 'wilson', 'yerkes-dodson', 'desirable difficulty', '15% error', 'comfort zone stagnation'],
+    title: 'The Edge of Ability & The 85% Rule for Optimal Learning',
+    summary: 'Learning rate is mathematically maximized when task difficulty is tuned to produce approximately 15% errors, balancing reinforcement with plastic adaptation signals.',
+    takeaway: 'Practicing with zero errors generates zero neuroplastic adaptation; peak learning occurs at an ~85% accuracy rate.',
+    detailedResponse: 'Wilson et al. (2019, Nature Communications) proved across artificial neural networks and biological learners that the rate of learning follows an inverted-U curve with respect to task difficulty, peaking when accuracy is ~85% (the 85% Rule). Practicing in the 100% success zone produces zero prediction errors (Schultz, 1997), maintaining neural homeostasis and yielding zero neuroplastic remodeling. Conversely, practicing at an error rate above 30-40% causes working memory collapse and cognitive overload. Stepping to the true "Edge of Ability" means tuning difficulty until ~1 out of 7 attempts fails, providing optimal gradient updating without triggering despair.',
+    socraticChallenge: 'Are your daily practice tasks generating roughly 15% errors, or are you staying safely inside the 0% error comfort zone?',
+    referencedSection: 'Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

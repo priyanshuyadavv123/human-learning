@@ -54,7 +54,8 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 5.1 (Lesson 11.1 Prototypes vs. Exemplars):** ACCEPTED (15/15 quality standard, 348/348 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Stage 5.2 (Lesson 11.2 Feature Isolation & Boundary Testing):** ACCEPTED (15/15 quality standard, 362/362 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 11 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 11.1, 11.2)
-  - **Stage 5.3 (Chapter 12, Lesson 12.1 The Deliberate Practice Curve):** NEXT MILESTONE
+  - **Stage 5.3 (Lesson 12.1 The Edge of Ability & Immediate Feedback):** ACCEPTED (15/15 quality standard, 376/376 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Stage 5.4 (Lesson 12.2 Mental Representations in Expert Performance):** NEXT MILESTONE
 
 ---
 

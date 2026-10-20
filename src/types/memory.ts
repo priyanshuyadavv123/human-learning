@@ -96,6 +96,10 @@ export const KNOWN_CONCEPTS = [
   'concept:wason_246_falsification_confirmation_bias',
   'concept:winston_near_misses_feature_isolation',
   'concept:vapnik_support_vectors_decision_margin',
+  // Lesson 12.1 Concepts
+  'concept:ericsson_deliberate_practice_four_pillars',
+  'concept:fitts_posner_autonomous_stage_plateau',
+  'concept:wilson_85_percent_rule_optimal_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -172,6 +176,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 11.2 Misconceptions
   'misconception:positive_instances_prove_mental_model',
   'misconception:interior_examples_calibrate_boundaries',
+  // Lesson 12.1 Misconceptions
+  'misconception:experience_equals_expert_performance',
+  'misconception:error_free_practice_indicates_optimal_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
