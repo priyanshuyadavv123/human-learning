@@ -195,6 +195,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'fitts-posner-stages';
     chapterId = 'ch-13-automaticity';
+  } else if (
+    conceptId.startsWith('concept:bainbridge_ironies_') ||
+    conceptId.startsWith('concept:luchins_einstellung_') ||
+    conceptId.startsWith('concept:endsley_situational_')
+  ) {
+    lessonId = 'paradox-of-automation';
+    chapterId = 'ch-13-automaticity';
   }
 
   return {

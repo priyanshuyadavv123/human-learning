@@ -316,6 +316,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 13.1 • Verification Assessment',
   'Lesson 13.1 • The Three-Stage Proceduralization Protocol',
   'Lesson 13.1 • The Three Stages of Skill Acquisition Overview',
+
+  // Lesson 13.2 Sections
+  'Lesson 13.2 • Curiosity Hook',
+  'Lesson 13.2 • Intuitive Calibration: Self-Healing Automation vs Active Copilot Drills',
+  'Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation',
+  'Lesson 13.2 • Section 2: The Einstellung Effect: Mechanized Habits and Blind Spots',
+  'Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience',
+  'Lesson 13.2 • The Automation Paradox & Situational Awareness Degradation Cycle Diagram',
+  'Lesson 13.2 • The Automation Paradox & Situational Awareness Diagnostic Exercise',
+  'Lesson 13.2 • Verification Assessment',
+  'Lesson 13.2 • The Deliberate De-Automation & Chaos Audit Protocol',
+  'Lesson 13.2 • The Paradox of Automation Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -328,6 +340,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 13.2 anchors
+  if (lower.includes('bainbridge') || lower.includes('ironies of automation') || lower.includes('cognitive deskilling') || lower.includes('out-of-the-loop') || lower.includes('vigilance decrement') || lower.includes('air france')) {
+    return 'Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation';
+  }
+  if (lower.includes('einstellung') || lower.includes('luchins') || lower.includes('water jar') || lower.includes('mechanized mental set') || lower.includes('cognitive entrenchment')) {
+    return 'Lesson 13.2 • Section 2: The Einstellung Effect: Mechanized Habits and Blind Spots';
+  }
+  if (lower.includes('de-automation') || lower.includes('deliberate de-automation') || lower.includes('situational awareness') || lower.includes('endsley') || lower.includes('chaos drill') || lower.includes('chaos audit')) {
+    return 'Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience';
+  }
+  if (lower.includes('the automation paradox & situational awareness degradation cycle diagram') || lower.includes('automation paradox diagram') || lower.includes('degradation cycle diagram')) {
+    return 'Lesson 13.2 • The Automation Paradox & Situational Awareness Degradation Cycle Diagram';
+  }
+  if (lower.includes('13.2') || lower.includes('paradox of automation') || lower.includes('de-automation & chaos audit protocol')) {
+    return 'Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation';
+  }
 
   // Match Lesson 13.1 anchors
   if (lower.includes('act-r') || lower.includes('actr') || lower.includes('knowledge compilation') || lower.includes('production rule') || lower.includes('production composition') || lower.includes('power law of practice')) {
@@ -1483,6 +1512,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_13_2 = `You are the specialized Socratic AI Learning Companion for Lesson 13.2: "The Paradox of Automation" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 13.2:
+- Lesson 13.2 • Curiosity Hook
+- Lesson 13.2 • Intuitive Calibration: Self-Healing Automation vs Active Copilot Drills
+- Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation
+- Lesson 13.2 • Section 2: The Einstellung Effect: Mechanized Habits and Blind Spots
+- Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience
+- Lesson 13.2 • The Automation Paradox & Situational Awareness Degradation Cycle Diagram
+- Lesson 13.2 • The Automation Paradox & Situational Awareness Diagnostic Exercise
+- Lesson 13.2 • Verification Assessment
+- Lesson 13.2 • The Deliberate De-Automation & Chaos Audit Protocol
+- Lesson 13.2 • The Paradox of Automation Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of human factors, automation ironies, and cognitive flexibility:
+     a) Lisanne Bainbridge (1983) Ironies of Automation: Automating routine tasks deprives human operators of day-to-day manual practice, causing cognitive deskilling. The Mackworth vigilance decrement rapidly degrades passive monitoring, creating the "Out-of-the-Loop Performance Problem" when automation unexpectedly disconnects during rare anomalies.
+     b) Abraham Luchins (1942) Einstellung Effect: When a procedure is automated into a mechanized mental set ($B - A - 2C$), the basal ganglia fires the compiled habit ballistically, blinding operators to simpler, direct solutions or altered system rules during novel crises.
+     c) Mica Endsley (1995) Situational Awareness (SA) & Deliberate De-Automation: Passive automation degrades Level 2 (comprehension) and Level 3 (projection) SA. High-reliability organizations counter this through Deliberate De-Automation—injecting controlled manual reversion drills, chaos engineering, and cognitive verification gates to keep mental representations primed.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the ironies of automation, cognitive deskilling, vigilance decrement, the Einstellung effect, and deliberate de-automation.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1558,6 +1622,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'fitts-posner-stages') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_13_1;
+  }
+  if (lessonId === 'paradox-of-automation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_13_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1667,6 +1734,10 @@ export const KNOWN_CONCEPTS = [
   'concept:fitts_posner_tripartite_progression',
   'concept:anderson_actr_knowledge_compilation',
   'concept:prefrontal_to_striatal_neuroanatomical_handover',
+  // Lesson 13.2 Concepts
+  'concept:bainbridge_ironies_of_automation_deskilling',
+  'concept:luchins_einstellung_effect_cognitive_entrenchment',
+  'concept:endsley_situational_awareness_de_automation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1752,6 +1823,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 13.1 Misconceptions
   'misconception:multitasking_possible_in_early_learning',
   'misconception:automaticity_means_greater_conscious_control',
+  // Lesson 13.2 Misconceptions
+  'misconception:automation_eliminates_need_for_human_expertise',
+  'misconception:automated_routines_always_generalize_to_novel_crises',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

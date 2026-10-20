@@ -58,7 +58,9 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 5.4 (Lesson 12.2 Mental Representations in Expert Performance):** ACCEPTED (15/15 quality standard, 390/390 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 12 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 12.1, 12.2)
   - **Stage 5.5 (Lesson 13.1 The Three Stages of Skill Acquisition):** ACCEPTED (15/15 quality standard, 404/404 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
-  - **Stage 5.6 (Lesson 13.2 The Paradox of Automation):** NEXT MILESTONE
+  - **Stage 5.6 (Lesson 13.2 The Paradox of Automation):** ACCEPTED (15/15 quality standard, 418/418 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Chapter 13 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 13.1, 13.2)
+  - **Stage 5.7 (Lesson 14.1 Blocked vs Interleaved Practice):** NEXT MILESTONE
 
 ---
 
@@ -103,15 +105,15 @@ Every chapter is classified strictly by actual code implementation:
 | :--- | :--- | :--- | :--- | :--- |
 | **ch-8-chunking-schemas** | **8. Schema Induction & Chunking** | 8.1 The Mechanics of Chunking<br>8.2 Hierarchical Knowledge Representation | Working memory chunk expansion, semantic hierarchies, cognitive economy, basic-level categories, deep-structure problem representation. | **ACCEPTED** (2/2 Lessons Complete) |
 | **ch-9-analogy-bridging** | **9. Analogy, Metaphor & Conceptual Bridging** | 9.1 Structure-Mapping & Analogical Transfer<br>9.2 Abstraction Ladders & Mental Models | Surface feature distraction, relational mapping, isomorphic problem solving, Hayakawa ladder of abstraction, Craik/Johnson-Laird mental model simulation, Bret Victor dynamic abstraction coupling. | **ACCEPTED** (2/2 Lessons Complete) |
-| **ch-10-dual-coding** | **10. Dual Coding & Multimodal Representation** | 10.1 Paivio's Dual Coding Theory<br>10.2 Spatial and Diagrammatic Thinking | Non-verbal and verbal cognitive systems, diagrammatic reasoning, multimedia effect. | **IN PROGRESS** (10.1 NEXT) |
-| **ch-11-categorization** | **11. Categorization & Dimensional Analysis** | 11.1 Prototypes vs Exemplars<br>11.2 Feature Isolation & Boundary Cases | Exemplar-based inference, boundary testing, categorical perception. | **PLANNED** |
+| **ch-10-dual-coding** | **10. Dual Coding & Multimodal Representation** | 10.1 Paivio's Dual Coding Theory<br>10.2 Spatial and Diagrammatic Thinking | Non-verbal and verbal cognitive systems, diagrammatic reasoning, multimedia effect. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-11-categorization** | **11. Categorization & Dimensional Analysis** | 11.1 Prototypes vs Exemplars<br>11.2 Feature Isolation & Boundary Cases | Exemplar-based inference, boundary testing, categorical perception. | **ACCEPTED** (2/2 Lessons Complete) |
 
 ### Part 4: Deliberate Practice, Skill Acquisition & Motor Learning (Chapters 12–15)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **ch-12-deliberate-practice** | **12. Ericsson’s Deliberate Practice Framework** | 12.1 The Edge of Ability & Immediate Feedback<br>12.2 Mental Representations in Expert Performance | Naive practice vs deliberate practice, expert mental models, coach-guided feedback. | **PLANNED** |
-| **ch-13-automaticity** | **13. Proceduralization & Automaticity** | 13.1 From Cognitive to Autonomous Stages of Skill<br>13.2 The Paradox of Automation | Fitts & Posner 3-stage model, cognitive arrest, automated execution traps. | **PLANNED** |
-| **ch-14-interleaving** | **14. Interleaving & Varied Practice** | 14.1 Blocked vs Interleaved Practice<br>14.2 Discrimination Learning & Variability | Blocked practice illusion, contextual interference effect, category discrimination. | **PLANNED** |
+| **ch-12-deliberate-practice** | **12. Ericsson’s Deliberate Practice Framework** | 12.1 The Edge of Ability & Immediate Feedback<br>12.2 Mental Representations in Expert Performance | Naive practice vs deliberate practice, expert mental models, coach-guided feedback. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-13-automaticity** | **13. Proceduralization & Automaticity** | 13.1 From Cognitive to Autonomous Stages of Skill<br>13.2 The Paradox of Automation | Fitts & Posner 3-stage model, cognitive arrest, automated execution traps, Lisanne Bainbridge ironies of automation, Mackworth clock vigilance decrement, Abraham Luchins Einstellung effect, Mica Endsley situational awareness levels. | **ACCEPTED** (2/2 Lessons Complete) |
+| **ch-14-interleaving** | **14. Interleaving & Varied Practice** | 14.1 Blocked vs Interleaved Practice<br>14.2 Discrimination Learning & Variability | Blocked practice illusion, contextual interference effect, category discrimination. | **IN PROGRESS** (14.1 NEXT) |
 | **ch-15-error-driven** | **15. Error-Driven Learning & Failure Analysis** | 15.1 Productive Failure & Generation Effects<br>15.2 The Pre-Mortem & Error Journaling Protocols | Productive failure, error tolerance, hypercorrection effect in deliberate practice. | **PLANNED** |
 
 ### Part 5: Problem Solving, Transfer & Creative Synthesis (Chapters 16–19)

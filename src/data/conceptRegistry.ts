@@ -1192,6 +1192,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:automaticity_means_greater_conscious_control',
     discrepancyPrompt: 'Previously you may have thought that master surgeons or engineers concentrate harder on mechanical steps than novices. How does functional neuroimaging prove that automaticity is actually prefrontal deactivation and striatal offloading?',
   },
+  'concept:bainbridge_ironies_of_automation_deskilling': {
+    conceptId: 'concept:bainbridge_ironies_of_automation_deskilling',
+    title: 'The Ironies of Automation & Cognitive Deskilling (Bainbridge, 1983)',
+    prompt: 'What are Lisanne Bainbridge’s "Ironies of Automation" (1983) and why does automating routine operations make crisis intervention more dangerous?',
+    keyCriteria: [
+      'Cites Lisanne Bainbridge (1983) Ironies of Automation',
+      'Explains that automating routine tasks deprives human operators of day-to-day manual practice (cognitive deskilling)',
+      'Explains the Mackworth vigilance decrement during passive monitoring of automated displays',
+      'Explains the Out-of-the-Loop Performance Problem when automation unexpectedly disengages during novel edge cases',
+    ],
+    canonicalAnswer: 'Lisanne Bainbridge (1983) identified the core paradox of automation engineering: designers automate all the routine, predictable tasks they understand, leaving only the most unpredictable, complex edge cases for human operators—while simultaneously depriving the humans of the continuous manual operational practice required to handle those crises. When humans are relegated to passive monitors, human vigilance neurobiology decays rapidly (vigilance decrement). Furthermore, manual procedural schemas atrophy through disuse (cognitive deskilling). When automation encounters an unprecedented anomaly and abruptly disconnects, the out-of-the-loop operator lacks situational awareness and must reconstruct complex system dynamics in seconds under extreme stress, frequently causing catastrophic error cascades.',
+    lessonSectionAnchor: 'Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation',
+    relatedMisconception: 'misconception:automation_eliminates_need_for_human_expertise',
+    discrepancyPrompt: 'Previously you may have assumed that building reliable automation eliminates the need for deep human domain expertise. How do Bainbridge’s ironies prove that hyper-automation actually makes human expertise more critical and harder to maintain?',
+  },
+  'concept:luchins_einstellung_effect_cognitive_entrenchment': {
+    conceptId: 'concept:luchins_einstellung_effect_cognitive_entrenchment',
+    title: 'The Einstellung Effect & Mechanized Blindness (Luchins, 1942)',
+    prompt: 'Describe Abraham Luchins’ (1942) Einstellung Effect and explain why experienced professionals can become cognitively blind during novel incidents.',
+    keyCriteria: [
+      'Cites Abraham Luchins (1942) Water Jar experiments',
+      'Defines the Einstellung Effect (mechanized mental set / cognitive entrenchment)',
+      'Explains that automated procedural habits trigger ballistically, inhibiting exploratory prefrontal search',
+      'Explains why experts rigidly apply familiar automated routines (e.g. rebooting) to problems with altered underlying invariants',
+    ],
+    canonicalAnswer: 'Abraham Luchins (1942) demonstrated through the Water Jar paradigm that when learners repeatedly solve problems using a specific procedural formula ($B - A - 2C$), they become rigidly conditioned to that procedure, blinding them to simpler, obvious solutions ($A - C$) or altered environmental rules (the "Einstellung Effect"). In experienced engineers and operators, familiar automated production rules in the basal ganglia fire ballistically upon recognizing surface triggers. This habit execution actively inhibits prefrontal exploratory search. During novel incidents, operators fall into mechanized blindness: they rigidly apply their familiar automated playbook (e.g., triggering rolling restarts) even when that action directly accelerates catastrophic system corruption.',
+    lessonSectionAnchor: 'Lesson 13.2 • Section 2: The Einstellung Effect: Mechanized Habits and Blind Spots',
+    relatedMisconception: 'misconception:automated_routines_always_generalize_to_novel_crises',
+    discrepancyPrompt: 'Previously you may have relied on a favorite standard troubleshooting script during every outage. Why does the Einstellung effect prove that automatic habits can blind you to altered system invariants during novel crises?',
+  },
+  'concept:endsley_situational_awareness_de_automation': {
+    conceptId: 'concept:endsley_situational_awareness_de_automation',
+    title: 'Situational Awareness & Deliberate De-Automation (Endsley, 1995)',
+    prompt: 'What are Mica Endsley’s three levels of Situational Awareness (1995), and how does Deliberate De-Automation maintain operational readiness?',
+    keyCriteria: [
+      'Cites Mica Endsley (1995) Situational Awareness model',
+      'Level 1: Perception of sensory elements; Level 2: Comprehension of current meaning; Level 3: Projection of future status',
+      'Explains that out-of-the-loop operators lose Level 2 comprehension and Level 3 projection',
+      'Defines Deliberate De-Automation: injecting controlled manual drills, chaos engineering, and cognitive verification pauses to maintain active mental representations',
+    ],
+    canonicalAnswer: 'Mica Endsley (1995) formalized Situational Awareness (SA) into three hierarchical levels: Level 1 (Perception of raw telemetry and cues), Level 2 (Comprehension of what those cues mean in current system topology), and Level 3 (Projection of future states and trajectory). Passive monitoring preserves only superficial Level 1 perception, while Level 2 comprehension and Level 3 projection collapse. To combat this automation decay, high-reliability organizations employ "Deliberate De-Automation": strategically injecting manual reversion drills, chaos engineering perturbations, and explicit hypothesis-verification gates. Forcing operators to periodically perform manual operations keeps retrieval structures active and mental representations calibrated for real emergencies.',
+    lessonSectionAnchor: 'Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience',
+    relatedMisconception: 'misconception:automation_eliminates_need_for_human_expertise',
+    discrepancyPrompt: 'Previously you may have viewed manual drills as wasted time when automated scripts exist. How does Endsley’s situational awareness framework demonstrate that manual drills are essential for maintaining Level 2 comprehension and Level 3 projection?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

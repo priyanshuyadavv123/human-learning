@@ -117,6 +117,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'fitts-posner-tripartite-progression': <Network size={18} />,
   'anderson-act-r-knowledge-compilation': <Cpu size={18} />,
   'neurobiology-cortical-to-striatal-handover': <Sparkles size={18} />,
+  // Lesson 13.2 Tabs
+  'bainbridge-ironies-of-automation': <Eye size={18} />,
+  'einstellung-effect-cognitive-entrenchment': <Repeat size={18} />,
+  'deliberate-de-automation-resilience': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

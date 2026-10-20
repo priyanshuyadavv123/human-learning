@@ -108,6 +108,10 @@ export const KNOWN_CONCEPTS = [
   'concept:fitts_posner_tripartite_progression',
   'concept:anderson_actr_knowledge_compilation',
   'concept:prefrontal_to_striatal_neuroanatomical_handover',
+  // Lesson 13.2 Concepts
+  'concept:bainbridge_ironies_of_automation_deskilling',
+  'concept:luchins_einstellung_effect_cognitive_entrenchment',
+  'concept:endsley_situational_awareness_de_automation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -193,6 +197,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 13.1 Misconceptions
   'misconception:multitasking_possible_in_early_learning',
   'misconception:automaticity_means_greater_conscious_control',
+  // Lesson 13.2 Misconceptions
+  'misconception:automation_eliminates_need_for_human_expertise',
+  'misconception:automated_routines_always_generalize_to_novel_crises',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

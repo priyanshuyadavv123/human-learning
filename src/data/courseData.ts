@@ -24,6 +24,7 @@ import { LESSON_BOUNDARY_CASES_ISOLATION } from './lesson11_2Data.ts';
 import { LESSON_EDGE_OF_ABILITY_FEEDBACK } from './lesson12_1Data.ts';
 import { LESSON_EXPERT_MENTAL_REPRESENTATIONS } from './lesson12_2Data.ts';
 import { LESSON_FITTS_POSNER_STAGES } from './lesson13_1Data.ts';
+import { LESSON_PARADOX_OF_AUTOMATION } from './lesson13_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -354,7 +355,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Paradox of Automation',
           subtitle: 'Why automated routines degrade flexibility and how to de-automate',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1169,6 +1170,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_EDGE_OF_ABILITY_FEEDBACK.id]: LESSON_EDGE_OF_ABILITY_FEEDBACK,
   [LESSON_EXPERT_MENTAL_REPRESENTATIONS.id]: LESSON_EXPERT_MENTAL_REPRESENTATIONS,
   [LESSON_FITTS_POSNER_STAGES.id]: LESSON_FITTS_POSNER_STAGES,
+  [LESSON_PARADOX_OF_AUTOMATION.id]: LESSON_PARADOX_OF_AUTOMATION,
 };
 
 export function getLessonById(id: string): Lesson {

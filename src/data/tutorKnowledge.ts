@@ -765,6 +765,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What explicit supervisory circuit breakers or verification steps do you use to stop autonomous habits from firing in altered production contexts?',
     referencedSection: 'Lesson 13.1 • Section 3: Neurobiology of Automaticity: The Prefrontal-to-Striatal Shift',
   },
+  {
+    keywords: ['bainbridge', 'ironies of automation', 'irony', 'deskilling', 'out of the loop', 'out-of-the-loop', 'vigilance decrement', 'mackworth'],
+    title: 'Lisanne Bainbridge: The Ironies of Automation & Cognitive Deskilling',
+    summary: 'Automating routine operations erodes manual skill through disuse and degrades situational awareness, causing crisis intervention failure.',
+    takeaway: 'Automation does not eliminate human error; it concentrates all remaining error into unprecedented edge cases while eroding manual competence.',
+    detailedResponse: 'Lisanne Bainbridge (1983) published the seminal human factors paper "Ironies of Automation." When engineers automate routine tasks, human operators are demoted to passive monitors, a role where vigilance drops by over 50% within 30 minutes (Mackworth Clock effect). Crucially, procedural schemas and system mental representations atrophy through lack of manual practice (cognitive deskilling). When an unprecedented zero-day anomaly occurs and automation abruptly disengages, the out-of-the-loop operator lacks situational awareness and must diagnose unfamiliar multi-system failures under extreme time pressure, frequently leading to disastrous interventions.',
+    socraticChallenge: 'Which automated systems in your stack have caused your manual troubleshooting skills to atrophy through lack of practice?',
+    referencedSection: 'Lesson 13.2 • Section 1: Lisanne Bainbridge (1983): The Ironies of Automation',
+  },
+  {
+    keywords: ['einstellung', 'luchins', 'water jar', 'mechanized mental set', 'cognitive entrenchment', 'blind spot'],
+    title: 'The Einstellung Effect: Mechanized Mental Blindness',
+    summary: 'Automated problem-solving habits trigger ballistically, blinding experienced practitioners to simpler solutions or changed system rules.',
+    takeaway: 'Prior routine success with a fixed procedure creates mechanized mental blindness, suppressing conscious exploratory problem solving.',
+    detailedResponse: 'Abraham Luchins (1942) demonstrated through the Water Jar paradigm that when people repeatedly solve problems with a specific procedural formula ($B - A - 2C$), they become rigidly conditioned to that procedure, failing to see direct, simple solutions ($A - C$) or altered environmental rules. In expert software and systems engineering, the Einstellung effect occurs when a familiar automated remedy (e.g., restarting servers, clearing caches) fires ballistically from striatal habits upon seeing familiar symptoms, blinding the responder to the fact that the underlying system invariants have fundamentally changed.',
+    socraticChallenge: 'During your last technical incident, did you automatically apply a familiar habitual fix, or did you first verify that the failure invariants were identical?',
+    referencedSection: 'Lesson 13.2 • Section 2: The Einstellung Effect: Mechanized Habits and Blind Spots',
+  },
+  {
+    keywords: ['de-automation', 'deliberate de-automation', 'endsley', 'situational awareness', 'chaos drill', 'chaos engineering', 'resilience'],
+    title: 'Situational Awareness & Deliberate De-Automation',
+    summary: 'High-reliability operations use intentional cognitive friction and unannounced chaos drills to maintain active mental representations and prevent deskilling.',
+    takeaway: 'Resilience requires deliberate de-automation: strategically injecting manual drills and verification gates to keep mental models calibrated.',
+    detailedResponse: 'Mica Endsley (1995) defined Situational Awareness (SA) across three levels: Perception (Level 1), Comprehension (Level 2), and Projection of future status (Level 3). Hyper-automation erodes Level 2 and Level 3 SA. To combat this operational decay, high-reliability organizations employ Deliberate De-Automation: intentionally disrupting tranquil automated workflows through unannounced chaos engineering injections, manual recovery drills, and explicit cognitive circuit breakers. Forcing practitioners to periodically execute procedures by hand maintains long-term memory retrieval structures and keeps operators actively in the loop.',
+    socraticChallenge: 'How can you integrate deliberate manual drills into your automated workflows to keep your team’s mental models sharp?',
+    referencedSection: 'Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

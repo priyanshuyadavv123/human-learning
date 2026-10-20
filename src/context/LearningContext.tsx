@@ -293,6 +293,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-power-law-of-practice-newell-rosenbloom': 'concept:anderson_actr_knowledge_compilation',
     },
   },
+  'paradox-of-automation': {
+    predictionConceptId: 'concept:bainbridge_ironies_of_automation_deskilling',
+    predictionMisconceptionId: 'misconception:automation_eliminates_need_for_human_expertise',
+    quizConceptMapping: {
+      'q1-bainbridge-ironies-of-automation-core-paradox': 'concept:bainbridge_ironies_of_automation_deskilling',
+      'q2-einstellung-effect-mechanism': 'concept:luchins_einstellung_effect_cognitive_entrenchment',
+      'q3-endsley-situational-awareness-levels': 'concept:endsley_situational_awareness_de_automation',
+      'q4-deliberate-de-automation-remedy': 'concept:endsley_situational_awareness_de_automation',
+    },
+  },
 };
 
 interface LearningContextType {
