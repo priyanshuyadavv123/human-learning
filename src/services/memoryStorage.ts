@@ -167,6 +167,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'prototypes-vs-exemplars';
     chapterId = 'ch-11-categorization';
+  } else if (
+    conceptId.startsWith('concept:wason_246_') ||
+    conceptId.startsWith('concept:winston_near_') ||
+    conceptId.startsWith('concept:vapnik_support_')
+  ) {
+    lessonId = 'boundary-cases-isolation';
+    chapterId = 'ch-11-categorization';
   }
 
   return {

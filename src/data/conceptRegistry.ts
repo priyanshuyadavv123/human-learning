@@ -1010,6 +1010,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:categories_are_classical_boolean_checklists',
     discrepancyPrompt: 'Previously you may have thought that the mind must be either purely rule-based or purely associative. How does the COVIS architecture demonstrate that human expertise seamlessly couples prefrontal verbal rules with striatal exemplar similarity?',
   },
+  'concept:wason_246_falsification_confirmation_bias': {
+    conceptId: 'concept:wason_246_falsification_confirmation_bias',
+    title: 'The 2-4-6 Task & Confirmation Bias (Peter Wason, 1960)',
+    prompt: 'How did Peter Wason’s (1960) 2-4-6 task demonstrate confirmation bias, and why is positive testing fundamentally asymmetric to falsification?',
+    keyCriteria: [
+      'Cites Peter Wason (1960) 2-4-6 hypothesis testing task',
+      'Defines Confirmation Bias and Positive Test Strategy (Klayman & Ha, 1987)',
+      'Explains that participants generate triples conforming to their hypothesis, failing to test negative boundary instances',
+      'Explains Karl Popper’s asymmetric falsification principle (a million positive tests cannot prove a rule; one negative test disproves it)',
+    ],
+    canonicalAnswer: 'Peter Wason (1960) proved that human reasoning is crippled by confirmation bias via the 2-4-6 task. When asked to discover an unknown rule, participants generated test triples (e.g. 8-10-12) matching their narrow hypothesis ("numbers increasing by two"), receiving confirmation but failing to discover the true rule ("any ascending numbers"). Klayman & Ha (1987) termed this the Positive Test Strategy. Epistemologically (Popper, 1934), confirmation is asymmetric: no number of positive tests can verify an over-constrained rule, whereas a single negative boundary test (e.g. 1-2-100) immediately exposes blind spots and recalibrates category scope.',
+    lessonSectionAnchor: 'Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification',
+    relatedMisconception: 'misconception:positive_instances_prove_mental_model',
+    discrepancyPrompt: 'Previously you may have believed that running dozens of successful happy-path tests proves your software model is correct. How does Wason’s 2-4-6 task prove that positive testing leaves catastrophic edge-case blind spots completely undetected?',
+  },
+  'concept:winston_near_misses_feature_isolation': {
+    conceptId: 'concept:winston_near_misses_feature_isolation',
+    title: 'Near-Miss Learning & Single-Feature Isolation (Patrick Winston, 1970)',
+    prompt: 'What is a "Near-Miss" according to Patrick Winston (1970), and why does minimal-pair comparison accelerate structural concept induction?',
+    keyCriteria: [
+      'Cites Patrick Winston (1970) MIT AI concept learning framework',
+      'Defines a Near-Miss as a negative instance differing by exactly one critical feature dimension',
+      'Explains minimal-pair feature isolation (holding all other dimensions constant to eliminate confounding)',
+      'Explains how near-misses immediately transform arbitrary features into necessary constraints',
+    ],
+    canonicalAnswer: 'Patrick Winston (1970) demonstrated in his classic machine learning and cognitive architecture research that concept learning is accelerated by "Near-Misses"—negative instances that differ from the target concept by exactly one feature dimension (a minimal pair). While studying dozens of positive examples merely reinforces obvious correlations, a near-miss holds all background variables constant while flipping a single variable. This isolates that specific dimension as a necessary causal constraint (e.g., discovering that arch posts must not touch), eliminating spurious correlations and unburdening working memory from multi-variable confounding.',
+    lessonSectionAnchor: 'Lesson 11.2 • Section 2: Patrick Winston: Near-Miss Learning & Single-Feature Isolation',
+    relatedMisconception: 'misconception:interior_examples_calibrate_boundaries',
+    discrepancyPrompt: 'Previously you may have tried debugging complex bugs by changing multiple configuration settings simultaneously. How does Winston’s near-miss principle prove that changing exactly one variable at a time is mathematically required to isolate the root cause?',
+  },
+  'concept:vapnik_support_vectors_decision_margin': {
+    conceptId: 'concept:vapnik_support_vectors_decision_margin',
+    title: 'Support Vectors & Margin Maximization (Vladimir Vapnik, 1995)',
+    prompt: 'How does Vladimir Vapnik’s Support Vector Machine (SVM) theory explain why boundary edge cases carry 100% of diagnostic information?',
+    keyCriteria: [
+      'Cites Vladimir Vapnik & Corinna Cortes (1995) Support Vector Machines',
+      'Explains that the optimal classification hyperplane is determined solely by support vectors lying on the margin',
+      'Proves that data points deep inside category interior carry zero mathematical influence on boundary placement',
+      'Explains margin maximization as defense against noise and adversarial perturbations in production',
+    ],
+    canonicalAnswer: 'Vladimir Vapnik and Corinna Cortes (1995) established in Support Vector Machine theory that the optimal decision hyperplane separating two categories is determined exclusively by the "Support Vectors"—the critical borderline data points lying closest to the margin. Data points situated deep within the category interior have zero mathematical weight in defining the boundary; millions of interior points can be deleted without altering the classification hyperplane by a single millimeter. In human cognition and systems engineering, studying comfortable textbook cases yields zero new boundary information; true diagnostic precision requires actively hunting for ambiguous support vectors to maximize the noise-resistant margin.',
+    lessonSectionAnchor: 'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin',
+    relatedMisconception: 'misconception:interior_examples_calibrate_boundaries',
+    discrepancyPrompt: 'Previously you may have spent your study time reviewing familiar, typical examples. Why does Vapnik’s support vector theorem prove that reviewing interior examples provides zero new information for sharpening your decision boundaries?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

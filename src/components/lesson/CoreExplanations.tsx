@@ -101,6 +101,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'rosch-prototype-theory-typicality': <Network size={18} />,
   'medin-schaffer-exemplar-theory-gcm': <Cpu size={18} />,
   'hybrid-dual-process-categorization': <Sparkles size={18} />,
+  // Lesson 11.2 Tabs
+  'wason-246-confirmation-falsification': <Eye size={18} />,
+  'winston-near-misses-feature-isolation': <Repeat size={18} />,
+  'vapnik-support-vectors-margin-maximization': <Cpu size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

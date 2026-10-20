@@ -657,6 +657,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When troubleshooting, do you blindly force anomalies into your default rule, or do you let the anomaly retrieve a specific remembered exception?',
     referencedSection: 'Lesson 11.1 • Section 3: Dual-System Categorization: COVIS & Rule-plus-Exception Architectures',
   },
+  {
+    keywords: ['wason', '2-4-6', 'confirmation bias', 'positive test strategy', 'falsification', 'popper', 'asymmetry of falsification'],
+    title: 'Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification',
+    summary: 'Humans suffer confirmation bias by testing confirming instances; real boundary discovery requires deliberate negative falsification.',
+    takeaway: 'A thousand positive tests cannot verify an over-constrained rule, but a single negative boundary test immediately exposes fatal blind spots.',
+    detailedResponse: 'Peter Wason (1960) proved that human reasoning naturally falls into Confirmation Bias through the 2-4-6 task. When attempting to deduce a hidden rule, participants exclusively generate triples that match their narrow hypothesis ("even numbers increasing by two"), receiving confirmation but failing to discover the true rule ("any ascending numbers"). Klayman & Ha (1987) termed this the Positive Test Strategy. Epistemologically (Karl Popper, 1934), confirmation is asymmetric: confirming instances provide zero logical proof of boundary correctness, whereas a single negative boundary test (like 1-2-100) instantly reveals the true category scope.',
+    socraticChallenge: 'In your testing, are you only testing inputs you expect to succeed, or are you deliberately constructing adversarial inputs designed to break your assumptions?',
+    referencedSection: 'Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification',
+  },
+  {
+    keywords: ['winston', 'near-miss', 'near miss', 'near misses', 'minimal pair', 'minimal pairs', 'feature isolation', 'arch'],
+    title: 'Patrick Winston: Near-Miss Learning & Single-Feature Isolation',
+    summary: 'Comparing minimal pairs that differ by exactly one feature dimension isolates causal rules without multi-variable cognitive confounding.',
+    takeaway: 'Near-misses accelerate learning by holding all background dimensions constant and altering exactly one feature, immediately isolating the causal rule.',
+    detailedResponse: 'In 1970 at MIT, Patrick Winston demonstrated that machine and biological learners induce structural concepts far faster from "Near-Misses" than from positive examples. A near-miss is a negative instance that fails category membership by exactly one feature (a minimal pair). By holding all other dimensions constant, the cognitive system does not need to analyze a combinatorial explosion of differences. The single altered dimension (e.g. posts touching in an arch) is immediately isolated as a necessary constraint, eliminating spurious correlations and clarifying boundary rules.',
+    socraticChallenge: 'When debugging, do you change three variables at once, or do you construct a strict minimal pair by changing exactly one variable?',
+    referencedSection: 'Lesson 11.2 • Section 2: Patrick Winston: Near-Miss Learning & Single-Feature Isolation',
+  },
+  {
+    keywords: ['vapnik', 'support vector', 'support vectors', 'svm', 'decision margin', 'hyperplane', 'margin maximization'],
+    title: 'Vladimir Vapnik: Support Vectors & The Optimal Decision Margin',
+    summary: 'Category boundaries are mathematically determined entirely by borderline support vectors; interior examples carry zero diagnostic weight.',
+    takeaway: 'Boundary edge cases carry 100% of diagnostic information for defining decision boundaries, while interior textbook examples carry zero boundary weight.',
+    detailedResponse: 'Vladimir Vapnik and Corinna Cortes (1995, Support Vector Machines) proved that the optimal classification hyperplane separating two categories is constrained exclusively by the "Support Vectors"—the hardest, most ambiguous borderline cases lying closest to the margin. Data points sitting deep inside the category interior have zero mathematical influence; they can be deleted without moving the boundary at all. In human expertise, studying yet another familiar textbook case provides zero new boundary calibration. True diagnostic mastery requires seeking out ambiguous borderline support vectors to maximize noise-resistant margins.',
+    socraticChallenge: 'How can you shift your study time away from comfortable interior examples toward cataloging ambiguous borderline support vectors?',
+    referencedSection: 'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

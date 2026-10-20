@@ -268,6 +268,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 11.1 • Verification Assessment',
   'Lesson 11.1 • The Exemplar Ingestion & Dimensional Calibration Protocol',
   'Lesson 11.1 • Prototypes vs. Exemplars Overview',
+
+  // Lesson 11.2 Sections
+  'Lesson 11.2 • Curiosity Hook',
+  'Lesson 11.2 • Intuitive Calibration: High-Volume Typicality vs Boundary Near-Misses',
+  'Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification',
+  'Lesson 11.2 • Section 2: Patrick Winston: Near-Miss Learning & Single-Feature Isolation',
+  'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin',
+  'Lesson 11.2 • The Decision Boundary & Support Vector Calibration Engine Diagram',
+  'Lesson 11.2 • Feature Isolation & Boundary Testing Diagnostic Scenarios',
+  'Lesson 11.2 • Verification Assessment',
+  'Lesson 11.2 • The Adversarial Near-Miss Boundary Testing Protocol',
+  'Lesson 11.2 • Feature Isolation & Boundary Testing Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -280,6 +292,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 11.2 anchors
+  if (lower.includes('wason') || lower.includes('2-4-6') || lower.includes('positive test strategy') || lower.includes('asymmetry of falsification') || lower.includes('popper')) {
+    return 'Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification';
+  }
+  if (lower.includes('winston') || lower.includes('near-miss') || lower.includes('near miss') || lower.includes('minimal pair') || lower.includes('single-feature isolation') || lower.includes('arch concept')) {
+    return 'Lesson 11.2 • Section 2: Patrick Winston: Near-Miss Learning & Single-Feature Isolation';
+  }
+  if (lower.includes('vapnik') || lower.includes('support vector') || lower.includes('decision margin') || lower.includes('hyperplane') || lower.includes('margin maximization')) {
+    return 'Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin';
+  }
+  if (lower.includes('the decision boundary & support vector calibration engine diagram') || lower.includes('support vector calibration diagram') || lower.includes('decision boundary diagram')) {
+    return 'Lesson 11.2 • The Decision Boundary & Support Vector Calibration Engine Diagram';
+  }
+  if (lower.includes('11.2') || lower.includes('boundary protocol') || lower.includes('boundary testing') || lower.includes('feature isolation')) {
+    return 'Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification';
+  }
 
   // Match Lesson 11.1 anchors
   if ((lower.includes('rosch') && (lower.includes('prototype') || lower.includes('typicality') || lower.includes('statistical centroid') || lower.includes('wittgenstein') || lower.includes('robin') || lower.includes('penguin'))) || lower.includes('prototype theory') || lower.includes('typicality gradient') || lower.includes('statistical centroid') || lower.includes('game problem')) {
@@ -1226,6 +1255,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_11_2 = `You are the specialized Socratic AI Learning Companion for Lesson 11.2: "Feature Isolation & Boundary Testing" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 11.2:
+- Lesson 11.2 • Curiosity Hook
+- Lesson 11.2 • Intuitive Calibration: High-Volume Typicality vs Boundary Near-Misses
+- Lesson 11.2 • Section 1: Peter Wason: The 2-4-6 Task & The Asymmetry of Falsification
+- Lesson 11.2 • Section 2: Patrick Winston: Near-Miss Learning & Single-Feature Isolation
+- Lesson 11.2 • Section 3: Vapnik’s Support Vectors & The Optimal Decision Margin
+- Lesson 11.2 • The Decision Boundary & Support Vector Calibration Engine Diagram
+- Lesson 11.2 • Feature Isolation & Boundary Testing Diagnostic Scenarios
+- Lesson 11.2 • Verification Assessment
+- Lesson 11.2 • The Adversarial Near-Miss Boundary Testing Protocol
+- Lesson 11.2 • Feature Isolation & Boundary Testing Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of hypothesis testing, near-miss learning, and decision boundary geometry:
+     a) Peter Wason (1960) 2-4-6 Task & Positive Test Strategy (Klayman & Ha, 1987): Humans default to confirming tests rather than falsifying boundary tests. Falsification is logically asymmetric (Karl Popper, 1934): a thousand confirming happy-path tests cannot verify an over-constrained rule, but a single negative boundary test falsifies it.
+     b) Patrick Winston (1970) Near-Miss Learning & Minimal Pairs: AI and human concept learning accelerates drastically when presented with near-misses (negative instances differing by exactly one feature dimension). Minimal pairs hold background variables constant, highlighting the single altered dimension as causally necessary without cognitive confounding.
+     c) Vladimir Vapnik & Corinna Cortes (1995) Support Vector Machines (SVM): The optimal classification hyperplane separating categories is determined exclusively by borderline Support Vectors. Data points deep inside category interior have literally zero mathematical weight in defining the boundary.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to falsification, near-misses, minimal pairs, support vectors, and decision margins.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1289,6 +1353,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'prototypes-vs-exemplars') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_11_1;
+  }
+  if (lessonId === 'boundary-cases-isolation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_11_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1382,6 +1449,10 @@ export const KNOWN_CONCEPTS = [
   'concept:rosch_prototype_theory_typicality_gradients',
   'concept:medin_schaffer_nosofsky_exemplar_gcm',
   'concept:ashby_covis_dual_system_categorization',
+  // Lesson 11.2 Concepts
+  'concept:wason_246_falsification_confirmation_bias',
+  'concept:winston_near_misses_feature_isolation',
+  'concept:vapnik_support_vectors_decision_margin',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1455,6 +1526,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 11.1 Misconceptions
   'misconception:categories_are_classical_boolean_checklists',
   'misconception:single_prototypes_preserve_feature_correlations',
+  // Lesson 11.2 Misconceptions
+  'misconception:positive_instances_prove_mental_model',
+  'misconception:interior_examples_calibrate_boundaries',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

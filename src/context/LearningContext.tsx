@@ -253,6 +253,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-covis-dual-process-neurobiology': 'concept:ashby_covis_dual_system_categorization',
     },
   },
+  'boundary-cases-isolation': {
+    predictionConceptId: 'concept:winston_near_misses_feature_isolation',
+    predictionMisconceptionId: 'misconception:interior_examples_calibrate_boundaries',
+    quizConceptMapping: {
+      'q1-wason-246-task-confirmation-bias': 'concept:wason_246_falsification_confirmation_bias',
+      'q2-winston-near-miss-definition-power': 'concept:winston_near_misses_feature_isolation',
+      'q3-vapnik-support-vectors-diagnostic-weight': 'concept:vapnik_support_vectors_decision_margin',
+      'q4-klayman-ha-positive-test-strategy': 'concept:wason_246_falsification_confirmation_bias',
+    },
+  },
 };
 
 interface LearningContextType {

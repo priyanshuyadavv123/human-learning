@@ -92,6 +92,10 @@ export const KNOWN_CONCEPTS = [
   'concept:rosch_prototype_theory_typicality_gradients',
   'concept:medin_schaffer_nosofsky_exemplar_gcm',
   'concept:ashby_covis_dual_system_categorization',
+  // Lesson 11.2 Concepts
+  'concept:wason_246_falsification_confirmation_bias',
+  'concept:winston_near_misses_feature_isolation',
+  'concept:vapnik_support_vectors_decision_margin',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -165,6 +169,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 11.1 Misconceptions
   'misconception:categories_are_classical_boolean_checklists',
   'misconception:single_prototypes_preserve_feature_correlations',
+  // Lesson 11.2 Misconceptions
+  'misconception:positive_instances_prove_mental_model',
+  'misconception:interior_examples_calibrate_boundaries',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
