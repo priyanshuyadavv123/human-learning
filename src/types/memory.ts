@@ -100,6 +100,10 @@ export const KNOWN_CONCEPTS = [
   'concept:ericsson_deliberate_practice_four_pillars',
   'concept:fitts_posner_autonomous_stage_plateau',
   'concept:wilson_85_percent_rule_optimal_learning',
+  // Lesson 12.2 Concepts
+  'concept:chase_simon_domain_specific_representations',
+  'concept:klein_recognition_primed_decision_simulation',
+  'concept:ericsson_internal_reference_self_monitoring',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -179,6 +183,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 12.1 Misconceptions
   'misconception:experience_equals_expert_performance',
   'misconception:error_free_practice_indicates_optimal_learning',
+  // Lesson 12.2 Misconceptions
+  'misconception:expert_genius_is_general_hardware',
+  'misconception:surface_features_define_domain_problems',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

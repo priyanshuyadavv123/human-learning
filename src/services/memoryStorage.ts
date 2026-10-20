@@ -181,6 +181,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'edge-of-ability-feedback';
     chapterId = 'ch-12-deliberate-practice';
+  } else if (
+    conceptId.startsWith('concept:chase_simon_') ||
+    conceptId.startsWith('concept:klein_recognition_') ||
+    conceptId.startsWith('concept:ericsson_internal_')
+  ) {
+    lessonId = 'expert-mental-representations';
+    chapterId = 'ch-12-deliberate-practice';
   }
 
   return {

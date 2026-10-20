@@ -711,6 +711,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Are your daily practice tasks generating roughly 15% errors, or are you staying safely inside the 0% error comfort zone?',
     referencedSection: 'Lesson 12.1 • Section 3: The Edge of Ability: Yerkes-Dodson & Desirable Difficulties',
   },
+  {
+    keywords: ['chase', 'simon', 'de groot', 'random board', 'randomization asymmetry', 'chess pieces', 'mental representations', 'domain-specific schemas'],
+    title: 'Chase & Simon: Domain-Specific Mental Representations',
+    summary: 'Grandmaster recall collapses to novice levels on random board layouts, proving expertise is stored structural schemas rather than superior raw memory.',
+    takeaway: 'Expert competence resides in domain-specific mental representations in long-term memory, not in expanded raw working memory or general intelligence.',
+    detailedResponse: 'William Chase and Herbert Simon (1973, building on De Groot, 1965) demonstrated that chess grandmasters do not possess superior general intelligence, photographic memory, or larger raw working memory capacity. On authentic game positions, grandmasters recalled piece locations with over 90% accuracy versus ~30% for novices, because they recognized 4-6 meaningful relational chunks (e.g. pawn chains, tactical motifs). However, under the Randomization Asymmetry test—where pieces were scrambled randomly on the board—the grandmaster recall advantage vanished completely, dropping to matching novice baselines (~30%). Decades of subsequent research in programming, radiology, and physics confirmed this invariant: expertise is mediated entirely by an extensive library of domain-specific relational schemas.',
+    socraticChallenge: 'How can you structure your domain learning to build interconnected functional schemas rather than memorizing isolated syntax tokens?',
+    referencedSection: 'Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations',
+  },
+  {
+    keywords: ['klein', 'rpd', 'recognition-primed', 'forward simulation', 'mental simulation', 'fireground', 'satisficing', 'expectancy violation'],
+    title: 'Gary Klein: Recognition-Primed Decisions (RPD) & Forward Simulation',
+    summary: 'Under extreme pressure, experts do not compare alternative options in a matrix; they recognize situation prototypes and run forward mental simulations.',
+    takeaway: 'Intuition is the rapid projection of a mental representation running a forward simulation to verify viability before taking action.',
+    detailedResponse: 'Gary Klein’s (1998) Naturalistic Decision Making (NDM) research and Recognition-Primed Decision (RPD) model revealed how expert commanders, surgeons, and systems engineers make high-stakes decisions in seconds without comparing multiple options. Stored mental representations allow experts to instantly recognize prototypical situations, generating plausible goals, critical cues, and the single most typical course of action. The expert evaluates this action via "Forward Mental Simulation," projecting the execution chronologically to check for flaws. If the simulation succeeds, they execute it immediately without evaluating inferior alternatives. Expectancy violations serve as early warning alarms when reality deviates from the mental representation.',
+    socraticChallenge: 'Before executing a critical change or refactoring, do you run a multi-step forward mental simulation of downstream failure modes?',
+    referencedSection: 'Lesson 12.2 • Section 2: Gary Klein’s RPD Model: Intuitive Simulation Under Extreme Pressure',
+  },
+  {
+    keywords: ['internal reference standard', 'self-monitoring', 'self-calibration', 'ericsson 2016', 'peak', 'internal ideal', 'discrepancy detection'],
+    title: 'K. Anders Ericsson: Internal Reference Standards & Autonomous Self-Monitoring',
+    summary: 'Sophisticated mental representations provide an internal standard of excellence that enables real-time discrepancy detection and closed-loop self-correction.',
+    takeaway: 'The ultimate purpose of deliberate practice is to construct mental representations so refined that you can autonomously monitor and correct your own execution.',
+    detailedResponse: 'According to K. Anders Ericsson (2016, "Peak"), the defining differentiator of elite performers is the sophistication of their mental representations for self-monitoring. Advanced mental representations provide an internal "Reference Standard of Excellence"—an explicit benchmark of what flawless execution and architecture looks and feels like. During live execution, the expert continuously compares real-time sensory feedback and telemetry against this internal standard. Because their mental representation encodes causal relationships, detecting a discrepancy immediately isolates the root cause, enabling real-time closed-loop self-correction without relying on an external coach or supervisor.',
+    socraticChallenge: 'What is your explicit internal reference standard for this engineering task, and how do you audit your work against it before submitting?',
+    referencedSection: 'Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

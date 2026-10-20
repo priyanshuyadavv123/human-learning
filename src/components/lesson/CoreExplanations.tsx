@@ -109,6 +109,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'ericsson-deliberate-practice-foundations': <Network size={18} />,
   'feedback-latency-error-calibration': <RefreshCw size={18} />,
   'edge-of-ability-desirable-difficulty': <Sparkles size={18} />,
+  // Lesson 12.2 Tabs
+  'chase-simon-mental-representations-foundations': <Cpu size={18} />,
+  'recognition-primed-decisions-klein': <Eye size={18} />,
+  'mental-representations-self-monitoring-ericsson': <Bookmark size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

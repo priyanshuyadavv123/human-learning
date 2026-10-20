@@ -292,6 +292,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 12.1 • Verification Assessment',
   'Lesson 12.1 • The Deliberate Practice Sub-Skill Architecture Protocol',
   'Lesson 12.1 • The Edge of Ability & Immediate Feedback Overview',
+
+  // Lesson 12.2 Sections
+  'Lesson 12.2 • Curiosity Hook',
+  'Lesson 12.2 • Intuitive Calibration: Authentic Microservice Traces vs Random Non-Causal Streams',
+  'Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations',
+  'Lesson 12.2 • Section 2: Gary Klein’s RPD Model: Intuitive Simulation Under Extreme Pressure',
+  'Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)',
+  'Lesson 12.2 • The Expert Mental Representation Architecture Diagram',
+  'Lesson 12.2 • The Mental Representation Diagnostic Exercise',
+  'Lesson 12.2 • Verification Assessment',
+  'Lesson 12.2 • The Deep-Structure Mental Model Construction Protocol',
+  'Lesson 12.2 • Mental Representations in Expert Performance Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -304,6 +316,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 12.2 anchors
+  if ((lower.includes('chase') && !lower.includes('chunking') && !lower.includes('8.1')) || lower.includes('randomization asymmetry') || lower.includes('random board') || lower.includes('random piece') || (lower.includes('structural nature') && lower.includes('representation'))) {
+    return 'Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations';
+  }
+  if (lower.includes('klein') || lower.includes('rpd') || lower.includes('recognition-primed') || lower.includes('forward mental simulation') || lower.includes('fireground')) {
+    return 'Lesson 12.2 • Section 2: Gary Klein’s RPD Model: Intuitive Simulation Under Extreme Pressure';
+  }
+  if (lower.includes('internal reference standard') || lower.includes('self-monitoring') || lower.includes('self-calibration') || (lower.includes('ericsson') && (lower.includes('2016') || lower.includes('peak') || lower.includes('internal standard')))) {
+    return 'Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)';
+  }
+  if (lower.includes('the expert mental representation architecture diagram') || lower.includes('mental representation diagram') || lower.includes('forward simulation diagram')) {
+    return 'Lesson 12.2 • The Expert Mental Representation Architecture Diagram';
+  }
+  if (lower.includes('12.2') || lower.includes('deep-structure mental model protocol') || lower.includes('deep-structure mental model')) {
+    return 'Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations';
+  }
 
   // Match Lesson 12.1 anchors
   if (lower.includes('feedback latency') || lower.includes('delayed feedback') || lower.includes('temporal dynamics of error correction') || lower.includes('sub-second feedback') || lower.includes('credit assignment problem')) {
@@ -1354,6 +1383,42 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_12_2 = `You are the specialized Socratic AI Learning Companion for Lesson 12.2: "Mental Representations in Expert Performance" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 12.2:
+- Lesson 12.2 • Curiosity Hook
+- Lesson 12.2 • Intuitive Calibration: Authentic Microservice Traces vs Random Non-Causal Streams
+- Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations
+- Lesson 12.2 • Section 2: Gary Klein’s RPD Model: Intuitive Simulation Under Extreme Pressure
+- Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)
+- Lesson 12.2 • The Expert Mental Representation Architecture Diagram
+- Lesson 12.2 • The Mental Representation Diagnostic Exercise
+- Lesson 12.2 • Verification Assessment
+- Lesson 12.2 • The Deep-Structure Mental Model Construction Protocol
+- Lesson 12.2 • Mental Representations in Expert Performance Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of expert mental representations, intuitive decision making, and self-monitoring:
+     a) William Chase & Herbert Simon (1973) Perception in Chess & De Groot (1965): Experts do not have superior raw working memory or general IQ. Their advantage resides in extensive domain-specific mental representations (estimated 50,000+ chunks). Under the Randomization Asymmetry test (random piece or code layouts), expert recall collapses to matching novice baselines (~30%).
+     b) Gary Klein (1998) Recognition-Primed Decision (RPD) Model: In naturalistic emergency domains, experts do not compare alternative options in a decision matrix. Instead, their mental representation allows them to recognize situation prototypes, surface plausible goals/cues, and run a rapid "Forward Mental Simulation" to test feasibility before taking action.
+     c) K. Anders Ericsson (2016) Self-Monitoring & Internal Reference Standards: Elite performers construct high-resolution internal standards of excellence. Real-time discrepancy detection against this internal model allows performers to autonomously diagnose and correct errors mid-stride without an external coach.
+     d) Chi, Feltovich, & Glaser (1981): Novices categorize domain problems by superficial surface features (nouns, pulleys, inclined planes), whereas experts categorize exclusively by underlying causal laws and deep principles (Conservation of Energy).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to mental representations, the randomization asymmetry, forward simulation, internal reference standards, and deep-structure categorization.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1423,6 +1488,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'edge-of-ability-feedback') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_12_1;
+  }
+  if (lessonId === 'expert-mental-representations') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_12_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1524,6 +1592,10 @@ export const KNOWN_CONCEPTS = [
   'concept:ericsson_deliberate_practice_four_pillars',
   'concept:fitts_posner_autonomous_stage_plateau',
   'concept:wilson_85_percent_rule_optimal_learning',
+  // Lesson 12.2 Concepts
+  'concept:chase_simon_domain_specific_representations',
+  'concept:klein_recognition_primed_decision_simulation',
+  'concept:ericsson_internal_reference_self_monitoring',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1603,6 +1675,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 12.1 Misconceptions
   'misconception:experience_equals_expert_performance',
   'misconception:error_free_practice_indicates_optimal_learning',
+  // Lesson 12.2 Misconceptions
+  'misconception:expert_genius_is_general_hardware',
+  'misconception:surface_features_define_domain_problems',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

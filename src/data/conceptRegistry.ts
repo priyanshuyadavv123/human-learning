@@ -1102,6 +1102,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:error_free_practice_indicates_optimal_learning',
     discrepancyPrompt: 'Previously you may have judged a practice session successful only if you answered every question correctly without errors. Why does the 85% Rule prove that zero-error practice is wasted time that generates zero neuroplastic adaptation?',
   },
+  'concept:chase_simon_domain_specific_representations': {
+    conceptId: 'concept:chase_simon_domain_specific_representations',
+    title: 'Domain-Specific Mental Representations (Chase & Simon, 1973)',
+    prompt: 'What did Chase & Simon’s (1973) chess experiments prove regarding expert perception and the randomization asymmetry effect?',
+    keyCriteria: [
+      'Cites William Chase & Herbert Simon (1973) Perception in Chess / De Groot (1965)',
+      'Explains that grandmasters recall authentic positions with ~90%+ accuracy versus ~30% for novices',
+      'Highlights the Randomization Asymmetry: on random piece layouts, grandmaster recall drops to novice baseline (~30%)',
+      'Proves expertise resides in domain-specific mental representations in long-term memory, not superior raw working memory or general IQ',
+    ],
+    canonicalAnswer: 'William Chase and Herbert Simon (1973, building on De Groot, 1965) proved that expert superiority is entirely dependent upon domain-specific mental representations stored in long-term memory. When viewing authentic game positions for 5 seconds, grandmasters recalled positions with over 90% accuracy compared to 30% for novices, because they recognized 4-6 meaningful relational chunks (e.g., pawn structures, tactical motifs). Crucially, under the Randomization Asymmetry test—where pieces were placed on the board randomly—the grandmaster advantage completely collapsed to novice levels (~30%). This proved that experts do not possess superior raw working memory, photographic memory, or general intelligence; their competence is mediated entirely by an extensive library of domain-specific relational schemas.',
+    lessonSectionAnchor: 'Lesson 12.2 • Section 1: Chase & Simon (1973): The Structural Nature of Expert Representations',
+    relatedMisconception: 'misconception:expert_genius_is_general_hardware',
+    discrepancyPrompt: 'Previously you may have assumed that elite software architects or grandmasters possess extraordinary raw photographic memory or general IQ. Why does Chase & Simon’s random board experiment prove that expertise is strictly domain-specific structural schemas?',
+  },
+  'concept:klein_recognition_primed_decision_simulation': {
+    conceptId: 'concept:klein_recognition_primed_decision_simulation',
+    title: 'Recognition-Primed Decisions & Mental Simulation (Gary Klein, 1998)',
+    prompt: 'How does Gary Klein’s Recognition-Primed Decision (RPD) model explain rapid expert decision-making under high stakes and time pressure?',
+    keyCriteria: [
+      'Cites Gary Klein (1998) Sources of Power & Naturalistic Decision Making (NDM)',
+      'Pattern matching: Expert representations instantly identify typical cues, goals, and plausible actions',
+      'Forward Mental Simulation: Evaluating the single most typical option forward in time rather than comparing multiple choices',
+      'Expectancy violations act as early warning alarms when reality mismatches the mental representation',
+    ],
+    canonicalAnswer: 'Gary Klein’s (1998) Recognition-Primed Decision (RPD) model demonstrated that in naturalistic, high-stakes environments (fireground commanders, ICU doctors, cloud incident responders), experts do not compare multiple candidate choices through formal decision matrices. Instead, their stored mental representations allow them to instantly match situational perceptual cues to a stored prototype. This prototype immediately surfaces plausible goals, critical cues, and the single most typical course of action. The expert then runs an internal "Forward Mental Simulation," visualizing the action unfolding chronologically. If the simulation works without fatal obstacles, they execute it immediately; if flaws emerge, they modify the plan mid-thought before touching physical controls.',
+    lessonSectionAnchor: 'Lesson 12.2 • Section 2: Gary Klein’s RPD Model: Intuitive Simulation Under Extreme Pressure',
+    relatedMisconception: 'misconception:surface_features_define_domain_problems',
+    discrepancyPrompt: 'Previously you may have believed that sound technical decision-making requires listing and scoring 5 alternative architectures in a matrix. How does Klein’s RPD model show that true domain experts rely on prototype recognition and forward mental simulation?',
+  },
+  'concept:ericsson_internal_reference_self_monitoring': {
+    conceptId: 'concept:ericsson_internal_reference_self_monitoring',
+    title: 'Internal Reference Standards & Autonomous Self-Monitoring (Ericsson, 2016)',
+    prompt: 'According to K. Anders Ericsson (2016), why are sophisticated mental representations essential for real-time autonomous self-monitoring and error correction?',
+    keyCriteria: [
+      'Cites K. Anders Ericsson (2016) Peak: Secrets from the New Science of Expertise',
+      'Defines the Internal Reference Standard (the high-resolution cognitive benchmark of excellence)',
+      'Explains Real-Time Discrepancy Detection: continuously comparing live sensory feedback against the internal ideal',
+      'Explains Closed-Loop Self-Correction: using causal mental representations to correct defects during live execution without a coach',
+    ],
+    canonicalAnswer: 'K. Anders Ericsson (2016) revealed that the ultimate evolutionary purpose of mental representations is autonomous self-monitoring. Elite performers (concert violinists, senior software architects) maintain a high-resolution "Internal Reference Standard"—an explicit mental model of what perfect execution and architecture looks and feels like. During live performance, the expert continuously compares real-time sensory feedback and telemetry against this internal standard. Because their mental representation encodes causal mechanisms, detecting a discrepancy allows the expert to instantly diagnose the mechanical root cause and adjust execution mid-stride, achieving complete autonomous self-regulation without an external coach.',
+    lessonSectionAnchor: 'Lesson 12.2 • Section 3: Self-Monitoring & Real-Time Error Correction (Ericsson, 2016)',
+    relatedMisconception: 'misconception:expert_genius_is_general_hardware',
+    discrepancyPrompt: 'Previously you may have relied entirely on external PR reviews or test runners to tell you if your code was good. How does Ericsson’s self-monitoring framework demonstrate that elite craftsmanship requires constructing a sharp internal reference standard?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

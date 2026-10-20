@@ -273,6 +273,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-immediate-feedback-credit-assignment': 'concept:ericsson_deliberate_practice_four_pillars',
     },
   },
+  'expert-mental-representations': {
+    predictionConceptId: 'concept:chase_simon_domain_specific_representations',
+    predictionMisconceptionId: 'misconception:expert_genius_is_general_hardware',
+    quizConceptMapping: {
+      'q1-chase-simon-random-position-finding': 'concept:chase_simon_domain_specific_representations',
+      'q2-klein-rpd-mental-simulation': 'concept:klein_recognition_primed_decision_simulation',
+      'q3-chi-expert-physics-categorization': 'concept:chase_simon_domain_specific_representations',
+      'q4-ericsson-mental-representation-self-monitoring': 'concept:ericsson_internal_reference_self_monitoring',
+    },
+  },
 };
 
 interface LearningContextType {
