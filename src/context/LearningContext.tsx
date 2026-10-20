@@ -113,6 +113,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-miller-cohen-biased-competition': 'concept:executive_control_depletion_restoration',
     },
   },
+  'distraction-economics': {
+    predictionConceptId: 'concept:deep_work_chamber_architecture',
+    predictionMisconceptionId: 'misconception:instant_availability_equals_high_performance',
+    quizConceptMapping: {
+      'q1-gloria-mark-recovery-latency': 'concept:distraction_recovery_latency',
+      'q2-newport-rhythmic-deep-work': 'concept:deep_work_chamber_architecture',
+      'q3-crawford-attentional-commons': 'concept:attentional_commons_environmental_design',
+      'q4-shutdown-ritual-psychology': 'concept:deep_work_chamber_architecture',
+    },
+  },
 };
 
 interface LearningContextType {

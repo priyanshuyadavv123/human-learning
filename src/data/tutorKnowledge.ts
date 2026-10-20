@@ -274,6 +274,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How could you redesign your physical and digital desk environment so you don’t need to spend willpower resisting distractions?',
     referencedSection: 'Lesson 4.1 • Section 3: Prefrontal Biased Competition & Executive Energy Recovery',
   },
+  {
+    keywords: ['gloria mark', '23 minute', 'resumption cost', 'resumption latency', 'interruption cost', 'screen-switching', 'compensatory stress'],
+    title: 'Gloria Mark’s Interruption Dynamics & The 23-Minute Resumption Cost',
+    summary: 'Returning to an interrupted task takes an average of 23 minutes and 15 seconds, creating compensatory stress and cognitive exhaustion.',
+    takeaway: 'Interruptions cost 23 minutes and 15 seconds on average. Workers switch between 2.26 intervening tasks, and working faster to compensate elevates stress and error rates.',
+    detailedResponse: 'Dr. Gloria Mark (UC Irvine, 2008, 2023) empirically demonstrated that returning to an interrupted primary project takes an average of 23 minutes and 15 seconds. Workers do not instantly resume; interruptions spawn sub-tasks, averaging 2.26 intervening projects before returning to the original work. Furthermore, workers attempt to compensate for interruption debt by working faster, which drastically elevates subjective workload, frustration, time pressure, and prefrontal mental exhaustion.',
+    socraticChallenge: 'When you are interrupted by a "quick question" at work, what intervening tasks do you find yourself drifting into before you actually return to your original code?',
+    referencedSection: 'Lesson 4.2 • Section 1: The 23-Minute Recovery Latency (Gloria Mark)',
+  },
+  {
+    keywords: ['cal newport', 'deep work', 'rhythmic philosophy', 'bimodal philosophy', 'monastic', 'metric black hole', 'shutdown ritual'],
+    title: 'Cal Newport’s Deep Work Architecture & The Four Scheduling Philosophies',
+    summary: 'Deep work produces rare economic value. Newport details four scheduling models and the essential end-of-day shutdown ritual.',
+    takeaway: 'Deep work requires structured scheduling (especially the Rhythmic philosophy) and a formal End-of-Day Shutdown Ritual to clear Zeigarnik open loops.',
+    detailedResponse: 'Cal Newport (2016) formalized the Deep Work hypothesis: the ability to perform distraction-free concentration pushing cognitive capabilities to their limit produces disproportionate economic value. He outlined four scheduling philosophies: Monastic (isolation), Bimodal (multi-day splits), Rhythmic (anchoring identical daily deep work sprints like 8:30–11:00 AM, the most sustainable for professionals), and Journalistic (switching opportunistically). An explicit End-of-Day Shutdown Ritual formally resolves open tasks, neutralizes the Zeigarnik effect, and allows prefrontal restoration.',
+    socraticChallenge: 'Which of Newport’s four scheduling philosophies best fits your professional constraints, and what fixed daily window could you defend for deep work?',
+    referencedSection: 'Lesson 4.2 • Section 2: Deep Work Architecture & Scheduling Philosophies (Cal Newport)',
+  },
+  {
+    keywords: ['attentional commons', 'matthew crawford', 'crawford', 'asymmetric friction', 'environmental choice architecture', 'phone lockbox', 'notification quarantine'],
+    title: 'Defending the Attentional Commons & Behavioral Choice Architecture',
+    summary: 'Mental space is a scarce ecological commons exploited by commercial algorithms; defend it with asymmetric physical friction rather than willpower.',
+    takeaway: 'Human attention is an ecological commons. Commercial systems engineer asymmetric friction; learners must build physical barriers and notification quarantine to protect focus.',
+    detailedResponse: 'Matthew Crawford (2015) conceptualized human attention as a scarce ecological commons subject to tragedy-of-the-commons exploitation by algorithmic platforms. Modern digital tools employ asymmetric choice architecture: it costs a sender zero effort to send a ping, but extracts a massive cognitive tax from the recipient. Because prefrontal willpower cannot continuously defeat engineered stimuli, engineers must construct defensive choice architecture—complete notification quarantine, physical phone barriers, and explicit team response SLAs—to protect their cognitive sovereignty.',
+    socraticChallenge: 'What physical or digital barriers could you establish right now that would make checking distractions require noticeable physical effort?',
+    referencedSection: 'Lesson 4.2 • Section 3: The Attentional Commons & Choice Architecture (Matthew Crawford)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

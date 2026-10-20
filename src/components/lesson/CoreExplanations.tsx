@@ -45,6 +45,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'broadbent-filter-posner-networks': <Eye size={18} />,
   'leroy-attention-residue-switching': <Repeat size={18} />,
   'prefrontal-biased-competition-fatigue': <Cpu size={18} />,
+  // Lesson 4.2 Tabs
+  'gloria-mark-interruption-dynamics': <RefreshCw size={18} />,
+  'newport-deep-work-architecture': <Cpu size={18} />,
+  'attentional-commons-choice-architecture': <Network size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

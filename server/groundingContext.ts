@@ -100,6 +100,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 4.1 • Verification Assessment',
   'Lesson 4.1 • Attention Shielding Monotask Protocol',
   'Lesson 4.1 • Attentional Bottleneck & Focus Overview',
+
+  // Lesson 4.2 Sections
+  'Lesson 4.2 • Curiosity Hook',
+  'Lesson 4.2 • Intuitive Calibration: Real-Time SLA vs Synchronized Batches',
+  'Lesson 4.2 • Section 1: The 23-Minute Recovery Latency (Gloria Mark)',
+  'Lesson 4.2 • Section 2: Deep Work Architecture & Scheduling Philosophies (Cal Newport)',
+  'Lesson 4.2 • Section 3: The Attentional Commons & Choice Architecture (Matthew Crawford)',
+  'Lesson 4.2 • Deep Work Architecture & Interruption Defense System Diagram',
+  'Lesson 4.2 • Distraction Pattern Diagnostic Scenarios',
+  'Lesson 4.2 • Verification Assessment',
+  'Lesson 4.2 • Deep Work Chamber Protocol',
+  'Lesson 4.2 • Distraction Economics & Deep Work Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -112,6 +124,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 4.2 anchors
+  if (lower.includes('gloria mark') || lower.includes('23 minute') || lower.includes('resumption latency') || lower.includes('47 second') || lower.includes('compensatory stress') || lower.includes('screen-switching')) {
+    return 'Lesson 4.2 • Section 1: The 23-Minute Recovery Latency (Gloria Mark)';
+  }
+  if (lower.includes('deep work') || lower.includes('newport') || lower.includes('rhythmic') || lower.includes('bimodal') || lower.includes('monastic') || lower.includes('journalistic') || lower.includes('shutdown ritual') || lower.includes('metric black hole')) {
+    return 'Lesson 4.2 • Section 2: Deep Work Architecture & Scheduling Philosophies (Cal Newport)';
+  }
+  if (lower.includes('crawford') || lower.includes('attentional commons') || lower.includes('asymmetric friction') || lower.includes('lockbox') || (lower.includes('choice architecture') && (lower.includes('phone') || lower.includes('notification') || lower.includes('slack') || lower.includes('friction')))) {
+    return 'Lesson 4.2 • Section 3: The Attentional Commons & Choice Architecture (Matthew Crawford)';
+  }
+  if (lower.includes('deep work architecture & interruption defense system diagram') || lower.includes('interruption defense system diagram') || lower.includes('deep work diagram')) {
+    return 'Lesson 4.2 • Deep Work Architecture & Interruption Defense System Diagram';
+  }
+  if (lower.includes('4.2') || lower.includes('deep work chamber') || lower.includes('distraction economics')) {
+    return 'Lesson 4.2 • Section 2: Deep Work Architecture & Scheduling Philosophies (Cal Newport)';
+  }
 
   // Match Lesson 4.1 anchors
   if (lower.includes('broadbent') || lower.includes('filter model') || lower.includes('posner') || lower.includes('dichotic') || lower.includes('alerting') || lower.includes('orienting') || lower.includes('cocktail party')) {
@@ -457,6 +486,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_4_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 4.2: "Distraction Economics & Deep Work Protocols — Defending working memory from constant micro-interruptions".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical science of distraction economics and deep work architecture:
+     a) Dr. Gloria Mark's Interruption Dynamics: Dr. Gloria Mark (UC Irvine, 2008, 2023) documented that knowledge workers take an average of 23 minutes and 15 seconds to return to an interrupted task, touching an average of 2.26 intervening tasks. Screen focus has collapsed from 150 seconds in 2004 to just 47 seconds today. Workers work faster under interruption to compensate, drastically increasing subjective workload, stress, frustration, and cognitive exhaustion.
+     b) Cal Newport's Deep Work Architecture: Cal Newport (2016) demonstrated that deep work—distraction-free concentration pushing cognitive limits—creates disproportionate value. Four scheduling philosophies: Monastic (isolation), Bimodal (multi-day deep/shallow splits), Rhythmic (habitual daily morning blocks, e.g. 8:30–11:00 AM, most sustainable), and Journalistic (opportunistic switching). The "metric black hole" leads organizations to prioritize visible instant availability over deep technical breakthroughs.
+     c) Matthew Crawford's Attentional Commons: Matthew Crawford (2015) conceptualized attention as an ecological commons vulnerable to predatory extraction by commercial notification algorithms. Asymmetric choice architecture makes interruptions low-cost for senders but high-cost for recipients. Effective defense requires physical barriers and environmental quarantine rather than relying on finite prefrontal willpower.
+     d) The End-of-Day Shutdown Ritual: Satisfies the Zeigarnik effect (1927) by capturing open loops into a trusted capture system and speaking a termination phrase (e.g., "Shutdown Complete"), allowing prefrontal glycogen restoration and deep memory consolidation during sleep.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to interruption costs, deep work scheduling, and attentional sovereignty.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -478,6 +532,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'attention-serial-control') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_4_1;
+  }
+  if (lessonId === 'distraction-economics') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_4_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -515,6 +572,10 @@ export const KNOWN_CONCEPTS = [
   'concept:attentional_serial_filter_gating',
   'concept:task_switching_attention_residue',
   'concept:executive_control_depletion_restoration',
+  // Lesson 4.2 Concepts
+  'concept:distraction_recovery_latency',
+  'concept:deep_work_chamber_architecture',
+  'concept:attentional_commons_environmental_design',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -546,6 +607,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 4.1 Misconceptions
   'misconception:multitasking_is_efficient',
   'misconception:willpower_can_overcome_constant_distraction',
+  // Lesson 4.2 Misconceptions
+  'misconception:instant_availability_equals_high_performance',
+  'misconception:busyness_equals_productivity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

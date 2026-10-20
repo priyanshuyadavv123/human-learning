@@ -36,6 +36,10 @@ export const KNOWN_CONCEPTS = [
   'concept:attentional_serial_filter_gating',
   'concept:task_switching_attention_residue',
   'concept:executive_control_depletion_restoration',
+  // Lesson 4.2 Concepts
+  'concept:distraction_recovery_latency',
+  'concept:deep_work_chamber_architecture',
+  'concept:attentional_commons_environmental_design',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -67,6 +71,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 4.1 Misconceptions
   'misconception:multitasking_is_efficient',
   'misconception:willpower_can_overcome_constant_distraction',
+  // Lesson 4.2 Misconceptions
+  'misconception:instant_availability_equals_high_performance',
+  'misconception:busyness_equals_productivity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

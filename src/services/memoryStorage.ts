@@ -69,6 +69,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'attention-serial-control';
     chapterId = 'ch-4-attention-executive';
+  } else if (
+    conceptId.startsWith('concept:distraction_recovery_') ||
+    conceptId.startsWith('concept:deep_work_chamber_') ||
+    conceptId.startsWith('concept:attentional_commons_')
+  ) {
+    lessonId = 'distraction-economics';
+    chapterId = 'ch-4-attention-executive';
   }
 
   return {

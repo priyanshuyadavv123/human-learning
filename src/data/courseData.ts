@@ -6,6 +6,7 @@ import { LESSON_SPACED_SCHEDULING } from './lesson2_2Data.ts';
 import { LESSON_CALIBRATED_ERROR_SIGNALS } from './lesson3_1Data.ts';
 import { LESSON_PERSONAL_LEARNING_OS } from './lesson3_2Data.ts';
 import { LESSON_ATTENTION_SERIAL_CONTROL } from './lesson4_1Data.ts';
+import { LESSON_DISTRACTION_ECONOMICS } from './lesson4_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -114,7 +115,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Distraction Economics & Deep Work Protocols',
           subtitle: 'Defending working memory from constant micro-interruptions',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1133,6 +1134,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_CALIBRATED_ERROR_SIGNALS.id]: LESSON_CALIBRATED_ERROR_SIGNALS,
   [LESSON_PERSONAL_LEARNING_OS.id]: LESSON_PERSONAL_LEARNING_OS,
   [LESSON_ATTENTION_SERIAL_CONTROL.id]: LESSON_ATTENTION_SERIAL_CONTROL,
+  [LESSON_DISTRACTION_ECONOMICS.id]: LESSON_DISTRACTION_ECONOMICS,
 };
 
 export function getLessonById(id: string): Lesson {

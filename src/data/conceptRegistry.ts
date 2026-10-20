@@ -381,6 +381,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:willpower_can_overcome_constant_distraction',
     discrepancyPrompt: 'Previously you may have believed that strong-willed engineers should be able to ignore notification pings on their desk. Why does neurobiology prove that every resisted cue drains prefrontal energy, making environmental quarantine essential?',
   },
+  'concept:distraction_recovery_latency': {
+    conceptId: 'concept:distraction_recovery_latency',
+    title: 'Gloria Mark’s Distraction Recovery Latency & Interruption Costs',
+    prompt: 'According to Dr. Gloria Mark’s workplace empirical research, what is the average time required to return to an interrupted project, and what are the psychological consequences of constant fragmentation?',
+    keyCriteria: [
+      'Cites Dr. Gloria Mark (UC Irvine, 2008)',
+      'Identifies the 23 minute and 15 second average latency to resume the original interrupted project',
+      'Explains that workers switch between roughly two intervening projects before returning',
+      'Explains the compensatory stress mechanism: workers work faster under high cognitive strain to compensate for lost time',
+    ],
+    canonicalAnswer: 'Dr. Gloria Mark (2008) discovered through empirical workplace tracking that returning to an interrupted technical project takes an average of 23 minutes and 15 seconds. Workers do not simply pause and resume; interruptions spawn sub-tasks, averaging 2.26 intervening projects before returning to the original work. Furthermore, workers attempt to compensate for interruption debt by working faster, which drastically elevates subjective workload, frustration, time pressure, and prefrontal mental exhaustion.',
+    lessonSectionAnchor: 'Lesson 4.2 • Section 1: The 23-Minute Recovery Latency (Gloria Mark)',
+    relatedMisconception: 'misconception:instant_availability_equals_high_performance',
+    discrepancyPrompt: 'Previously you may have believed that answering a quick 60-second Slack ping causes only a 60-second delay. Why does Gloria Mark’s empirical research show that a quick ping actually derails your train of thought for over 23 minutes?',
+  },
+  'concept:deep_work_chamber_architecture': {
+    conceptId: 'concept:deep_work_chamber_architecture',
+    title: 'Cal Newport’s Deep Work Architecture & Ritualized Protocols',
+    prompt: 'How does Cal Newport define Deep Work, what are the four primary scheduling philosophies, and why is an end-of-day shutdown ritual essential for cognitive recovery?',
+    keyCriteria: [
+      'Cites Cal Newport (2016)',
+      'Defines Deep Work as professional activities performed in a state of distraction-free concentration that push cognitive capabilities to their limit',
+      'Identifies the 4 scheduling philosophies: Monastic, Bimodal, Rhythmic, and Journalistic',
+      'Explains how the formal shutdown ritual clears the Zeigarnik effect and allows prefrontal recovery',
+    ],
+    canonicalAnswer: 'Cal Newport (2016) defines Deep Work as professional activities performed in a state of distraction-free concentration that push cognitive capabilities to their limit, creating new value and improving skills. He outlines four scheduling philosophies: Monastic (total isolation), Bimodal (splitting time into multi-day deep blocks and shallow blocks), Rhythmic (anchoring identical daily deep work sprints like 8:00–10:30 AM), and Journalistic (switching into deep mode opportunistically). Finally, an explicit End-of-Day Shutdown Ritual formally resolves open tasks, neutralizes the Zeigarnik effect, and allows prefrontal restoration.',
+    lessonSectionAnchor: 'Lesson 4.2 • Section 2: Deep Work Architecture & Scheduling Philosophies (Cal Newport)',
+    relatedMisconception: 'misconception:busyness_equals_productivity',
+    discrepancyPrompt: 'Previously you may have scheduled your day around inbound messages, attempting to fit deep thinking into 15-minute cracks. Why does Newport’s rhythmic deep work architecture demonstrate that deep cognitive breakthroughs require protected 90-to-120-minute uninterrupted blocks?',
+  },
+  'concept:attentional_commons_environmental_design': {
+    conceptId: 'concept:attentional_commons_environmental_design',
+    title: 'Matthew Crawford’s Attentional Commons & Environmental Choice Architecture',
+    prompt: 'How does Matthew Crawford frame attention as an ecological resource, and why does environmental choice architecture outperform willpower in protecting cognitive autonomy?',
+    keyCriteria: [
+      'Cites Matthew Crawford (2015)',
+      'Frames attention as an ecological commons vulnerable to predatory extraction by commercial notification algorithms',
+      'Explains asymmetric choice architecture: notifications demand low-cost friction for the sender but impose high-cost cognitive tax on the recipient',
+      'Argues for structural physical barriers, notification quarantine, and social contracts over individual willpower',
+    ],
+    canonicalAnswer: 'Matthew Crawford (2015) conceptualizes human attention as a scarce ecological commons subject to tragedy-of-the-commons exploitation by algorithmic platforms. Modern digital tools employ asymmetric choice architecture: it costs a colleague or marketing platform zero cognitive effort to broadcast an alert, but extracts a massive attentional tax from every recipient. Because prefrontal willpower cannot continuously defeat engineered stimuli, engineers must construct defensive choice architecture—complete notification quarantine, physical phone barriers, and explicit team response SLAs—to protect their cognitive sovereignty.',
+    lessonSectionAnchor: 'Lesson 4.2 • Section 3: The Attentional Commons & Choice Architecture (Matthew Crawford)',
+    relatedMisconception: 'misconception:willpower_can_overcome_constant_distraction',
+    discrepancyPrompt: 'Previously you may have relied on willpower to ignore your phone buzzing on your desk. Why does Crawford’s attentional commons framework demonstrate that physical and structural quarantine is necessary to protect deep focus?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;
