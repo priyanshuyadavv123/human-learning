@@ -576,6 +576,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you instrument your software systems with interactive parameter sweeps to observe system boundaries instead of guessing static thresholds?',
     referencedSection: 'Lesson 9.2 • Section 3: Bret Victor: Up and Down the Ladder of Abstraction in Systems Design',
   },
+  {
+    keywords: ['paivio', 'dual coding', 'dual-coding', 'logogen', 'imagen', 'referential connection', 'additive memory'],
+    title: 'Allan Paivio: Dual Coding Theory (Logogens vs Imagens)',
+    summary: 'Memory operates via two semi-independent verbal and visual channels; dual encoding creates redundant, additive retrieval pathways.',
+    takeaway: 'Dual coding establishes separate verbal (logogen) and spatial (imagen) memory traces linked by referential connections, doubling retrieval durability.',
+    detailedResponse: 'Allan Paivio (1971, 1986) demonstrated that human memory functions through two functionally independent and structurally distinct subsystems: the Verbal System (processing sequential, linguistic logogens) and the Non-Verbal System (processing synchronous, spatial imagens). Because they utilize separate neural pathways, encoding concepts through both channels simultaneously does not cause cognitive interference. Instead, the brain establishes cross-channel "referential connections," building two independent, additive retrieval traces in long-term memory that dramatically protect against forgetting.',
+    socraticChallenge: 'When you study an abstract software concept, how can you immediately draft a spatial imagen to complement your verbal understanding?',
+    referencedSection: 'Lesson 10.1 • Section 1: Allan Paivio: Dual Coding Theory (Logogens vs Imagens)',
+  },
+  {
+    keywords: ['mayer', 'ctml', 'multimedia principle', 'spatial contiguity', 'modality principle', 'split-attention'],
+    title: 'Richard Mayer: The Cognitive Theory of Multimedia Learning (CTML)',
+    summary: 'Multimedia learning optimizes dual working-memory channels through spatial contiguity and auditory-visual load balancing.',
+    takeaway: 'People learn better from words and pictures when text is placed physically beside diagrams (Spatial Contiguity) and spoken aloud (Modality).',
+    detailedResponse: 'Richard E. Mayer (2001, 2009) formulated the Cognitive Theory of Multimedia Learning (CTML) based on dual channels, limited capacity, and active processing. Three core principles govern effective multimedia: (1) Multimedia Principle: words and pictures together yield superior transfer than words alone; (2) Spatial Contiguity: integrate explanatory text directly beside diagram elements to eliminate the Split-Attention Effect; and (3) Modality Principle: when presenting complex visual graphics, using auditory spoken narration instead of dense on-screen text offloads the visual channel, balancing total cognitive load across the ears and eyes.',
+    socraticChallenge: 'In your documentation or slide decks, where are you accidentally forcing readers to scan back and forth between diagrams and distant footnotes?',
+    referencedSection: 'Lesson 10.1 • Section 2: Richard Mayer: The Cognitive Theory of Multimedia Learning (CTML)',
+  },
+  {
+    keywords: ['goldstone', 'concreteness fading', 'perceptual grounding', 'schematization', 'symbolic formalization'],
+    title: 'Goldstone & Son: Concreteness Fading & Perceptual Grounding',
+    summary: 'Systematically fading instruction from concrete sensory grounding to schematic topologies and formal symbols ensures both intuition and transfer.',
+    takeaway: 'Mastery is maximized when instruction fades systematically from concrete physical grounding through idealized schematics to abstract symbolic formalisms.',
+    detailedResponse: 'Robert Goldstone and Ji Y. Son (2005) resolved the classic dilemma between intuitive concrete examples (which suffer poor far transfer) and abstract symbols (which suffer difficult initial comprehension) via Concreteness Fading. Instruction progresses systematically across three stages: (1) Concrete Grounding (rich physical models anchor intuition in real sensory dynamics), (2) Graphic Idealization (extraneous decorative textures are stripped away, highlighting invariant topological relationships in clean schematics), and (3) Symbolic Formalization (the structural schematic is translated into abstract mathematical equations or formal code). This sequence preserves deep physical meaning while imparting universal symbolic portability.',
+    socraticChallenge: 'How can you structure your learning so you build a concrete physical anchor before formalizing the mathematical syntax?',
+    referencedSection: 'Lesson 10.1 • Section 3: Goldstone & Son: Concreteness Fading & Perceptual Grounding',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

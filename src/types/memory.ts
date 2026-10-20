@@ -80,6 +80,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hayakawa_abstraction_ladder_vertical_mobility',
   'concept:craik_johnson_laird_mental_models_simulation',
   'concept:bret_victor_dynamic_abstraction_coupling',
+  // Lesson 10.1 Concepts
+  'concept:paivio_dual_coding_logogens_imagens',
+  'concept:mayer_multimedia_spatial_contiguity_modality',
+  'concept:concreteness_fading_grounding_schematics',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -144,6 +148,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 9.2 Misconceptions
   'misconception:theory_alone_creates_operational_mastery',
   'misconception:mental_models_are_passive_definitions',
+  // Lesson 10.1 Misconceptions
+  'misconception:learning_styles_neuromyth_visual_verbal',
+  'misconception:decorative_graphics_enhance_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

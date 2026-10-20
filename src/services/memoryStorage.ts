@@ -146,6 +146,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'abstraction-ladders';
     chapterId = 'ch-9-analogy-bridging';
+  } else if (
+    conceptId.startsWith('concept:paivio_dual_') ||
+    conceptId.startsWith('concept:mayer_multimedia_') ||
+    conceptId.startsWith('concept:concreteness_fading_')
+  ) {
+    lessonId = 'paivio-dual-coding';
+    chapterId = 'ch-10-dual-coding';
   }
 
   return {

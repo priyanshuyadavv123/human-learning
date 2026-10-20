@@ -874,6 +874,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:theory_alone_creates_operational_mastery',
     discrepancyPrompt: 'Previously you may have studied equations and charts statically on separate pages. Why does Bret Victor’s interactive coupling show that synchronizing concrete behavior with abstract curves is essential for rapid intuitive mastery?',
   },
+  'concept:paivio_dual_coding_logogens_imagens': {
+    conceptId: 'concept:paivio_dual_coding_logogens_imagens',
+    title: 'Dual Coding Theory: Logogens & Imagens (Allan Paivio, 1971)',
+    prompt: 'How does Allan Paivio’s Dual Coding Theory distinguish between logogens and imagens, and how do referential connections create additive memory durability?',
+    keyCriteria: [
+      'Cites Allan Paivio (1971, 1986) Dual Coding Theory',
+      'Defines logogens as sequential verbal representations (speech, text, syntax)',
+      'Defines imagens as synchronous spatial representations (drawings, objects, topologies)',
+      'Explains referential connections across channels that provide additive, redundant retrieval pathways',
+    ],
+    canonicalAnswer: 'Allan Paivio (1971, 1986) formulated Dual Coding Theory, demonstrating that human memory operates via two structurally distinct, semi-independent subsystems: the Verbal System (processing sequential, linguistic representations called logogens) and the Non-Verbal System (processing synchronous, spatial representations called imagens). Because these channels utilize different neural pathways, processing information through both channels simultaneously does not cause cognitive interference. Instead, the mind constructs "referential connections" bridging verbal and visual codes, establishing two additive, independent retrieval pathways in long-term memory that dramatically reduce the probability of forgetting.',
+    lessonSectionAnchor: 'Lesson 10.1 • Section 1: Allan Paivio: Dual Coding Theory (Logogens vs Imagens)',
+    relatedMisconception: 'misconception:learning_styles_neuromyth_visual_verbal',
+    discrepancyPrompt: 'Previously you may have believed in the popular "visual vs verbal learner" myth. Why does Paivio’s Dual Coding architecture prove that all typical human brains achieve maximum retention when verbal and visual systems are engaged together?',
+  },
+  'concept:mayer_multimedia_spatial_contiguity_modality': {
+    conceptId: 'concept:mayer_multimedia_spatial_contiguity_modality',
+    title: 'Cognitive Theory of Multimedia Learning (Richard Mayer, 2001)',
+    prompt: 'What are the Multimedia, Spatial Contiguity, and Modality Principles in Richard Mayer’s CTML, and how do they optimize working memory capacity?',
+    keyCriteria: [
+      'Cites Richard E. Mayer (2001, 2009) Cognitive Theory of Multimedia Learning',
+      'Defines the Multimedia Principle (learning is superior from words and pictures than words alone)',
+      'Defines the Spatial Contiguity Principle (integrating text directly beside diagrams to eliminate split-attention)',
+      'Defines the Modality Principle (presenting words as spoken narration rather than on-screen text to offload visual working memory)',
+    ],
+    canonicalAnswer: 'Richard E. Mayer (2001, 2009) established the Cognitive Theory of Multimedia Learning (CTML) based on dual channels, limited capacity, and active processing. Three core principles govern effective multimedia: (1) Multimedia Principle: words and pictures together yield superior transfer than words alone; (2) Spatial Contiguity Principle: text must be placed physically beside corresponding visual elements to eliminate the Split-Attention Effect; and (3) Modality Principle: when presenting complex visual animations or diagrams, using auditory spoken narration instead of on-screen printed text offloads the visual channel, balancing total cognitive load across the ears and eyes.',
+    lessonSectionAnchor: 'Lesson 10.1 • Section 2: Richard Mayer: The Cognitive Theory of Multimedia Learning (CTML)',
+    relatedMisconception: 'misconception:decorative_graphics_enhance_learning',
+    discrepancyPrompt: 'Previously you may have placed text explanations in separate footnotes or appendices beneath diagrams. How does Mayer’s Spatial Contiguity Principle prove that separating text from diagrams triggers split-attention and cognitive overload?',
+  },
+  'concept:concreteness_fading_grounding_schematics': {
+    conceptId: 'concept:concreteness_fading_grounding_schematics',
+    title: 'Concreteness Fading: Sensory Grounding to Symbolic Formalization (Goldstone & Son, 2005)',
+    prompt: 'Describe the 3-stage progression of Concreteness Fading (Goldstone & Son, 2005) and how it bridges intuitive physical grounding with universal symbolic transfer.',
+    keyCriteria: [
+      'Cites Robert Goldstone & Ji Y. Son (2005) Concreteness Fading',
+      'Stage 1: Concrete Grounding (rich perceptual anchor)',
+      'Stage 2: Graphic Idealization/Schematization (clean structural topology)',
+      'Stage 3: Symbolic Formalization (abstract equations and formal code)',
+    ],
+    canonicalAnswer: 'Goldstone and Son (2005) resolved the tension between concrete examples (intuitive but poor far transfer) and abstract symbols (high transfer but difficult initial comprehension) through Concreteness Fading. Instruction progresses systematically across three stages: (1) Concrete Grounding (rich physical models anchor intuition in real sensory dynamics), (2) Graphic Idealization (extraneous decorative textures are stripped away, highlighting invariant topological relationships in clean schematics), and (3) Symbolic Formalization (the structural schematic is translated into abstract mathematical equations or formal code). This sequence preserves deep physical meaning while imparting universal symbolic portability.',
+    lessonSectionAnchor: 'Lesson 10.1 • Section 3: Goldstone & Son: Concreteness Fading & Perceptual Grounding',
+    relatedMisconception: 'misconception:decorative_graphics_enhance_learning',
+    discrepancyPrompt: 'Previously you may have jumped straight into memorizing abstract equations or stayed trapped in photorealistic illustrations. Why does Concreteness Fading prove that mastery requires systematically fading from concrete physical models to idealized schematics and formal symbols?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

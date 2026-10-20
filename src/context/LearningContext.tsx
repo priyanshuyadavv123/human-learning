@@ -223,6 +223,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-bret-victor-ladder-coupling': 'concept:bret_victor_dynamic_abstraction_coupling',
     },
   },
+  'paivio-dual-coding': {
+    predictionConceptId: 'concept:paivio_dual_coding_logogens_imagens',
+    predictionMisconceptionId: 'misconception:learning_styles_neuromyth_visual_verbal',
+    quizConceptMapping: {
+      'q1-paivio-logogens-imagens-distinction': 'concept:paivio_dual_coding_logogens_imagens',
+      'q2-mayer-spatial-contiguity-split-attention': 'concept:mayer_multimedia_spatial_contiguity_modality',
+      'q3-mayer-modality-principle-mechanism': 'concept:mayer_multimedia_spatial_contiguity_modality',
+      'q4-goldstone-concreteness-fading': 'concept:concreteness_fading_grounding_schematics',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -232,6 +232,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 9.2 • Verification Assessment',
   'Lesson 9.2 • The Vertical Ladder Traversal & Mental Simulation Protocol',
   'Lesson 9.2 • Abstraction Ladders & Mental Models Overview',
+
+  // Lesson 10.1 Sections
+  'Lesson 10.1 • Curiosity Hook',
+  'Lesson 10.1 • Intuitive Calibration: Dense Text vs Dual Coding',
+  'Lesson 10.1 • Section 1: Allan Paivio: Dual Coding Theory (Logogens vs Imagens)',
+  'Lesson 10.1 • Section 2: Richard Mayer: The Cognitive Theory of Multimedia Learning (CTML)',
+  'Lesson 10.1 • Section 3: Goldstone & Son: Concreteness Fading & Perceptual Grounding',
+  'Lesson 10.1 • The Dual-Coding & Multimedia Processing Architecture Diagram',
+  'Lesson 10.1 • Dual-Coding & Multimedia Design Diagnostic Scenarios',
+  'Lesson 10.1 • Verification Assessment',
+  'Lesson 10.1 • The Dual-Coding Technical Documentation & Schema Architecture Protocol',
+  'Lesson 10.1 • Paivio\'s Dual Coding Theory Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -244,6 +256,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 10.1 anchors
+  if (lower.includes('paivio') || lower.includes('dual coding') || lower.includes('logogen') || lower.includes('imagen') || lower.includes('referential connection')) {
+    return 'Lesson 10.1 • Section 1: Allan Paivio: Dual Coding Theory (Logogens vs Imagens)';
+  }
+  if (lower.includes('mayer') || lower.includes('ctml') || lower.includes('multimedia principle') || lower.includes('spatial contiguity') || lower.includes('modality principle') || lower.includes('split-attention effect')) {
+    return 'Lesson 10.1 • Section 2: Richard Mayer: The Cognitive Theory of Multimedia Learning (CTML)';
+  }
+  if (lower.includes('goldstone') || lower.includes('concreteness fading') || lower.includes('schematization') || lower.includes('perceptual grounding')) {
+    return 'Lesson 10.1 • Section 3: Goldstone & Son: Concreteness Fading & Perceptual Grounding';
+  }
+  if (lower.includes('the dual-coding & multimedia processing architecture diagram') || lower.includes('dual-coding diagram') || lower.includes('multimedia processing diagram')) {
+    return 'Lesson 10.1 • The Dual-Coding & Multimedia Processing Architecture Diagram';
+  }
+  if (lower.includes('10.1') || lower.includes('dual coding protocol') || lower.includes('multimedia protocol')) {
+    return 'Lesson 10.1 • Section 1: Allan Paivio: Dual Coding Theory (Logogens vs Imagens)';
+  }
 
   // Match Lesson 9.2 anchors
   if (lower.includes('hayakawa') || lower.includes('ladder of abstraction') || lower.includes('abstraction ladder') || lower.includes('dead-level abstracting') || lower.includes('dead-level concreteness') || lower.includes('vertical mobility')) {
@@ -1045,6 +1074,30 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_10_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 10.1: "Paivio's Dual Coding Theory — Simultaneous verbal and visual mental representation pathways".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of dual-channel information processing and multimedia learning:
+     a) Allan Paivio (1971, 1986) Dual Coding Theory: Human memory runs on two functionally independent, structurally distinct subsystems: the Verbal System (processing sequential, linguistic logogens) and the Non-Verbal System (processing synchronous, spatial imagens). Dual-coded representations establish referential connections across channels, creating redundant, additive retrieval traces.
+     b) Richard E. Mayer (2001, 2009) Cognitive Theory of Multimedia Learning (CTML): (1) Multimedia Principle: words and pictures together yield superior transfer than words alone; (2) Spatial Contiguity: place text directly beside corresponding visual elements to eliminate the Split-Attention Effect; (3) Modality Principle: explain complex graphics using auditory spoken narration instead of on-screen text to offload visual working memory.
+     c) Robert Goldstone & Ji Y. Son (2005) Concreteness Fading: Systematically fade instructional representations from Concrete Grounding (sensory anchors) $\to$ Graphic Idealization (relational schematics) $\to$ Symbolic Formalization (formal code and mathematical equations).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to dual coding, logogens vs imagens, spatial contiguity, the modality principle, and concreteness fading.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1099,6 +1152,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'abstraction-ladders') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_9_2;
+  }
+  if (lessonId === 'paivio-dual-coding') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_10_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1180,6 +1236,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hayakawa_abstraction_ladder_vertical_mobility',
   'concept:craik_johnson_laird_mental_models_simulation',
   'concept:bret_victor_dynamic_abstraction_coupling',
+  // Lesson 10.1 Concepts
+  'concept:paivio_dual_coding_logogens_imagens',
+  'concept:mayer_multimedia_spatial_contiguity_modality',
+  'concept:concreteness_fading_grounding_schematics',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1244,6 +1304,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 9.2 Misconceptions
   'misconception:theory_alone_creates_operational_mastery',
   'misconception:mental_models_are_passive_definitions',
+  // Lesson 10.1 Misconceptions
+  'misconception:learning_styles_neuromyth_visual_verbal',
+  'misconception:decorative_graphics_enhance_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

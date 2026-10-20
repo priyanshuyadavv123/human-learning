@@ -89,6 +89,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'hayakawa-ladder-of-abstraction-mobility': <Network size={18} />,
   'craik-johnson-laird-mental-models-simulation': <Cpu size={18} />,
   'bret-victor-dynamic-abstraction-explorable-explanations': <Sparkles size={18} />,
+  // Lesson 10.1 Tabs
+  'paivio-dual-coding-architecture-logogens-imagens': <Network size={18} />,
+  'richard-mayer-cognitive-theory-multimedia-learning': <Sparkles size={18} />,
+  'concreteness-fading-goldstone-son': <Repeat size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
