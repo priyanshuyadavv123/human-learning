@@ -1,5 +1,6 @@
 import type { Course, Lesson } from '../types/learning.ts';
 import { LESSON_ILLUSION_OF_COMPETENCE } from './lesson1_2Data.ts';
+import { LESSON_COGNITIVE_LOAD_SCHEMA } from './lesson1_3Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -34,9 +35,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'cognitive-load-schema',
           number: '1.3',
           title: 'Cognitive Load & Schema Construction',
-          subtitle: 'Designing information flows around working memory bottlenecks',
+          subtitle: 'Working Memory Limits and the Architecture of Expertise',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1121,6 +1122,7 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
 export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_HOW_LEARNING_WORKS.id]: LESSON_HOW_LEARNING_WORKS,
   [LESSON_ILLUSION_OF_COMPETENCE.id]: LESSON_ILLUSION_OF_COMPETENCE,
+  [LESSON_COGNITIVE_LOAD_SCHEMA.id]: LESSON_COGNITIVE_LOAD_SCHEMA,
 };
 
 export function getLessonById(id: string): Lesson {

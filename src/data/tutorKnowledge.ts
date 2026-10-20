@@ -130,6 +130,24 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When you finish reading a technical article, what would happen if you waited 10 minutes before asking yourself if you truly understand it?',
     referencedSection: 'Lesson 1.2 • Section 3: Metacognitive Calibration & Delayed JOLs',
   },
+  {
+    keywords: ['cognitive load', 'intrinsic', 'extraneous', 'germane', 'element interactivity', 'sweller', 'split-attention', 'split attention'],
+    title: 'The Tripartite Model of Cognitive Load',
+    summary: 'Working memory capacity is strictly limited; extraneous friction directly impedes schema formation.',
+    takeaway: 'Total cognitive load equals Intrinsic + Extraneous + Germane. Eliminate extraneous friction to free working memory bandwidth for germane schema consolidation.',
+    detailedResponse: 'Cognitive Load Theory (John Sweller, 1988) partitions mental expenditure into three channels: Intrinsic load (the inherent element interactivity of the subject), Extraneous load (wasteful friction from poor layout or split-attention), and Germane load (constructive working memory effort applied to building schemas). Because working memory holds only ~3-4 novel chunks, minimizing extraneous waste directly empowers deep learning.',
+    socraticChallenge: 'In your current study routine, what is one source of split-attention you can eliminate today?',
+    referencedSection: 'Lesson 1.3 • Section 1: The Tripartite Model of Cognitive Load',
+  },
+  {
+    keywords: ['worked example', 'worked examples', 'faded', 'faded completion', 'expertise reversal', 'kalyuga', 'scaffolding', 'means-ends'],
+    title: 'The Worked Example & Expertise Reversal Effects',
+    summary: 'Novices learn faster from worked examples; experts need autonomous challenge.',
+    takeaway: 'Novices lack schemas and waste working memory on means-ends search—they learn fastest from worked examples. As expertise develops, scaffolding must fade to avoid the Expertise Reversal Effect.',
+    detailedResponse: 'For beginners, studying annotated worked solutions paired with faded completion problems significantly outperforms unguided problem solving (The Worked Example Effect). However, as learners acquire automated long-term schemas, step-by-step guidance becomes redundant and actively interferes with their internal representations (The Expertise Reversal Effect, Kalyuga et al., 2003). Scaffolding must dynamically fade.',
+    socraticChallenge: 'Are you currently treating yourself as a novice (benefiting from worked examples) or as an expert (benefiting from unguided problem solving)?',
+    referencedSection: 'Lesson 1.3 • Section 2: The Worked Example & Split-Attention Effects',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

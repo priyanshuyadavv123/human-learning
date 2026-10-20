@@ -22,6 +22,9 @@ const iconsMap: Record<string, React.ReactNode> = {
   'perceptual-fluency-trap': <Eye size={18} />,
   'generation-effect-mechanics': <Repeat size={18} />,
   'metacognitive-monitoring-jol': <RefreshCw size={18} />,
+  'tripartite-cognitive-load': <Cpu size={18} />,
+  'worked-example-split-attention': <Bookmark size={18} />,
+  'expertise-reversal-schema-automation': <Network size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

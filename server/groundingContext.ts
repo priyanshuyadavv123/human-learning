@@ -28,6 +28,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 1.2 • Verification Assessment',
   'Lesson 1.2 • The Blank-Sheet Audit Protocol',
   'Lesson 1.2 • Epistemic Calibration Overview',
+
+  // Lesson 1.3 Sections
+  'Lesson 1.3 • Curiosity Hook',
+  'Lesson 1.3 • Intuitive Calibration: Discovery vs Worked Examples',
+  'Lesson 1.3 • Section 1: The Tripartite Model of Cognitive Load',
+  'Lesson 1.3 • Section 2: The Worked Example & Split-Attention Effects',
+  'Lesson 1.3 • Section 3: The Expertise Reversal Effect & Schema Automation',
+  'Lesson 1.3 • Cognitive Load Allocator Pipeline',
+  'Lesson 1.3 • Clinical Diagnostic Scenarios',
+  'Lesson 1.3 • Verification Assessment',
+  'Lesson 1.3 • Faded Scaffolding Protocol',
+  'Lesson 1.3 • Schema Architecture Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -40,6 +52,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 1.3 anchors
+  if (lower.includes('tripartite') || lower.includes('intrinsic') || lower.includes('extraneous') || lower.includes('germane') || lower.includes('element interactivity')) {
+    return 'Lesson 1.3 • Section 1: The Tripartite Model of Cognitive Load';
+  }
+  if (lower.includes('worked example') || lower.includes('split-attention') || lower.includes('split attention') || lower.includes('faded') || lower.includes('sub-goal')) {
+    return 'Lesson 1.3 • Section 2: The Worked Example & Split-Attention Effects';
+  }
+  if (lower.includes('expertise reversal') || lower.includes('schema automation') || lower.includes('chase') || lower.includes('kalyuga') || lower.includes('automaticity')) {
+    return 'Lesson 1.3 • Section 3: The Expertise Reversal Effect & Schema Automation';
+  }
+  if (lower.includes('allocator') || lower.includes('load pipeline') || lower.includes('gateway')) {
+    return 'Lesson 1.3 • Cognitive Load Allocator Pipeline';
+  }
+  if (lower.includes('1.3') || lower.includes('cognitive load')) {
+    return 'Lesson 1.3 • Section 1: The Tripartite Model of Cognitive Load';
+  }
 
   // Match Lesson 1.2 anchors
   if (lower.includes('generation') || lower.includes('desirable difficulty') || lower.includes('slamecka')) {
@@ -133,9 +162,37 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_1_3 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 1.3: "Cognitive Load & Schema Construction — Working Memory Limits and the Architecture of Expertise".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in Cognitive Load Theory and empirical cognitive psychology:
+     a) The Tripartite Model: Intrinsic load (element interactivity inherent to the topic), Extraneous load (instructional friction, split-attention waste), and Germane load (working memory devoted to schema acquisition) (Sweller, 1988, 2011; Paas et al., 2003).
+     b) The Worked Example Effect: Novices acquire schemas dramatically faster from worked examples with sub-goal labels and faded completion steps than from unguided means-ends trial-and-error (Sweller, 1988; Paas & Van Merriënboer, 1994).
+     c) Split-Attention Effect: Physical separation of related information forces working memory to waste capacity mentally integrating disjointed sources (Ayres & Sweller, 2005).
+     d) The Expertise Reversal Effect: Guidance essential for beginners becomes redundant and harmful for experienced learners who possess automated schemas (Kalyuga et al., 2003; Chase & Simon, 1973).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to working memory limitations, schema chunking, and instructional design.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
+  }
+  if (lessonId === 'cognitive-load-schema') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_3;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -149,6 +206,10 @@ export const KNOWN_CONCEPTS = [
   'concept:fluency_illusion_recognition',
   'concept:generation_effect_reconstruction',
   'concept:delayed_judgment_of_learning',
+  // Lesson 1.3 Concepts
+  'concept:cognitive_load_tripartite',
+  'concept:worked_example_faded_scaffolding',
+  'concept:expertise_reversal_schema_automation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -161,6 +222,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:feedback_avoidance_confirmation_bias',
   'misconception:recognition_equals_mastery',
   'misconception:ease_of_processing_heuristic',
+  // Lesson 1.3 Misconceptions
+  'misconception:unguided_struggle_always_superior',
+  'misconception:more_information_always_helps',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

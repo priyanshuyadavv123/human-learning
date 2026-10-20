@@ -14,12 +14,24 @@ export const LEGACY_STORAGE_KEY_V1 = 'human_learning_platform_progress_v1';
 export const BACKUP_STORAGE_KEY_V1 = 'human_learning_progress_v1_backup';
 
 export function createDefaultConceptState(conceptId: ConceptId, nowIso: string): ConceptReviewState {
-  const isLesson1_2 = conceptId.startsWith('concept:fluency_') || 
-                      conceptId.startsWith('concept:generation_') || 
-                      conceptId.startsWith('concept:delayed_judgment');
+  let lessonId = 'how-learning-actually-works';
+  if (
+    conceptId.startsWith('concept:fluency_') || 
+    conceptId.startsWith('concept:generation_') || 
+    conceptId.startsWith('concept:delayed_judgment')
+  ) {
+    lessonId = 'illusion-of-competence';
+  } else if (
+    conceptId.startsWith('concept:cognitive_load_') || 
+    conceptId.startsWith('concept:worked_example_') || 
+    conceptId.startsWith('concept:expertise_reversal_')
+  ) {
+    lessonId = 'cognitive-load-schema';
+  }
+
   return {
     conceptId,
-    lessonId: isLesson1_2 ? 'illusion-of-competence' : 'how-learning-actually-works',
+    lessonId,
     chapterId: 'ch-1-architecture',
     stage: 'untested',
     reviewIntervalDays: 1,

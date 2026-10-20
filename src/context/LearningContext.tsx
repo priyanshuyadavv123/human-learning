@@ -53,6 +53,16 @@ const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-blank-sheet': 'concept:generation_effect_reconstruction',
     },
   },
+  'cognitive-load-schema': {
+    predictionConceptId: 'concept:worked_example_faded_scaffolding',
+    predictionMisconceptionId: 'misconception:unguided_struggle_always_superior',
+    quizConceptMapping: {
+      'q1-tripartite-balance': 'concept:cognitive_load_tripartite',
+      'q2-worked-example-mechanism': 'concept:worked_example_faded_scaffolding',
+      'q3-expertise-reversal': 'concept:expertise_reversal_schema_automation',
+      'q4-chunking-architecture': 'concept:schema_chunking_consolidation',
+    },
+  },
 };
 
 interface LearningContextType {

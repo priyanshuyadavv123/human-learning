@@ -113,6 +113,49 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:recognition_equals_mastery',
     discrepancyPrompt: 'Previously you may have evaluated your understanding right after finishing a reading. Why does testing yourself after a delay provide a far more honest signal of mastery?',
   },
+  'concept:cognitive_load_tripartite': {
+    conceptId: 'concept:cognitive_load_tripartite',
+    title: 'The Tripartite Model of Cognitive Load',
+    prompt: 'Explain the three types of cognitive load (Intrinsic, Extraneous, Germane) and why instructional design must aggressively eliminate extraneous load.',
+    keyCriteria: [
+      'Defines Intrinsic load as element interactivity inherent to the material',
+      'Defines Extraneous load as presentation friction or split-attention',
+      'Defines Germane load as capacity devoted to schema construction',
+      'Notes that working memory is biologically limited to ~3-4 novel elements',
+    ],
+    canonicalAnswer: 'Cognitive Load Theory (Sweller) partitions mental expenditure into Intrinsic (element interactivity inherent to the topic), Extraneous (unproductive mental friction from poor layout or split-attention), and Germane (productive working memory capacity devoted to schema induction). Because working memory is biologically limited to ~3-4 novel elements, reducing extraneous load directly frees capacity for germane schema consolidation.',
+    lessonSectionAnchor: 'Lesson 1.3 • Section 1: The Tripartite Model of Cognitive Load',
+    relatedMisconception: 'misconception:more_information_always_helps',
+    discrepancyPrompt: 'Previously you may have believed that adding more diagrams or separate explanations always helps. How can poorly placed information create extraneous cognitive overload?',
+  },
+  'concept:worked_example_faded_scaffolding': {
+    conceptId: 'concept:worked_example_faded_scaffolding',
+    title: 'The Worked Example Effect & Faded Scaffolding',
+    prompt: 'Why do novices learn significantly faster from studying worked examples than from unguided problem-solving, and how does faded scaffolding bridge to independent mastery?',
+    keyCriteria: [
+      'Explains that novices lack schemas and get trapped in means-ends search',
+      'Identifies that worked examples free working memory to induce generalized schemas',
+      'Explains faded completion as progressive removal of scaffolding',
+    ],
+    canonicalAnswer: 'Novices lacking foundational schemas solve unguided problems through backward means-ends analysis, overloading working memory with state management rather than learning principles. Studying worked examples eliminates search load, allowing working memory to induce structural schemas. Fading scaffolding gradually removes solution steps, prompting active retrieval without overwhelming the learner.',
+    lessonSectionAnchor: 'Lesson 1.3 • Section 2: The Worked Example & Split-Attention Effects',
+    relatedMisconception: 'misconception:unguided_struggle_always_superior',
+    discrepancyPrompt: 'Previously you may have thought that making beginners struggle with blank-sheet problems from day one is the fastest way to learn. Why does cognitive load theory demonstrate that worked examples are superior for novices?',
+  },
+  'concept:expertise_reversal_schema_automation': {
+    conceptId: 'concept:expertise_reversal_schema_automation',
+    title: 'The Expertise Reversal Effect & Schema Automation',
+    prompt: 'What is the Expertise Reversal Effect, and why does detailed beginner scaffolding become harmful to advanced practitioners?',
+    keyCriteria: [
+      'Cites the Expertise Reversal Effect (Kalyuga et al., 2003)',
+      'Explains that expert schemas handle steps automatically in long-term memory',
+      'Explains that external redundant guidance conflicts with automated internal schemas',
+    ],
+    canonicalAnswer: 'As learners build automated long-term memory schemas, instructional guidance that once supported beginners becomes redundant. When experts are forced to process elementary step-by-step instructions, their working memory is forced to reconcile redundant external steps with automated internal representations, creating extraneous cognitive friction.',
+    lessonSectionAnchor: 'Lesson 1.3 • Section 3: The Expertise Reversal Effect & Schema Automation',
+    relatedMisconception: 'misconception:more_information_always_helps',
+    discrepancyPrompt: 'Previously you may have assumed that more instructional guidance is always better. Why does detailed scaffolding actively impair performance once a learner reaches proficiency?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

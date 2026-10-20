@@ -12,6 +12,10 @@ export const KNOWN_CONCEPTS = [
   'concept:fluency_illusion_recognition',
   'concept:generation_effect_reconstruction',
   'concept:delayed_judgment_of_learning',
+  // Lesson 1.3 Concepts
+  'concept:cognitive_load_tripartite',
+  'concept:worked_example_faded_scaffolding',
+  'concept:expertise_reversal_schema_automation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -24,6 +28,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:feedback_avoidance_confirmation_bias',
   'misconception:recognition_equals_mastery',
   'misconception:ease_of_processing_heuristic',
+  // Lesson 1.3 Misconceptions
+  'misconception:unguided_struggle_always_superior',
+  'misconception:more_information_always_helps',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
