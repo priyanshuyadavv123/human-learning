@@ -64,6 +64,10 @@ export const KNOWN_CONCEPTS = [
   'concept:memory_reconsolidation_labilization',
   'concept:boundary_conditions_prediction_error_reconsolidation',
   'concept:schema_updating_updating_window',
+  // Lesson 8.1 Concepts
+  'concept:chunking_mechanics_relational_compression',
+  'concept:template_theory_cores_slots_gobet',
+  'concept:long_term_working_memory_retrieval_structures',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -116,6 +120,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 7.2 Misconceptions
   'misconception:retrieved_memories_are_immutable',
   'misconception:reconsolidation_occurs_without_prediction_error',
+  // Lesson 8.1 Misconceptions
+  'misconception:expertise_enlarges_raw_working_memory_hardware',
+  'misconception:surface_features_define_expert_categories',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

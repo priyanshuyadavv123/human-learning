@@ -13,6 +13,7 @@ import { LESSON_SLOW_WAVE_SLEEP_REPLAY } from './lesson6_1Data.ts';
 import { LESSON_TARGETED_MEMORY_REACTIVATION } from './lesson6_2Data.ts';
 import { LESSON_INTERFERENCE_FORGETTING } from './lesson7_1Data.ts';
 import { LESSON_RECONSOLIDATION_UPDATING } from './lesson7_2Data.ts';
+import { LESSON_CHUNKING_MECHANICS } from './lesson8_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -213,7 +214,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Mechanics of Chunking',
           subtitle: 'Compressing complex relational networks into single cognitive units',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'hierarchical-knowledge-representation',
@@ -1147,6 +1148,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_TARGETED_MEMORY_REACTIVATION.id]: LESSON_TARGETED_MEMORY_REACTIVATION,
   [LESSON_INTERFERENCE_FORGETTING.id]: LESSON_INTERFERENCE_FORGETTING,
   [LESSON_RECONSOLIDATION_UPDATING.id]: LESSON_RECONSOLIDATION_UPDATING,
+  [LESSON_CHUNKING_MECHANICS.id]: LESSON_CHUNKING_MECHANICS,
 };
 
 export function getLessonById(id: string): Lesson {

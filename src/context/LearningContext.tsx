@@ -183,6 +183,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-reconsolidation-vs-extinction-distinction': 'concept:memory_reconsolidation_labilization',
     },
   },
+  'chunking-mechanics': {
+    predictionConceptId: 'concept:chunking_mechanics_relational_compression',
+    predictionMisconceptionId: 'misconception:expertise_enlarges_raw_working_memory_hardware',
+    quizConceptMapping: {
+      'q1-de-groot-chase-simon-finding': 'concept:chunking_mechanics_relational_compression',
+      'q2-simon-chunk-count-estimate': 'concept:chunking_mechanics_relational_compression',
+      'q3-gobet-template-theory-structure': 'concept:template_theory_cores_slots_gobet',
+      'q4-ericsson-ltwm-interruption-resilience': 'concept:long_term_working_memory_retrieval_structures',
+    },
+  },
 };
 
 interface LearningContextType {

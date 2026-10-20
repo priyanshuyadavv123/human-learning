@@ -42,7 +42,8 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 4.16 (Lesson 7.2 Memory Reconsolidation & Updating):** ACCEPTED (15/15 quality standard, 252/252 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 7 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 7.1, 7.2)
   - **PART 2 TOTAL STATUS (Chapters 5–7, 6 Lessons Total):** 100% COMPLETE & ACCEPTED!
-  - **Stage 4.17 (Chapter 8, Lesson 8.1 Schema Induction & Chunking):** NEXT MILESTONE
+  - **Stage 4.17 (Lesson 8.1 The Mechanics of Chunking):** ACCEPTED (15/15 quality standard, 264/264 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Stage 4.18 (Chapter 8, Lesson 8.2 Hierarchical Knowledge Representation):** NEXT MILESTONE
 
 ---
 

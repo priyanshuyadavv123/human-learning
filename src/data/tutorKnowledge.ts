@@ -467,6 +467,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you structure deliberate practice sessions to exploit the 4-hour reconsolidation window when correcting technical misconceptions?',
     referencedSection: 'Lesson 7.2 • Section 3: The 4-Hour Opportunity Window: Overwriting Outdated Schemas',
   },
+  // Lesson 8.1 Entries
+  {
+    keywords: ['de groot', 'chase', 'simon', '50,000', 'chess chunking', 'relational chunking', 'random layout', '5-second'],
+    title: 'De Groot, Chase & Simon: The Empirical Foundations of Chunking',
+    summary: 'Expert memory advantages stem from domain-specific relational chunks in long-term memory, not expanded working memory hardware.',
+    takeaway: 'Experts do not have larger working memory hardware—they have ~50,000 long-term relational chunks that compress complex patterns into single units.',
+    detailedResponse: 'Adriaan de Groot (1946) and William Chase & Herbert Simon (1973) proved that grandmasters do not possess photographic memory or enlarged working memory buffers. In 5-second exposure tests, masters recalled 95% of authentic game positions but dropped to novice levels on randomly placed pieces. Herbert Simon estimated that achieving master expertise requires storing ~50,000 familiar perceptual chunks in long-term memory. Chunks group interacting elements into single compound units, allowing experts to operate within the strict ~4-chunk working memory bottleneck while manipulating massive relational networks.',
+    socraticChallenge: 'How does the collapse of expert recall on randomized layouts prove that expertise is schema compression rather than raw memory capacity?',
+    referencedSection: 'Lesson 8.1 • Section 1: De Groot, Chase & Simon: The Empirical Foundations of Chunking',
+  },
+  {
+    keywords: ['gobet', 'template theory', 'invariant core', 'variable slots', 'slots and cores', 'macro-template'],
+    title: 'Gobet & Simon’s Template Theory: Invariant Cores & Dynamic Slots',
+    summary: 'Hierarchical templates possess stable long-term cores and transient working-memory slots for rapid situational adaptation.',
+    takeaway: 'Templates combine a stable long-term core with dynamic slots (Gobet & Simon, 1996), allowing rapid situational reasoning with zero working-memory strain.',
+    detailedResponse: 'Fernand Gobet and Herbert Simon (1996) formulated Template Theory to explain expert flexibility. Simple perceptual chunks evolve into hierarchical templates that feature an invariant structural core stored permanently in long-term memory, accompanied by variable slots that can be rapidly filled with situational data in working memory. Because the core pattern is anchored in long-term storage, working memory only needs to hold slot assignments, enabling rapid reasoning across complex system states without cognitive overload.',
+    socraticChallenge: 'In your primary technical domain, what is an invariant core template you rely on, and what are its dynamic situational slots?',
+    referencedSection: 'Lesson 8.1 • Section 2: Gobet & Simon’s Template Theory: Slots, Cores & Rapid Adaptability',
+  },
+  {
+    keywords: ['ericsson', 'kintsch', 'ltwm', 'long-term working memory', 'retrieval structure', 'interruption resilience', 'pointer structure'],
+    title: 'Ericsson & Kintsch: Long-Term Working Memory (LTWM)',
+    summary: 'Domain-specific retrieval structures turn permanent long-term memory into an interruption-resistant, high-bandwidth working memory system.',
+    takeaway: 'Long-Term Working Memory uses retrieval cues pointing to durable schemas in long-term storage, making expert working state immune to interruption wipeouts.',
+    detailedResponse: 'K. Anders Ericsson and Walter Kintsch (1995) proposed Long-Term Working Memory (LTWM) to explain how professionals maintain vast cognitive context without short-term memory failure. Experts construct domain-specific retrieval structures: working memory holds active cues that point directly to pre-structured representations in long-term memory. When interrupted, short-term buffers clear, but the long-term retrieval structure remains intact, allowing experts to resume full situational awareness in seconds.',
+    socraticChallenge: 'How can you deliberately build externalized retrieval structures to protect your cognitive context from constant workplace interruptions?',
+    referencedSection: 'Lesson 8.1 • Section 3: Ericsson & Kintsch: Long-Term Working Memory (LTWM)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

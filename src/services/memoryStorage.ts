@@ -118,6 +118,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'reconsolidation-updating';
     chapterId = 'ch-7-interference-reconsolidation';
+  } else if (
+    conceptId.startsWith('concept:chunking_mechanics_') ||
+    conceptId.startsWith('concept:template_theory_') ||
+    conceptId.startsWith('concept:long_term_working_memory_')
+  ) {
+    lessonId = 'chunking-mechanics';
+    chapterId = 'ch-8-chunking-schemas';
   }
 
   return {

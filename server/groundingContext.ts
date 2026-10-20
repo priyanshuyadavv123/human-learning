@@ -184,6 +184,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 7.2 • Verification Assessment',
   'Lesson 7.2 • Prediction-Error Reconsolidation Protocol',
   'Lesson 7.2 • Memory Reconsolidation & Updating Overview',
+
+  // Lesson 8.1 Sections
+  'Lesson 8.1 • Curiosity Hook',
+  'Lesson 8.1 • Intuitive Calibration: Hardware Superiority vs Schema Chunking',
+  'Lesson 8.1 • Section 1: De Groot, Chase & Simon: The Empirical Foundations of Chunking',
+  'Lesson 8.1 • Section 2: Gobet & Simon’s Template Theory: Slots, Cores & Rapid Adaptability',
+  'Lesson 8.1 • Section 3: Ericsson & Kintsch: Long-Term Working Memory (LTWM)',
+  'Lesson 8.1 • Chunking & Long-Term Working Memory Architecture Diagram',
+  'Lesson 8.1 • Cognitive Chunking & Expertise Diagnostic Scenarios',
+  'Lesson 8.1 • Verification Assessment',
+  'Lesson 8.1 • Relational Chunking & Template Decomposition Protocol',
+  'Lesson 8.1 • The Mechanics of Chunking Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -196,6 +208,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 8.1 anchors
+  if (lower.includes('de groot') || lower.includes('chase') || (lower.includes('simon') && (lower.includes('50,000') || lower.includes('chess') || lower.includes('perceptual'))) || lower.includes('chunking mechanics') || lower.includes('relational compression')) {
+    return 'Lesson 8.1 • Section 1: De Groot, Chase & Simon: The Empirical Foundations of Chunking';
+  }
+  if (lower.includes('gobet') || lower.includes('template theory') || lower.includes('invariant core') || lower.includes('variable slots') || lower.includes('slots and cores')) {
+    return 'Lesson 8.1 • Section 2: Gobet & Simon’s Template Theory: Slots, Cores & Rapid Adaptability';
+  }
+  if (lower.includes('kintsch') || lower.includes('ltwm') || lower.includes('long-term working memory') || (lower.includes('ericsson') && (lower.includes('kintsch') || lower.includes('memory') || lower.includes('retrieval structure') || lower.includes('interruption')))) {
+    return 'Lesson 8.1 • Section 3: Ericsson & Kintsch: Long-Term Working Memory (LTWM)';
+  }
+  if (lower.includes('chunking & long-term working memory architecture diagram') || lower.includes('chunking diagram') || lower.includes('ltwm diagram')) {
+    return 'Lesson 8.1 • Chunking & Long-Term Working Memory Architecture Diagram';
+  }
+  if (lower.includes('8.1') || lower.includes('chunking protocol')) {
+    return 'Lesson 8.1 • Section 1: De Groot, Chase & Simon: The Empirical Foundations of Chunking';
+  }
 
   // Match Lesson 7.2 anchors
   if (lower.includes('7.2') || lower.includes('reconsolidation protocol') || lower.includes('karim nader') || lower.includes('schafe') || lower.includes('ledoux') || lower.includes('labilization') || lower.includes('ubiquitin') || lower.includes('proteasome')) {
@@ -831,6 +860,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_8_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 8.1: "The Mechanics of Chunking — Compressing complex relational networks into single cognitive units".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of chunking, template theory, and expertise:
+     a) De Groot (1946) & Chase & Simon (1973): Experts do NOT have larger biological working memory hardware or photographic vision; working memory remains strictly capped at ~4 chunks. Grandmaster recall is superior only on authentic, rule-governed domain layouts where long-term schemas recognize relational chunks; on randomly scrambled layouts, expert advantage completely vanishes.
+     b) Herbert Simon & Gilmartin (1973): Achieving world-class expertise requires encoding approximately 50,000 familiar perceptual chunks in long-term memory, comparable to the vocabulary of an educated native speaker.
+     c) Template Theory (Gobet & Simon, 1996): Chunks evolve into hierarchical templates consisting of an invariant structural core stored in long-term memory and dynamic situational slots that can be rapidly instantiated with transient values in working memory without cognitive overload.
+     d) Long-Term Working Memory (LTWM; Ericsson & Kintsch, 1995): Experts build domain-specific retrieval structures: working memory maintains pointers directly indexing durable schemas in long-term memory. This grants massive functional bandwidth and high interruption resilience.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to chunking, template theory, and Long-Term Working Memory.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -873,6 +927,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'reconsolidation-updating') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_7_2;
+  }
+  if (lessonId === 'chunking-mechanics') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_8_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -938,6 +995,10 @@ export const KNOWN_CONCEPTS = [
   'concept:memory_reconsolidation_labilization',
   'concept:boundary_conditions_prediction_error_reconsolidation',
   'concept:schema_updating_updating_window',
+  // Lesson 8.1 Concepts
+  'concept:chunking_mechanics_relational_compression',
+  'concept:template_theory_cores_slots_gobet',
+  'concept:long_term_working_memory_retrieval_structures',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -990,6 +1051,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 7.2 Misconceptions
   'misconception:retrieved_memories_are_immutable',
   'misconception:reconsolidation_occurs_without_prediction_error',
+  // Lesson 8.1 Misconceptions
+  'misconception:expertise_enlarges_raw_working_memory_hardware',
+  'misconception:surface_features_define_expert_categories',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

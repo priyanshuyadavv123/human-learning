@@ -694,6 +694,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:retrieved_memories_are_immutable',
     discrepancyPrompt: 'Previously you may have attempted to correct a deep misconception by simply reading the right answer without first recalling your own mistaken belief. Why does reconsolidation explain why old misconceptions persist unless they are actively retrieved and destabilized first?',
   },
+  'concept:chunking_mechanics_relational_compression': {
+    conceptId: 'concept:chunking_mechanics_relational_compression',
+    title: 'Chunking Mechanics & Relational Compression (De Groot, 1946; Chase & Simon, 1973)',
+    prompt: 'How did Adriaan de Groot (1946) and Chase & Simon (1973) prove that expert memory advantages stem from domain-specific relational chunking rather than superior biological working memory hardware?',
+    keyCriteria: [
+      'Cites De Groot (1946) 5-second brief presentation experiment and Chase & Simon (1973) Perception in Chess',
+      'Explains that masters recall structured meaningful layouts near-flawlessly but collapse to novice levels on scrambled layouts',
+      'Defines a chunk as a collection of elements strongly bound by relational and semantic rules in long-term memory',
+      'Explains the ~50,000 chunks estimate required for master-level domain performance (Simon & Gilmartin, 1973)',
+    ],
+    canonicalAnswer: 'De Groot (1946) and Chase & Simon (1973) demonstrated that chess grandmasters do not possess photographic visual memory or expanded working memory capacity. When presented with meaningful game positions for 5 seconds, masters recalled over 90% of pieces compared to ~30% for novices. However, when pieces were placed randomly on the board, the master advantage vanished entirely, dropping to novice levels. This proved that expert performance relies on ~50,000 relational perceptual chunks stored in long-term memory (Simon & Gilmartin, 1973). Chunks allow the expert to compress a cluster of 15–20 interacting elements into a single working memory slot, effectively bypassing the biological 4-slot bottleneck.',
+    lessonSectionAnchor: 'Lesson 8.1 • Section 1: De Groot, Chase & Simon: The Empirical Foundations of Chunking',
+    relatedMisconception: 'misconception:expertise_enlarges_raw_working_memory_hardware',
+    discrepancyPrompt: 'Previously you may have believed that world-class experts possess a genetically superior, photographic working memory. How does their performance on randomly scrambled domain layouts prove that expertise is schema-dependent compression rather than upgraded hardware?',
+  },
+  'concept:template_theory_cores_slots_gobet': {
+    conceptId: 'concept:template_theory_cores_slots_gobet',
+    title: 'Template Theory: Invariant Cores & Dynamic Situational Slots (Gobet & Simon, 1996)',
+    prompt: 'Describe Fernand Gobet & Herbert Simon’s Template Theory (1996), explaining how templates evolve from chunks and how the distinction between stable cores and variable slots enables rapid situational adaptation.',
+    keyCriteria: [
+      'Cites Gobet & Simon (1996) Template Theory',
+      'Defines the invariant structural core stored in long-term memory',
+      'Defines variable situational slots that can be rapidly instantiated with transient values in working memory',
+      'Explains hierarchical nesting of low-level chunks into macro-templates',
+    ],
+    canonicalAnswer: 'Gobet and Simon (1996) formulated Template Theory to explain how experts rapidly adapt to novel variations without cognitive overload. A template is an evolved chunk consisting of: (1) a stable, invariant structural core stored permanently in long-term memory (e.g. an architectural design pattern or defensive pawn structure), and (2) variable slots that can be rapidly filled with transient situational values in working memory. Because the core structure is already stored in long-term memory, working memory only needs to maintain pointers to the template and the specific slot assignments. This allows experts to manipulate complex, multi-element scenarios effortlessly.',
+    lessonSectionAnchor: 'Lesson 8.1 • Section 2: Gobet & Simon’s Template Theory: Slots, Cores & Rapid Adaptability',
+    relatedMisconception: 'misconception:surface_features_define_expert_categories',
+    discrepancyPrompt: 'Previously you may have imagined that expert mental models are rigid static snapshots. How does Gobet’s template structure—combining an invariant core with dynamic slots—allow experts to adapt to novel edge cases instantly?',
+  },
+  'concept:long_term_working_memory_retrieval_structures': {
+    conceptId: 'concept:long_term_working_memory_retrieval_structures',
+    title: 'Long-Term Working Memory (LTWM) & Retrieval Structures (Ericsson & Kintsch, 1995)',
+    prompt: 'How does K. Anders Ericsson & Walter Kintsch’s (1995) Long-Term Working Memory (LTWM) framework explain how experts maintain massive cognitive bandwidth and demonstrate high interruption resilience?',
+    keyCriteria: [
+      'Cites Ericsson & Kintsch (1995) Long-Term Working Memory framework',
+      'Explains domain-specific retrieval structures: cues in short-term memory pointing directly to consolidated schemas in long-term memory',
+      'Explains interruption resilience: temporary buffers can be cleared, but durable LTM retrieval structures allow instantaneous state restoration',
+      'Emphasizes domain-specificity (LTWM does not transfer to unrelated non-expert domains)',
+    ],
+    canonicalAnswer: 'Ericsson and Kintsch (1995) resolved the paradox of working memory constraints in complex professional tasks through the Long-Term Working Memory (LTWM) framework. Experts construct domain-specific retrieval structures: instead of keeping raw data in the fragile ~4-slot short-term working memory buffer, they maintain stable retrieval cues that point directly to pre-organized representations in long-term memory. When an expert is interrupted, their short-term buffer is cleared, but their long-term retrieval structure remains completely intact. Upon returning, the cues instantly reactivate the entire mental model within seconds. This effectively transforms durable long-term storage into an expanded, high-bandwidth working memory system.',
+    lessonSectionAnchor: 'Lesson 8.1 • Section 3: Ericsson & Kintsch: Long-Term Working Memory (LTWM)',
+    relatedMisconception: 'misconception:expertise_enlarges_raw_working_memory_hardware',
+    discrepancyPrompt: 'Previously you may have struggled to recover your mental train of thought after a 2-minute distraction. How does the Long-Term Working Memory framework explain why externalized retrieval structures prevent catastrophic state loss during task switching?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

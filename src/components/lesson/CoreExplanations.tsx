@@ -73,6 +73,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'synaptic-destabilization-nader-discovery': <Sparkles size={18} />,
   'boundary-conditions-prediction-error': <Eye size={18} />,
   'four-hour-window-schema-updating': <RefreshCw size={18} />,
+  // Lesson 8.1 Tabs
+  'de-groot-chase-simon-chunking': <Network size={18} />,
+  'template-theory-gobet-simon': <Cpu size={18} />,
+  'long-term-working-memory-ericsson': <Bookmark size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
