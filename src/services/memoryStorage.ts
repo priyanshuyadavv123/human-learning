@@ -76,6 +76,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'distraction-economics';
     chapterId = 'ch-4-attention-executive';
+  } else if (
+    conceptId.startsWith('concept:hebbian_') ||
+    conceptId.startsWith('concept:nmda_receptor_') ||
+    conceptId.startsWith('concept:early_vs_late_ltp_')
+  ) {
+    lessonId = 'ltp-synaptic-plasticity';
+    chapterId = 'ch-5-consolidation';
   }
 
   return {

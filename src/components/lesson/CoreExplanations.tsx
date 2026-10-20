@@ -49,6 +49,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'gloria-mark-interruption-dynamics': <RefreshCw size={18} />,
   'newport-deep-work-architecture': <Cpu size={18} />,
   'attentional-commons-choice-architecture': <Network size={18} />,
+  // Lesson 5.1 Tabs
+  'hebbian-plasticity-bliss-lomo': <Network size={18} />,
+  'nmda-receptor-coincidence-detector': <Cpu size={18} />,
+  'early-vs-late-ltp-creb-cascade': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

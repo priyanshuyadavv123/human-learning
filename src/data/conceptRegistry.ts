@@ -426,6 +426,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:willpower_can_overcome_constant_distraction',
     discrepancyPrompt: 'Previously you may have relied on willpower to ignore your phone buzzing on your desk. Why does Crawford’s attentional commons framework demonstrate that physical and structural quarantine is necessary to protect deep focus?',
   },
+  'concept:hebbian_synaptic_plasticity': {
+    conceptId: 'concept:hebbian_synaptic_plasticity',
+    title: 'Donald Hebb & Bliss & Lømo’s Long-Term Potentiation',
+    prompt: 'Explain Donald Hebb’s 1949 postulate ("cells that fire together wire together") and how Bliss & Lømo (1973) experimentally confirmed it in the rabbit hippocampus.',
+    keyCriteria: [
+      'Cites Donald Hebb (1949) and Bliss & Lømo (1973)',
+      'Explains that correlated pre- and postsynaptic activity increases synaptic transmission efficiency',
+      'Describes high-frequency stimulation of the perforant path producing sustained EPSP increases in the dentate gyrus',
+      'Identifies input specificity and cooperativity as key properties of LTP',
+    ],
+    canonicalAnswer: 'Donald Hebb (1949) postulated that when an axon of cell A repeatedly helps fire cell B, some metabolic growth process strengthens that connection ("cells that fire together wire together"). In 1973, Terje Lømo and Timothy Bliss experimentally proved this in the rabbit hippocampus: high-frequency electrical stimulation of the perforant path produced a persistent, hours-long increase in excitatory postsynaptic potentials (EPSPs) in the dentate gyrus, establishing Long-Term Potentiation (LTP) as the biological substrate of memory.',
+    lessonSectionAnchor: 'Lesson 5.1 • Section 1: Donald Hebb & Bliss & Lømo’s Discovery of LTP',
+    relatedMisconception: 'misconception:passive_exposure_induces_plasticity',
+    discrepancyPrompt: 'Previously you may have thought that memory is an intangible software concept. How does Bliss & Lømo’s experimental discovery prove that memories are physically etched through activity-dependent synaptic potentiation?',
+  },
+  'concept:nmda_receptor_coincidence_detection': {
+    conceptId: 'concept:nmda_receptor_coincidence_detection',
+    title: 'The NMDA Receptor as a Molecular Coincidence Detector',
+    prompt: 'Why is the NMDA receptor characterized as a molecular coincidence detector, and what exact biophysical events trigger calcium influx and CaMKII activation?',
+    keyCriteria: [
+      'Explains the dual requirement: presynaptic glutamate binding AND postsynaptic membrane depolarization',
+      'Explains that resting potential (-70 mV) holds an electrostatic magnesium (Mg²⁺) plug in the NMDA channel pore',
+      'Explains that depolarization (via AMPA receptors) to roughly -30 mV expels the Mg²⁺ plug',
+      'Describes calcium (Ca²⁺) influx activating CaMKII and trafficking additional AMPA receptors into the postsynaptic density',
+    ],
+    canonicalAnswer: 'The NMDA receptor functions as a biological AND gate: it opens only when presynaptic glutamate binding coincides with postsynaptic membrane depolarization. At resting membrane potential (-70 mV), positively charged magnesium (Mg²⁺) ions plug the receptor pore. When adjacent AMPA receptors depolarize the membrane to roughly -30 mV, the positive interior charge electrostatically repels the Mg²⁺ plug, allowing calcium (Ca²⁺) to rush into the dendritic spine. This calcium surge activates CaMKII, which autophosphorylates and inserts additional AMPA receptors into the postsynaptic density.',
+    lessonSectionAnchor: 'Lesson 5.1 • Section 2: The NMDA Receptor as a Molecular Coincidence Detector',
+    relatedMisconception: 'misconception:passive_exposure_induces_plasticity',
+    discrepancyPrompt: 'Previously you may have believed that merely skimming or reading passively could build strong memory traces. Why does the NMDA receptor’s magnesium block ensure that weak, low-depolarization reading triggers zero calcium influx and zero synaptic growth?',
+  },
+  'concept:early_vs_late_ltp_consolidation': {
+    conceptId: 'concept:early_vs_late_ltp_consolidation',
+    title: 'Early-LTP vs Late-LTP & The Synaptic Tagging Hypothesis',
+    prompt: 'What is the molecular distinction between Early-LTP and Late-LTP, and how does the Frey & Morris (1997) Synaptic Tagging and Capture hypothesis explain the durability of spaced study?',
+    keyCriteria: [
+      'Differentiates Early-LTP (1–3 hours, phosphorylation of existing AMPA receptors, protein synthesis-independent) from Late-LTP (days/months, gene transcription, CREB-1, protein synthesis-dependent)',
+      'Explains Frey & Morris (1997) Synaptic Tagging & Capture: active synapses set a temporary tag that captures cell-wide Plasticity-Related Proteins (PRPs)',
+      'Explains why massed cramming yields only transient E-LTP that decays within 24 hours',
+      'Describes morphological restructuring into permanent mushroom spines',
+    ],
+    canonicalAnswer: 'Early-LTP (lasting 1–3 hours) relies solely on kinase phosphorylation (CaMKII, PKC) of existing AMPA receptors without new protein synthesis; protein phosphatases rapidly return synaptic strength to baseline within 24 hours. Late-LTP requires nuclear signaling (PKA/MAPK) to activate transcription factor CREB-1, driving de novo synthesis of Plasticity-Related Proteins (PRPs). According to Frey & Morris’s (1997) Synaptic Tagging hypothesis, stimulated spines set a temporary biochemical tag that captures these PRPs, physically remodeling dendritic spines into permanent mushroom spines.',
+    lessonSectionAnchor: 'Lesson 5.1 • Section 3: Early-LTP vs Late-LTP: The Molecular Boundary of Permanent Mastery',
+    relatedMisconception: 'misconception:cramming_creates_permanent_synaptic_change',
+    discrepancyPrompt: 'Previously you may have assumed that a 10-hour cramming session creates lasting memory because you passed the exam the next morning. Why does the molecular boundary of Early-LTP prove that without spaced intervals and nuclear CREB activation, your cramming trace decays to zero within 48 hours?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

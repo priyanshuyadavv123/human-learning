@@ -7,6 +7,7 @@ import { LESSON_CALIBRATED_ERROR_SIGNALS } from './lesson3_1Data.ts';
 import { LESSON_PERSONAL_LEARNING_OS } from './lesson3_2Data.ts';
 import { LESSON_ATTENTION_SERIAL_CONTROL } from './lesson4_1Data.ts';
 import { LESSON_DISTRACTION_ECONOMICS } from './lesson4_2Data.ts';
+import { LESSON_LTP_SYNAPTIC_PLASTICITY } from './lesson5_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -133,7 +134,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Long-Term Potentiation & Synaptic Plasticity',
           subtitle: 'Glutamate cascades, dendritic spine remodeling, and Hebbian wiring',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'hippocampal-neocortical-dialogue',
@@ -1135,6 +1136,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_PERSONAL_LEARNING_OS.id]: LESSON_PERSONAL_LEARNING_OS,
   [LESSON_ATTENTION_SERIAL_CONTROL.id]: LESSON_ATTENTION_SERIAL_CONTROL,
   [LESSON_DISTRACTION_ECONOMICS.id]: LESSON_DISTRACTION_ECONOMICS,
+  [LESSON_LTP_SYNAPTIC_PLASTICITY.id]: LESSON_LTP_SYNAPTIC_PLASTICITY,
 };
 
 export function getLessonById(id: string): Lesson {

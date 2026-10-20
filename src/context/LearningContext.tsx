@@ -123,6 +123,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-shutdown-ritual-psychology': 'concept:deep_work_chamber_architecture',
     },
   },
+  'ltp-synaptic-plasticity': {
+    predictionConceptId: 'concept:early_vs_late_ltp_consolidation',
+    predictionMisconceptionId: 'misconception:cramming_creates_permanent_synaptic_change',
+    quizConceptMapping: {
+      'q1-nmda-coincidence-detection': 'concept:nmda_receptor_coincidence_detection',
+      'q2-early-vs-late-ltp-switch': 'concept:early_vs_late_ltp_consolidation',
+      'q3-hebbian-bliss-lomo-origins': 'concept:hebbian_synaptic_plasticity',
+      'q4-synaptic-tagging-capture': 'concept:early_vs_late_ltp_consolidation',
+    },
+  },
 };
 
 interface LearningContextType {

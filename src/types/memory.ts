@@ -40,6 +40,10 @@ export const KNOWN_CONCEPTS = [
   'concept:distraction_recovery_latency',
   'concept:deep_work_chamber_architecture',
   'concept:attentional_commons_environmental_design',
+  // Lesson 5.1 Concepts
+  'concept:hebbian_synaptic_plasticity',
+  'concept:nmda_receptor_coincidence_detection',
+  'concept:early_vs_late_ltp_consolidation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -74,6 +78,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 4.2 Misconceptions
   'misconception:instant_availability_equals_high_performance',
   'misconception:busyness_equals_productivity',
+  // Lesson 5.1 Misconceptions
+  'misconception:passive_exposure_induces_plasticity',
+  'misconception:cramming_creates_permanent_synaptic_change',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

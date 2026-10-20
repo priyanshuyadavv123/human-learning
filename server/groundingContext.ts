@@ -112,6 +112,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 4.2 • Verification Assessment',
   'Lesson 4.2 • Deep Work Chamber Protocol',
   'Lesson 4.2 • Distraction Economics & Deep Work Overview',
+
+  // Lesson 5.1 Sections
+  'Lesson 5.1 • Curiosity Hook',
+  'Lesson 5.1 • Intuitive Calibration: Massed Cramming vs Spaced Late-LTP Induction',
+  'Lesson 5.1 • Section 1: Donald Hebb & Bliss & Lømo’s Discovery of LTP',
+  'Lesson 5.1 • Section 2: The NMDA Receptor as a Molecular Coincidence Detector',
+  'Lesson 5.1 • Section 3: Early-LTP vs Late-LTP: The Molecular Boundary of Permanent Mastery',
+  'Lesson 5.1 • Synaptic Plasticity & LTP Induction Pipeline Diagram',
+  'Lesson 5.1 • Synaptic Plasticity Diagnostic Scenarios',
+  'Lesson 5.1 • Verification Assessment',
+  'Lesson 5.1 • Synaptic Consolidation Protocol',
+  'Lesson 5.1 • Long-Term Potentiation & Synaptic Plasticity Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -124,6 +136,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 5.1 anchors
+  if (lower.includes('bliss') || lower.includes('lomo') || lower.includes('lømo') || lower.includes('hebb') || lower.includes('perforant') || lower.includes('dentate gyrus') || lower.includes('tetanic')) {
+    return 'Lesson 5.1 • Section 1: Donald Hebb & Bliss & Lømo’s Discovery of LTP';
+  }
+  if (lower.includes('nmda') || lower.includes('coincidence detector') || lower.includes('magnesium') || lower.includes('mg2+') || lower.includes('camkii') || lower.includes('ampa insertion')) {
+    return 'Lesson 5.1 • Section 2: The NMDA Receptor as a Molecular Coincidence Detector';
+  }
+  if (lower.includes('early-ltp') || lower.includes('late-ltp') || lower.includes('creb') || lower.includes('synaptic tag') || lower.includes('mushroom spine') || (lower.includes('protein synthesis') && (lower.includes('synapse') || lower.includes('ltp') || lower.includes('spine')))) {
+    return 'Lesson 5.1 • Section 3: Early-LTP vs Late-LTP: The Molecular Boundary of Permanent Mastery';
+  }
+  if (lower.includes('synaptic plasticity & ltp induction pipeline diagram') || lower.includes('ltp induction diagram') || lower.includes('synaptic plasticity diagram')) {
+    return 'Lesson 5.1 • Synaptic Plasticity & LTP Induction Pipeline Diagram';
+  }
+  if (lower.includes('5.1') || lower.includes('synaptic consolidation protocol') || lower.includes('synaptic plasticity') || lower.includes('long-term potentiation')) {
+    return 'Lesson 5.1 • Section 2: The NMDA Receptor as a Molecular Coincidence Detector';
+  }
 
   // Match Lesson 4.2 anchors
   if (lower.includes('gloria mark') || lower.includes('23 minute') || lower.includes('resumption latency') || lower.includes('47 second') || lower.includes('compensatory stress') || lower.includes('screen-switching')) {
@@ -511,6 +540,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_5_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 5.1: "Long-Term Potentiation & Synaptic Plasticity — Glutamate cascades, dendritic spine remodeling, and Hebbian wiring".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical neuroscience of synaptic plasticity and molecular memory:
+     a) Donald Hebb & Bliss & Lømo: Donald Hebb (1949) postulated correlated firing strengthens connections ("cells that fire together wire together"). Terje Lømo and Timothy Bliss (1973) experimentally proved this in the rabbit hippocampus: high-frequency stimulation of the perforant path produced long-lasting enhancement of EPSPs in the dentate gyrus (Long-Term Potentiation). LTP exhibits input-specificity and cooperativity.
+     b) The NMDA Receptor Coincidence Detector: Functions as a biophysical AND gate requiring both presynaptic glutamate binding and postsynaptic depolarization (via AMPA receptors) to roughly -30 mV to electrostatically expel the blocking magnesium (Mg²⁺) ion. Unblocking permits calcium (Ca²⁺) influx, activating CaMKII, which autophosphorylates and inserts additional AMPA receptors into the postsynaptic density.
+     c) Early-LTP vs Late-LTP: Early-LTP (1–3 hours) relies on phosphorylation of existing AMPA receptors without new protein synthesis, decaying within hours; this explains why cramming produces short-lived recall that vanishes within 48 hours. Late-LTP (days to decades) requires nuclear translocation of PKA/MAPK, activating transcription factor CREB-1 to synthesize Plasticity-Related Proteins (PRPs).
+     d) Synaptic Tagging & Capture: Frey & Morris (1997) proved that stimulated synapses set temporary biochemical tags that capture cell-wide PRPs, physically remodeling dendritic spines into permanent mushroom spines.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to NMDA coincidence detection, calcium signaling, and structural consolidation.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -535,6 +589,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'distraction-economics') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_4_2;
+  }
+  if (lessonId === 'ltp-synaptic-plasticity') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_5_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -576,6 +633,10 @@ export const KNOWN_CONCEPTS = [
   'concept:distraction_recovery_latency',
   'concept:deep_work_chamber_architecture',
   'concept:attentional_commons_environmental_design',
+  // Lesson 5.1 Concepts
+  'concept:hebbian_synaptic_plasticity',
+  'concept:nmda_receptor_coincidence_detection',
+  'concept:early_vs_late_ltp_consolidation',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -610,6 +671,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 4.2 Misconceptions
   'misconception:instant_availability_equals_high_performance',
   'misconception:busyness_equals_productivity',
+  // Lesson 5.1 Misconceptions
+  'misconception:passive_exposure_induces_plasticity',
+  'misconception:cramming_creates_permanent_synaptic_change',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

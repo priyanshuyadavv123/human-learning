@@ -301,6 +301,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What physical or digital barriers could you establish right now that would make checking distractions require noticeable physical effort?',
     referencedSection: 'Lesson 4.2 • Section 3: The Attentional Commons & Choice Architecture (Matthew Crawford)',
   },
+  {
+    keywords: ['bliss and lomo', 'bliss & lomo', 'bliss and lømo', 'bliss & lømo', 'terje lomo', 'terje lømo', 'timothy bliss', 'hebbian', 'donald hebb', 'cells that fire together', 'perforant path', 'dentate gyrus', 'long-term potentiation', 'ltp'],
+    title: 'Donald Hebb & Bliss & Lømo’s Long-Term Potentiation',
+    summary: 'Correlated pre- and postsynaptic activity produces a persistent increase in synaptic transmission efficiency.',
+    takeaway: 'Hebbian learning states that correlated firing strengthens connections. Bliss & Lømo (1973) proved this in hippocampal synapses, defining Long-Term Potentiation (LTP).',
+    detailedResponse: 'Donald Hebb (1949) postulated that when an axon of cell A repeatedly assists in firing cell B, metabolic changes increase A’s efficiency in firing B. In 1973, Terje Lømo and Timothy Bliss experimentally proved this in the rabbit hippocampus: high-frequency electrical stimulation of the perforant path produced a sustained, multi-hour increase in excitatory postsynaptic potentials (EPSPs) in the dentate gyrus. LTP exhibits strict input specificity and requires cooperative presynaptic activation.',
+    socraticChallenge: 'How does the biological reality of physical synaptic potentiation challenge the belief that reading or listening passively can produce durable mastery?',
+    referencedSection: 'Lesson 5.1 • Section 1: Donald Hebb & Bliss & Lømo’s Discovery of LTP',
+  },
+  {
+    keywords: ['nmda receptor', 'coincidence detector', 'magnesium plug', 'magnesium block', 'mg2+', 'camkii', 'ampa insertion', 'calcium influx'],
+    title: 'The NMDA Receptor as a Molecular Coincidence Detector',
+    summary: 'The NMDA receptor operates as a biophysical AND gate, requiring glutamate binding and membrane depolarization to expel magnesium.',
+    takeaway: 'The NMDA receptor is a molecular coincidence detector. It requires presynaptic glutamate AND postsynaptic depolarization to eject Mg²⁺, triggering calcium influx and CaMKII activation.',
+    detailedResponse: 'The NMDA receptor functions as a biological logic gate: at resting membrane potential (-70 mV), an extracellular magnesium ion (Mg²⁺) electrostatically blocks the pore. Only when adjacent AMPA receptors depolarize the membrane to roughly -30 mV is the positively charged Mg²⁺ expelled. Calcium (Ca²⁺) then enters the dendritic spine, activating CaMKII. CaMKII autophosphorylates and drives fresh AMPA receptors into the postsynaptic density, doubling the synapse’s electrical sensitivity.',
+    socraticChallenge: 'Why does weak, passive studying fail to reach the -30 mV threshold needed to dislodge the magnesium plug from your NMDA receptors?',
+    referencedSection: 'Lesson 5.1 • Section 2: The NMDA Receptor as a Molecular Coincidence Detector',
+  },
+  {
+    keywords: ['early-ltp', 'late-ltp', 'creb', 'synaptic tagging', 'frey and morris', 'mushroom spine', 'cramming decay', 'protein synthesis'],
+    title: 'Early-LTP vs Late-LTP & The Synaptic Tagging Hypothesis',
+    summary: 'Early-LTP relies on temporary AMPA phosphorylation; Late-LTP requires nuclear CREB transcription and de novo protein synthesis for permanent spine remodeling.',
+    takeaway: 'Cramming produces Early-LTP (transient receptor phosphorylation that decays within 24 hours). True retention requires spaced reactivation to trigger nuclear CREB transcription (Late-LTP).',
+    detailedResponse: 'Early-LTP lasts 1 to 3 hours, relying solely on kinase phosphorylation of existing AMPA receptors without gene transcription. In contrast, Late-LTP lasts days to decades, requiring nuclear translocation of PKA/MAPK to phosphorylate transcription factor CREB-1. CREB orchestrates synthesis of Plasticity-Related Proteins (PRPs). According to Frey & Morris’s (1997) Synaptic Tagging hypothesis, stimulated spines set a temporary tag that captures these PRPs, physically remodeling dendritic spines into permanent mushroom spines.',
+    socraticChallenge: 'How does knowing that Early-LTP decays within 24 hours change your perspective on studying everything the night before a deadline?',
+    referencedSection: 'Lesson 5.1 • Section 3: Early-LTP vs Late-LTP: The Molecular Boundary of Permanent Mastery',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {
