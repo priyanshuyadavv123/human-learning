@@ -60,6 +60,10 @@ export const KNOWN_CONCEPTS = [
   'concept:proactive_vs_retroactive_interference',
   'concept:cue_overload_fan_effect',
   'concept:contextual_cue_discrimination_wickens',
+  // Lesson 7.2 Concepts
+  'concept:memory_reconsolidation_labilization',
+  'concept:boundary_conditions_prediction_error_reconsolidation',
+  'concept:schema_updating_updating_window',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -109,6 +113,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 7.1 Misconceptions
   'misconception:forgetting_is_passive_trace_decay',
   'misconception:back_to_back_similar_study_synergy',
+  // Lesson 7.2 Misconceptions
+  'misconception:retrieved_memories_are_immutable',
+  'misconception:reconsolidation_occurs_without_prediction_error',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

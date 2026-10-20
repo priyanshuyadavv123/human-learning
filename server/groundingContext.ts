@@ -172,6 +172,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 7.1 • Verification Assessment',
   'Lesson 7.1 • Interference Minimization Protocol',
   'Lesson 7.1 • Proactive and Retroactive Interference Overview',
+
+  // Lesson 7.2 Sections
+  'Lesson 7.2 • Curiosity Hook',
+  'Lesson 7.2 • Intuitive Calibration: Static Hardwiring vs Reconsolidation Updating',
+  'Lesson 7.2 • Section 1: Nader et al. (2000) & Synaptic Destabilization',
+  'Lesson 7.2 • Section 2: Boundary Conditions & Prediction Errors (Pedreira et al., 2004)',
+  'Lesson 7.2 • Section 3: The 4-Hour Opportunity Window: Overwriting Outdated Schemas',
+  'Lesson 7.2 • Reconsolidation & Synaptic Destabilization Pipeline Diagram',
+  'Lesson 7.2 • Schema Reconsolidation Diagnostic Scenarios',
+  'Lesson 7.2 • Verification Assessment',
+  'Lesson 7.2 • Prediction-Error Reconsolidation Protocol',
+  'Lesson 7.2 • Memory Reconsolidation & Updating Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -184,6 +196,20 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 7.2 anchors
+  if (lower.includes('7.2') || lower.includes('reconsolidation protocol') || lower.includes('karim nader') || lower.includes('schafe') || lower.includes('ledoux') || lower.includes('labilization') || lower.includes('ubiquitin') || lower.includes('proteasome')) {
+    return 'Lesson 7.2 • Section 1: Nader et al. (2000) & Synaptic Destabilization';
+  }
+  if (lower.includes('pedreira') || lower.includes('boundary conditions') || lower.includes('exton-mcguinness') || lower.includes('zero prediction error') || (lower.includes('prediction error') && (lower.includes('extinction') || lower.includes('destabilize') || lower.includes('boundary')))) {
+    return 'Lesson 7.2 • Section 2: Boundary Conditions & Prediction Errors (Pedreira et al., 2004)';
+  }
+  if (lower.includes('4-hour') || lower.includes('four-hour') || lower.includes('schiller') || lower.includes('monfils') || lower.includes('updating window') || lower.includes('overwriting outdated schemas') || lower.includes('opportunity window')) {
+    return 'Lesson 7.2 • Section 3: The 4-Hour Opportunity Window: Overwriting Outdated Schemas';
+  }
+  if (lower.includes('reconsolidation & synaptic destabilization pipeline diagram') || lower.includes('reconsolidation diagram') || lower.includes('destabilization diagram')) {
+    return 'Lesson 7.2 • Reconsolidation & Synaptic Destabilization Pipeline Diagram';
+  }
 
   // Match Lesson 7.1 anchors
   if (lower.includes('mcgeoch') || lower.includes('underwood') || lower.includes('proactive interference') || lower.includes('retroactive interference') || lower.includes('wixted') || lower.includes('trace decay') || lower.includes('pi vs ri')) {
@@ -781,6 +807,30 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_7_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 7.2: "Memory Reconsolidation & Updating — The fragile post-retrieval window for modifying old knowledge".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical neuroscience of memory reconsolidation and schema updating:
+     a) Karim Nader, Glenn Schafe, and Joseph LeDoux (2000): Retrieval is NOT a passive read-only operation. Retrieving a consolidated memory destabilizes its physical synaptic scaffolding via NMDA receptor-mediated calcium influx and ubiquitin-proteasome protein degradation into a fragile, plastic state ("labilization"). The memory trace requires de novo mRNA translation and protein synthesis over a 4–6 hour window to survive ("reconsolidation"). Blocking protein synthesis during this window permanently erases the trace.
+     b) Boundary Conditions & The Prediction Error Requirement (Pedreira et al., 2004; Exton-McGuinness et al., 2015): Memories do NOT destabilize upon every retrieval. Zero prediction error (retrieval matching expectation) leaves the trace securely locked. Prolonged non-reinforcement builds an inhibitory extinction trace. Reconsolidation is selectively triggered when retrieval coincides with a surprising Prediction Error (a discrepancy between expectation and reality).
+     c) The 4-Hour Post-Retrieval Opportunity Window (Monfils et al., 2009; Schiller et al., 2010): Updating old, entrenched misconceptions requires a 4-step sequence: (1) Elicit explicit commitment to the old schema via effortful retrieval; (2) Confront the learner with a calibrated prediction error to trigger labilization; (3) Introduce the corrective structural model while the synapses are malleable (within the 10-minute to 4-hour window); (4) Allow consolidation buffers so late-LTP locks the updated schema into long-term storage.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to reconsolidation, synaptic destabilization, prediction error boundary conditions, and schema updating.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -820,6 +870,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'proactive-retroactive-interference') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_7_1;
+  }
+  if (lessonId === 'reconsolidation-updating') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_7_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -881,6 +934,10 @@ export const KNOWN_CONCEPTS = [
   'concept:proactive_vs_retroactive_interference',
   'concept:cue_overload_fan_effect',
   'concept:contextual_cue_discrimination_wickens',
+  // Lesson 7.2 Concepts
+  'concept:memory_reconsolidation_labilization',
+  'concept:boundary_conditions_prediction_error_reconsolidation',
+  'concept:schema_updating_updating_window',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -930,6 +987,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 7.1 Misconceptions
   'misconception:forgetting_is_passive_trace_decay',
   'misconception:back_to_back_similar_study_synergy',
+  // Lesson 7.2 Misconceptions
+  'misconception:retrieved_memories_are_immutable',
+  'misconception:reconsolidation_occurs_without_prediction_error',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

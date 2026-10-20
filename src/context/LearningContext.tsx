@@ -173,6 +173,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-wixted-consolidation-retroactive': 'concept:proactive_vs_retroactive_interference',
     },
   },
+  'reconsolidation-updating': {
+    predictionConceptId: 'concept:memory_reconsolidation_labilization',
+    predictionMisconceptionId: 'misconception:retrieved_memories_are_immutable',
+    quizConceptMapping: {
+      'q1-nader-reconsolidation-discovery': 'concept:memory_reconsolidation_labilization',
+      'q2-pedreira-prediction-error-boundary': 'concept:boundary_conditions_prediction_error_reconsolidation',
+      'q3-temporal-window-schiller-monfils': 'concept:schema_updating_updating_window',
+      'q4-reconsolidation-vs-extinction-distinction': 'concept:memory_reconsolidation_labilization',
+    },
+  },
 };
 
 interface LearningContextType {

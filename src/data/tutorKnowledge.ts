@@ -167,7 +167,7 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     referencedSection: 'Lesson 2.1 • Section 2: Storage vs. Retrieval Strength',
   },
   {
-    keywords: ['desirable difficulty', 'reconsolidation', 'destabilization', 'labile', 'protein synthesis', 'dudai', 'nader'],
+    keywords: ['desirable difficulty', 'bjork difficulty', 'effortful retrieval difficulty', 'dudai', 'synaptic reconsolidation'],
     title: 'Desirable Difficulties & Synaptic Reconsolidation',
     summary: 'Effortful struggle destabilizes traces, triggering neuroplastic reconsolidation.',
     takeaway: 'Retrieving a memory transiently returns it to a plastic, labile state. Synaptic reconsolidation then re-stabilizes it with updated cues, cementing long-term mastery.',
@@ -438,6 +438,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     detailedResponse: 'Delos Wickens (1970) discovered the phenomenon of "Release from Proactive Inhibition." When learners memorize successive lists belonging to the same semantic category (e.g., fruit names), recall performance precipitously drops from ~90% on Trial 1 down to ~35% on Trial 3 due to accumulated proactive interference. However, on Trial 4, shifting categories to an unrelated domain (e.g., professions or chemistry terms) causes performance to immediately rebound to ~90%. This proves the memory trace was never lost or decayed—it was simply inaccessible due to cue discrimination failure. Shifting domains restores cue diagnosticity.',
     socraticChallenge: 'How can you apply Wickens’ release from proactive inhibition to sequence your daily study sessions?',
     referencedSection: 'Lesson 7.1 • Section 3: Contextual Cue Discrimination & Release from Proactive Inhibition',
+  },
+  // Lesson 7.2 Entries
+  {
+    keywords: ['nader', 'reconsolidation', 'labilization', 'synaptic destabilization', 'schafe', 'ledoux', 'ubiquitin', 'proteasome', 'protein synthesis'],
+    title: 'Nader et al. (2000) & Synaptic Destabilization (Reconsolidation)',
+    summary: 'Memory retrieval actively destabilizes physical synaptic scaffolds into a protein-synthesis-dependent labile state.',
+    takeaway: 'Retrieving an established memory destabilizes its synaptic connections into a labile state (Nader et al., 2000); retrieval is inherently a rewrite operation.',
+    detailedResponse: 'Karim Nader, Glenn Schafe, and Joseph LeDoux (2000) overturned the classical dogma that consolidated memories are permanent and immutable. When an established memory is actively retrieved, calcium influx through NMDA receptors activates the ubiquitin-proteasome degradation system, physically breaking down postsynaptic scaffolding proteins (Shank, GKAP). The trace becomes labile and malleable. To persist, the memory must undergo reconsolidation—a process requiring fresh mRNA transcription and de novo protein synthesis over a 4–6 hour window. If protein synthesis is blocked during this window, the memory trace is permanently wiped out.',
+    socraticChallenge: 'How does Nader’s discovery that retrieval destabilizes synapses challenge the intuitive metaphor of memory as an immutable video file?',
+    referencedSection: 'Lesson 7.2 • Section 1: Nader et al. (2000) & Synaptic Destabilization',
+  },
+  {
+    keywords: ['pedreira', 'prediction error', 'boundary conditions', 'exton-mcguinness', 'mismatch', 'labilize'],
+    title: 'Boundary Conditions for Reconsolidation: The Prediction Error Requirement',
+    summary: 'Memories only destabilize when retrieval is accompanied by an unexpected prediction error or discrepancy.',
+    takeaway: 'Memories only destabilize when surprised (Pedreira et al., 2004). Zero prediction error keeps the trace locked; calibrated discrepancy unlocks it.',
+    detailedResponse: 'Memories do not destabilize every time they are recalled. María Pedreira et al. (2004) and Exton-McGuinness et al. (2015) established the strict boundary conditions of reconsolidation: the memory trace only undergoes ubiquitin-mediated degradation if retrieval is accompanied by a Prediction Error (a mismatch between what the retrieved schema expects and what actually occurs). If retrieval matches expectations perfectly (zero prediction error), the trace remains in read-only mode and stays locked. If exposure is prolonged with zero reinforcement, extinction occurs (building a new competing inhibitory trace). Calibrated surprise is the essential key that unlocks existing schemas.',
+    socraticChallenge: 'Why must an educational challenge confront a learner with a surprising error signal rather than simple agreement to update their mental model?',
+    referencedSection: 'Lesson 7.2 • Section 2: Boundary Conditions & Prediction Errors (Pedreira et al., 2004)',
+  },
+  {
+    keywords: ['schiller', 'monfils', '4-hour', 'four-hour', 'window', 'schema updating', 'overwriting', 'unlearning', 'misconception'],
+    title: 'Schema Updating & The 4-Hour Post-Retrieval Opportunity Window',
+    summary: 'Delivering corrective models within the 4-hour post-retrieval window permanently incorporates new data into the original memory trace.',
+    takeaway: 'The 4-hour post-retrieval window allows corrective information to be incorporated directly into the labile trace, permanently updating the original schema.',
+    detailedResponse: 'Marie-Hélène Monfils (2009) and Daniela Schiller (2010) proved in animals and humans that presenting corrective information within the 10-minute to 4-hour window following prediction-error retrieval permanently rewrites the original memory trace. Rather than building a fragile competing trace that remains vulnerable to spontaneous recovery, delivering clear structural explanations while synapses are labile allows de novo protein synthesis to integrate the new knowledge directly into the original schema, permanently eliminating stubborn misconceptions.',
+    socraticChallenge: 'How can you structure deliberate practice sessions to exploit the 4-hour reconsolidation window when correcting technical misconceptions?',
+    referencedSection: 'Lesson 7.2 • Section 3: The 4-Hour Opportunity Window: Overwriting Outdated Schemas',
   },
 ];
 

@@ -111,6 +111,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'proactive-retroactive-interference';
     chapterId = 'ch-7-interference-reconsolidation';
+  } else if (
+    conceptId.startsWith('concept:memory_reconsolidation_') ||
+    conceptId.startsWith('concept:boundary_conditions_') ||
+    conceptId.startsWith('concept:schema_updating_')
+  ) {
+    lessonId = 'reconsolidation-updating';
+    chapterId = 'ch-7-interference-reconsolidation';
   }
 
   return {

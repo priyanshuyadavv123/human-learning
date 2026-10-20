@@ -69,6 +69,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'proactive-vs-retroactive-dynamics': <Repeat size={18} />,
   'cue-overload-and-the-fan-effect': <Network size={18} />,
   'mitigating-interference-through-context-discrimination': <RefreshCw size={18} />,
+  // Lesson 7.2 Tabs
+  'synaptic-destabilization-nader-discovery': <Sparkles size={18} />,
+  'boundary-conditions-prediction-error': <Eye size={18} />,
+  'four-hour-window-schema-updating': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

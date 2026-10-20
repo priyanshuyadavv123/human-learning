@@ -12,6 +12,7 @@ import { LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE } from './lesson5_2Data.ts';
 import { LESSON_SLOW_WAVE_SLEEP_REPLAY } from './lesson6_1Data.ts';
 import { LESSON_TARGETED_MEMORY_REACTIVATION } from './lesson6_2Data.ts';
 import { LESSON_INTERFERENCE_FORGETTING } from './lesson7_1Data.ts';
+import { LESSON_RECONSOLIDATION_UPDATING } from './lesson7_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -194,7 +195,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Memory Reconsolidation & Updating',
           subtitle: 'The fragile post-retrieval window for modifying old knowledge',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1145,6 +1146,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_SLOW_WAVE_SLEEP_REPLAY.id]: LESSON_SLOW_WAVE_SLEEP_REPLAY,
   [LESSON_TARGETED_MEMORY_REACTIVATION.id]: LESSON_TARGETED_MEMORY_REACTIVATION,
   [LESSON_INTERFERENCE_FORGETTING.id]: LESSON_INTERFERENCE_FORGETTING,
+  [LESSON_RECONSOLIDATION_UPDATING.id]: LESSON_RECONSOLIDATION_UPDATING,
 };
 
 export function getLessonById(id: string): Lesson {

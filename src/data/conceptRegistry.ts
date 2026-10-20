@@ -649,6 +649,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:back_to_back_similar_study_synergy',
     discrepancyPrompt: 'Previously you may have studied two highly similar programming frameworks or foreign languages back-to-back assuming they would synergize. Why does cognitive science prove that studying similar unmastered concepts back-to-back causes catastrophic interference unless explicitly differentiated?',
   },
+  'concept:memory_reconsolidation_labilization': {
+    conceptId: 'concept:memory_reconsolidation_labilization',
+    title: 'Memory Reconsolidation & Retrieval-Induced Plasticity (Nader et al., 2000)',
+    prompt: 'Explain the neurobiological mechanism of memory reconsolidation discovered by Nader, Schafe, and LeDoux (2000). Why does retrieval destabilize a previously consolidated memory trace into a protein-synthesis-dependent labile state?',
+    keyCriteria: [
+      'Cites Karim Nader, Glenn Schafe, and Joseph LeDoux (2000) landmark discovery',
+      'Explains that retrieval is not a passive read operation but renders traces malleable and fragile',
+      'Explains degradation of postsynaptic scaffolding proteins via ubiquitin-proteasome system',
+      'Explains the finite 4–6 hour reconsolidation window requiring de novo protein synthesis',
+    ],
+    canonicalAnswer: 'Nader, Schafe, and LeDoux (2000) overturned the dogma that consolidated memories are permanent and immutable. When a consolidated memory is actively retrieved, it enters a transient, labile (destabilized) state where synaptic scaffolding proteins are degraded by the ubiquitin-proteasome pathway. To persist, the memory must undergo reconsolidation—a process requiring fresh mRNA transcription and de novo protein synthesis over a 4–6 hour temporal window. If protein synthesis is blocked during this window, the memory trace is permanently erased or rewritten. Thus, memory retrieval is inherently a rewrite operation rather than a read-only query.',
+    lessonSectionAnchor: 'Lesson 7.2 • Section 1: Nader et al. (2000) & Synaptic Destabilization',
+    relatedMisconception: 'misconception:retrieved_memories_are_immutable',
+    discrepancyPrompt: 'Previously you may have imagined memory as a permanent video file on a hard drive that remains untouched whenever you play it. How does Nader’s discovery of reconsolidation prove that the very act of opening a memory destabilizes its physical synapses?',
+  },
+  'concept:boundary_conditions_prediction_error_reconsolidation': {
+    conceptId: 'concept:boundary_conditions_prediction_error_reconsolidation',
+    title: 'Boundary Conditions for Reconsolidation: The Prediction Error Requirement',
+    prompt: 'What are the strict boundary conditions that dictate whether retrieval triggers reconsolidation versus mere extinction (Pedreira et al., 2004; Exton-McGuinness et al., 2015), and why is a prediction error strictly required?',
+    keyCriteria: [
+      'Cites Pedreira et al. (2004) and Exton-McGuinness et al. (2015)',
+      'Explains the Prediction Error requirement: a discrepancy between expected outcome and actual feedback',
+      'Contrasts mere retrieval (zero prediction error → trace remains stable) with extinction (massive prolonged non-reinforcement → new inhibitory competing trace)',
+      'Explains optimal destabilization: moderate, surprising discrepancies trigger labilization and schema updating',
+    ],
+    canonicalAnswer: 'Memories do not destabilize every time they are retrieved. Pedreira et al. (2004) and Exton-McGuinness et al. (2015) identified strict boundary conditions: reconsolidation is triggered only when retrieval is accompanied by a Prediction Error (a mismatch between what the retrieved schema expects and what actually occurs). If retrieval matches expectations perfectly (zero prediction error), the trace remains stable and locked. If the cue is repeated endlessly with zero reinforcement, extinction occurs (building a new competing inhibitory trace rather than updating the original). Moderate, calibrated prediction error triggers NMDA-dependent destabilization, opening the biological window for updating.',
+    lessonSectionAnchor: 'Lesson 7.2 • Section 2: Boundary Conditions & Prediction Errors (Pedreira et al., 2004)',
+    relatedMisconception: 'misconception:reconsolidation_occurs_without_prediction_error',
+    discrepancyPrompt: 'Previously you may have assumed that retrieving a flashcard or concept always makes it vulnerable to being modified. Why is a surprising error signal or discrepancy necessary to unlock a memory trace for structural updating?',
+  },
+  'concept:schema_updating_updating_window': {
+    conceptId: 'concept:schema_updating_updating_window',
+    title: 'Schema Updating & The Clinical Post-Retrieval Opportunity Window',
+    prompt: 'How can educators and self-directed learners leverage the 4–6 hour post-retrieval reconsolidation window (Monfils et al., 2009; Schiller et al., 2010) to overwrite stubborn cognitive misconceptions and update outdated mental models?',
+    keyCriteria: [
+      'Cites Monfils et al. (2009) and Schiller et al. (2010) retrieval-extinction and updating paradigm',
+      'Explains the 4-to-6-hour temporal window before restabilization and protein synthesis lock the trace',
+      'Explains immediate presentation of corrective, high-fidelity information while the trace is destabilized',
+      'Explains how updating the original trace permanently eliminates misconceptions without creating competing inhibitory traces',
+    ],
+    canonicalAnswer: 'Monfils et al. (2009) and Schiller et al. (2010) demonstrated that activating a memory with a brief reminder and presenting novel, corrective information within the 10-minute to 4-hour window permanently incorporates new information into the original trace, rather than forming a fragile competing trace. To update stubborn misconceptions or outdated programming habits: (1) Force effortful retrieval to bring the old mental model into working memory; (2) Introduce a vivid discrepancy that generates a prediction error and destabilizes the trace; (3) Present the accurate mental model while synapses are labile; (4) Allow consolidation rest so late-LTP locks the updated schema into permanent storage.',
+    lessonSectionAnchor: 'Lesson 7.2 • Section 3: The 4-Hour Opportunity Window: Overwriting Outdated Schemas',
+    relatedMisconception: 'misconception:retrieved_memories_are_immutable',
+    discrepancyPrompt: 'Previously you may have attempted to correct a deep misconception by simply reading the right answer without first recalling your own mistaken belief. Why does reconsolidation explain why old misconceptions persist unless they are actively retrieved and destabilized first?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;
