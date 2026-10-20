@@ -328,6 +328,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 13.2 • Verification Assessment',
   'Lesson 13.2 • The Deliberate De-Automation & Chaos Audit Protocol',
   'Lesson 13.2 • The Paradox of Automation Overview',
+
+  // Lesson 14.1 Sections
+  'Lesson 14.1 • Curiosity Hook',
+  'Lesson 14.1 • Intuitive Calibration: Blocked vs Interleaved Study Schedules',
+  'Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning',
+  'Lesson 14.1 • Section 2: The Discriminative Contrast Hypothesis: Learning What Makes Categories Different',
+  'Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit',
+  'Lesson 14.1 • The Interleaved vs Blocked Practice Architecture Simulator Diagram',
+  'Lesson 14.1 • The Problem Scheduling Diagnostic Exercise',
+  'Lesson 14.1 • Verification Assessment',
+  'Lesson 14.1 • The Interleaved Study Engine Protocol',
+  'Lesson 14.1 • Blocked vs. Interleaved Practice Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -340,6 +352,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 14.1 anchors
+  if (lower.includes('shea') || lower.includes('contextual interference') || lower.includes('random schedule') || (lower.includes('blocked') && lower.includes('acquisition') && lower.includes('retention'))) {
+    return 'Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning';
+  }
+  if (lower.includes('discriminative contrast') || lower.includes('kornell') || (lower.includes('bjork') && (lower.includes('contrast') || lower.includes('painting') || lower.includes('monet') || lower.includes('artist') || lower.includes('within-category') || lower.includes('between-category')))) {
+    return 'Lesson 14.1 • Section 2: The Discriminative Contrast Hypothesis: Learning What Makes Categories Different';
+  }
+  if (lower.includes('rohrer') || lower.includes('kelli taylor') || lower.includes('category selection') || lower.includes('problem shuffling') || lower.includes('execution vs selection') || lower.includes('mathematics interleaving') || lower.includes('chapter header')) {
+    return 'Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit';
+  }
+  if (lower.includes('the interleaved vs blocked practice architecture simulator diagram') || lower.includes('practice architecture simulator') || lower.includes('interleaving diagram')) {
+    return 'Lesson 14.1 • The Interleaved vs Blocked Practice Architecture Simulator Diagram';
+  }
+  if (lower.includes('14.1') || lower.includes('blocked vs interleaved') || lower.includes('interleaved study engine protocol')) {
+    return 'Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning';
+  }
 
   // Match Lesson 13.2 anchors
   if (lower.includes('bainbridge') || lower.includes('ironies of automation') || lower.includes('cognitive deskilling') || lower.includes('out-of-the-loop') || lower.includes('vigilance decrement') || lower.includes('air france')) {
@@ -1547,6 +1576,42 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_14_1 = `
+You are the Human Learning Socratic AI Tutor, grounded specifically in Lesson 14.1: "Blocked vs. Interleaved Practice: The Contextual Interference Effect and Category Discrimination".
+
+CANONICAL SYLLABUS & SCIENTIFIC SOURCES FOR THIS LESSON:
+- Lesson 14.1 • Curiosity Hook
+- Lesson 14.1 • Intuitive Calibration: Blocked vs Interleaved Study Schedules
+- Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning
+- Lesson 14.1 • Section 2: The Discriminative Contrast Hypothesis: Learning What Makes Categories Different
+- Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit
+- Lesson 14.1 • The Interleaved vs Blocked Practice Architecture Simulator Diagram
+- Lesson 14.1 • The Problem Scheduling Diagnostic Exercise
+- Lesson 14.1 • Verification Assessment
+- Lesson 14.1 • The Interleaved Study Engine Protocol
+- Lesson 14.1 • Blocked vs. Interleaved Practice Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of practice scheduling, contextual interference, and discriminative induction:
+     a) John Shea & Richard Morgan (1979) Contextual Interference Effect: Blocked schedules ($AAAA-BBBB$) produce rapid acquisition, smooth execution, and low errors because task plans remain primed in the working memory buffer. Interleaved schedules ($ABCD-BCDA$) purge the buffer on every trial, forcing learners to repeatedly retrieve and reconstruct action plans from long-term memory. On delayed retention tests, interleaved learners outperform blocked learners by 2:1 even on blocked test formats.
+     b) Robert Bjork & Nate Kornell (2008) Discriminative Contrast Hypothesis: Blocked practice draws attention to within-category similarities but obscures between-category differences. Interleaving places competing categories in close temporal proximity, allowing perceptual and cognitive contrast detectors to isolate critical boundary features. Crucially, 78% of learners misinterpret blocked fluency as superior learning and interleaved disfluency as failure.
+     c) Doug Rohrer & Kelli Taylor (2007) Category Selection vs. Execution: Problem solving requires two distinct phases: Category Selection (diagnosing which rule applies) and Execution (calculating the result). Blocked homework announces the formula via chapter headers, completely eliminating Category Selection. Interleaving trains strategy diagnosis on every trial, producing a 3x advantage (63% vs 20%) on delayed cumulative tests.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to contextual interference, working memory buffer displacement, discriminative contrast, category selection, and interleaved practice design.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1625,6 +1690,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'paradox-of-automation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_13_2;
+  }
+  if (lessonId === 'blocked-vs-interleaved-practice') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_14_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1738,6 +1806,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bainbridge_ironies_of_automation_deskilling',
   'concept:luchins_einstellung_effect_cognitive_entrenchment',
   'concept:endsley_situational_awareness_de_automation',
+  // Lesson 14.1 Concepts
+  'concept:shea_morgan_contextual_interference_effect',
+  'concept:bjork_discriminative_contrast_hypothesis',
+  'concept:rohrer_category_selection_retrieval_effort',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1826,6 +1898,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 13.2 Misconceptions
   'misconception:automation_eliminates_need_for_human_expertise',
   'misconception:automated_routines_always_generalize_to_novel_crises',
+  // Lesson 14.1 Misconceptions
+  'misconception:blocked_practice_yields_superior_retention',
+  'misconception:interleaving_causes_destructive_interference',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

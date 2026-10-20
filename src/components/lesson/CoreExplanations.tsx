@@ -8,7 +8,8 @@ import {
   Info, 
   Check, 
   Sparkles,
-  Bookmark
+  Bookmark,
+  Layers
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 import type { ScientificStatus } from '../../types/learning.ts';
@@ -121,6 +122,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'bainbridge-ironies-of-automation': <Eye size={18} />,
   'einstellung-effect-cognitive-entrenchment': <Repeat size={18} />,
   'deliberate-de-automation-resilience': <RefreshCw size={18} />,
+  // Lesson 14.1 Tabs
+  'shea-morgan-contextual-interference': <Network size={18} />,
+  'discriminative-contrast-hypothesis': <Eye size={18} />,
+  'category-selection-vs-execution': <Layers size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -60,7 +60,8 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 5.5 (Lesson 13.1 The Three Stages of Skill Acquisition):** ACCEPTED (15/15 quality standard, 404/404 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Stage 5.6 (Lesson 13.2 The Paradox of Automation):** ACCEPTED (15/15 quality standard, 418/418 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 13 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 13.1, 13.2)
-  - **Stage 5.7 (Lesson 14.1 Blocked vs Interleaved Practice):** NEXT MILESTONE
+  - **Stage 5.7 (Lesson 14.1 Blocked vs Interleaved Practice):** ACCEPTED (15/15 quality standard, 432/432 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Stage 5.8 (Lesson 14.2 Varied Practice & Structural Invariance):** NEXT MILESTONE
 
 ---
 

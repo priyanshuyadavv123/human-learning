@@ -112,6 +112,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bainbridge_ironies_of_automation_deskilling',
   'concept:luchins_einstellung_effect_cognitive_entrenchment',
   'concept:endsley_situational_awareness_de_automation',
+  // Lesson 14.1 Concepts
+  'concept:shea_morgan_contextual_interference_effect',
+  'concept:bjork_discriminative_contrast_hypothesis',
+  'concept:rohrer_category_selection_retrieval_effort',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -200,6 +204,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 13.2 Misconceptions
   'misconception:automation_eliminates_need_for_human_expertise',
   'misconception:automated_routines_always_generalize_to_novel_crises',
+  // Lesson 14.1 Misconceptions
+  'misconception:blocked_practice_yields_superior_retention',
+  'misconception:interleaving_causes_destructive_interference',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

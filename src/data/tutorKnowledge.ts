@@ -792,6 +792,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you integrate deliberate manual drills into your automated workflows to keep your team’s mental models sharp?',
     referencedSection: 'Lesson 13.2 • Section 3: Deliberate De-Automation: Designing Cognitive Friction for Resilience',
   },
+  // Lesson 14.1 Entries
+  {
+    keywords: ['shea', 'morgan', 'contextual interference', 'blocked vs interleaved', 'random schedule', 'acquisition vs retention', 'buffer displacement'],
+    title: 'Shea & Morgan (1979) & The Contextual Interference Effect',
+    summary: 'Blocked practice creates rapid acquisition but poor delayed retention, while interleaved practice forces repeated reconstruction from long-term memory.',
+    takeaway: 'High contextual interference (interleaving) degrades immediate acquisition speed but doubles delayed retention by forcing working memory reconstruction (Shea & Morgan, 1979).',
+    detailedResponse: 'John Shea and Richard Morgan (1979) demonstrated the fundamental dissociation between acquisition performance and durable learning. Participants practicing complex tasks in blocked blocks (AAAA-BBBB) developed rapid, fluid execution because the task plan remained primed in working memory buffer. However, participants trained under randomized/interleaved schedules (ABCD-BCDA) suffered high latency during training, yet outperformed the blocked group by more than 2:1 on delayed retention tests. Interleaving purges the working memory buffer on every trial, forcing the learner to actively retrieve and reconstruct the solution plan from long-term memory—the essential driver of durable synaptic consolidation.',
+    socraticChallenge: 'Why does a study technique that makes you feel slow and error-prone during practice produce twice as much retention on delayed tests?',
+    referencedSection: 'Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning',
+  },
+  {
+    keywords: ['bjork', 'kornell', 'discriminative contrast', 'boundary features', 'painting styles', 'between-category', 'within-category'],
+    title: 'Bjork & Kornell (2008): The Discriminative Contrast Hypothesis',
+    summary: 'Interleaving competing categories highlights fine-grained boundary features that homogeneous blocked blocks keep invisible.',
+    takeaway: 'Blocked practice highlights within-category similarities; interleaving forces discriminative contrast between competing categories (Kornell & Bjork, 2008).',
+    detailedResponse: 'Nate Kornell and Robert Bjork (2008) tested whether spacing and interleaving benefit inductive category learning using landscape paintings across twelve artists. Blocked study allowed learners to notice what made Monet’s paintings similar to each other, but left them completely blind to the critical boundary features that separated Monet from Renoir. Interleaving juxtaposed different artists in close temporal proximity, acting as a perceptual contrast detector. Despite interleaved participants achieving vastly superior delayed classification (65% vs 50%), 78% of learners falsely believed blocked practice had been more effective—a striking demonstration of how processing fluency misleads metacognitive judgment.',
+    socraticChallenge: 'How does temporal proximity between competing categories allow your visual and cognitive systems to detect subtle diagnostic boundaries?',
+    referencedSection: 'Lesson 14.1 • Section 2: The Discriminative Contrast Hypothesis: Learning What Makes Categories Different',
+  },
+  {
+    keywords: ['rohrer', 'taylor', 'category selection', 'execution', 'problem shuffling', 'mathematics interleaving', 'chapter headers'],
+    title: 'Rohrer & Taylor (2007): Category Selection vs. Execution',
+    summary: 'Blocked practice eliminates the most demanding cognitive phase of problem solving: diagnosing which rule or algorithm applies.',
+    takeaway: 'Problem solving requires diagnosis (Category Selection) and calculation (Execution). Blocked practice bypasses diagnosis, causing delayed score collapse (Rohrer & Taylor, 2007).',
+    detailedResponse: 'Doug Rohrer and Kelli Taylor (2007) investigated how students learn mathematical problem solving across geometry and algebra. Authentic problem solving requires two distinct phases: (1) Category Selection (diagnosing which formula applies from subtle problem constraints) and (2) Execution (calculating the answer). Standard blocked textbook assignments announce the formula via the chapter header, completely eliminating Category Selection practice. In their study, blocked students scored 89% during homework but collapsed to 20% on the delayed cumulative test. Interleaved students scored 60% during homework but maintained 63% on the delayed test—a 315% relative advantage. Interleaving trains problem diagnosis on every single trial.',
+    socraticChallenge: 'Why do textbook chapter titles give away the hardest part of problem solving, and how can you strip that crutch during practice?',
+    referencedSection: 'Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

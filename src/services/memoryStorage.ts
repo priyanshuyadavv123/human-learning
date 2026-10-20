@@ -202,6 +202,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'paradox-of-automation';
     chapterId = 'ch-13-automaticity';
+  } else if (
+    conceptId.startsWith('concept:shea_morgan_') ||
+    conceptId.startsWith('concept:bjork_discriminative_') ||
+    conceptId.startsWith('concept:rohrer_category_')
+  ) {
+    lessonId = 'blocked-vs-interleaved-practice';
+    chapterId = 'ch-14-interleaving';
   }
 
   return {

@@ -25,6 +25,7 @@ import { LESSON_EDGE_OF_ABILITY_FEEDBACK } from './lesson12_1Data.ts';
 import { LESSON_EXPERT_MENTAL_REPRESENTATIONS } from './lesson12_2Data.ts';
 import { LESSON_FITTS_POSNER_STAGES } from './lesson13_1Data.ts';
 import { LESSON_PARADOX_OF_AUTOMATION } from './lesson13_2Data.ts';
+import { LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE } from './lesson14_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -371,7 +372,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Blocked vs. Interleaved Practice',
           subtitle: 'The contextual interference effect and category discrimination',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'varied-practice-transfer',
@@ -1171,6 +1172,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_EXPERT_MENTAL_REPRESENTATIONS.id]: LESSON_EXPERT_MENTAL_REPRESENTATIONS,
   [LESSON_FITTS_POSNER_STAGES.id]: LESSON_FITTS_POSNER_STAGES,
   [LESSON_PARADOX_OF_AUTOMATION.id]: LESSON_PARADOX_OF_AUTOMATION,
+  [LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE.id]: LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE,
 };
 
 export function getLessonById(id: string): Lesson {

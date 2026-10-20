@@ -1237,6 +1237,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:automation_eliminates_need_for_human_expertise',
     discrepancyPrompt: 'Previously you may have viewed manual drills as wasted time when automated scripts exist. How does Endsley’s situational awareness framework demonstrate that manual drills are essential for maintaining Level 2 comprehension and Level 3 projection?',
   },
+  'concept:shea_morgan_contextual_interference_effect': {
+    conceptId: 'concept:shea_morgan_contextual_interference_effect',
+    title: 'The Contextual Interference Effect (Shea & Morgan, 1979)',
+    prompt: 'Explain the Contextual Interference Effect discovered by Shea and Morgan (1979) and why immediate acquisition speed is an untrustworthy indicator of durable learning.',
+    keyCriteria: [
+      'Cites John Shea & Richard Morgan (1979) motor learning experiment',
+      'Contrasts blocked (AAAA-BBBB) with interleaved/random (ABCD-BCDA) practice schedules',
+      'Explains that blocked practice produces rapid acquisition but poor delayed retention',
+      'Explains working memory buffer displacement: interleaved items force repeated active retrieval and reconstruction of action plans from long-term memory',
+    ],
+    canonicalAnswer: 'Shea and Morgan (1979) demonstrated that the schedule of practice creates a profound dissociation between acquisition speed and delayed retention. In their study, participants learning complex motor tasks on a blocked schedule (all trials of A, then all of B, then C) acquired speed rapidly with low errors, while the interleaved/random group struggled, with high latency and variability. However, on a 10-day delayed retention test, the interleaved group outperformed the blocked group by more than 2 to 1 (even when tested on a blocked schedule). Under blocked practice, the solution plan remains active in the working memory buffer across trials, bypassing retrieval. Under interleaved practice, intervening tasks displace the buffer, forcing learners to repeatedly retrieve and reconstruct the action plan from long-term memory—the exact mechanism that consolidates permanent memory traces.',
+    lessonSectionAnchor: 'Lesson 14.1 • Section 1: The Contextual Interference Effect: Performance vs. Learning',
+    relatedMisconception: 'misconception:blocked_practice_yields_superior_retention',
+    discrepancyPrompt: 'Previously you may have believed that practicing one problem type repeatedly until you master it is the fastest way to learn. Why does Shea & Morgan’s contextual interference effect prove that rapid acquisition under blocked practice is merely an illusion of temporary working memory priming?',
+  },
+  'concept:bjork_discriminative_contrast_hypothesis': {
+    conceptId: 'concept:bjork_discriminative_contrast_hypothesis',
+    title: 'The Discriminative Contrast Hypothesis (Bjork & Kornell, 2008)',
+    prompt: 'Explain Robert Bjork and Nate Kornell’s (2008) Discriminative Contrast Hypothesis and how interleaving trains boundary-feature discrimination.',
+    keyCriteria: [
+      'Cites Nate Kornell & Robert Bjork (2008) painting categorization study',
+      'Explains that blocked study highlights within-category commonalities but conceals between-category boundaries',
+      'Explains that interleaving places competing categories in close temporal proximity, highlighting invariant contrastive features',
+      'Identifies the metacognitive reversal: learners misinterpret blocked fluency as mastery and interleaved disfluency as learning failure',
+    ],
+    canonicalAnswer: 'Robert Bjork and Nate Kornell (2008) formulated the Discriminative Contrast Hypothesis to explain why interleaving excels in perceptual and category learning. When studying categories in blocked succession (e.g., 6 paintings by Monet, then 6 by Renoir), the visual cognitive system identifies within-category commonalities, but remains blind to between-category differences. When categories are interleaved (Monet followed immediately by Renoir), the temporal juxtaposition acts as a contrast detector, highlighting the subtle, invariant boundary features that distinguish one category from another. Furthermore, Kornell and Bjork revealed a metacognitive paradox: 78% of learners believed blocked practice was superior because it felt fluent, while interleaving felt disfluent—even though interleaved study produced significantly higher delayed test scores.',
+    lessonSectionAnchor: 'Lesson 14.1 • Section 2: The Discriminative Contrast Hypothesis: Learning What Makes Categories Different',
+    relatedMisconception: 'misconception:blocked_practice_yields_superior_retention',
+    discrepancyPrompt: 'Previously you may have thought that studying one category at a time prevents confusion. Why does Bjork and Kornell’s discriminative contrast hypothesis show that without interleaving, you never learn the critical boundary features that distinguish confusable concepts?',
+  },
+  'concept:rohrer_category_selection_retrieval_effort': {
+    conceptId: 'concept:rohrer_category_selection_retrieval_effort',
+    title: 'Category Selection vs. Execution (Rohrer & Taylor, 2007)',
+    prompt: 'Why does blocked practice cause a catastrophic collapse on mathematics and algorithmic problems according to Doug Rohrer and Kelli Taylor (2007)?',
+    keyCriteria: [
+      'Cites Doug Rohrer & Kelli Taylor (2007) geometry/algebra problem shuffling study',
+      'Distinguishes Stage 1: Category Selection (diagnosis) from Stage 2: Execution (calculation)',
+      'Explains that blocked textbook exercises eliminate Category Selection because the chapter header reveals the formula',
+      'Details the empirical collapse: 89% vs 60% during homework reversed to 20% vs 63% on a one-week delayed cumulative test (a 3x advantage for interleaving)',
+    ],
+    canonicalAnswer: 'Doug Rohrer and Kelli Taylor (2007) demonstrated that quantitative problem solving consists of two distinct stages: (1) Category Selection (diagnosing which rule, formula, or law applies from raw problem constraints) and (2) Execution (carrying out the steps). In typical blocked textbook assignments, the chapter or section header pre-identifies the required formula. Consequently, students receive dozens of execution repetitions but zero diagnostic practice in category selection. In Rohrer and Taylor’s study, blocked students scored 89% on practice problems but collapsed to 20% on an unannounced delayed cumulative test. In contrast, interleaved students scored 60% during practice but maintained 63% on the delayed test—a greater than threefold relative superiority. Interleaving forces learners to retrieve and select the correct strategy on every single problem.',
+    lessonSectionAnchor: 'Lesson 14.1 • Section 3: Category Selection vs. Execution: The Mathematics & Problem-Solving Deficit',
+    relatedMisconception: 'misconception:blocked_practice_yields_superior_retention',
+    discrepancyPrompt: 'Previously you may have completed homework by doing all 20 problems at the end of Chapter 4. How does Rohrer & Taylor’s work show that the chapter title secretly robbed you of the hardest part of problem solving—learning how to diagnose what formula to use without a hint?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;
