@@ -1,9 +1,11 @@
 import React from 'react';
 import { Clock, Award, HelpCircle } from 'lucide-react';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
+import { useLearning } from '../../context/LearningContext.tsx';
 
 export const LessonHeader: React.FC = () => {
-  const lesson = LESSON_HOW_LEARNING_WORKS;
+  const { currentLesson } = useLearning();
+  const lesson = currentLesson;
+  const chapterNumber = lesson.number.split('.')[0] || '1';
 
   return (
     <div style={{ marginBottom: '24px' }}>
@@ -29,7 +31,7 @@ export const LessonHeader: React.FC = () => {
             border: '1px solid var(--accent-border)',
           }}
         >
-          CHAPTER 1 • LESSON {lesson.number}
+          CHAPTER {chapterNumber} • LESSON {lesson.number}
         </span>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>

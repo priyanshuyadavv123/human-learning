@@ -3,7 +3,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { 
   UserProgress, 
   LessonProgressState, 
-  ExerciseCategory 
+  ExerciseCategory,
+  Lesson 
 } from '../types/learning.ts';
 import type { 
   LearnerMemoryStoreV2, 
@@ -12,7 +13,8 @@ import type {
   LearnerSelfRating, 
   ExplicitConfidence, 
   DelayedReviewEvent, 
-  BaselineLessonEvidence 
+  BaselineLessonEvidence,
+  CognitiveMisconceptionId 
 } from '../types/memory.ts';
 import { 
   loadLearnerMemory, 
@@ -22,13 +24,44 @@ import {
   validateMemoryStoreSchema 
 } from '../services/memoryStorage.ts';
 import { scheduleNextReview } from '../services/spacedRetrieval.ts';
-import { LESSON_HOW_LEARNING_WORKS } from '../data/courseData.ts';
+import { getLessonById } from '../data/courseData.ts';
+
+interface LessonConceptMapping {
+  predictionConceptId: ConceptId;
+  predictionMisconceptionId: CognitiveMisconceptionId;
+  quizConceptMapping: Record<string, ConceptId>;
+}
+
+const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
+  'how-learning-actually-works': {
+    predictionConceptId: 'concept:testing_effect_retrieval_strength',
+    predictionMisconceptionId: 'misconception:rereading_fluency_illusion',
+    quizConceptMapping: {
+      'q1': 'concept:attention_serial_bottleneck',
+      'q2': 'concept:working_memory_capacity_limits',
+      'q3': 'concept:testing_effect_retrieval_strength',
+      'q4': 'concept:calibrated_feedback_prediction_error',
+    },
+  },
+  'illusion-of-competence': {
+    predictionConceptId: 'concept:fluency_illusion_recognition',
+    predictionMisconceptionId: 'misconception:recognition_equals_mastery',
+    quizConceptMapping: {
+      'q1-fluency-driver': 'concept:fluency_illusion_recognition',
+      'q2-desirable-difficulty': 'concept:generation_effect_reconstruction',
+      'q3-delayed-jol': 'concept:delayed_judgment_of_learning',
+      'q4-blank-sheet': 'concept:generation_effect_reconstruction',
+    },
+  },
+};
 
 interface LearningContextType {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
   activeLessonId: string;
   setActiveLessonId: (id: string) => void;
+  currentLesson: Lesson;
+  isLessonCompleted: (lessonId: string) => boolean;
   lessonState: LessonProgressState;
   isLeftSidebarOpen: boolean;
   toggleLeftSidebar: () => void;
@@ -249,6 +282,8 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  const currentLesson = getLessonById(activeLessonId);
+
   const currentLessonState: LessonProgressState = 
     userProgress.lessonStates[activeLessonId] || { ...defaultLessonState };
 
@@ -273,36 +308,48 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       predictionSubmitted: true,
     }));
 
-    const isEmpiricalWinner = optionId === 'opt-retrieval';
+    const winningOptionId = currentLesson.prediction.outcome.winningOptionId;
+    const isEmpiricalWinner = optionId === winningOptionId;
+    const mapping = LESSON_CONCEPT_MAPPINGS[activeLessonId] || LESSON_CONCEPT_MAPPINGS['how-learning-actually-works'];
+
     setLearnerMemory(prev => {
-      const existing = prev.baselineEvidence.find(b => b.sourceType === 'prediction');
+      const existing = prev.baselineEvidence.find(
+        b => b.sourceType === 'prediction' && b.conceptId === mapping.predictionConceptId
+      );
       if (existing) return prev;
 
       const newEv: BaselineLessonEvidence = {
-        id: `baseline-pred-${optionId}`,
-        conceptId: 'concept:testing_effect_retrieval_strength',
+        id: `baseline-pred-${activeLessonId}-${optionId}`,
+        conceptId: mapping.predictionConceptId,
         recordedAt: new Date().toISOString(),
         sourceType: 'prediction',
-        sourceItemId: optionId,
+        sourceItemId: `${activeLessonId}:${optionId}`,
         outcome: isEmpiricalWinner ? 'correct' : 'incorrect',
         explicitConfidence: isEmpiricalWinner ? 'medium' : 'high',
-        identifiedMisconception: isEmpiricalWinner ? undefined : 'misconception:rereading_fluency_illusion',
+        identifiedMisconception: isEmpiricalWinner ? undefined : mapping.predictionMisconceptionId,
         isDelayedRetrieval: false,
       };
 
-      const retrievalConcept = prev.conceptStates['concept:testing_effect_retrieval_strength'];
+      const retrievalConcept = prev.conceptStates[mapping.predictionConceptId];
+      if (!retrievalConcept) {
+        return {
+          ...prev,
+          baselineEvidence: [...prev.baselineEvidence, newEv],
+        };
+      }
+
       const activeMisconceptions = isEmpiricalWinner
         ? retrievalConcept.activeMisconceptions
-        : (retrievalConcept.activeMisconceptions.includes('misconception:rereading_fluency_illusion')
+        : (retrievalConcept.activeMisconceptions.includes(mapping.predictionMisconceptionId)
             ? retrievalConcept.activeMisconceptions
-            : [...retrievalConcept.activeMisconceptions, 'misconception:rereading_fluency_illusion' as const]);
+            : [...retrievalConcept.activeMisconceptions, mapping.predictionMisconceptionId]);
 
       return {
         ...prev,
         baselineEvidence: [...prev.baselineEvidence, newEv],
         conceptStates: {
           ...prev.conceptStates,
-          'concept:testing_effect_retrieval_strength': {
+          [mapping.predictionConceptId]: {
             ...retrievalConcept,
             stage: isEmpiricalWinner ? retrievalConcept.stage : 'reinforcing',
             hypercorrectionPending: !isEmpiricalWinner,
@@ -367,7 +414,7 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const submitQuiz = () => {
-    const questions = LESSON_HOW_LEARNING_WORKS.quiz.questions;
+    const questions = currentLesson.quiz.questions;
     const currentAnswers = currentLessonState.quizAnswers || {};
     
     let correctCount = 0;
@@ -378,7 +425,7 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     });
 
     const scorePercent = Math.round((correctCount / questions.length) * 100);
-    const passed = scorePercent >= LESSON_HOW_LEARNING_WORKS.quiz.passingScorePercent;
+    const passed = scorePercent >= currentLesson.quiz.passingScorePercent;
 
     updateCurrentLessonState(prev => ({
       ...prev,
@@ -389,12 +436,16 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLearnerMemory(prev => {
       const newEvidence: BaselineLessonEvidence[] = [];
       const nowIso = new Date().toISOString();
+      const mapping = LESSON_CONCEPT_MAPPINGS[activeLessonId] || LESSON_CONCEPT_MAPPINGS['how-learning-actually-works'];
+
       questions.forEach(q => {
         const userOpt = currentAnswers[q.id];
         const isCorrect = userOpt === q.correctOptionId;
+        const targetConceptId: ConceptId = mapping.quizConceptMapping[q.id] || 'concept:working_memory_capacity_limits';
+
         newEvidence.push({
-          id: `baseline-quiz-${q.id}`,
-          conceptId: 'concept:working_memory_capacity_limits',
+          id: `baseline-quiz-${q.id}-${Date.now()}`,
+          conceptId: targetConceptId,
           recordedAt: nowIso,
           sourceType: 'quiz_question',
           sourceItemId: `${q.id}:${userOpt || 'unanswered'}`,
@@ -472,6 +523,8 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         toggleTheme,
         activeLessonId,
         setActiveLessonId,
+        currentLesson,
+        isLessonCompleted: (lessonId: string) => !!userProgress.lessonStates[lessonId]?.isCompleted,
         lessonState: currentLessonState,
         isLeftSidebarOpen,
         toggleLeftSidebar: () => setLeftSidebarOpen(p => !p),

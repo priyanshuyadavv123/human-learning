@@ -8,6 +8,7 @@ import { useLearning } from '../../context/LearningContext.tsx';
 
 export const CompletionBanner: React.FC = () => {
   const { 
+    currentLesson,
     lessonState, 
     completeLesson, 
   } = useLearning();
@@ -66,7 +67,7 @@ export const CompletionBanner: React.FC = () => {
               marginBottom: '6px',
             }}
           >
-            {isCompleted ? 'Lesson 1.1 Complete: Core Principles Verified' : 'Complete Lesson 1.1: How Learning Actually Works'}
+            {isCompleted ? `Lesson ${currentLesson.number} Complete: Core Principles Verified` : `Complete Lesson ${currentLesson.number}: ${currentLesson.title}`}
           </h2>
 
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>

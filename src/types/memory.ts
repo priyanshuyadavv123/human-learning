@@ -9,6 +9,9 @@ export const KNOWN_CONCEPTS = [
   'concept:schema_chunking_consolidation',
   'concept:testing_effect_retrieval_strength',
   'concept:calibrated_feedback_prediction_error',
+  'concept:fluency_illusion_recognition',
+  'concept:generation_effect_reconstruction',
+  'concept:delayed_judgment_of_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -19,6 +22,8 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:video_recorder_memory_myth',
   'misconception:rereading_fluency_illusion',
   'misconception:feedback_avoidance_confirmation_bias',
+  'misconception:recognition_equals_mastery',
+  'misconception:ease_of_processing_heuristic',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

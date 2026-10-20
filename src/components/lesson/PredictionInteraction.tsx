@@ -6,23 +6,21 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 
 export const PredictionInteraction: React.FC = () => {
-  const { lessonState, submitPrediction } = useLearning();
-  const predictionData = LESSON_HOW_LEARNING_WORKS.prediction;
+  const { currentLesson, lessonState, submitPrediction } = useLearning();
+  const predictionData = currentLesson.prediction;
 
-  const [selectedOption, setSelectedOption] = useState<string>(
-    lessonState.predictionAnswer || ''
-  );
+  const [selectedOption, setSelectedOption] = useState<string>('');
 
   const isSubmitted = lessonState.predictionSubmitted;
   const activeAnswer = lessonState.predictionAnswer || selectedOption;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedOption) return;
-    submitPrediction(selectedOption);
+    const answer = activeAnswer;
+    if (!answer) return;
+    submitPrediction(answer);
   };
 
   return (

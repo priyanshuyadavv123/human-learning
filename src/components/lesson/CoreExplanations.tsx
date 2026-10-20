@@ -11,7 +11,6 @@ import {
   Bookmark
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 import type { ScientificStatus } from '../../types/learning.ts';
 
 const iconsMap: Record<string, React.ReactNode> = {
@@ -20,6 +19,9 @@ const iconsMap: Record<string, React.ReactNode> = {
   'long-term-memory': <Network size={18} />,
   'retrieval-practice': <Repeat size={18} />,
   'calibrated-feedback': <RefreshCw size={18} />,
+  'perceptual-fluency-trap': <Eye size={18} />,
+  'generation-effect-mechanics': <Repeat size={18} />,
+  'metacognitive-monitoring-jol': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
@@ -49,9 +51,11 @@ function getBadgeProps(status: ScientificStatus) {
 }
 
 export const CoreExplanations: React.FC = () => {
-  const { lessonState, setExplanationTab } = useLearning();
-  const explanations = LESSON_HOW_LEARNING_WORKS.coreExplanations;
-  const activeTabId = lessonState.activeExplanationTab || explanations[0].id;
+  const { currentLesson, lessonState, setExplanationTab } = useLearning();
+  const explanations = currentLesson.coreExplanations;
+  const activeTabId = lessonState.activeExplanationTab && explanations.some(e => e.id === lessonState.activeExplanationTab)
+    ? lessonState.activeExplanationTab
+    : explanations[0].id;
 
   const activeExplanation = explanations.find(e => e.id === activeTabId) || explanations[0];
   const badge = getBadgeProps(activeExplanation.scientificStatus);

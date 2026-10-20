@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import Groq from 'groq-sdk';
 import { 
-  TUTOR_SYSTEM_INSTRUCTION, 
+  getTutorSystemInstruction,
   KNOWN_LESSON_SECTIONS, 
   KNOWN_CONCEPTS,
   KNOWN_MISCONCEPTIONS,
@@ -392,7 +392,8 @@ export async function handleTutorChatRequest(
 
   // Assemble messages array: system instruction + pedagogical context directive + previous turns + current user message
   const contextDirective = formatLearnerContextDirective(validation.data.learnerContext);
-  const systemInstruction = TUTOR_SYSTEM_INSTRUCTION + contextDirective;
+  const baseInstruction = getTutorSystemInstruction(validation.data.lessonId);
+  const systemInstruction = baseInstruction + contextDirective;
 
   const messages: Array<{
     role: 'system' | 'user' | 'assistant';

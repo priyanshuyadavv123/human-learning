@@ -9,17 +9,17 @@ import {
   ShieldAlert
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 
 export const QuizSection: React.FC = () => {
   const { 
+    currentLesson,
     lessonState, 
     setQuizAnswer, 
     submitQuiz, 
     retakeQuiz 
   } = useLearning();
 
-  const quiz = LESSON_HOW_LEARNING_WORKS.quiz;
+  const quiz = currentLesson.quiz;
   const userAnswers = lessonState.quizAnswers || {};
   const isSubmitted = lessonState.quizSubmitted;
   const score = lessonState.quizScore;

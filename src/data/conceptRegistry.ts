@@ -71,4 +71,48 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:feedback_avoidance_confirmation_bias',
     discrepancyPrompt: 'Previously you may have thought errors should be avoided during learning. How does making and confronting a high-confidence error with feedback enhance retention?',
   },
+  'concept:fluency_illusion_recognition': {
+    conceptId: 'concept:fluency_illusion_recognition',
+    title: 'The Ease-of-Processing Heuristic & Fluency Illusion',
+    prompt: 'Explain why reviewing code or reading textbook notes feels like complete mastery in the moment, but fails completely on an unassisted test.',
+    keyCriteria: [
+      'Identifies the ease-of-processing / perceptual fluency heuristic (Koriat, 1993)',
+      'Distinguishes recognition (passive stimulus verification) from unassisted recall (generative retrieval)',
+      'Explains that visual comprehension circuits require near-zero generative effort',
+    ],
+    canonicalAnswer: 'When reading familiar text or annotated code, visual and linguistic cortex circuits process the syntax effortlessly. The brain misattributes this high perceptual fluency to personal memory storage (the Ease-of-Processing Heuristic). However, recognition only confirms that sensory input matches an existing trace, whereas real-world problem solving requires generative recall from partial cues without external scaffolding.',
+    lessonSectionAnchor: 'Lesson 1.2 • Section 1: The Perceptual Fluency Trap',
+    relatedMisconception: 'misconception:recognition_equals_mastery',
+    discrepancyPrompt: 'Previously you may have assumed that if a solution makes total sense while reading, you have mastered it. How does perceptual fluency trick your metacognitive monitoring system?',
+  },
+  'concept:generation_effect_reconstruction': {
+    conceptId: 'concept:generation_effect_reconstruction',
+    title: 'The Generation Effect & Desirable Difficulties',
+    prompt: 'Why does attempting to reconstruct code or explanations on a blank sheet produce significantly more durable learning than reviewing reference solutions?',
+    keyCriteria: [
+      'Cites or explains the Generation Effect (Slamecka & Graf, 1978)',
+      'Explains that unassisted generation forces semantic path proliferation and prefrontal search',
+      'Distinguishes temporary retrieval strength from long-term storage strength (Bjork)',
+    ],
+    canonicalAnswer: 'Self-generating an answer from cue fragments forces the prefrontal cortex to search associative semantic networks, creating multiple alternative retrieval pathways and triggering synaptic consolidation (the Generation Effect). While passive reading increases short-term retrieval fluency, effortful generative struggle builds permanent long-term storage strength.',
+    lessonSectionAnchor: 'Lesson 1.2 • Section 2: The Generation Effect & Desirable Difficulty',
+    relatedMisconception: 'misconception:ease_of_processing_heuristic',
+    discrepancyPrompt: 'Previously you may have felt that getting stuck during study indicates poor learning. Why does the cognitive effort of unassisted generation produce superior retention?',
+  },
+  'concept:delayed_judgment_of_learning': {
+    conceptId: 'concept:delayed_judgment_of_learning',
+    title: 'Delayed Judgments of Learning (JOLs) & Calibration',
+    prompt: 'Why are Judgments of Learning assessed immediately after study almost completely uncorrelated with real exam performance, and how does a delay fix this calibration gap?',
+    keyCriteria: [
+      'Explains that immediate JOLs reflect temporary working-memory and perceptual recency traces',
+      'Explains that delaying evaluation allows working-memory buffers to clear',
+      'References the Delayed JOL Effect (Nelson & Dunlosky, 1991)',
+    ],
+    canonicalAnswer: 'Immediate Judgments of Learning (JOLs) are contaminated by short-term working memory and perceptual recency, yielding near-zero correlation with actual retention. Delaying self-evaluation allows working memory to flush, so that self-testing measures genuine long-term retrieval capability, dramatically calibrating metacognitive accuracy.',
+    lessonSectionAnchor: 'Lesson 1.2 • Section 3: Metacognitive Calibration & Delayed JOLs',
+    relatedMisconception: 'misconception:recognition_equals_mastery',
+    discrepancyPrompt: 'Previously you may have evaluated your understanding right after finishing a reading. Why does testing yourself after a delay provide a far more honest signal of mastery?',
+  },
 };
+
+export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

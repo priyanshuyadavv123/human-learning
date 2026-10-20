@@ -49,7 +49,7 @@ function isConceptDue(nextReviewDueAt: string): boolean {
 }
 
 export const AITutorPanel: React.FC = () => {
-  const { isTutorOpen, setTutorOpen, learnerMemory } = useLearning();
+  const { isTutorOpen, setTutorOpen, learnerMemory, activeLessonId } = useLearning();
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
@@ -138,7 +138,7 @@ export const AITutorPanel: React.FC = () => {
         recentOutcome: learnerMemory?.delayedReviews?.slice(-1)[0]?.evaluatedOutcome,
       };
 
-      const result = await queryTutor(trimmed, history, 'how-learning-actually-works', learnerContext);
+      const result = await queryTutor(trimmed, history, activeLessonId, learnerContext);
 
       const tutorMsg: DialogueMessage = {
         id: generateMsgId('tutor'),

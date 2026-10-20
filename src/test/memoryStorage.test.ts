@@ -20,7 +20,7 @@ describe('Memory Storage & Migration Engine', () => {
   });
 
   describe('createInitialMemoryStore', () => {
-    it('initializes store with schemaVersion 2 and all 5 canonical concepts', () => {
+    it('initializes store with schemaVersion 2 and all canonical concepts', () => {
       const store = createInitialMemoryStore('2026-10-19T00:00:00.000Z');
       expect(store.schemaVersion).toBe(2);
       expect(store.baselineEvidence).toEqual([]);
@@ -112,7 +112,7 @@ describe('Memory Storage & Migration Engine', () => {
       const loaded = loadLearnerMemory();
       expect(loaded).toBeDefined();
       expect(loaded.schemaVersion).toBe(2);
-      expect(Object.keys(loaded.conceptStates).length).toBe(5);
+      expect(Object.keys(loaded.conceptStates).length).toBe(KNOWN_CONCEPTS.length);
     });
 
     it('recovers safely when V2 store has invalid schema version', () => {

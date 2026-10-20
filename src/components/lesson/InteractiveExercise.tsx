@@ -8,18 +8,18 @@ import {
   BrainCircuit
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 import type { ExerciseCategory } from '../../types/learning.ts';
 
 export const InteractiveExercise: React.FC = () => {
   const { 
+    currentLesson,
     lessonState, 
     setExerciseAnswer, 
     submitExercise, 
     resetExercise 
   } = useLearning();
 
-  const exercise = LESSON_HOW_LEARNING_WORKS.exercise;
+  const exercise = currentLesson.exercise;
   const userAnswers = lessonState.exerciseAnswers || {};
   const isSubmitted = lessonState.exerciseSubmitted;
 

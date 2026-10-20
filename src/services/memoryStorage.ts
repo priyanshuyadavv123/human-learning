@@ -14,9 +14,12 @@ export const LEGACY_STORAGE_KEY_V1 = 'human_learning_platform_progress_v1';
 export const BACKUP_STORAGE_KEY_V1 = 'human_learning_progress_v1_backup';
 
 export function createDefaultConceptState(conceptId: ConceptId, nowIso: string): ConceptReviewState {
+  const isLesson1_2 = conceptId.startsWith('concept:fluency_') || 
+                      conceptId.startsWith('concept:generation_') || 
+                      conceptId.startsWith('concept:delayed_judgment');
   return {
     conceptId,
-    lessonId: 'how-learning-actually-works',
+    lessonId: isLesson1_2 ? 'illusion-of-competence' : 'how-learning-actually-works',
     chapterId: 'ch-1-architecture',
     stage: 'untested',
     reviewIntervalDays: 1,
@@ -125,6 +128,20 @@ export function loadLearnerMemory(nowIso = new Date().toISOString()): LearnerMem
     const rawV2 = localStorage.getItem(MEMORY_STORAGE_KEY_V2);
     if (rawV2) {
       const parsed = JSON.parse(rawV2);
+      // Auto-backfill any newly introduced curriculum concepts into existing V2 stores
+      if (parsed && parsed.schemaVersion === 2 && parsed.conceptStates && typeof parsed.conceptStates === 'object') {
+        let missingFound = false;
+        for (const cKey of KNOWN_CONCEPTS) {
+          if (!parsed.conceptStates[cKey]) {
+            parsed.conceptStates[cKey] = createDefaultConceptState(cKey, parsed.lastActiveAt || nowIso);
+            missingFound = true;
+          }
+        }
+        if (missingFound) {
+          saveLearnerMemory(parsed);
+        }
+      }
+
       const validation = validateMemoryStoreSchema(parsed);
       if (validation.valid && validation.store) {
         return validation.store;
@@ -232,7 +249,7 @@ export function validateMemoryStoreSchema(data: unknown): {
   for (const key of KNOWN_CONCEPTS) {
     const c = concepts[key] as Record<string, unknown> | undefined;
     if (!c) {
-      return { valid: false, error: `Missing required concept state for: ${key}` };
+      return { valid: false, error: `Missing required concept state for ${key}.` };
     }
     if (typeof c.reviewIntervalDays !== 'number' || c.reviewIntervalDays < 1) {
       return { valid: false, error: `Invalid reviewIntervalDays for concept ${key}. Must be >= 1.` };

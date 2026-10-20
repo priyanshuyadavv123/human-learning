@@ -5,16 +5,16 @@ import {
   Check
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 
 export const PracticalTask: React.FC = () => {
   const { 
+    currentLesson,
     lessonState, 
     setPracticalAnswer, 
     completePracticalTask 
   } = useLearning();
 
-  const task = LESSON_HOW_LEARNING_WORKS.practicalTask;
+  const task = currentLesson.practicalTask;
   const userAnswers = lessonState.practicalAnswers || {};
   const isCompleted = lessonState.practicalCompleted;
 

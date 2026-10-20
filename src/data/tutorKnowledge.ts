@@ -112,6 +112,24 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Next time you encounter a compiler bug, pause for 60 seconds. Can you predict the root cause before searching the error message?',
     referencedSection: 'Lesson 1.1 • Section 6 (Practical Task)',
   },
+  {
+    keywords: ['generation', 'generation effect', 'slamecka', 'desirable difficulty', 'bjork', 'storage strength', 'retrieval strength'],
+    title: 'The Generation Effect & Desirable Difficulties',
+    summary: 'Self-generated information is retained significantly better than passive reading.',
+    takeaway: 'Generating words, code, or solutions from memory creates deeper neural traces than reading them, even when the generation process feels effortful and halting.',
+    detailedResponse: 'First demonstrated by Slamecka & Graf (1978), the generation effect proves that active cognitive production stimulates deeper semantic encoding. Under Robert Bjork’s New Theory of Disuse, effortful generation under challenging retrieval conditions simultaneously boosts current retrieval strength and long-term storage strength.',
+    socraticChallenge: 'How can you replace your next passive reading task with an active generative recall prompt?',
+    referencedSection: 'Lesson 1.2 • Section 2: The Generation Effect & Desirable Difficulty',
+  },
+  {
+    keywords: ['jol', 'judgments of learning', 'judgment of learning', 'delayed jol', 'metacognitive', 'calibration', 'nelson', 'dunlosky', 'blank sheet', 'blank-sheet'],
+    title: 'Metacognitive Calibration & Delayed JOLs',
+    summary: 'Immediate confidence ratings are deeply distorted by working memory recency.',
+    takeaway: 'Never trust immediate self-assessments right after studying. Introduce a delay of several minutes to clear working memory and test genuine long-term retrieval.',
+    detailedResponse: 'Nelson & Dunlosky (1991) proved that immediate Judgments of Learning (JOLs) measure short-term working memory and perceptual recency rather than long-term storage. By introducing a delay before self-assessing, working memory buffers clear, forcing the brain to attempt uncued long-term retrieval and yielding highly accurate metacognitive calibration.',
+    socraticChallenge: 'When you finish reading a technical article, what would happen if you waited 10 minutes before asking yourself if you truly understand it?',
+    referencedSection: 'Lesson 1.2 • Section 3: Metacognitive Calibration & Delayed JOLs',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

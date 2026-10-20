@@ -5,21 +5,20 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
 
 export const LearningProcessDiagram: React.FC = () => {
-  const { lessonState, inspectDiagramStage } = useLearning();
-  const diagram = LESSON_HOW_LEARNING_WORKS.diagram;
+  const { currentLesson, lessonState, inspectDiagramStage } = useLearning();
+  const diagram = currentLesson.diagram;
 
-  const [activeStageId, setActiveStageId] = useState<string>(
-    diagram.stages[1].id // Default to Attention Gate
-  );
+  const [selectedStageId, setSelectedStageId] = useState<string | null>(null);
 
   const inspectedList = lessonState.inspectedDiagramStages || [];
-  const activeStage = diagram.stages.find(s => s.id === activeStageId) || diagram.stages[0];
+  const activeStage = (selectedStageId && diagram.stages.find(s => s.id === selectedStageId)) 
+    || diagram.stages[0];
+  const activeStageId = activeStage?.id;
 
   const handleSelectStage = (id: string) => {
-    setActiveStageId(id);
+    setSelectedStageId(id);
     inspectDiagramStage(id);
   };
 

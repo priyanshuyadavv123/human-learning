@@ -16,7 +16,7 @@ export const SidebarNav: React.FC = () => {
     setLeftSidebarOpen,
     activeLessonId, 
     setActiveLessonId, 
-    lessonState,
+    isLessonCompleted,
     progressPercent,
     dueReviewsCount,
     setReviewModalOpen,
@@ -205,7 +205,7 @@ export const SidebarNav: React.FC = () => {
                   <div style={{ marginLeft: '12px', paddingLeft: '8px', borderLeft: '1px solid var(--border-subtle)', marginTop: '4px' }}>
                     {chapter.lessons.map((lesson) => {
                       const isActive = activeLessonId === lesson.id;
-                      const isComplete = lesson.id === 'how-learning-actually-works' && lessonState.isCompleted;
+                      const isComplete = isLessonCompleted(lesson.id);
 
                       if (!lesson.isAvailable) {
                         // Clean, quiet locked lesson row without badge clutter

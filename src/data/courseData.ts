@@ -1,4 +1,5 @@
 import type { Course, Lesson } from '../types/learning.ts';
+import { LESSON_ILLUSION_OF_COMPETENCE } from './lesson1_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -6,6 +7,7 @@ export const PRIMARY_COURSE: Course = {
   subtitle: 'An evidence-grounded engineering manual for the human brain',
   description: 'Understand how biological neural systems acquire, consolidate, index, and retrieve knowledge—and how to construct durable learning systems based on real cognitive science.',
   chapters: [
+    // PART 1: The Biological & Cognitive Architecture of Learning (Chapters 1–4)
     {
       id: 'ch-1-architecture',
       number: 1,
@@ -26,7 +28,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Illusion of Competence',
           subtitle: 'Why recognition feels identical to mastery (and how to break it)',
           readingTimeMinutes: 12,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'cognitive-load-schema',
@@ -82,6 +84,570 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Personal Learning Operating System',
           subtitle: 'Synthesizing retrieval, interleaving, and project-based execution',
           readingTimeMinutes: 20,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-4-attention-executive',
+      number: 4,
+      title: 'Attention, Focus & Executive Function',
+      description: 'Managing the frontal-striatal attention gate, preventing cognitive fragmentation, and orchestrating deep work.',
+      lessons: [
+        {
+          id: 'attention-serial-control',
+          number: '4.1',
+          title: 'The Serial Bottleneck & Attentional Control',
+          subtitle: 'Anterior cingulate gating and task-switching residue economics',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'distraction-economics',
+          number: '4.2',
+          title: 'Distraction Economics & Deep Work Protocols',
+          subtitle: 'Defending working memory from constant micro-interruptions',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 2: Memory Consolidation, Sleep & Neural Plasticity (Chapters 5–7)
+    {
+      id: 'ch-5-consolidation',
+      number: 5,
+      title: 'Synaptic & Systems Consolidation',
+      description: 'How short-term hippocampal traces are transformed into permanent neocortical schemas.',
+      lessons: [
+        {
+          id: 'ltp-synaptic-plasticity',
+          number: '5.1',
+          title: 'Long-Term Potentiation & Synaptic Plasticity',
+          subtitle: 'Glutamate cascades, dendritic spine remodeling, and Hebbian wiring',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'hippocampal-neocortical-dialogue',
+          number: '5.2',
+          title: 'Hippocampal-Neocortical Dialogue',
+          subtitle: 'System-level migration from temporary index to distributed network',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-6-sleep-replay',
+      number: 6,
+      title: 'Sleep, Replay & Offline Learning',
+      description: 'The neurophysiology of slow-wave sleep, sharp-wave ripples, and sleep-dependent memory stabilization.',
+      lessons: [
+        {
+          id: 'slow-wave-sleep-replay',
+          number: '6.1',
+          title: 'Slow-Wave Sleep & Neural Replay',
+          subtitle: 'Compressed time-scale firing sequences in the sleeping brain',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'targeted-memory-reactivation',
+          number: '6.2',
+          title: 'Targeted Memory Reactivation & Rest Cycles',
+          subtitle: 'Strategic wakeful rest intervals and memory reactivation triggers',
+          readingTimeMinutes: 14,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-7-interference-reconsolidation',
+      number: 7,
+      title: 'Forgetting, Interference & Memory Reconsolidation',
+      description: 'Why forgetting is an adaptive indexing optimization, and how memories destabilize upon retrieval.',
+      lessons: [
+        {
+          id: 'proactive-retroactive-interference',
+          number: '7.1',
+          title: 'Proactive and Retroactive Interference',
+          subtitle: 'Cue overload, associative competition, and memory protection',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'reconsolidation-updating',
+          number: '7.2',
+          title: 'Memory Reconsolidation & Updating',
+          subtitle: 'The fragile post-retrieval window for modifying old knowledge',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 3: Schema Construction, Mental Models & Concept Formation (Chapters 8–11)
+    {
+      id: 'ch-8-chunking-schemas',
+      number: 8,
+      title: 'Schema Induction & Chunking',
+      description: 'Organizing disparate facts into unified mental structures that bypass working memory constraints.',
+      lessons: [
+        {
+          id: 'chunking-mechanics',
+          number: '8.1',
+          title: 'The Mechanics of Chunking',
+          subtitle: 'Compressing complex relational networks into single cognitive units',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'hierarchical-knowledge-representation',
+          number: '8.2',
+          title: 'Hierarchical Knowledge Representation',
+          subtitle: 'Building trees, graphs, and ontological maps of domain concepts',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-9-analogy-bridging',
+      number: 9,
+      title: 'Analogy, Metaphor & Conceptual Bridging',
+      description: 'Transferring structural relationships across domains using Gentner structure-mapping theory.',
+      lessons: [
+        {
+          id: 'structure-mapping-analogy',
+          number: '9.1',
+          title: 'Structure-Mapping & Analogical Transfer',
+          subtitle: 'Ignoring surface features to bind relational deep structures',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'abstraction-ladders',
+          number: '9.2',
+          title: 'Abstraction Ladders & Mental Models',
+          subtitle: 'Moving dynamically between concrete instances and universal laws',
+          readingTimeMinutes: 14,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-10-dual-coding',
+      number: 10,
+      title: 'Dual Coding & Multimodal Representation',
+      description: 'Combining verbal-propositional and non-verbal spatial representations for durable mental models.',
+      lessons: [
+        {
+          id: 'paivio-dual-coding',
+          number: '10.1',
+          title: "Paivio's Dual Coding Theory",
+          subtitle: 'Simultaneous verbal and visual mental representation pathways',
+          readingTimeMinutes: 14,
+          isAvailable: false,
+        },
+        {
+          id: 'diagrammatic-reasoning',
+          number: '10.2',
+          title: 'Spatial and Diagrammatic Reasoning',
+          subtitle: 'External visual representations as cognitive co-processors',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-11-categorization',
+      number: 11,
+      title: 'Categorization & Dimensional Analysis',
+      description: 'How biological minds carve reality into categories using prototypes, exemplars, and boundary features.',
+      lessons: [
+        {
+          id: 'prototypes-vs-exemplars',
+          number: '11.1',
+          title: 'Prototypes vs. Exemplars',
+          subtitle: 'Statistical central tendencies versus specific remembered instances',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'boundary-cases-isolation',
+          number: '11.2',
+          title: 'Feature Isolation & Boundary Testing',
+          subtitle: 'Stress-testing mental models on edge cases and ambiguous inputs',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 4: Deliberate Practice, Skill Acquisition & Motor Learning (Chapters 12–15)
+    {
+      id: 'ch-12-deliberate-practice',
+      number: 12,
+      title: "Ericsson’s Deliberate Practice Framework",
+      description: 'The science of expert performance: stepping outside the comfort zone with targeted mental representations.',
+      lessons: [
+        {
+          id: 'edge-of-ability-feedback',
+          number: '12.1',
+          title: 'The Edge of Ability & Immediate Feedback',
+          subtitle: 'Designing practice regimens that target specific sub-skill deficits',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+        {
+          id: 'expert-mental-representations',
+          number: '12.2',
+          title: 'Mental Representations in Expert Performance',
+          subtitle: 'How grandmasters and elite engineers perceive structural patterns',
+          readingTimeMinutes: 20,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-13-automaticity',
+      number: 13,
+      title: 'Proceduralization & Automaticity',
+      description: 'From cognitive friction to autonomous execution: the Fitts & Posner skill progression model.',
+      lessons: [
+        {
+          id: 'fitts-posner-stages',
+          number: '13.1',
+          title: 'The Three Stages of Skill Acquisition',
+          subtitle: 'Cognitive, associative, and autonomous phases of proceduralization',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'paradox-of-automation',
+          number: '13.2',
+          title: 'The Paradox of Automation',
+          subtitle: 'Why automated routines degrade flexibility and how to de-automate',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-14-interleaving',
+      number: 14,
+      title: 'Interleaving & Varied Practice',
+      description: 'Why mixing related problem types feels worse during practice but produces vastly superior discrimination.',
+      lessons: [
+        {
+          id: 'blocked-vs-interleaved-practice',
+          number: '14.1',
+          title: 'Blocked vs. Interleaved Practice',
+          subtitle: 'The contextual interference effect and category discrimination',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'varied-practice-transfer',
+          number: '14.2',
+          title: 'Varied Practice & Structural Invariance',
+          subtitle: 'Preventing over-fitting to narrow study conditions',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-15-error-driven',
+      number: 15,
+      title: 'Error-Driven Learning & Failure Analysis',
+      description: 'The cognitive power of productive struggle: leveraging pre-mortems, error journals, and generation failures.',
+      lessons: [
+        {
+          id: 'productive-failure-generation',
+          number: '15.1',
+          title: 'Productive Failure & Generation Effects',
+          subtitle: 'Failing before instruction primes the brain for deeper encoding',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'error-journaling-protocols',
+          number: '15.2',
+          title: 'The Error Journaling Protocol',
+          subtitle: 'Systematic classification and root-cause post-mortems of learning bugs',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 5: Problem Solving, Transfer & Creative Synthesis (Chapters 16–19)
+    {
+      id: 'ch-16-transfer',
+      number: 16,
+      title: 'Near and Far Transfer of Learning',
+      description: 'The holy grail of education: applying knowledge acquired in one context to entirely foreign domains.',
+      lessons: [
+        {
+          id: 'specificity-of-transfer',
+          number: '16.1',
+          title: 'The Specificity of Transfer Problem',
+          subtitle: "Thorndike's identical elements and why general transfer is rare",
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'conditions-for-far-transfer',
+          number: '16.2',
+          title: 'Conditions for Far Transfer',
+          subtitle: 'Deep structural abstraction, multiple contexts, and schema decontextualization',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-17-heuristics',
+      number: 17,
+      title: 'Heuristics, Algorithms & Problem Decomposition',
+      description: 'Cognitive operators for ill-structured domains: means-end analysis, working backward, and sub-goaling.',
+      lessons: [
+        {
+          id: 'means-end-working-backward',
+          number: '17.1',
+          title: 'Working Backward & Means-End Analysis',
+          subtitle: 'Navigating problem search spaces when the forward path is opaque',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'subgoal-labeling-scaffolding',
+          number: '17.2',
+          title: 'Sub-Goal Labeling & Scaffolding',
+          subtitle: 'Breaking complex problems into independently solvable cognitive chunks',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-18-biases-epistemic',
+      number: 18,
+      title: 'Cognitive Biases & Epistemic Traps in Learning',
+      description: 'Overcoming Dunning-Kruger calibration curves, confirmation bias, and the sunk cost of failed study techniques.',
+      lessons: [
+        {
+          id: 'dunning-kruger-calibration',
+          number: '18.1',
+          title: 'Overconfidence & Epistemic Calibration',
+          subtitle: 'Dunning-Kruger curves and constructing objective calibration mirrors',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+        {
+          id: 'sunk-cost-study-biases',
+          number: '18.2',
+          title: 'Confirmation Bias & Sunk Cost in Study Methods',
+          subtitle: 'Abandoning familiar but empirically bankrupt learning rituals',
+          readingTimeMinutes: 14,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-19-creative-insight',
+      number: 19,
+      title: 'Creative Insight, Incubation & Lateral Synthesis',
+      description: 'The neurobiology of the "Aha!" moment: default mode network incubation, relaxation, and associative search.',
+      lessons: [
+        {
+          id: 'incubation-default-mode',
+          number: '19.1',
+          title: 'Incubation & Unconscious Associative Search',
+          subtitle: 'Default mode network activation during mind-wandering and rest',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'combinatorial-play-synthesis',
+          number: '19.2',
+          title: 'Associative Combinatorics & Lateral Synthesis',
+          subtitle: 'Cross-pollinating disparate mental models to forge novel solutions',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 6: Motivation, Emotion & the Bio-Energetics of Mastery (Chapters 20–22)
+    {
+      id: 'ch-20-motivation-drive',
+      number: 20,
+      title: 'Dopamine, Anticipation & Intrinsic Drive',
+      description: 'The neurobiology of motivation: phasic vs tonic dopamine, reward prediction errors, and self-determination.',
+      lessons: [
+        {
+          id: 'dopamine-reward-prediction',
+          number: '20.1',
+          title: 'Reward Prediction Errors in Motivation',
+          subtitle: 'How the brain calibrates drive based on progress and anticipation',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'self-determination-theory',
+          number: '20.2',
+          title: 'Self-Determination in Autonomous Mastery',
+          subtitle: 'Autonomy, competence, and relatedness as intrinsic fuel',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-21-stress-performance',
+      number: 21,
+      title: 'Stress, Arousal & Cognitive Performance',
+      description: 'The Yerkes-Dodson inverted-U curve: managing cortisol, test anxiety, and cognitive appraisals.',
+      lessons: [
+        {
+          id: 'yerkes-dodson-cortisol',
+          number: '21.1',
+          title: 'The Yerkes-Dodson Law & Cortisol Dynamics',
+          subtitle: 'How acute stress narrows attention while chronic stress impairs LTP',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'emotion-appraisal-regulation',
+          number: '21.2',
+          title: 'Cognitive Reappraisal & High-Stakes Performance',
+          subtitle: 'Reframing physiological arousal from threat to challenge state',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-22-identity-mindset',
+      number: 22,
+      title: 'Identity, Self-Efficacy & Growth Orientation',
+      description: "Albert Bandura's self-efficacy mechanisms and attribution retraining for long-term intellectual perseverance.",
+      lessons: [
+        {
+          id: 'bandura-self-efficacy',
+          number: '22.1',
+          title: "Bandura's Self-Efficacy Mechanisms",
+          subtitle: 'Mastery experiences, vicarious modeling, and emotional regulation',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'attribution-retraining-mindset',
+          number: '22.2',
+          title: 'Attribution Retraining & Belief Systems',
+          subtitle: 'Attributing struggle to strategy and effort rather than fixed talent',
+          readingTimeMinutes: 15,
+          isAvailable: false,
+        },
+      ],
+    },
+
+    // PART 7: Meta-Learning, Systems Design & Lifetime Mastery (Chapters 23–26)
+    {
+      id: 'ch-23-syllabus-engineering',
+      number: 23,
+      title: 'Syllabus Engineering & Curriculum Deconstruction',
+      description: 'Deconstructing complex engineering domains into directed acyclic dependency graphs (DAGs).',
+      lessons: [
+        {
+          id: 'first-principles-domain-mapping',
+          number: '23.1',
+          title: 'First-Principles Domain Mapping',
+          subtitle: 'Extracting irreducible core concepts from noisy industry documentation',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+        {
+          id: 'dependency-graph-sequencing',
+          number: '23.2',
+          title: 'Prerequisite Dependency Graphs',
+          subtitle: 'Sequencing learning to avoid cognitive bottlenecks and circular dependencies',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-24-external-scaffolding',
+      number: 24,
+      title: 'Tooling, Note-Taking & External Cognitive Scaffolding',
+      description: 'The Extended Mind thesis: building external second brains and bidirectional graph notes without the collector fallacy.',
+      lessons: [
+        {
+          id: 'extended-mind-zettelkasten',
+          number: '24.1',
+          title: 'External Memory Systems & Graph Notes',
+          subtitle: 'Bidirectional linking, atomic notes, and avoiding passive hoarding',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+        {
+          id: 'digital-tooling-without-hoarding',
+          number: '24.2',
+          title: 'Digital Tooling without Passive Hoarding',
+          subtitle: 'Designing external systems that force synthesis rather than storage',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-25-social-protege',
+      number: 25,
+      title: 'Social Learning, Peer Review & the Protégé Effect',
+      description: 'Learning by teaching: externalizing mental models, adversarial collaboration, and peer blind-spot audits.',
+      lessons: [
+        {
+          id: 'protege-effect-teaching',
+          number: '25.1',
+          title: 'The Protégé Effect: Learning by Teaching',
+          subtitle: 'Why preparing to teach forces rigorous structural reconciliation',
+          readingTimeMinutes: 16,
+          isAvailable: false,
+        },
+        {
+          id: 'adversarial-peer-review',
+          number: '25.2',
+          title: 'Adversarial Collaboration & Peer Calibration',
+          subtitle: 'Using peer review and debate to shatter shared illusions of competence',
+          readingTimeMinutes: 18,
+          isAvailable: false,
+        },
+      ],
+    },
+    {
+      id: 'ch-26-lifetime-architecture',
+      number: 26,
+      title: 'The Lifetime Learning Architecture',
+      description: 'Longitudinal spaced repetition over decades: knowledge half-life and constructing your personal mastery engine.',
+      lessons: [
+        {
+          id: 'longitudinal-spaced-scheduling',
+          number: '26.1',
+          title: 'Longitudinal Spaced Scheduling over Decades',
+          subtitle: 'Managing knowledge retention intervals extending to 10+ years',
+          readingTimeMinutes: 20,
+          isAvailable: false,
+        },
+        {
+          id: 'personal-mastery-synthesis',
+          number: '26.2',
+          title: 'The Synthesis Project: Your Personal Mastery Engine',
+          subtitle: 'Architecting an enduring, self-evolving system for lifelong cognitive mastery',
+          readingTimeMinutes: 24,
           isAvailable: false,
         },
       ],
@@ -551,3 +1117,13 @@ export const LESSON_HOW_LEARNING_WORKS: Lesson = {
     ],
   },
 };
+
+export const ALL_LESSONS: Record<string, Lesson> = {
+  [LESSON_HOW_LEARNING_WORKS.id]: LESSON_HOW_LEARNING_WORKS,
+  [LESSON_ILLUSION_OF_COMPETENCE.id]: LESSON_ILLUSION_OF_COMPETENCE,
+};
+
+export function getLessonById(id: string): Lesson {
+  return ALL_LESSONS[id] || LESSON_HOW_LEARNING_WORKS;
+}
+
