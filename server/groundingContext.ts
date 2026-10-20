@@ -220,6 +220,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 9.1 • Verification Assessment',
   'Lesson 9.1 • Structure-Mapping & Analogical Encoding Protocol',
   'Lesson 9.1 • Structure-Mapping & Analogical Transfer Overview',
+
+  // Lesson 9.2 Sections
+  'Lesson 9.2 • Curiosity Hook',
+  'Lesson 9.2 • Intuitive Calibration: High-Level Theory vs Bi-directional Mobility',
+  'Lesson 9.2 • Section 1: S.I. Hayakawa: The Ladder of Abstraction & Vertical Mobility',
+  'Lesson 9.2 • Section 2: Craik & Johnson-Laird: Mental Models as Internal Simulation Engines',
+  'Lesson 9.2 • Section 3: Bret Victor: Up and Down the Ladder of Abstraction in Systems Design',
+  'Lesson 9.2 • The Vertical Abstraction Ladder & Mental Simulation Architecture Diagram',
+  'Lesson 9.2 • Abstraction Ladder & Mental Simulation Diagnostic Scenarios',
+  'Lesson 9.2 • Verification Assessment',
+  'Lesson 9.2 • The Vertical Ladder Traversal & Mental Simulation Protocol',
+  'Lesson 9.2 • Abstraction Ladders & Mental Models Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -232,6 +244,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 9.2 anchors
+  if (lower.includes('hayakawa') || lower.includes('ladder of abstraction') || lower.includes('abstraction ladder') || lower.includes('dead-level abstracting') || lower.includes('dead-level concreteness') || lower.includes('vertical mobility')) {
+    return 'Lesson 9.2 • Section 1: S.I. Hayakawa: The Ladder of Abstraction & Vertical Mobility';
+  }
+  if (lower.includes('craik') || lower.includes('johnson-laird') || lower.includes('johnson laird') || lower.includes('mental model') || lower.includes('internal simulation') || lower.includes('principle of truth') || lower.includes('counterfactual simulation')) {
+    return 'Lesson 9.2 • Section 2: Craik & Johnson-Laird: Mental Models as Internal Simulation Engines';
+  }
+  if (lower.includes('bret victor') || (lower.includes('victor') && (lower.includes('parameter sweep') || lower.includes('explorable') || lower.includes('ladder of abstraction')))) {
+    return 'Lesson 9.2 • Section 3: Bret Victor: Up and Down the Ladder of Abstraction in Systems Design';
+  }
+  if (lower.includes('the vertical abstraction ladder & mental simulation architecture diagram') || lower.includes('vertical abstraction ladder diagram') || lower.includes('mental simulation diagram')) {
+    return 'Lesson 9.2 • The Vertical Abstraction Ladder & Mental Simulation Architecture Diagram';
+  }
+  if (lower.includes('9.2') || lower.includes('abstraction ladder protocol') || lower.includes('mental simulation protocol')) {
+    return 'Lesson 9.2 • Section 1: S.I. Hayakawa: The Ladder of Abstraction & Vertical Mobility';
+  }
 
   // Match Lesson 9.1 anchors
   if (lower.includes('gentner') && (lower.includes('systematicity') || lower.includes('structure-mapping') || lower.includes('structure mapping') || lower.includes('relational predicate') || lower.includes('smt'))) {
@@ -992,6 +1021,30 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_9_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 9.2: "Abstraction Ladders & Mental Models — Moving dynamically between concrete instances and universal laws".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of abstraction levels, mental models, and simulation:
+     a) S.I. Hayakawa (1939) Ladder of Abstraction: Thinking traverses a continuum from physical particulars (Rung 0, sensory ground, bytes, hardware) to high-level principles (Rung 3, universal axioms, theorems). Intellectual dysfunction arises from "dead-level abstracting" (living in lofty buzzwords divorced from physical facts) or "dead-level concreteness" (drowning in isolated raw facts without organizing schemas). True mastery is fluid vertical mobility.
+     b) Kenneth Craik (1943) & Philip Johnson-Laird (1983) Mental Models: Human reasoning does not use formal logical calculus; instead, the brain constructs internal structural analogs of reality that run counterfactual "what-if" simulations. Crucially, the "Principle of Truth" means mental models naturally represent only what is true or explicit, creating profound cognitive blindness for omissions, silent packet drops, and non-events.
+     c) Bret Victor (2011) Dynamic Abstraction Coupling: Synchronously linking concrete time-series behavior with high-level abstract curves via interactive parameter sweeps eliminates working memory translation taxes and enables direct perceptual intuition of mathematical laws.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to abstraction ladders, mental simulations, the principle of truth, and vertical grounding.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1043,6 +1096,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'structure-mapping-analogy') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_9_1;
+  }
+  if (lessonId === 'abstraction-ladders') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_9_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1120,6 +1176,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gentner_structure_mapping_systematicity',
   'concept:gick_holyoak_analogical_retrieval_transfer',
   'concept:analogical_encoding_mutual_alignment',
+  // Lesson 9.2 Concepts
+  'concept:hayakawa_abstraction_ladder_vertical_mobility',
+  'concept:craik_johnson_laird_mental_models_simulation',
+  'concept:bret_victor_dynamic_abstraction_coupling',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1181,6 +1241,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 9.1 Misconceptions
   'misconception:single_example_sufficient_for_transfer',
   'misconception:analogies_are_literal_identities',
+  // Lesson 9.2 Misconceptions
+  'misconception:theory_alone_creates_operational_mastery',
+  'misconception:mental_models_are_passive_definitions',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -85,6 +85,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'gentner-structure-mapping-systematicity': <Network size={18} />,
   'gick-holyoak-convergence-analogical-transfer': <Repeat size={18} />,
   'analogical-encoding-gentner-comparison': <Sparkles size={18} />,
+  // Lesson 9.2 Tabs
+  'hayakawa-ladder-of-abstraction-mobility': <Network size={18} />,
+  'craik-johnson-laird-mental-models-simulation': <Cpu size={18} />,
+  'bret-victor-dynamic-abstraction-explorable-explanations': <Sparkles size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

@@ -16,6 +16,7 @@ import { LESSON_RECONSOLIDATION_UPDATING } from './lesson7_2Data.ts';
 import { LESSON_CHUNKING_MECHANICS } from './lesson8_1Data.ts';
 import { LESSON_HIERARCHICAL_KNOWLEDGE } from './lesson8_2Data.ts';
 import { LESSON_STRUCTURE_MAPPING_ANALOGY } from './lesson9_1Data.ts';
+import { LESSON_ABSTRACTION_LADDERS } from './lesson9_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -247,8 +248,8 @@ export const PRIMARY_COURSE: Course = {
           number: '9.2',
           title: 'Abstraction Ladders & Mental Models',
           subtitle: 'Moving dynamically between concrete instances and universal laws',
-          readingTimeMinutes: 14,
-          isAvailable: false,
+          readingTimeMinutes: 15,
+          isAvailable: true,
         },
       ],
     },
@@ -1153,6 +1154,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_CHUNKING_MECHANICS.id]: LESSON_CHUNKING_MECHANICS,
   [LESSON_HIERARCHICAL_KNOWLEDGE.id]: LESSON_HIERARCHICAL_KNOWLEDGE,
   [LESSON_STRUCTURE_MAPPING_ANALOGY.id]: LESSON_STRUCTURE_MAPPING_ANALOGY,
+  [LESSON_ABSTRACTION_LADDERS.id]: LESSON_ABSTRACTION_LADDERS,
 };
 
 export function getLessonById(id: string): Lesson {

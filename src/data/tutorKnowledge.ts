@@ -549,6 +549,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What two superficially unrelated problems from your past work can you place side-by-side right now to extract a common relational architecture?',
     referencedSection: 'Lesson 9.1 • Section 3: Analogical Encoding: Mutual Alignment & Relational Schema Induction',
   },
+  {
+    keywords: ['hayakawa', 'ladder of abstraction', 'abstraction ladder', 'dead-level abstracting', 'dead-level concreteness', 'vertical mobility', 'bessie the cow'],
+    title: 'S.I. Hayakawa: The Ladder of Abstraction & Vertical Mobility',
+    summary: 'Mastery requires rapid vertical navigation between ground-level physical sensory invariants and summit-level universal generalizations.',
+    takeaway: 'Intellectual pathology occurs when thinking stalls in dead-level abstracting (pure buzzwords) or dead-level concreteness (raw noise). True mastery is fluid vertical agility.',
+    detailedResponse: 'S.I. Hayakawa (1939) formulated the Ladder of Abstraction to explain human semantic clarity. Thinking sits on a vertical spectrum: from concrete physical reality (Rung 0, raw bytes, socket buffers) to operational patterns (Rungs 1–2) and universal axioms (Rung 3, CAP theorem, conservation laws). Intellectual dysfunction arises from "dead-level abstracting" (living in lofty jargon detached from physical execution) or "dead-level concreteness" (drowning in raw logs without higher-order organizing principles). Cognitive mastery requires fluid vertical agility: climbing up to induce universal laws, and climbing down to reality-test theories against concrete physical invariants.',
+    socraticChallenge: 'When you explain your technical architecture, can you immediately descend to the raw log line or network packet that proves your highest-level theory?',
+    referencedSection: 'Lesson 9.2 • Section 1: S.I. Hayakawa: The Ladder of Abstraction & Vertical Mobility',
+  },
+  {
+    keywords: ['craik', 'johnson-laird', 'mental model', 'internal simulation', 'principle of truth', 'counterfactual simulation', 'runnable model'],
+    title: 'Craik & Johnson-Laird: Mental Models as Internal Simulation Engines',
+    summary: 'The mind reasons through internal structural simulations rather than formal logic, with a dangerous blind spot for omitted non-events.',
+    takeaway: 'Mental models are runnable prefrontal simulators that test "what-if" counterfactuals, but inherently suffer from blindness to silent omissions and non-events.',
+    detailedResponse: 'Kenneth Craik (1943) and Philip Johnson-Laird (1983) demonstrated that human reasoning operates through "mental models"—dynamic internal structural analogs of reality that run counterfactual simulations. A true mental model functions as a prefrontal test rig, allowing thinkers to evaluate interventions before taking real-world risks. However, Johnson-Laird’s "Principle of Truth" shows that working memory naturally represents only explicit true events, leaving omissions, silent drops, and absent signals unmodeled. Debugging complex distributed systems requires deliberately injecting non-events into mental simulations.',
+    socraticChallenge: 'In your last major production incident, what silent non-event or omitted response did your initial mental model fail to simulate?',
+    referencedSection: 'Lesson 9.2 • Section 2: Craik & Johnson-Laird: Mental Models as Internal Simulation Engines',
+  },
+  {
+    keywords: ['bret victor', 'victor', 'dynamic abstraction', 'parameter sweep', 'explorable explanations', 'interactive coupling', 'synchronous coupling'],
+    title: 'Bret Victor: Up and Down the Ladder of Abstraction in Systems Design',
+    summary: 'Synchronously coupling concrete time-series simulations with abstract curves eliminates working memory translation taxes and enables direct perceptual intuition.',
+    takeaway: 'Dynamically coupling concrete sensory feedback with abstract equations enables the visual cortex to directly perceive mathematical laws and phase transitions.',
+    detailedResponse: 'Bret Victor (2011) showed that traditional static teaching forces working memory to perform grueling mental translations between abstract equations and physical consequences. By synchronously coupling concrete simulations with high-level abstract representations, interactive tools eliminate this cognitive translation tax. When a thinker scrubs a parameter dynamically across a domain, the visual cortex directly perceives non-linear bifurcations, phase shifts, and systemic limits in real time. This bridges sensory perception and mathematical law, enabling thinkers to construct robust, vertically grounded mental models that seamlessly link the bottom and top of the abstraction ladder.',
+    socraticChallenge: 'How can you instrument your software systems with interactive parameter sweeps to observe system boundaries instead of guessing static thresholds?',
+    referencedSection: 'Lesson 9.2 • Section 3: Bret Victor: Up and Down the Ladder of Abstraction in Systems Design',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -76,6 +76,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gentner_structure_mapping_systematicity',
   'concept:gick_holyoak_analogical_retrieval_transfer',
   'concept:analogical_encoding_mutual_alignment',
+  // Lesson 9.2 Concepts
+  'concept:hayakawa_abstraction_ladder_vertical_mobility',
+  'concept:craik_johnson_laird_mental_models_simulation',
+  'concept:bret_victor_dynamic_abstraction_coupling',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -137,6 +141,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 9.1 Misconceptions
   'misconception:single_example_sufficient_for_transfer',
   'misconception:analogies_are_literal_identities',
+  // Lesson 9.2 Misconceptions
+  'misconception:theory_alone_creates_operational_mastery',
+  'misconception:mental_models_are_passive_definitions',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

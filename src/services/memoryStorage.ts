@@ -139,6 +139,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'structure-mapping-analogy';
     chapterId = 'ch-9-analogy-bridging';
+  } else if (
+    conceptId.startsWith('concept:hayakawa_abstraction_') ||
+    conceptId.startsWith('concept:craik_johnson_') ||
+    conceptId.startsWith('concept:bret_victor_')
+  ) {
+    lessonId = 'abstraction-ladders';
+    chapterId = 'ch-9-analogy-bridging';
   }
 
   return {

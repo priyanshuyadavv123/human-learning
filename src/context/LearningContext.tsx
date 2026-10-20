@@ -213,6 +213,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-analogy-negative-boundary-conditions': 'concept:gentner_structure_mapping_systematicity',
     },
   },
+  'abstraction-ladders': {
+    predictionConceptId: 'concept:hayakawa_abstraction_ladder_vertical_mobility',
+    predictionMisconceptionId: 'misconception:theory_alone_creates_operational_mastery',
+    quizConceptMapping: {
+      'q1-hayakawa-ladder-pathology': 'concept:hayakawa_abstraction_ladder_vertical_mobility',
+      'q2-craik-internal-mental-model-simulation': 'concept:craik_johnson_laird_mental_models_simulation',
+      'q3-johnson-laird-principle-of-truth': 'concept:craik_johnson_laird_mental_models_simulation',
+      'q4-bret-victor-ladder-coupling': 'concept:bret_victor_dynamic_abstraction_coupling',
+    },
+  },
 };
 
 interface LearningContextType {
