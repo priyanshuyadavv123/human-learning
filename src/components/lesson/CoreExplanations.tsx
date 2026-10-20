@@ -57,6 +57,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'patient-hm-temporally-graded-amnesia': <Eye size={18} />,
   'hippocampal-indexing-and-cls': <Network size={18} />,
   'standard-consolidation-vs-multiple-trace': <RefreshCw size={18} />,
+  // Lesson 6.1 Tabs
+  'sharp-wave-ripples-and-place-cells': <Repeat size={18} />,
+  'triple-phase-coupling-orchestration': <Sparkles size={18} />,
+  'synaptic-homeostasis-and-cognitive-architectures': <Network size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

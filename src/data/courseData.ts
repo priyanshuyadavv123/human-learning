@@ -9,6 +9,7 @@ import { LESSON_ATTENTION_SERIAL_CONTROL } from './lesson4_1Data.ts';
 import { LESSON_DISTRACTION_ECONOMICS } from './lesson4_2Data.ts';
 import { LESSON_LTP_SYNAPTIC_PLASTICITY } from './lesson5_1Data.ts';
 import { LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE } from './lesson5_2Data.ts';
+import { LESSON_SLOW_WAVE_SLEEP_REPLAY } from './lesson6_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -159,7 +160,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Slow-Wave Sleep & Neural Replay',
           subtitle: 'Compressed time-scale firing sequences in the sleeping brain',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'targeted-memory-reactivation',
@@ -1139,6 +1140,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_DISTRACTION_ECONOMICS.id]: LESSON_DISTRACTION_ECONOMICS,
   [LESSON_LTP_SYNAPTIC_PLASTICITY.id]: LESSON_LTP_SYNAPTIC_PLASTICITY,
   [LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE.id]: LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE,
+  [LESSON_SLOW_WAVE_SLEEP_REPLAY.id]: LESSON_SLOW_WAVE_SLEEP_REPLAY,
 };
 
 export function getLessonById(id: string): Lesson {

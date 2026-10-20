@@ -516,6 +516,50 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:fast_direct_cortical_learning',
     discrepancyPrompt: 'Previously you may have wished you had a photographic memory that writes directly into your permanent cortical storage on one reading. Why does CLS theory prove that such rapid direct updates would catastrophically corrupt your existing mental schemas?',
   },
+  'concept:neural_replay_temporal_compression': {
+    conceptId: 'concept:neural_replay_temporal_compression',
+    title: 'Neural Replay & 10x–20x Temporal Compression in Sharp-Wave Ripples',
+    prompt: 'Describe the phenomenon of neural replay discovered by Wilson & McNaughton (1994) during Sharp-Wave Ripples (SWRs), and explain why 10x–20x temporal compression is biophysically required for Long-Term Potentiation (LTP).',
+    keyCriteria: [
+      'Cites Wilson & McNaughton (1994) rodent hippocampal place cell replay',
+      'Defines Sharp-Wave Ripples (SWRs, 150–250 Hz) during Slow-Wave Sleep',
+      'Explains 10x to 20x temporal compression (seconds of experience compressed into 50–100 ms bursts)',
+      'Explains Hebbian Spike-Timing-Dependent Plasticity (STDP) requiring pre- and post-synaptic firing within a 10–40 ms window',
+    ],
+    canonicalAnswer: 'Wilson and McNaughton (1994) discovered that hippocampal place cell ensembles that fired sequentially during waking navigation fire again in the exact same sequence during subsequent slow-wave sleep inside high-frequency Sharp-Wave Ripples (SWRs, 150–250 Hz). Crucially, the sequence is compressed 10-fold to 20-fold, firing within 50 to 100 milliseconds instead of several seconds. This temporal compression is biophysically essential: Hebbian Spike-Timing-Dependent Plasticity (STDP) requires pre- and post-synaptic firing to coincide within a narrow 10–40 millisecond window to trigger NMDA receptor activation and LTP. Compressed replay brings slow daytime experiences into the exact millisecond threshold required for permanent synaptic remodeling.',
+    lessonSectionAnchor: 'Lesson 6.1 • Section 1: Wilson & McNaughton (1994) & Sharp-Wave Ripples',
+    relatedMisconception: 'misconception:sleep_is_passive_quiescence',
+    discrepancyPrompt: 'Previously you may have thought that sleep is merely passive downtime where the brain shuts off to rest. How does 10x-compressed neural replay during sharp-wave ripples demonstrate that sleep is an active computational engine?',
+  },
+  'concept:triple_phase_locking_consolidation': {
+    conceptId: 'concept:triple_phase_locking_consolidation',
+    title: 'The Triple Phase-Coupling Mechanism (<1 Hz, 11–16 Hz, 150–250 Hz)',
+    prompt: 'Explain the Active System Consolidation Model (Diekelmann & Born, 2010) and how the triple phase-locking between cortical slow oscillations, thalamic spindles, and hippocampal ripples achieves systems consolidation.',
+    keyCriteria: [
+      'Defines the three coupled oscillations: Neocortical Slow Oscillations (<1 Hz), Thalamocortical Spindles (11–16 Hz), Hippocampal Sharp-Wave Ripples (150–250 Hz)',
+      'Explains hierarchical nesting: Slow Oscillation Up-states trigger thalamic spindles, which nest SWRs in their individual wave troughs',
+      'Explains that spindles induce dendritic calcium (Ca2+) influx into neocortical pyramidal spines, priming them to receive the hippocampal replay packet',
+    ],
+    canonicalAnswer: 'Diekelmann and Born (2010) formulated the Active System Consolidation Model, showing that sleep consolidation requires a nested hierarchy of three oscillations: (1) Prefrontal slow oscillations (<1 Hz Up-states) set global windows of neuronal excitability; (2) Slow wave Up-states drive the thalamic reticular nucleus to emit 11–16 Hz sleep spindles, flooding neocortical dendrites with calcium; (3) Hippocampal Sharp-Wave Ripples (150–250 Hz) carrying replayed memories are nested precisely within the troughs of these sleep spindles. This triple phase-locking ensures that memory packets arrive exactly when cortical neurons are depolarized and receptive to Long-Term Potentiation.',
+    lessonSectionAnchor: 'Lesson 6.1 • Section 2: The Triple Phase-Coupling Mechanism',
+    relatedMisconception: 'misconception:rem_sleep_is_primary_for_declarative_facts',
+    discrepancyPrompt: 'Previously you may have assumed that declarative memory consolidation happens during vivid REM dreams. How does triple phase-locking prove that Non-REM Slow-Wave Sleep is the primary neurobiological engine for factual systems consolidation?',
+  },
+  'concept:synaptic_homeostasis_downscaling': {
+    conceptId: 'concept:synaptic_homeostasis_downscaling',
+    title: 'The Synaptic Homeostasis Hypothesis (SHY) & Synaptic Renormalization',
+    prompt: 'What problem does Tononi & Cirelli\'s Synaptic Homeostasis Hypothesis (SHY) address, how does slow-wave sleep renormalize synaptic weights, and how does it coexist with active memory replay?',
+    keyCriteria: [
+      'Cites Tononi & Cirelli\'s Synaptic Homeostasis Hypothesis (SHY)',
+      'Explains the wakefulness crisis: net synaptic potentiation leads to space constraints, energetic exhaustion (~80% ATP), and saturation of dynamic range',
+      'Explains global synaptic downscaling during Slow-Wave Sleep (pruning weak noise, preserving signal-to-noise ratio)',
+      'Explains coexistence: global cortical downscaling combined with selective replay protection/potentiation of tagged traces',
+    ],
+    canonicalAnswer: 'Tononi and Cirelli proposed the Synaptic Homeostasis Hypothesis (SHY) to solve the biophysical crisis of wakefulness: learning drives net synaptic potentiation, which increases brain energy consumption, occupies physical dendritic space, and saturates neural plasticity. During Slow-Wave Sleep, the brain executes global synaptic downscaling (renormalization) of ~15–20%, pruning weak, incidental noise connections while preserving the relative strength of strong connections. Coexisting with Active Systems Consolidation, synapses that were tagged during wakefulness and reactivated during SWR replay are protected from downscaling and consolidated into cortical schemas.',
+    lessonSectionAnchor: 'Lesson 6.1 • Section 3: Synaptic Homeostasis Hypothesis vs Active Systems Consolidation',
+    relatedMisconception: 'misconception:sleep_is_passive_quiescence',
+    discrepancyPrompt: 'Previously you may have imagined that learning requires synapses to grow continuously larger and stronger without limit. Why would unbounded synaptic growth lead to catastrophic brain energy failure and loss of signal-to-noise clarity without sleep downscaling?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

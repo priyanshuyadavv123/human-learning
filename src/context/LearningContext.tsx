@@ -143,6 +143,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-transformation-theory-schemas': 'concept:standard_consolidation_vs_multiple_trace',
     },
   },
+  'slow-wave-sleep-replay': {
+    predictionConceptId: 'concept:neural_replay_temporal_compression',
+    predictionMisconceptionId: 'misconception:sleep_is_passive_quiescence',
+    quizConceptMapping: {
+      'q1-replay-compression-stdp': 'concept:neural_replay_temporal_compression',
+      'q2-triple-phase-coupling-hierarchy': 'concept:triple_phase_locking_consolidation',
+      'q3-girardeau-causality-experiment': 'concept:neural_replay_temporal_compression',
+      'q4-shy-synaptic-homeostasis': 'concept:synaptic_homeostasis_downscaling',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -48,6 +48,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hippocampal_index_model',
   'concept:standard_consolidation_vs_multiple_trace',
   'concept:complementary_learning_systems_interleaved_integration',
+  // Lesson 6.1 Concepts
+  'concept:neural_replay_temporal_compression',
+  'concept:triple_phase_locking_consolidation',
+  'concept:synaptic_homeostasis_downscaling',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -88,6 +92,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 5.2 Misconceptions
   'misconception:hippocampus_is_permanent_storage',
   'misconception:fast_direct_cortical_learning',
+  // Lesson 6.1 Misconceptions
+  'misconception:sleep_is_passive_quiescence',
+  'misconception:rem_sleep_is_primary_for_declarative_facts',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

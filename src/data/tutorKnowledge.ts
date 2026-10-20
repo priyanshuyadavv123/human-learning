@@ -355,6 +355,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why would an artificial neural network experience catastrophic forgetting if trained exclusively on a single new task without interleaved replay?',
     referencedSection: 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
   },
+  // Lesson 6.1 Fallback Entries
+  {
+    keywords: ['neural replay', 'place cell replay', 'wilson and mcnaughton', 'wilson & mcnaughton', 'temporal compression', 'sharp-wave ripple', 'sharp wave ripple', 'swr', 'girardeau'],
+    title: 'Wilson & McNaughton (1994) & Sharp-Wave Ripples',
+    summary: 'Hippocampal place cells replay waking navigational firing sequences compressed 10-fold to 20-fold during Sharp-Wave Ripples in Slow-Wave Sleep.',
+    takeaway: 'Neural replay compresses waking firing sequences by 10x–20x into 50–100 ms bursts during SWRs, aligning spikes with the sub-40 ms window required for Hebbian STDP.',
+    detailedResponse: 'Wilson and McNaughton (1994) demonstrated that place cell ensembles that fired sequentially as an animal explored a maze fired in the exact same sequence during subsequent Slow-Wave Sleep. Crucially, the replay occurred inside Sharp-Wave Ripples (SWRs, 150–250 Hz) and was compressed 10- to 20-fold (bursts of 50–100 ms). Because Spike-Timing-Dependent Plasticity (STDP) requires pre- and post-synaptic firing within 10–40 ms, this high-speed replay is what allows slow daytime experiences to meet the biophysical threshold for Long-Term Potentiation (LTP). In 2009, Girardeau et al. proved causality: selectively interrupting SWRs during post-training sleep abolished spatial memory consolidation.',
+    socraticChallenge: 'Why would real-time 1x replay fail to trigger Hebbian Spike-Timing-Dependent Plasticity across neocortical synapses?',
+    referencedSection: 'Lesson 6.1 • Section 1: Wilson & McNaughton (1994) & Sharp-Wave Ripples',
+  },
+  {
+    keywords: ['triple phase', 'phase coupling', 'triple coupling', 'sleep spindle', 'thalamocortical spindle', 'slow oscillation', 'diekelmann', 'active system consolidation', 'up-state', 'down-state'],
+    title: 'The Triple Phase-Coupling Mechanism (Diekelmann & Born)',
+    summary: 'Hierarchical phase-locking nests hippocampal ripples inside thalamic sleep spindles during neocortical slow oscillation Up-states.',
+    takeaway: 'Consolidation requires three-way synchronization: cortical slow waves (<1 Hz) trigger spindles (11–16 Hz), which nest ripples (150–250 Hz) in their troughs, delivering replay to calcium-flooded cortical dendrites.',
+    detailedResponse: 'Diekelmann and Born (2010) formulated the Active System Consolidation Model. Consolidation requires hierarchical coordination across three brain rhythms: (1) Neocortical Slow Oscillations (<1 Hz) alternate between hyperpolarized Down-states and depolarized Up-states of high excitability; (2) The Up-state triggers 11–16 Hz Thalamocortical Sleep Spindles, which travel to neocortical dendrites and flood spines with intracellular calcium; (3) Hippocampal Sharp-Wave Ripples (150–250 Hz) carrying replayed memories are phase-locked into the troughs of these sleep spindles. If ripples arrive out of phase or during a Down-state, cortical neurons are unresponsive and consolidation fails.',
+    socraticChallenge: 'Why does temporal desynchronization between spindles and slow oscillations in older adults predict overnight memory forgetting?',
+    referencedSection: 'Lesson 6.1 • Section 2: The Triple Phase-Coupling Mechanism',
+  },
+  {
+    keywords: ['synaptic homeostasis', 'tononi', 'cirelli', 'shy', 'synaptic downscaling', 'downscaling', 'synaptic renormalization', 'all-nighter', 'cramming sleep'],
+    title: 'The Synaptic Homeostasis Hypothesis (SHY) vs Active Consolidation',
+    summary: 'Wakefulness drives net synaptic potentiation, while slow-wave sleep produces global synaptic downscaling to restore energetic and computational baseline.',
+    takeaway: 'Sleep reconciles two critical demands: SHY downscales weak synaptic noise by ~15–20% to restore metabolic headroom, while Active Consolidation selectively protects tagged, replayed memories.',
+    detailedResponse: 'Giulio Tononi and Chiara Cirelli formulated the Synaptic Homeostasis Hypothesis (SHY). Wakeful learning causes net synaptic potentiation, swelling dendritic spines and consuming unsustainable amounts of cellular energy (ATP). Without intervention, synapses would saturate, preventing new learning. During Slow-Wave Sleep, global low-frequency oscillations drive net synaptic downscaling of ~15–20%. Weak, spurious connections fall below threshold and are pruned away, while strong, tagged connections survive with an enhanced signal-to-noise ratio. Simultaneously, Active Systems Consolidation protects and transfers salient traces into neocortical schemas.',
+    socraticChallenge: 'How does global synaptic downscaling during Slow-Wave Sleep prevent new learning from saturating the next day?',
+    referencedSection: 'Lesson 6.1 • Section 3: Synaptic Homeostasis Hypothesis vs Active Systems Consolidation',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

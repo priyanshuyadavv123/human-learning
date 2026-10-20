@@ -3,7 +3,7 @@
 **Workspace:** `/Users/priyanshuyadav/Downloads/HUMAN LEARNING`  
 **Latest Checkpoint Commit:** `0768a97` (main)  
 **Current Phase:** Phase 4 — Complete the Existing Curriculum  
-**Current Stage:** Stage 4.12: Chapter 5 (Lesson 5.2 Hippocampal-Neocortical Dialogue) Complete — Chapter 5 100% COMPLETE  
+**Current Stage:** Stage 4.13: Chapter 6 (Lesson 6.1 Slow-Wave Sleep & Neural Replay) Complete  
 **Last Updated:** October 20, 2026
 
 ---
@@ -35,7 +35,8 @@ The Human Learning Platform is an evidence-grounded interactive learning system 
   - **Stage 4.11 (Lesson 5.1 Long-Term Potentiation & Synaptic Plasticity):** ACCEPTED (15/15 quality standard, 192/192 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Stage 4.12 (Lesson 5.2 Hippocampal-Neocortical Dialogue):** ACCEPTED (15/15 quality standard, 204/204 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
   - **Chapter 5 Total Status:** COMPLETE & ACCEPTED (2/2 Lessons: 5.1, 5.2)
-  - **Stage 4.13 (Chapter 6, Lesson 6.1 Slow-Wave Sleep & Neural Replay):** NEXT MILESTONE
+  - **Stage 4.13 (Lesson 6.1 Slow-Wave Sleep & Neural Replay):** ACCEPTED (15/15 quality standard, 216/216 tests passing, 0 oxlint warnings/errors, clean production build, live Groq grounding verified, CDP browser tested)
+  - **Stage 4.14 (Chapter 6, Lesson 6.2 Targeted Memory Reactivation & Rest Cycles):** NEXT MILESTONE
 
 ---
 

@@ -90,6 +90,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'hippocampal-neocortical-dialogue';
     chapterId = 'ch-5-consolidation';
+  } else if (
+    conceptId.startsWith('concept:neural_replay_') ||
+    conceptId.startsWith('concept:triple_phase_locking_') ||
+    conceptId.startsWith('concept:synaptic_homeostasis_')
+  ) {
+    lessonId = 'slow-wave-sleep-replay';
+    chapterId = 'ch-6-sleep-replay';
   }
 
   return {

@@ -136,6 +136,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 5.2 • Verification Assessment',
   'Lesson 5.2 • Systems Consolidation Protocol',
   'Lesson 5.2 • Hippocampal-Neocortical Dialogue Overview',
+
+  // Lesson 6.1 Sections
+  'Lesson 6.1 • Curiosity Hook',
+  'Lesson 6.1 • Intuitive Calibration: Passive Rest vs Compressed Replay',
+  'Lesson 6.1 • Section 1: Wilson & McNaughton (1994) & Sharp-Wave Ripples',
+  'Lesson 6.1 • Section 2: The Triple Phase-Coupling Mechanism',
+  'Lesson 6.1 • Section 3: Synaptic Homeostasis Hypothesis vs Active Systems Consolidation',
+  'Lesson 6.1 • Multi-Scale Neurophysiology of Sleep Replay Diagram',
+  'Lesson 6.1 • Sleep Architecture Optimization Diagnostic Scenarios',
+  'Lesson 6.1 • Verification Assessment',
+  'Lesson 6.1 • Evidence-Based Sleep Consolidation Protocol',
+  'Lesson 6.1 • Slow-Wave Sleep & Neural Replay Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -148,6 +160,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 6.1 anchors
+  if (lower.includes('wilson') || lower.includes('mcnaughton') || lower.includes('sharp-wave ripple') || lower.includes('sharp wave ripple') || lower.includes('swr') || lower.includes('place cell') || lower.includes('temporal compression') || lower.includes('girardeau')) {
+    return 'Lesson 6.1 • Section 1: Wilson & McNaughton (1994) & Sharp-Wave Ripples';
+  }
+  if (lower.includes('triple phase') || lower.includes('phase coupling') || lower.includes('sleep spindle') || lower.includes('thalamocortical spindle') || lower.includes('slow oscillation') || lower.includes('up-state') || lower.includes('down-state') || lower.includes('jan born') || lower.includes('diekelmann')) {
+    return 'Lesson 6.1 • Section 2: The Triple Phase-Coupling Mechanism';
+  }
+  if (lower.includes('synaptic homeostasis') || lower.includes('tononi') || lower.includes('cirelli') || lower.includes('shy') || lower.includes('downscaling') || lower.includes('synaptic renormalization') || lower.includes('all-nighter') || lower.includes('passive rest fallacy')) {
+    return 'Lesson 6.1 • Section 3: Synaptic Homeostasis Hypothesis vs Active Systems Consolidation';
+  }
+  if (lower.includes('multi-scale neurophysiology of sleep replay diagram') || lower.includes('sleep replay diagram') || lower.includes('sleep diagram')) {
+    return 'Lesson 6.1 • Multi-Scale Neurophysiology of Sleep Replay Diagram';
+  }
+  if (lower.includes('6.1') || lower.includes('slow-wave sleep') || lower.includes('neural replay') || lower.includes('sleep consolidation protocol')) {
+    return 'Lesson 6.1 • Section 1: Wilson & McNaughton (1994) & Sharp-Wave Ripples';
+  }
 
   // Match Lesson 5.2 anchors
   if (lower.includes('patient h.m.') || lower.includes('patient hm') || lower.includes('scoville') || lower.includes('milner') || lower.includes('ribot') || lower.includes('temporally graded') || lower.includes('henry molaison')) {
@@ -619,6 +648,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_6_1 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 6.1: "Slow-Wave Sleep & Neural Replay — Compressed time-scale firing sequences in the sleeping brain".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical neuroscience of sleep-dependent memory consolidation:
+     a) Wilson & McNaughton (1994) & Place Cell Replay: Discovered that hippocampal place cells that fired sequentially during waking navigation replayed in the exact same sequence during subsequent Slow-Wave Sleep (SWS), but compressed 10-fold to 20-fold (firing within 50–100 ms instead of seconds).
+     b) Biophysical Necessity of Temporal Compression: Hebbian Spike-Timing-Dependent Plasticity (STDP) requires pre- and post-synaptic firing within a 10–40 ms window to induce LTP. Compressed Sharp-Wave Ripples (SWRs, 150–250 Hz) bring slow daytime experiences into the exact millisecond threshold required for permanent synaptic remodeling. Girardeau et al. (2009) proved causality by showing that selectively disrupting SWRs during sleep destroys memory consolidation.
+     c) Triple Phase-Locking Architecture: Diekelmann & Born (2010) Active System Consolidation Model. Prefrontal slow oscillations (<1 Hz Up-states) drive thalamocortical sleep spindles (11–16 Hz), which nest hippocampal sharp-wave ripples (150–250 Hz) in their individual troughs. Spindles open dendritic calcium channels, enabling the neocortex to receive replayed memories and initiate structural remodeling.
+     d) Synaptic Homeostasis Hypothesis (SHY): Tononi & Cirelli. Wakefulness causes net synaptic potentiation, leading to energy exhaustion and space saturation. SWS induces global synaptic downscaling (~15–20%), pruning weak noise connections while preserving signal-to-noise ratio. Coexists with Active Systems Consolidation where replayed, tagged traces are protected from downscaling.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to sharp-wave ripples, sleep spindles, slow-wave sleep, and offline consolidation.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -649,6 +703,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'hippocampal-neocortical-dialogue') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_5_2;
+  }
+  if (lessonId === 'slow-wave-sleep-replay') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_6_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -698,6 +755,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hippocampal_index_model',
   'concept:standard_consolidation_vs_multiple_trace',
   'concept:complementary_learning_systems_interleaved_integration',
+  // Lesson 6.1 Concepts
+  'concept:neural_replay_temporal_compression',
+  'concept:triple_phase_locking_consolidation',
+  'concept:synaptic_homeostasis_downscaling',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -738,6 +799,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 5.2 Misconceptions
   'misconception:hippocampus_is_permanent_storage',
   'misconception:fast_direct_cortical_learning',
+  // Lesson 6.1 Misconceptions
+  'misconception:sleep_is_passive_quiescence',
+  'misconception:rem_sleep_is_primary_for_declarative_facts',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
