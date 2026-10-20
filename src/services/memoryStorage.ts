@@ -83,6 +83,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'ltp-synaptic-plasticity';
     chapterId = 'ch-5-consolidation';
+  } else if (
+    conceptId.startsWith('concept:hippocampal_index_') ||
+    conceptId.startsWith('concept:standard_consolidation_') ||
+    conceptId.startsWith('concept:complementary_learning_')
+  ) {
+    lessonId = 'hippocampal-neocortical-dialogue';
+    chapterId = 'ch-5-consolidation';
   }
 
   return {

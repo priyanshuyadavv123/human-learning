@@ -133,6 +133,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-synaptic-tagging-capture': 'concept:early_vs_late_ltp_consolidation',
     },
   },
+  'hippocampal-neocortical-dialogue': {
+    predictionConceptId: 'concept:complementary_learning_systems_interleaved_integration',
+    predictionMisconceptionId: 'misconception:fast_direct_cortical_learning',
+    quizConceptMapping: {
+      'q1-patient-hm-temporal-gradient': 'concept:standard_consolidation_vs_multiple_trace',
+      'q2-cls-catastrophic-interference': 'concept:complementary_learning_systems_interleaved_integration',
+      'q3-hippocampal-indexing-theory': 'concept:hippocampal_index_model',
+      'q4-transformation-theory-schemas': 'concept:standard_consolidation_vs_multiple_trace',
+    },
+  },
 };
 
 interface LearningContextType {

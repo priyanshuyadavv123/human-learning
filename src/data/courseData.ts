@@ -8,6 +8,7 @@ import { LESSON_PERSONAL_LEARNING_OS } from './lesson3_2Data.ts';
 import { LESSON_ATTENTION_SERIAL_CONTROL } from './lesson4_1Data.ts';
 import { LESSON_DISTRACTION_ECONOMICS } from './lesson4_2Data.ts';
 import { LESSON_LTP_SYNAPTIC_PLASTICITY } from './lesson5_1Data.ts';
+import { LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE } from './lesson5_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -142,7 +143,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Hippocampal-Neocortical Dialogue',
           subtitle: 'System-level migration from temporary index to distributed network',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1137,6 +1138,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_ATTENTION_SERIAL_CONTROL.id]: LESSON_ATTENTION_SERIAL_CONTROL,
   [LESSON_DISTRACTION_ECONOMICS.id]: LESSON_DISTRACTION_ECONOMICS,
   [LESSON_LTP_SYNAPTIC_PLASTICITY.id]: LESSON_LTP_SYNAPTIC_PLASTICITY,
+  [LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE.id]: LESSON_HIPPOCAMPAL_NEOCORTICAL_DIALOGUE,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -471,6 +471,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:cramming_creates_permanent_synaptic_change',
     discrepancyPrompt: 'Previously you may have assumed that a 10-hour cramming session creates lasting memory because you passed the exam the next morning. Why does the molecular boundary of Early-LTP prove that without spaced intervals and nuclear CREB activation, your cramming trace decays to zero within 48 hours?',
   },
+  'concept:hippocampal_index_model': {
+    conceptId: 'concept:hippocampal_index_model',
+    title: 'The Hippocampal Indexing Theory (Teyler & DiScenna)',
+    prompt: 'How does the Hippocampal Indexing Theory explain how the brain records and retrieves multisensory memories without cross-talk or massive data duplication?',
+    keyCriteria: [
+      'Cites Teyler & DiScenna (1986) or Teyler & Rudy (2007)',
+      'Explains that the hippocampus does not store raw sensory content, but a sparse index vector of pointers',
+      'Explains pattern completion: a partial cue activates the hippocampal index, which reactivates all distributed neocortical columns',
+      'Contrasts hippocampal indexing with raw storage',
+    ],
+    canonicalAnswer: 'Teyler & DiScenna (1986; Teyler & Rudy, 2007) proposed that the hippocampus does not store raw multisensory information. Instead, it generates a sparse, low-dimensional index vector that acts as a pointer directory linking the distributed neocortical sensory columns activated during an experience. During retrieval, a partial cue activates the hippocampal index via pattern completion, and back-projections reactivate the original neocortical columns simultaneously, reconstructing the complete memory state without cross-talk.',
+    lessonSectionAnchor: 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
+    relatedMisconception: 'misconception:hippocampus_is_permanent_storage',
+    discrepancyPrompt: 'Previously you may have imagined that the hippocampus stores raw video and audio recordings like a video camera. How does indexing theory prove that the hippocampus is merely a lightweight pointer directory that coordinates cortical networks?',
+  },
+  'concept:standard_consolidation_vs_multiple_trace': {
+    conceptId: 'concept:standard_consolidation_vs_multiple_trace',
+    title: 'Standard Consolidation Theory vs Multiple Trace & Transformation Theory',
+    prompt: 'Contrast the Standard Consolidation Theory (Squire & Alvarez) with Multiple Trace and Transformation Theory (Nadel & Moscovitch; Winocur), particularly regarding how memories change over time.',
+    keyCriteria: [
+      'Contrasts Standard Consolidation Theory (SCT) with Multiple Trace Theory (MTT)',
+      'Explains that SCT posits memories become fully independent copies in the neocortex',
+      'Explains that MTT and Transformation Theory show the neocortex extracts statistical invariant schemas (semantic gist) while episodic details remain hippocampal-dependent',
+      'Cites Scoville & Milner (1957) on Patient H.M. and Ribot\'s Law',
+    ],
+    canonicalAnswer: 'Standard Consolidation Theory (Squire & Alvarez, 1995) asserted that memories are gradually duplicated from the hippocampus into direct cortico-cortical connections, eventually becoming fully hippocampal-independent. In contrast, Multiple Trace and Transformation Theory (Nadel & Moscovitch, 1997; Winocur & Moscovitch, 2011) proved that memory is transformed: the neocortex extracts statistical invariants and general schemas (semantic gist), whereas rich, context-specific episodic memories continue to recruit hippocampal traces whenever vividly re-experienced.',
+    lessonSectionAnchor: 'Lesson 5.2 • Section 3: Standard Consolidation Theory vs Multiple Trace & Transformation Theory',
+    relatedMisconception: 'misconception:hippocampus_is_permanent_storage',
+    discrepancyPrompt: 'Previously you may have thought that memories are static files copied identically from one brain region to another. How does transformation theory show that consolidation abstracts generalized semantic schemas from raw episodic memories?',
+  },
+  'concept:complementary_learning_systems_interleaved_integration': {
+    conceptId: 'concept:complementary_learning_systems_interleaved_integration',
+    title: 'Complementary Learning Systems & Catastrophic Interference',
+    prompt: 'Why do biological brains require Complementary Learning Systems (McClelland, McNaughton, & O\'Reilly, 1995), and why does rapid direct neocortical learning cause catastrophic interference?',
+    keyCriteria: [
+      'Cites McClelland, McNaughton, & O\'Reilly (1995) CLS framework',
+      'Defines Catastrophic Interference: fast direct weight updates in distributed networks overwrite previously learned knowledge',
+      'Explains the dual-system solution: fast episodic hippocampal buffer + slow interleaved neocortical integrator',
+      'Explains the role of offline replay (sharp-wave ripples) during sleep in transferring knowledge',
+    ],
+    canonicalAnswer: 'McClelland, McNaughton, and O\'Reilly (1995) demonstrated that distributed neural networks face a fundamental stability-plasticity dilemma: updating synaptic weights fast enough to learn a new episode on a single pass causes Catastrophic Interference, overwriting existing consolidated knowledge. The brain resolves this through Complementary Learning Systems: a fast hippocampal learner captures unique episodes with sparse representations, and then gradually "replays" them to the slow neocortex at an interleaved rate during slow-wave sleep, integrating new concepts into existing schemas without destructive interference.',
+    lessonSectionAnchor: 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
+    relatedMisconception: 'misconception:fast_direct_cortical_learning',
+    discrepancyPrompt: 'Previously you may have wished you had a photographic memory that writes directly into your permanent cortical storage on one reading. Why does CLS theory prove that such rapid direct updates would catastrophically corrupt your existing mental schemas?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

@@ -328,6 +328,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How does knowing that Early-LTP decays within 24 hours change your perspective on studying everything the night before a deadline?',
     referencedSection: 'Lesson 5.1 • Section 3: Early-LTP vs Late-LTP: The Molecular Boundary of Permanent Mastery',
   },
+  {
+    keywords: ['patient h.m.', 'patient hm', 'brenda milner', 'william scoville', 'henry molaison', 'ribot', 'temporally graded retrograde amnesia', 'anterograde amnesia', 'mirror-tracing'],
+    title: 'Scoville & Milner’s Patient H.M. & Temporally Graded Retrograde Amnesia',
+    summary: 'Bilateral medial temporal lobe resection proved the hippocampus is a temporary indexing engine rather than a permanent storage vault.',
+    takeaway: 'Patient H.M.’s surgery proved that memory undergoes systems consolidation: the hippocampus is needed for forming new memories, but remote memories migrate to the neocortex.',
+    detailedResponse: 'In 1957, William Scoville and Brenda Milner reported on Patient H.M. (Henry Molaison), who underwent bilateral medial temporal lobe resection. H.M. suffered dense anterograde amnesia and temporally graded retrograde amnesia (Ribot’s Law): he retained crystal-clear memories of his childhood, but could not form new conscious memories or recall recent pre-operative events. This proved that memory consolidation is a multi-year biological process: remote memories become completely independent of the hippocampus and reside permanently in distributed neocortical networks.',
+    socraticChallenge: 'Why did H.M. retain his childhood memories even though both of his hippocampi were surgically excised?',
+    referencedSection: 'Lesson 5.2 • Section 1: Scoville & Milner’s Patient H.M. & Temporally Graded Retrograde Amnesia',
+  },
+  {
+    keywords: ['hippocampal indexing', 'teyler and discenna', 'teyler & discenna', 'sparse index', 'pattern completion', 'pointer model'],
+    title: 'The Hippocampal Indexing Theory (Teyler & DiScenna)',
+    summary: 'The hippocampus stores a compact index pointer vector that binds distributed neocortical sensory columns together.',
+    takeaway: 'The hippocampus does not store raw sights or sounds. It stores a sparse index pointer that activates pattern completion across distributed neocortical columns.',
+    detailedResponse: 'Teyler & DiScenna (1986; Teyler & Rudy, 2007) proposed the Hippocampal Indexing Theory: sensory details of an event activate distributed columns in the visual, auditory, and frontal cortices. The hippocampus generates a sparse, low-dimensional index code that acts as a pointer directory linking those cortical nodes. During retrieval, a partial sensory cue activates this hippocampal index, which fires back-projections to simultaneously reactivate all original cortical columns, reconstructing the complete memory state.',
+    socraticChallenge: 'How is the hippocampal index vector analogous to an inverted index or pointer directory in a database?',
+    referencedSection: 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
+  },
+  {
+    keywords: ['complementary learning systems', 'cls', 'catastrophic interference', 'catastrophic forgetting', 'mcclelland', 'multiple trace theory', 'transformation theory', 'semantic gist'],
+    title: 'Complementary Learning Systems & Catastrophic Interference',
+    summary: 'The dual-memory architecture prevents rapid new learning from catastrophically overwriting established neocortical schemas.',
+    takeaway: 'Direct rapid learning in neocortical networks causes Catastrophic Interference. The hippocampus acts as an episodic buffer, slowly training neocortical schemas via interleaved offline replay.',
+    detailedResponse: 'McClelland, McNaughton, and O’Reilly (1995) established the Complementary Learning Systems (CLS) framework. In connectionist neural networks, adjusting weights rapidly to encode new information overwrites prior knowledge (Catastrophic Interference). The brain resolves this by pairing a fast hippocampal learner (capturing unique episodes with sparse codes) with a slow neocortical learner. During offline sleep and rest, the hippocampus replays memories to the neocortex in an interleaved manner, allowing new concepts to integrate into existing schemas without catastrophic overwrites.',
+    socraticChallenge: 'Why would an artificial neural network experience catastrophic forgetting if trained exclusively on a single new task without interleaved replay?',
+    referencedSection: 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

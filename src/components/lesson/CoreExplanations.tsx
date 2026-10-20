@@ -53,6 +53,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'hebbian-plasticity-bliss-lomo': <Network size={18} />,
   'nmda-receptor-coincidence-detector': <Cpu size={18} />,
   'early-vs-late-ltp-creb-cascade': <Sparkles size={18} />,
+  // Lesson 5.2 Tabs
+  'patient-hm-temporally-graded-amnesia': <Eye size={18} />,
+  'hippocampal-indexing-and-cls': <Network size={18} />,
+  'standard-consolidation-vs-multiple-trace': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

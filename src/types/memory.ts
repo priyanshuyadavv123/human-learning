@@ -44,6 +44,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hebbian_synaptic_plasticity',
   'concept:nmda_receptor_coincidence_detection',
   'concept:early_vs_late_ltp_consolidation',
+  // Lesson 5.2 Concepts
+  'concept:hippocampal_index_model',
+  'concept:standard_consolidation_vs_multiple_trace',
+  'concept:complementary_learning_systems_interleaved_integration',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -81,6 +85,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 5.1 Misconceptions
   'misconception:passive_exposure_induces_plasticity',
   'misconception:cramming_creates_permanent_synaptic_change',
+  // Lesson 5.2 Misconceptions
+  'misconception:hippocampus_is_permanent_storage',
+  'misconception:fast_direct_cortical_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -124,6 +124,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 5.1 • Verification Assessment',
   'Lesson 5.1 • Synaptic Consolidation Protocol',
   'Lesson 5.1 • Long-Term Potentiation & Synaptic Plasticity Overview',
+
+  // Lesson 5.2 Sections
+  'Lesson 5.2 • Curiosity Hook',
+  'Lesson 5.2 • Intuitive Calibration: Direct Cortical Learning vs Dual Memory Systems',
+  'Lesson 5.2 • Section 1: Scoville & Milner’s Patient H.M. & Temporally Graded Retrograde Amnesia',
+  'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems',
+  'Lesson 5.2 • Section 3: Standard Consolidation Theory vs Multiple Trace & Transformation Theory',
+  'Lesson 5.2 • Hippocampal-Neocortical Systems Consolidation Pipeline Diagram',
+  'Lesson 5.2 • Systems Consolidation Diagnostic Scenarios',
+  'Lesson 5.2 • Verification Assessment',
+  'Lesson 5.2 • Systems Consolidation Protocol',
+  'Lesson 5.2 • Hippocampal-Neocortical Dialogue Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -136,6 +148,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 5.2 anchors
+  if (lower.includes('patient h.m.') || lower.includes('patient hm') || lower.includes('scoville') || lower.includes('milner') || lower.includes('ribot') || lower.includes('temporally graded') || lower.includes('henry molaison')) {
+    return 'Lesson 5.2 • Section 1: Scoville & Milner’s Patient H.M. & Temporally Graded Retrograde Amnesia';
+  }
+  if (lower.includes('hippocampal index') || lower.includes('teyler') || lower.includes('discenna') || lower.includes('complementary learning systems') || lower.includes('cls') || lower.includes('catastrophic interference') || lower.includes('mcclelland') || lower.includes('pattern completion')) {
+    return 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems';
+  }
+  if (lower.includes('standard consolidation') || lower.includes('multiple trace') || lower.includes('mtt') || lower.includes('nadel') || lower.includes('moscovitch') || lower.includes('transformation theory') || lower.includes('semantic gist') || lower.includes('abstract schema')) {
+    return 'Lesson 5.2 • Section 3: Standard Consolidation Theory vs Multiple Trace & Transformation Theory';
+  }
+  if (lower.includes('hippocampal-neocortical systems consolidation pipeline diagram') || lower.includes('systems consolidation diagram') || lower.includes('hippocampal-neocortical diagram')) {
+    return 'Lesson 5.2 • Hippocampal-Neocortical Systems Consolidation Pipeline Diagram';
+  }
+  if (lower.includes('5.2') || lower.includes('hippocampal-neocortical') || lower.includes('systems consolidation protocol')) {
+    return 'Lesson 5.2 • Section 2: The Hippocampal Indexing Theory & Complementary Learning Systems';
+  }
 
   // Match Lesson 5.1 anchors
   if (lower.includes('bliss') || lower.includes('lomo') || lower.includes('lømo') || lower.includes('hebb') || lower.includes('perforant') || lower.includes('dentate gyrus') || lower.includes('tetanic')) {
@@ -565,6 +594,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_5_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 5.2: "Hippocampal-Neocortical Dialogue — System-level migration from temporary index to distributed network".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical neuroscience of systems consolidation and cognitive architecture:
+     a) Scoville & Milner (1957) Patient H.M.: Bilateral medial temporal lobe resection caused dense anterograde amnesia and temporally graded retrograde amnesia (Ribot's Law), proving that the hippocampus is a temporary indexing structure rather than the permanent storehouse of memory. Remote childhood memories survived because they had completed systems consolidation into the neocortex.
+     b) Hippocampal Indexing Theory: Teyler & DiScenna (1986) demonstrated the hippocampus stores sparse index vectors (pointers) linking distributed neocortical columns. Retrieval cues trigger pattern completion in CA3, firing back-projections to reconstruct the full cortical representation.
+     c) Complementary Learning Systems (CLS): McClelland, McNaughton, & O'Reilly (1995) proved that rapid direct learning in distributed neocortical networks causes Catastrophic Interference (erasing prior schemas). The brain solves this with a fast hippocampal learner that replays memories slowly and in an interleaved manner to the neocortex during offline sleep/rest.
+     d) Transformation Hypothesis: Nadel & Moscovitch (1997) and Winocur & Moscovitch (2011) showed consolidation abstracts invariant semantic schemas into the neocortex, while episodic details remain dependent on hippocampal traces.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to systems consolidation, hippocampal indexing, and neocortical schemas.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -592,6 +646,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'ltp-synaptic-plasticity') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_5_1;
+  }
+  if (lessonId === 'hippocampal-neocortical-dialogue') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_5_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -637,6 +694,10 @@ export const KNOWN_CONCEPTS = [
   'concept:hebbian_synaptic_plasticity',
   'concept:nmda_receptor_coincidence_detection',
   'concept:early_vs_late_ltp_consolidation',
+  // Lesson 5.2 Concepts
+  'concept:hippocampal_index_model',
+  'concept:standard_consolidation_vs_multiple_trace',
+  'concept:complementary_learning_systems_interleaved_integration',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -674,6 +735,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 5.1 Misconceptions
   'misconception:passive_exposure_induces_plasticity',
   'misconception:cramming_creates_permanent_synaptic_change',
+  // Lesson 5.2 Misconceptions
+  'misconception:hippocampus_is_permanent_storage',
+  'misconception:fast_direct_cortical_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
