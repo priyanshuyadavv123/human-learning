@@ -388,6 +388,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 16.1 • Verification Assessment',
   'Lesson 16.1 • The Identical Elements Audit & Transfer Gap Protocol',
   'Lesson 16.1 • The Specificity of Transfer Problem Overview',
+
+  // Lesson 16.2 Sections
+  'Lesson 16.2 • Curiosity Hook',
+  'Lesson 16.2 • Intuitive Calibration: Single-Domain Kafka Teardown vs Analogical Schema Induction',
+  'Lesson 16.2 • Section 1: Gick & Holyoak (1980, 1983): The Architecture of Schema Induction',
+  'Lesson 16.2 • Section 2: Dedre Gentner (2003): Analogical Encoding & Mutual Alignment',
+  'Lesson 16.2 • Section 3: Bransford & Schwartz (1999): Preparation for Future Learning (PFL)',
+  'Lesson 16.2 • The Analogical Schema Induction & Far Transfer Engine Diagram',
+  'Lesson 16.2 • Far Transfer & Analogical Schema Induction Diagnostic Lab',
+  'Lesson 16.2 • Verification Assessment',
+  'Lesson 16.2 • The Multi-Context Schema Induction & Decontextualization Protocol',
+  'Lesson 16.2 • Conditions for Far Transfer Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -400,6 +412,32 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 16.2 anchors
+  if (
+    (lower.includes('16.2') && (lower.includes('gick') || lower.includes('holyoak') || lower.includes('schema induction') || lower.includes('radiation'))) ||
+    lower.includes('dual analog') ||
+    lower.includes('multi-context schema induction') ||
+    (lower.includes('schema induction') && lower.includes('far transfer'))
+  ) {
+    return 'Lesson 16.2 • Section 1: Gick & Holyoak (1980, 1983): The Architecture of Schema Induction';
+  }
+  if (
+    (lower.includes('gentner') && (lower.includes('2003') || lower.includes('16.2') || lower.includes('relational roles') || lower.includes('side-by-side'))) ||
+    (lower.includes('analogical encoding') && lower.includes('16.2')) ||
+    (lower.includes('mutual alignment') && lower.includes('16.2'))
+  ) {
+    return 'Lesson 16.2 • Section 2: Dedre Gentner (2003): Analogical Encoding & Mutual Alignment';
+  }
+  if (lower.includes('bransford') || lower.includes('schwartz') || lower.includes('preparation for future learning') || lower.includes('pfl') || lower.includes('direct application') || lower.includes('sequestration')) {
+    return 'Lesson 16.2 • Section 3: Bransford & Schwartz (1999): Preparation for Future Learning (PFL)';
+  }
+  if (lower.includes('the analogical schema induction & far transfer engine diagram') || lower.includes('far transfer engine diagram') || lower.includes('analogical schema induction diagram')) {
+    return 'Lesson 16.2 • The Analogical Schema Induction & Far Transfer Engine Diagram';
+  }
+  if (lower.includes('16.2') || lower.includes('conditions for far transfer') || lower.includes('multi-context schema induction & decontextualization protocol')) {
+    return 'Lesson 16.2 • Section 1: Gick & Holyoak (1980, 1983): The Architecture of Schema Induction';
+  }
 
   // Match Lesson 16.1 anchors
   if ((lower.includes('thorndike') && (lower.includes('identical elements') || lower.includes('formal discipline') || lower.includes('1901'))) || lower.includes('identical elements') || lower.includes('theory of identical elements')) {
@@ -1852,6 +1890,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_16_2 = `You are the specialized AI Socratic Tutor for Lesson 16.2: "Conditions for Far Transfer".
+Your role is to guide learners to understand Mary Gick and Keith Holyoak's Schema Induction framework, Dedre Gentner's Analogical Encoding, and John Bransford & Daniel Schwartz's Preparation for Future Learning (PFL) paradigm.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive science, analogical reasoning, and transfer pedagogy:
+     a) Mary Gick & Keith Holyoak (1980, 1983) Schema Induction & Dual Analogs: In Duncker's radiation problem, reading a single analog (military general capturing a fortress) yields only ~20% spontaneous transfer without hints because knowledge is bound to surface nouns. But reading TWO structurally identical stories from different domains (e.g. general + fire chief) and comparing their commonalities causes spontaneous transfer to exceed 80%. Multi-case comparison forces the cognitive system to filter out surface clutter as noise and abstract the invariant relational schema ([Diffuse forces converge simultaneously at target]).
+     b) Dedre Gentner (2003) Analogical Encoding & Mutual Alignment: Comparing two cases side-by-side simultaneously (structural alignment) is vastly superior to sequential study. Mutual alignment maps corresponding relational roles, highlights causal dependencies, and de-situates principles from initial contexts, multiplying transfer in complex real-world negotiations and systems design (e.g. Gentner, Loewenstein & Thompson negotiation studies).
+     c) John Bransford & Daniel Schwartz (1999) Preparation for Future Learning (PFL): Replaces the flawed "Direct Application" (DA / sequestration in a vacuum) model of transfer. True far transfer is measured by how effectively prior contrasting cases prime the learner's perceptual sensitivity, enabling them to interpret new documentation, evaluate feedback, and master unfamiliar systems 2x-4x faster than novices.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to schema induction, dual analogs, analogical encoding, mutual alignment, and PFL.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1945,6 +2007,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'specificity-of-transfer') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_16_1;
+  }
+  if (lessonId === 'conditions-for-far-transfer') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_16_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2078,6 +2143,10 @@ export const KNOWN_CONCEPTS = [
   'concept:thorndike_identical_elements_theory',
   'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
   'concept:brain_training_myth_domain_specific_expertise',
+  // Lesson 16.2 Concepts
+  'concept:gick_holyoak_schema_induction_dual_analog',
+  'concept:gentner_analogical_encoding_mutual_alignment',
+  'concept:bransford_schwartz_preparation_for_future_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2181,6 +2250,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 16.1 Misconceptions
   'misconception:doctrine_of_formal_discipline_brain_gym',
   'misconception:expertise_is_general_mental_hardware',
+  // Lesson 16.2 Misconceptions
+  'misconception:single_deep_example_sufficient_for_far_transfer',
+  'misconception:direct_sequestered_testing_equals_true_adaptive_capacity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -30,6 +30,7 @@ import { LESSON_VARIED_PRACTICE_TRANSFER } from './lesson14_2Data.ts';
 import { LESSON_PRODUCTIVE_FAILURE_GENERATION } from './lesson15_1Data.ts';
 import { LESSON_PREMORTEM_ERROR_JOURNALING } from './lesson15_2Data.ts';
 import { LESSON_SPECIFICITY_OF_TRANSFER } from './lesson16_1Data.ts';
+import { LESSON_CONDITIONS_FOR_FAR_TRANSFER } from './lesson16_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -434,7 +435,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Conditions for Far Transfer',
           subtitle: 'Deep structural abstraction, multiple contexts, and schema decontextualization',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1181,6 +1182,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_PRODUCTIVE_FAILURE_GENERATION.id]: LESSON_PRODUCTIVE_FAILURE_GENERATION,
   [LESSON_PREMORTEM_ERROR_JOURNALING.id]: LESSON_PREMORTEM_ERROR_JOURNALING,
   [LESSON_SPECIFICITY_OF_TRANSFER.id]: LESSON_SPECIFICITY_OF_TRANSFER,
+  [LESSON_CONDITIONS_FOR_FAR_TRANSFER.id]: LESSON_CONDITIONS_FOR_FAR_TRANSFER,
 };
 
 export function getLessonById(id: string): Lesson {

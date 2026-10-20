@@ -237,6 +237,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'specificity-of-transfer';
     chapterId = 'ch-16-transfer';
+  } else if (
+    conceptId.startsWith('concept:gick_holyoak_schema_') ||
+    conceptId.startsWith('concept:gentner_analogical_') ||
+    conceptId.startsWith('concept:bransford_schwartz_')
+  ) {
+    lessonId = 'conditions-for-far-transfer';
+    chapterId = 'ch-16-transfer';
   }
 
   return {

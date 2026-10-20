@@ -132,6 +132,10 @@ export const KNOWN_CONCEPTS = [
   'concept:thorndike_identical_elements_theory',
   'concept:barnett_ceci_multi_dimensional_transfer_taxonomy',
   'concept:brain_training_myth_domain_specific_expertise',
+  // Lesson 16.2 Concepts
+  'concept:gick_holyoak_schema_induction_dual_analog',
+  'concept:gentner_analogical_encoding_mutual_alignment',
+  'concept:bransford_schwartz_preparation_for_future_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -235,6 +239,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 16.1 Misconceptions
   'misconception:doctrine_of_formal_discipline_brain_gym',
   'misconception:expertise_is_general_mental_hardware',
+  // Lesson 16.2 Misconceptions
+  'misconception:single_deep_example_sufficient_for_far_transfer',
+  'misconception:direct_sequestered_testing_equals_true_adaptive_capacity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

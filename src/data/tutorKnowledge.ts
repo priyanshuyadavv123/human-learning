@@ -932,6 +932,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why does spending hours on synthetic brain puzzles provide an illusion of cognitive self-improvement while delivering zero real-world career transfer?',
     referencedSection: 'Lesson 16.1 • Section 3: The Brain-Training Myth & Domain-Specific Expert Cognition',
   },
+  // Lesson 16.2 Entries
+  {
+    keywords: ['gick', 'holyoak', 'schema induction', 'dual analog', 'radiation problem', 'fortress', 'two examples', '80%'],
+    title: 'Gick & Holyoak (1980, 1983): Schema Induction & Dual Analogs',
+    summary: 'Comparing two structurally identical cases from different domains filters surface noise and multiplies spontaneous far transfer past 80%.',
+    takeaway: 'Never study a principle with just one example: comparing two contrasting analogs filters surface trivia and abstracts invariant relational schemas (Gick & Holyoak, 1983).',
+    detailedResponse: 'Mary Gick and Keith Holyoak (1980, 1983) revealed why spontaneous far transfer is so difficult: when learners study only one example, human memory binds the underlying causal logic to domain-specific surface nouns. In their classic radiation problem experiments, reading about a military general capturing a fortress yielded only a 20% spontaneous transfer rate. However, when learners read TWO structurally identical stories from different domains (e.g. a general and a fire chief using multiple small hoses) and were prompted to articulate their common mechanism, spontaneous transfer surged to over 80%! Schema Induction forces the prefrontal cortex to treat non-matching surface features as noise, crystallizing the pure invariant relational schema.',
+    socraticChallenge: 'Why does studying a single case study—no matter how deeply—leave your mind blind to recognizing the same pattern in another industry?',
+    referencedSection: 'Lesson 16.2 • Section 1: Gick & Holyoak (1980, 1983): The Architecture of Schema Induction',
+  },
+  {
+    keywords: ['gentner', 'analogical encoding', 'mutual alignment', 'side-by-side', 'negotiation', 'decontextualization', 'relational roles'],
+    title: 'Dedre Gentner (2003): Analogical Encoding & Mutual Alignment',
+    summary: 'Side-by-side structural alignment of two cases highlights corresponding relational roles and de-situates knowledge from contextual clutter.',
+    takeaway: 'Comparing two cases side-by-side highlights relational roles and decouples knowledge from superficial context (Gentner, 2003).',
+    detailedResponse: 'Dedre Gentner and colleagues (2003) proved that Analogical Encoding—the simultaneous, side-by-side comparison of two examples—is vastly superior to sequential study. In executive negotiation studies, business leaders who analyzed cases sequentially transferred complex deal structures only 25% of the time. But leaders who engaged in mutual structural alignment achieved over 70% transfer in live simulated deals. Comparing cases simultaneously forces working memory to map corresponding relational roles (General $\\leftrightarrow$ Fire Chief; Roads $\\leftrightarrow$ Hoses), highlighting the causal dependencies and indexing the memory under abstract relational cues rather than concrete nouns.',
+    socraticChallenge: 'How does placing two contrasting examples side-by-side act like a cognitive x-ray that strips away surface distraction?',
+    referencedSection: 'Lesson 16.2 • Section 2: Dedre Gentner (2003): Analogical Encoding & Mutual Alignment',
+  },
+  {
+    keywords: ['bransford', 'schwartz', 'preparation for future learning', 'pfl', 'direct application', 'sequestration', 'contrasting cases'],
+    title: 'Bransford & Schwartz (1999): Preparation for Future Learning (PFL)',
+    summary: 'True transfer is not memory playback in a vacuum, but the primed ability to learn and adapt rapidly when novel resources are available.',
+    takeaway: 'True mastery is Preparation for Future Learning: prior exploration primes your perceptual receptors to master novel systems 3x faster (Bransford & Schwartz, 1999).',
+    detailedResponse: 'John Bransford and Daniel Schwartz (1999) revolutionized transfer science by rejecting the "Direct Application" (DA / sequestration in a vacuum) paradigm. Traditional exams test whether a student can solve an unfamiliar problem with zero tools or reference material. Bransford & Schwartz argued that true transfer is "Preparation for Future Learning" (PFL)—the generative capacity to learn, adapt, and interpret novel documentation, feedback, and tools rapidly. Exploring contrasting cases beforehand sensitizes cognitive receptors to critical structural dimensions, turning prior knowledge into a high-velocity learning engine when encountering novel environments.',
+    socraticChallenge: 'Why is your speed of mastering a brand-new technical system a much truer test of expertise than recalling an isolated formula on a closed-book test?',
+    referencedSection: 'Lesson 16.2 • Section 3: Bransford & Schwartz (1999): Preparation for Future Learning (PFL)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

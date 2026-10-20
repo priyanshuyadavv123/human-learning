@@ -377,6 +377,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:brain_training_myth_domain_specific_expertise',
     },
   },
+  'conditions-for-far-transfer': {
+    predictionConceptId: 'concept:gick_holyoak_schema_induction_dual_analog',
+    predictionMisconceptionId: 'misconception:single_deep_example_sufficient_for_far_transfer',
+    quizConceptMapping: {
+      'q1-gick-holyoak-schema-induction-condition': 'concept:gick_holyoak_schema_induction_dual_analog',
+      'q2-gentner-analogical-encoding-mechanism': 'concept:gentner_analogical_encoding_mutual_alignment',
+      'q3-bransford-schwartz-pfl-concept': 'concept:bransford_schwartz_preparation_for_future_learning',
+      'q4-surface-vs-structural-transfer-obstacle': 'concept:gick_holyoak_schema_induction_dual_analog',
+      'q1': 'concept:gick_holyoak_schema_induction_dual_analog',
+      'q2': 'concept:gentner_analogical_encoding_mutual_alignment',
+      'q3': 'concept:bransford_schwartz_preparation_for_future_learning',
+      'q4': 'concept:gick_holyoak_schema_induction_dual_analog',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -142,6 +142,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'thorndike-identical-elements-theory': <Network size={18} />,
   'barnett-ceci-transfer-taxonomy': <Layers size={18} />,
   'brain-training-fallacy-domain-specificity': <Cpu size={18} />,
+  // Lesson 16.2 Tabs
+  'gick-holyoak-schema-induction': <Network size={18} />,
+  'gentner-analogical-encoding-comparison': <Sparkles size={18} />,
+  'bransford-schwartz-pfl-framework': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
