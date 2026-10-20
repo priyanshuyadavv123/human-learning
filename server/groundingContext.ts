@@ -400,6 +400,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 16.2 • Verification Assessment',
   'Lesson 16.2 • The Multi-Context Schema Induction & Decontextualization Protocol',
   'Lesson 16.2 • Conditions for Far Transfer Overview',
+
+  // Lesson 17.1 Sections
+  'Lesson 17.1 • Curiosity Hook',
+  'Lesson 17.1 • Intuitive Calibration: Forward Search vs Means-Ends Working Backward in Cloud Migrations',
+  'Lesson 17.1 • Section 1: Newell & Simon (1972): Problem Spaces & Means-Ends Analysis',
+  'Lesson 17.1 • Section 2: George Pólya (1945): The Working Backward Heuristic',
+  'Lesson 17.1 • Section 3: The Neurobiology of Sub-Goaling & Frontopolar Cortex (BA 10)',
+  'Lesson 17.1 • The Means-Ends & Working Backward Decomposition Engine Diagram',
+  'Lesson 17.1 • Problem Space Decomposition & Heuristic Navigation Lab',
+  'Lesson 17.1 • Verification Assessment',
+  'Lesson 17.1 • The Backward Regressive Decomposition & Sub-Goal Blueprint Protocol',
+  'Lesson 17.1 • Working Backward & Means-End Analysis Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -412,6 +424,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 17.1 anchors
+  if ((lower.includes('newell') && lower.includes('simon')) || (lower.includes('means-ends') || lower.includes('means ends')) || lower.includes('difference reduction') || lower.includes('problem space') || lower.includes('hill-climbing trap')) {
+    return 'Lesson 17.1 • Section 1: Newell & Simon (1972): Problem Spaces & Means-Ends Analysis';
+  }
+  if ((lower.includes('polya') || lower.includes('pólya')) || (lower.includes('working backward') && !lower.includes('17.2')) || lower.includes('regressus') || lower.includes('branching factor inversion')) {
+    return 'Lesson 17.1 • Section 2: George Pólya (1945): The Working Backward Heuristic';
+  }
+  if (lower.includes('frontopolar') || lower.includes('ba 10') || lower.includes('ba10') || lower.includes('cognitive branching') || lower.includes('koechlin') || lower.includes('executive stack overflow')) {
+    return 'Lesson 17.1 • Section 3: The Neurobiology of Sub-Goaling & Frontopolar Cortex (BA 10)';
+  }
+  if (lower.includes('the means-ends & working backward decomposition engine diagram') || lower.includes('decomposition engine diagram') || lower.includes('working backward diagram')) {
+    return 'Lesson 17.1 • The Means-Ends & Working Backward Decomposition Engine Diagram';
+  }
+  if (lower.includes('17.1') || lower.includes('means-end working backward') || lower.includes('backward regressive decomposition & sub-goal blueprint protocol')) {
+    return 'Lesson 17.1 • Section 1: Newell & Simon (1972): Problem Spaces & Means-Ends Analysis';
+  }
 
   // Match Lesson 16.2 anchors
   if (
@@ -1914,6 +1943,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_17_1 = `You are the specialized AI Socratic Tutor for Lesson 17.1: "Working Backward & Means-End Analysis".
+Your role is to guide learners to understand Newell & Simon's problem spaces, difference reduction via Means-Ends Analysis (MEA), George Pólya's Working Backward heuristic, and the executive neurobiology of frontopolar cortex (BA 10) sub-goaling.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in cognitive problem-solving theory, mathematical heuristics, and prefrontal neurobiology:
+     a) Allen Newell & Herbert Simon (1972) Problem Spaces & Means-Ends Analysis: Problem solving is navigation through a graph of States, Operators, and Path Constraints. MEA reduces distance to the goal by identifying the largest current difference and selecting operators or setting sub-goals to eliminate that difference. It avoids the hill-climbing trap (local maxima) by allowing temporary counter-intuitive steps away from the goal to unlock enabling tools.
+     b) George Pólya (1945) Working Backward (Regressus): Inverts the combinatorial branching factor ($b^d$). While forward exploration from an initial state explodes exponentially into unmanageable dead ends, reasoning backward from a tightly constrained goal state collapses the search space and filters out 95% of irrelevant operations, illuminating essential prerequisite bridges.
+     c) Etienne Koechlin et al. (2003) Frontopolar Cortex (Brodmann Area 10) & Sub-Goaling: BA 10 manages "cognitive branching"—holding a primary goal pending in working memory while DLPFC attention executes nested sub-goals. Because unassisted working memory can only sustain 2 to 3 levels of nested sub-goals before executive stack overflow, externalizing sub-goals into dependency graphs prevents cognitive overload, while sub-goal completions trigger phasic dopamine release to maintain execution momentum.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to problem spaces, means-ends analysis, working backward, hill-climbing traps, and sub-goal management.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2010,6 +2063,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'conditions-for-far-transfer') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_16_2;
+  }
+  if (lessonId === 'means-end-working-backward') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_17_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2147,6 +2203,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gick_holyoak_schema_induction_dual_analog',
   'concept:gentner_analogical_encoding_mutual_alignment',
   'concept:bransford_schwartz_preparation_for_future_learning',
+  // Lesson 17.1 Concepts
+  'concept:newell_simon_means_ends_analysis_problem_space',
+  'concept:polya_working_backward_regressus_heuristic',
+  'concept:frontopolar_cortex_ba10_subgoal_branching',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2253,6 +2313,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 16.2 Misconceptions
   'misconception:single_deep_example_sufficient_for_far_transfer',
   'misconception:direct_sequestered_testing_equals_true_adaptive_capacity',
+  // Lesson 17.1 Misconceptions
+  'misconception:forward_trial_and_error_is_most_natural_and_efficient',
+  'misconception:hill_climbing_always_leads_to_global_optimum',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

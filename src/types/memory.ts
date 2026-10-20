@@ -136,6 +136,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gick_holyoak_schema_induction_dual_analog',
   'concept:gentner_analogical_encoding_mutual_alignment',
   'concept:bransford_schwartz_preparation_for_future_learning',
+  // Lesson 17.1 Concepts
+  'concept:newell_simon_means_ends_analysis_problem_space',
+  'concept:polya_working_backward_regressus_heuristic',
+  'concept:frontopolar_cortex_ba10_subgoal_branching',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -242,6 +246,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 16.2 Misconceptions
   'misconception:single_deep_example_sufficient_for_far_transfer',
   'misconception:direct_sequestered_testing_equals_true_adaptive_capacity',
+  // Lesson 17.1 Misconceptions
+  'misconception:forward_trial_and_error_is_most_natural_and_efficient',
+  'misconception:hill_climbing_always_leads_to_global_optimum',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

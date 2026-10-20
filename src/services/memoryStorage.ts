@@ -244,6 +244,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'conditions-for-far-transfer';
     chapterId = 'ch-16-transfer';
+  } else if (
+    conceptId.startsWith('concept:newell_simon_means_') ||
+    conceptId.startsWith('concept:polya_working_') ||
+    conceptId.startsWith('concept:frontopolar_cortex_')
+  ) {
+    lessonId = 'means-end-working-backward';
+    chapterId = 'ch-17-heuristics';
   }
 
   return {

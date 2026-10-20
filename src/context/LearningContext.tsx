@@ -391,6 +391,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:gick_holyoak_schema_induction_dual_analog',
     },
   },
+  'means-end-working-backward': {
+    predictionConceptId: 'concept:newell_simon_means_ends_analysis_problem_space',
+    predictionMisconceptionId: 'misconception:forward_trial_and_error_is_most_natural_and_efficient',
+    quizConceptMapping: {
+      'q1-newell-simon-means-ends-analysis-core': 'concept:newell_simon_means_ends_analysis_problem_space',
+      'q2-polya-working-backward-branching-advantage': 'concept:polya_working_backward_regressus_heuristic',
+      'q3-hill-climbing-vs-means-ends-distinction': 'concept:newell_simon_means_ends_analysis_problem_space',
+      'q4-frontopolar-prefrontal-cortex-role': 'concept:frontopolar_cortex_ba10_subgoal_branching',
+      'q1': 'concept:newell_simon_means_ends_analysis_problem_space',
+      'q2': 'concept:polya_working_backward_regressus_heuristic',
+      'q3': 'concept:newell_simon_means_ends_analysis_problem_space',
+      'q4': 'concept:frontopolar_cortex_ba10_subgoal_branching',
+    },
+  },
 };
 
 interface LearningContextType {

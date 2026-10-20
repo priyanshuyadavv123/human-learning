@@ -1507,6 +1507,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:direct_sequestered_testing_equals_true_adaptive_capacity',
     discrepancyPrompt: 'Previously you may have judged your mastery by whether you could solve an unfamiliar problem with zero documentation or tools in an artificial test. Why does Bransford & Schwartz’s PFL model prove that the true measure of expertise is your velocity of learning and adapting when novel resources are placed before you?',
   },
+  'concept:newell_simon_means_ends_analysis_problem_space': {
+    conceptId: 'concept:newell_simon_means_ends_analysis_problem_space',
+    title: 'Newell & Simon (1972): Problem Spaces & Means-Ends Analysis',
+    prompt: 'How does Newell & Simon’s (1972) Means-Ends Analysis (MEA) navigate a problem space, and why is it superior to simple forward hill-climbing?',
+    keyCriteria: [
+      'Cites Allen Newell & Herbert Simon (1972) Human Problem Solving and the General Problem Solver (GPS)',
+      'Defines the Problem Space: Initial State, Goal State, Legal Operators, and Path Constraints',
+      'Explains difference reduction: identifying the largest difference between current and goal states and selecting operators to eliminate it',
+      'Explains how MEA overcomes the hill-climbing trap (local maxima) by allowing temporary moves away from the goal to satisfy prerequisite sub-goals',
+    ],
+    canonicalAnswer: 'Allen Newell and Herbert Simon (1972) formalized human problem solving as search within a "Problem Space" consisting of an Initial State, a Goal State, Legal Operators, and Constraints. When no direct algorithmic path exists, the cognitive system executes Means-Ends Analysis (MEA). MEA identifies the largest difference between the current state and the goal state, searches for an operator to eliminate that difference, and recursively establishes sub-goals if the operator’s preconditions are not met. This fundamentally surpasses naive forward "Hill-Climbing" (which blindly pursues immediate surface proximity to the goal and gets trapped in local maxima) because MEA permits taking operators that temporarily move away from the goal in order to unlock critical prerequisite tools.',
+    lessonSectionAnchor: 'Lesson 17.1 • Section 1: Newell & Simon (1972): Problem Spaces & Means-Ends Analysis',
+    relatedMisconception: 'misconception:hill_climbing_always_leads_to_global_optimum',
+    discrepancyPrompt: 'Previously you may have assumed that making steady progress on a project means every step must look closer to the final product. Why does Newell & Simon’s problem space theory show that reaching a global optimum often requires taking counter-intuitive steps that temporarily disrupt surface progress?',
+  },
+  'concept:polya_working_backward_regressus_heuristic': {
+    conceptId: 'concept:polya_working_backward_regressus_heuristic',
+    title: 'George Pólya (1945): The Working Backward Heuristic',
+    prompt: 'Explain George Pólya’s (1945) "Working Backward" heuristic and how it collapses explosive combinatorial search trees in complex problem solving.',
+    keyCriteria: [
+      'Cites George Pólya (1945) How to Solve It and the classical Greek heuristic of Analysis (regressus)',
+      'Explains branching factor inversion: forward search suffers from exponential combinatorial explosion ($b^d$), whereas a tightly constrained goal state often has very few valid immediate precursors',
+      'Explains goal-derived operator filtering: working backward from the goal filters out 95% of irrelevant operations',
+      'Applies the heuristic to engineering, mathematical proofs, software debugging, or maze navigation',
+    ],
+    canonicalAnswer: 'George Pólya (1945) in "How to Solve It" revived the classical Greek heuristic of *Analysis* (regressus)—or Working Backward. When the forward path from the given initial state is opaque and plagued by exponential combinatorial explosion ($b^d$), the problem solver assumes the desired goal state is already accomplished. By inspecting the strict invariant conditions of the finish line and deducing what single state must immediately precede it, the solver inverts the branching factor. Because a well-defined goal state has very few valid precursors (often just 1 or 2), working backward filters out irrelevant operations, transforming an overwhelming search space into a deterministic, backward-derived dependency pipeline.',
+    lessonSectionAnchor: 'Lesson 17.1 • Section 2: George Pólya (1945): The Working Backward Heuristic',
+    relatedMisconception: 'misconception:forward_trial_and_error_is_most_natural_and_efficient',
+    discrepancyPrompt: 'Previously you may have started complex technical challenges by diving straight into forward trial-and-error coding. Why does Pólya’s working backward heuristic prove that beginning from the current state creates an exponential explosion of dead ends that could be avoided by reasoning backward from the goal?',
+  },
+  'concept:frontopolar_cortex_ba10_subgoal_branching': {
+    conceptId: 'concept:frontopolar_cortex_ba10_subgoal_branching',
+    title: 'Cognitive Branching & Frontopolar Prefrontal Cortex (BA 10)',
+    prompt: 'What is the role of the Frontopolar Prefrontal Cortex (Brodmann Area 10) in cognitive branching and managing nested sub-goals during problem solving?',
+    keyCriteria: [
+      'Cites Etienne Koechlin et al. (2003) Science research on executive mental architecture',
+      'Defines Cognitive Branching: freezing a primary goal in working memory while deploying DLPFC resources to solve a secondary nested sub-goal',
+      'Explains working memory capacity constraints for nested sub-goals (~2 to 3 levels) and executive stack overflow',
+      'Explains the dopaminergic sub-goal gradient: completing sub-goals releases phasic dopamine (RPE), sustaining executive drive',
+    ],
+    canonicalAnswer: 'Etienne Koechlin and colleagues (2003) demonstrated that the human Frontopolar Prefrontal Cortex (Brodmann Area 10, the most rostral prefrontal region) is uniquely specialized for "Cognitive Branching." When a problem solver encounters an obstacle, BA 10 freezes the primary goal trace in a mental stack frame while reallocating dorsolateral prefrontal (DLPFC) attention to execute a nested sub-goal. However, biological working memory can hold only 2 to 3 levels of nested sub-goals before suffering executive stack overflow (losing the master context). Externalizing the sub-goal dependency tree onto paper or digital canvases prevents cognitive overload, while sequentially completing each sub-goal triggers phasic midbrain dopamine release that maintains task motivation across complex projects.',
+    lessonSectionAnchor: 'Lesson 17.1 • Section 3: The Neurobiology of Sub-Goaling & Frontopolar Cortex (BA 10)',
+    relatedMisconception: 'misconception:forward_trial_and_error_is_most_natural_and_efficient',
+    discrepancyPrompt: 'Previously you may have tried to juggle multiple nested sub-tasks in your head, only to realize you had forgotten why you started the sub-task in the first place. How does Koechlin’s discovery of frontopolar cognitive branching explain this executive stack overflow?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

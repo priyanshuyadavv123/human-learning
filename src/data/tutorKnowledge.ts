@@ -960,6 +960,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Why is your speed of mastering a brand-new technical system a much truer test of expertise than recalling an isolated formula on a closed-book test?',
     referencedSection: 'Lesson 16.2 • Section 3: Bransford & Schwartz (1999): Preparation for Future Learning (PFL)',
   },
+  // Lesson 17.1 Entries
+  {
+    keywords: ['newell', 'simon', 'means-ends analysis', 'mea', 'problem space', 'difference reduction', 'gps', 'hill-climbing'],
+    title: 'Newell & Simon (1972): Problem Spaces & Means-Ends Analysis',
+    summary: 'Problem solving is graph search: Means-Ends Analysis recursively reduces differences between current and goal states.',
+    takeaway: 'Means-Ends Analysis avoids local maxima traps by allowing temporary moves away from the goal to unlock enabling sub-goals (Newell & Simon, 1972).',
+    detailedResponse: 'Allen Newell and Herbert Simon (1972) formalized problem solving as navigation through a Problem Space defined by an Initial State, a Goal State, and Legal Operators. When algorithms do not exist, humans rely on Means-Ends Analysis (MEA): calculating the largest difference between where you are and where you need to be, and finding an operator to eliminate that difference. Unlike naive forward hill-climbing (which blindly chases immediate proximity and gets trapped in local maxima), MEA generates sub-goals that permit taking counter-intuitive temporary steps backward to assemble the tools needed for final victory.',
+    socraticChallenge: 'What is the largest difference between your current skill level and your target mastery, and what intermediate sub-goal unlocks the tool to close it?',
+    referencedSection: 'Lesson 17.1 • Section 1: Newell & Simon (1972): Problem Spaces & Means-Ends Analysis',
+  },
+  {
+    keywords: ['polya', 'working backward', 'regressus', 'how to solve it', 'branching factor', 'combinatorial explosion', 'reverse engineering'],
+    title: 'George Pólya (1945): The Working Backward Heuristic',
+    summary: 'Assuming the goal is accomplished inverts the branching factor, collapsing exponential forward search trees into deterministic pipelines.',
+    takeaway: 'Working backward from the finish line collapses explosive forward branching trees and filters out 95% of irrelevant operations (Pólya, 1945).',
+    detailedResponse: 'Mathematician George Pólya (1945) in "How to Solve It" highlighted the ancient Greek heuristic of *Analysis* (regressus)—or Working Backward. Moving forward from a complex initial state creates explosive combinatorial branching ($b^d$), leading down dozens of dead ends. But a rigorous, well-defined goal state usually has very few valid immediate precursors (often just 1 or 2). By stepping backward from the finish line ("What state must be true immediately before this?"), you invert the branching factor, filtering out 95% of irrelevant choices and constructing an airtight prerequisite bridge to the present.',
+    socraticChallenge: 'If your project has already succeeded 6 months from now, what was the single non-negotiable milestone completed the week before launch?',
+    referencedSection: 'Lesson 17.1 • Section 2: George Pólya (1945): The Working Backward Heuristic',
+  },
+  {
+    keywords: ['frontopolar', 'ba 10', 'ba10', 'cognitive branching', 'koechlin', 'sub-goaling', 'stack overflow', 'subgoal gradient'],
+    title: 'Frontopolar Cortex (BA 10) & Cognitive Sub-Goal Branching',
+    summary: 'Brodmann Area 10 holds master goals pending while executing sub-goals, but crashes after 2-3 levels without external scaffolding.',
+    takeaway: 'Externalize your sub-goal trees: the frontopolar cortex crashes after 2-3 nested mental goals without external scaffolding (Koechlin et al., 2003).',
+    detailedResponse: 'Etienne Koechlin and colleagues (2003) revealed that the human Frontopolar Prefrontal Cortex (Brodmann Area 10) enables Cognitive Branching: freezing a primary goal in memory while deploying working memory (DLPFC) to execute a nested sub-goal. However, unassisted human working memory can hold only 2 to 3 levels of nested sub-goals before executive stack overflow occurs (you forget why you started the sub-task). Externalizing sub-goals on paper offloads BA 10, while checking off milestones triggers phasic dopamine releases that sustain executive momentum across grueling projects.',
+    socraticChallenge: 'Why does writing your project sub-goals down on an external board prevent executive stack overflow and brain fog?',
+    referencedSection: 'Lesson 17.1 • Section 3: The Neurobiology of Sub-Goaling & Frontopolar Cortex (BA 10)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -146,6 +146,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'gick-holyoak-schema-induction': <Network size={18} />,
   'gentner-analogical-encoding-comparison': <Sparkles size={18} />,
   'bransford-schwartz-pfl-framework': <RefreshCw size={18} />,
+  // Lesson 17.1 Tabs
+  'newell-simon-problem-space-mea': <Network size={18} />,
+  'polya-working-backward-heuristic': <Repeat size={18} />,
+  'frontopolar-prefrontal-subgoaling': <Cpu size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {
