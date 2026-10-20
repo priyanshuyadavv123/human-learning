@@ -1327,6 +1327,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:environmental_consistency_optimizes_generalized_retrieval',
     discrepancyPrompt: 'Previously you may have believed that you must always study at the exact same desk with the same lighting to optimize focus. Why does Smith et al.’s encoding variability research prove that environmental consistency actually leaves your memory hostage to that single room?',
   },
+  'concept:kapur_productive_failure_schema_priming': {
+    conceptId: 'concept:kapur_productive_failure_schema_priming',
+    title: 'Productive Failure & Schema Gap Priming (Manu Kapur, 2008)',
+    prompt: 'Explain Manu Kapur’s (2008, 2012) Productive Failure framework and why exploratory struggle must strictly precede canonical direct instruction.',
+    keyCriteria: [
+      'Cites Manu Kapur (2008, 2012) classroom experiments on variance/standard deviation',
+      'Distinguishes Phase 1: Unguided Exploration & Problem Solving from Phase 2: Canonical Consolidation',
+      'Explains that exploration activates prior knowledge, differentiates problem constraints, and exposes knowledge gaps',
+      'Explains the Illusion of Explanatory Depth when direct instruction is delivered first without prior struggle',
+    ],
+    canonicalAnswer: 'Manu Kapur (2008, 2012) proved that for complex conceptual domains, exploratory generation must strictly precede direct instruction. In his studies, students who attempted to solve complex problems before receiving instruction generated failed, suboptimal mathematical representations, but significantly outperformed lecture-first students on subsequent transfer exams (nearly 2x). Kapur showed that exploratory struggle performs essential cognitive priming: it activates prior knowledge schemas, isolates critical problem invariants and boundary constraints, and makes learners aware of what they do not know (epistemic curiosity). Direct instruction first induces an illusion of explanatory depth where learners nod along passively without understanding why the canonical solution was designed that way.',
+    lessonSectionAnchor: 'Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure',
+    relatedMisconception: 'misconception:direct_instruction_first_is_always_more_efficient',
+    discrepancyPrompt: 'Previously you may have believed that listening to an expert lecture first is the fastest and cleanest way to learn. How does Kapur’s productive failure framework show that lectures given before problem exploration answer questions your brain has never asked?',
+  },
+  'concept:bjork_pretesting_generation_gap_activation': {
+    conceptId: 'concept:bjork_pretesting_generation_gap_activation',
+    title: 'The Pre-Testing & Generation Gap Effect (Bjork & Kornell, 2011)',
+    prompt: 'How does guessing the answer to an unstudied question enhance subsequent learning even when the guess is completely wrong (Bjork & Kornell)?',
+    keyCriteria: [
+      'Cites Elizabeth & Robert Bjork (2011) and Nate Kornell et al. (2009) pre-testing experiments',
+      'Explains spreading activation: attempting retrieval activates related semantic long-term memory networks',
+      'Explains that incorrect guesses create an associative landing pad for corrective feedback',
+      'Refutes the behaviorist "errorless learning" dogma for declarative knowledge',
+    ],
+    canonicalAnswer: 'Elizabeth and Robert Bjork, along with Nate Kornell (2009, 2011), demonstrated the Pre-Testing Effect: attempting to retrieve or guess the answer to an unstudied question dramatically enhances the encoding of subsequent feedback, even when the guess is 100% incorrect. Generative effort forces prefrontal executive circuits to search semantic long-term memory, triggering spreading activation across related conceptual nodes. Even though the generated guess is wrong, this active search primes the surrounding associative network. When corrective feedback is subsequently revealed, it binds to this pre-activated semantic web rather than floating as an isolated trace, refuting the classical dogma that early errors harm declarative learning.',
+    lessonSectionAnchor: 'Lesson 15.1 • Section 2: Elizabeth & Robert Bjork (2011): The Pre-Testing & Generation Gap Effect',
+    relatedMisconception: 'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
+    discrepancyPrompt: 'Previously you may have worried that taking a practice quiz before studying would imprint wrong answers in your memory. How does Bjork and Kornell’s pre-testing research prove that wrong guesses actually prime neural pathways to absorb the correct answer?',
+  },
+  'concept:metcalfe_hypercorrection_epistemic_curiosity': {
+    conceptId: 'concept:metcalfe_hypercorrection_epistemic_curiosity',
+    title: 'Error-Driven Learning & The Hypercorrection Effect (Janet Metcalfe, 2017)',
+    prompt: 'What is Janet Metcalfe’s (2017) Hypercorrection Effect, and why are high-confidence errors corrected more durably than low-confidence errors?',
+    keyCriteria: [
+      'Cites Janet Metcalfe (2017) and Butterfield & Metcalfe (2001)',
+      'Defines the Hypercorrection Effect: high-confidence errors are more readily and durably corrected than low-confidence errors',
+      'Explains the midbrain Reward Prediction Error (RPE) and P300 ERP surprise deflection',
+      'Explains the surge in epistemic curiosity and attention that accelerates synaptic reconsolidation',
+    ],
+    canonicalAnswer: 'Janet Metcalfe (2017) established that human error-driven learning is governed by the Hypercorrection Effect. When learners make a mistake that they believed with high confidence was correct, receiving corrective feedback produces an explosive neural surprise signal (a large P300 event-related potential deflection). This massive prediction error captures attention, elevates epistemic curiosity, and accelerates synaptic reconsolidation. Consequently, high-confidence errors are corrected significantly more easily and remembered far more durably on delayed re-tests than low-confidence guesses. Exposing high-confidence beliefs to empirical falsification is one of the most potent cognitive mechanisms for durable schema updating.',
+    lessonSectionAnchor: 'Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect',
+    relatedMisconception: 'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
+    discrepancyPrompt: 'Previously you may have felt embarrassed or discouraged when you were 100% confident in an answer that turned out to be dead wrong. How does Metcalfe’s hypercorrection effect show that being confidently wrong is the ultimate neurobiological catalyst for permanent memory updating?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

@@ -335,6 +335,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:schmidt_schema_theory_generalized_motor_program',
     },
   },
+  'productive-failure-generation': {
+    predictionConceptId: 'concept:kapur_productive_failure_schema_priming',
+    predictionMisconceptionId: 'misconception:direct_instruction_first_is_always_more_efficient',
+    quizConceptMapping: {
+      'q1-kapur-productive-failure-core-architecture': 'concept:kapur_productive_failure_schema_priming',
+      'q2-bjork-pretesting-effect-mechanism': 'concept:bjork_pretesting_generation_gap_activation',
+      'q3-metcalfe-hypercorrection-effect': 'concept:metcalfe_hypercorrection_epistemic_curiosity',
+      'q4-productive-vs-unproductive-failure': 'concept:kapur_productive_failure_schema_priming',
+      'q1': 'concept:kapur_productive_failure_schema_priming',
+      'q2': 'concept:bjork_pretesting_generation_gap_activation',
+      'q3': 'concept:metcalfe_hypercorrection_epistemic_curiosity',
+      'q4': 'concept:kapur_productive_failure_schema_priming',
+    },
+  },
 };
 
 interface LearningContextType {

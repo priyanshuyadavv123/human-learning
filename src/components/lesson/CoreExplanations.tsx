@@ -130,6 +130,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'schmidt-schema-theory-generalized-programs': <Cpu size={18} />,
   'kerr-booth-target-interpolation': <Network size={18} />,
   'encoding-variability-environmental-transfer': <RefreshCw size={18} />,
+  // Lesson 15.1 Tabs
+  'kapur-productive-failure-architecture': <Network size={18} />,
+  'bjork-pretesting-generation-gap-activation': <Sparkles size={18} />,
+  'metcalfe-hypercorrection-epistemic-curiosity': <RefreshCw size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

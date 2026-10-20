@@ -848,6 +848,34 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What physical or digital crutches are currently bound to your daily study routine, and how can you rotate them to build context independence?',
     referencedSection: 'Lesson 14.2 • Section 3: Smith, Glenberg & Bjork (1978): Encoding Variability & Multi-Context Robustness',
   },
+  // Lesson 15.1 Entries
+  {
+    keywords: ['kapur', 'productive failure', 'unproductive failure', 'canonical consolidation', 'schema priming', 'exploration before lecture', 'variance'],
+    title: 'Manu Kapur (2008, 2012): The Architecture of Productive Failure',
+    summary: 'Unguided generation struggle before direct instruction primes prior knowledge and exposes schema gaps, doubling conceptual transfer.',
+    takeaway: 'Struggling to solve a complex problem before receiving direct instruction primes schema gaps and doubles conceptual transfer (Kapur, 2008, 2012).',
+    detailedResponse: 'Manu Kapur (2008, 2012) proved across numerous classroom experiments that learning complex conceptual principles requires Phase 1 (Unguided Exploration & Generation) followed by Phase 2 (Canonical Consolidation). When learners attempt to solve complex problems before receiving instruction, they fail to invent the canonical mathematical model. However, this failure performs crucial cognitive groundwork: it activates prior knowledge, differentiates critical problem constraints, and creates acute awareness of latent knowledge gaps (epistemic curiosity). Direct instruction delivered first induces an "illusion of explanatory depth" where students passively nod along without understanding why the solution was necessary.',
+    socraticChallenge: 'Why does struggling with a problem before you know how to solve it make a subsequent lecture twice as memorable?',
+    referencedSection: 'Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure',
+  },
+  {
+    keywords: ['bjork', 'pre-testing', 'pretesting effect', 'generation gap', 'unsuccessful retrieval', 'spreading activation', 'wrong guesses'],
+    title: 'Bjork & Kornell (2011): The Pre-Testing & Generation Gap Effect',
+    summary: 'Guessing the answer to an unstudied question enhances subsequent learning even when the guess is 100% incorrect.',
+    takeaway: 'Taking a test before studying primes memory: incorrect guesses trigger spreading activation that acts as a scaffold for feedback (Bjork & Kornell, 2011).',
+    detailedResponse: 'Elizabeth & Robert Bjork and Nate Kornell (2009, 2011) refuted the century-old behaviorist myth that early errors harm declarative learning. Attempting to retrieve or guess the answer to an unstudied question triggers spreading activation across semantic long-term memory networks. Even when the generated guess is completely incorrect, this generative search prepares an associative landing pad. When corrective feedback is subsequently delivered, it integrates directly into this pre-activated semantic web, producing significantly higher delayed retention than passively reading the fact for equal time.',
+    socraticChallenge: 'How does an incorrect guess act like a shovel digging an associative hole for the correct answer to fill?',
+    referencedSection: 'Lesson 15.1 • Section 2: Elizabeth & Robert Bjork (2011): The Pre-Testing & Generation Gap Effect',
+  },
+  {
+    keywords: ['metcalfe 2017', 'metcalfe hypercorrection', 'high-confidence error', 'p300', 'prediction error', 'epistemic curiosity', 'curiosity gap', 'error-driven learning'],
+    title: 'Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect',
+    summary: 'Errors made with high confidence trigger massive neural prediction errors and are corrected more durably than low-confidence errors.',
+    takeaway: 'High-confidence errors trigger a large P300 surprise signal and surge in curiosity, leading to superior delayed correction (Metcalfe, 2017).',
+    detailedResponse: 'Janet Metcalfe and colleagues (Butterfield & Metcalfe, 2001; Metcalfe, 2017) discovered the Hypercorrection Effect: when a learner makes an error on a question they answered with high confidence, receiving corrective feedback produces a massive Reward Prediction Error (RPE) and a prominent P300 event-related potential deflection in the brain. This sudden violation of expectation triggers intense attentional capture and epistemic curiosity, accelerating synaptic reconsolidation. Consequently, high-confidence errors are corrected more easily and remembered far more durably on delayed re-tests than low-confidence guesses.',
+    socraticChallenge: 'Why are your most confident mistakes actually your greatest opportunities for permanent memory updates?',
+    referencedSection: 'Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

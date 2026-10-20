@@ -120,6 +120,10 @@ export const KNOWN_CONCEPTS = [
   'concept:schmidt_schema_theory_generalized_motor_program',
   'concept:kerr_booth_variable_practice_interpolation',
   'concept:encoding_variability_multi_context_robustness',
+  // Lesson 15.1 Concepts
+  'concept:kapur_productive_failure_schema_priming',
+  'concept:bjork_pretesting_generation_gap_activation',
+  'concept:metcalfe_hypercorrection_epistemic_curiosity',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -214,6 +218,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 14.2 Misconceptions
   'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
   'misconception:environmental_consistency_optimizes_generalized_retrieval',
+  // Lesson 15.1 Misconceptions
+  'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
+  'misconception:direct_instruction_first_is_always_more_efficient',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

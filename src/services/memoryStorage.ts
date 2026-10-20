@@ -216,6 +216,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'varied-practice-transfer';
     chapterId = 'ch-14-interleaving';
+  } else if (
+    conceptId.startsWith('concept:kapur_productive_') ||
+    conceptId.startsWith('concept:bjork_pretesting_') ||
+    conceptId.startsWith('concept:metcalfe_hypercorrection_')
+  ) {
+    lessonId = 'productive-failure-generation';
+    chapterId = 'ch-15-error-driven';
   }
 
   return {

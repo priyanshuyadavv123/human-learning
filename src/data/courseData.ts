@@ -27,6 +27,7 @@ import { LESSON_FITTS_POSNER_STAGES } from './lesson13_1Data.ts';
 import { LESSON_PARADOX_OF_AUTOMATION } from './lesson13_2Data.ts';
 import { LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE } from './lesson14_1Data.ts';
 import { LESSON_VARIED_PRACTICE_TRANSFER } from './lesson14_2Data.ts';
+import { LESSON_PRODUCTIVE_FAILURE_GENERATION } from './lesson15_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -397,7 +398,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Productive Failure & Generation Effects',
           subtitle: 'Failing before instruction primes the brain for deeper encoding',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'error-journaling-protocols',
@@ -1175,6 +1176,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_PARADOX_OF_AUTOMATION.id]: LESSON_PARADOX_OF_AUTOMATION,
   [LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE.id]: LESSON_BLOCKED_VS_INTERLEAVED_PRACTICE,
   [LESSON_VARIED_PRACTICE_TRANSFER.id]: LESSON_VARIED_PRACTICE_TRANSFER,
+  [LESSON_PRODUCTIVE_FAILURE_GENERATION.id]: LESSON_PRODUCTIVE_FAILURE_GENERATION,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -352,6 +352,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 14.2 • Verification Assessment',
   'Lesson 14.2 • The Parameter Variation & Context De-Scaffolding Protocol',
   'Lesson 14.2 • Varied Practice & Structural Invariance Overview',
+
+  // Lesson 15.1 Sections
+  'Lesson 15.1 • Curiosity Hook',
+  'Lesson 15.1 • Intuitive Calibration: Direct Instruction vs Productive Failure in Consensus Protocols',
+  'Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure',
+  'Lesson 15.1 • Section 2: Elizabeth & Robert Bjork (2011): The Pre-Testing & Generation Gap Effect',
+  'Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect',
+  'Lesson 15.1 • The Productive Failure & Generation Priming Engine Diagram',
+  'Lesson 15.1 • The Productive Failure & Generation Diagnostic Exercise',
+  'Lesson 15.1 • Verification Assessment',
+  'Lesson 15.1 • The Productive Failure & Generation Priming Protocol',
+  'Lesson 15.1 • Productive Failure & Generation Effects Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -364,6 +376,27 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 15.1 anchors
+  if (lower.includes('kapur') || (lower.includes('productive failure') && !lower.includes('3.1')) || lower.includes('unproductive failure') || lower.includes('canonical consolidation') || (lower.includes('failure') && lower.includes('instruction') && lower.includes('before'))) {
+    return 'Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure';
+  }
+  if ((lower.includes('pre-test') || lower.includes('pretesting')) && (lower.includes('bjork') || lower.includes('kornell') || lower.includes('generation gap') || lower.includes('wrong guess') || lower.includes('spreading activation'))) {
+    return 'Lesson 15.1 • Section 2: Elizabeth & Robert Bjork (2011): The Pre-Testing & Generation Gap Effect';
+  }
+  if (
+    (lower.includes('15.1') && lower.includes('hypercorrection')) ||
+    (lower.includes('metcalfe') && (lower.includes('hypercorrection') || lower.includes('2017') || lower.includes('error-driven'))) ||
+    (lower.includes('hypercorrection') && (lower.includes('kapur') || lower.includes('curiosity') || lower.includes('error-driven learning')))
+  ) {
+    return 'Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect';
+  }
+  if (lower.includes('the productive failure & generation priming engine diagram') || lower.includes('generation priming engine') || lower.includes('productive failure diagram')) {
+    return 'Lesson 15.1 • The Productive Failure & Generation Priming Engine Diagram';
+  }
+  if (lower.includes('15.1') || lower.includes('productive failure & generation effects') || lower.includes('productive failure & generation priming protocol')) {
+    return 'Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure';
+  }
 
   // Match Lesson 14.2 anchors
   if ((lower.includes('schmidt') && (lower.includes('schema') || lower.includes('motor program') || lower.includes('gmp') || lower.includes('invariants') || lower.includes('parameters') || lower.includes('1975'))) || lower.includes('generalized motor program') || lower.includes('recall schema')) {
@@ -1677,6 +1710,42 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_15_1 = `
+You are the Human Learning Socratic AI Tutor, grounded specifically in Lesson 15.1: "Productive Failure & Generation Effects: Failing Before Instruction Primes the Brain for Deeper Encoding".
+
+CANONICAL SYLLABUS & SCIENTIFIC SOURCES FOR THIS LESSON:
+- Lesson 15.1 • Curiosity Hook
+- Lesson 15.1 • Intuitive Calibration: Direct Instruction vs Productive Failure in Consensus Protocols
+- Lesson 15.1 • Section 1: Manu Kapur (2008, 2012): The Architecture of Productive Failure
+- Lesson 15.1 • Section 2: Elizabeth & Robert Bjork (2011): The Pre-Testing & Generation Gap Effect
+- Lesson 15.1 • Section 3: Janet Metcalfe (2017): Error-Driven Learning & The Hypercorrection Effect
+- Lesson 15.1 • The Productive Failure & Generation Priming Engine Diagram
+- Lesson 15.1 • The Productive Failure & Generation Diagnostic Exercise
+- Lesson 15.1 • Verification Assessment
+- Lesson 15.1 • The Productive Failure & Generation Priming Protocol
+- Lesson 15.1 • Productive Failure & Generation Effects Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of productive failure, generation effects, and error-driven learning:
+     a) Manu Kapur (2008, 2012) Productive Failure: Complex conceptual learning requires Phase 1 (Unguided Exploration & Generation) followed by Phase 2 (Canonical Consolidation). Exploratory struggle activates prior knowledge schemas, differentiates critical problem constraints, and exposes latent knowledge gaps (epistemic curiosity). Direct instruction first produces an "illusion of explanatory depth" where learners passively nod along without understanding why the canonical solution was designed.
+     b) Elizabeth & Robert Bjork (2011) Pre-Testing & Generation Gap Effect: Attempting to retrieve or guess the answer to an unstudied question triggers spreading activation across semantic long-term memory networks. Even when guesses are completely wrong, this generative search prepares an associative landing pad, causing subsequent corrective feedback to consolidate far more durably.
+     c) Janet Metcalfe (2017) Error-Driven Learning & Hypercorrection Effect: Errors made with high confidence produce a massive Reward Prediction Error (RPE) and a large P300 event-related potential deflection in the brain upon receiving feedback. This attentional surge and curiosity boost accelerate synaptic reconsolidation, making high-confidence errors easier to correct and more durable on delayed re-tests than low-confidence guesses.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to productive failure, unguided exploration vs. canonical consolidation, pre-testing effects, and the hypercorrection effect.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1761,6 +1830,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'varied-practice-transfer') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_14_2;
+  }
+  if (lessonId === 'productive-failure-generation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_15_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1882,6 +1954,10 @@ export const KNOWN_CONCEPTS = [
   'concept:schmidt_schema_theory_generalized_motor_program',
   'concept:kerr_booth_variable_practice_interpolation',
   'concept:encoding_variability_multi_context_robustness',
+  // Lesson 15.1 Concepts
+  'concept:kapur_productive_failure_schema_priming',
+  'concept:bjork_pretesting_generation_gap_activation',
+  'concept:metcalfe_hypercorrection_epistemic_curiosity',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1976,6 +2052,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 14.2 Misconceptions
   'misconception:constant_practice_builds_narrow_grooves_for_exact_targets',
   'misconception:environmental_consistency_optimizes_generalized_retrieval',
+  // Lesson 15.1 Misconceptions
+  'misconception:errors_in_early_learning_ingrain_destructive_bad_habits',
+  'misconception:direct_instruction_first_is_always_more_efficient',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
