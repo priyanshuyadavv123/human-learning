@@ -220,6 +220,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Look at the last piece of feedback you received. Did it provide actionable feed-forward direction, or was it merely person-level praise?',
     referencedSection: 'Lesson 3.1 • Section 3: The Architecture of Calibrated Feedback',
   },
+  {
+    keywords: ['deliberate practice', 'ericsson', '10,000 hour', 'edge of ability', 'mental representations', 'naive practice'],
+    title: 'Ericsson’s Deliberate Practice & Edge-of-Ability Repetition',
+    summary: 'Deliberate practice operates at the proximal edge of ability with immediate feedback, building expert mental representations.',
+    takeaway: 'Mere hours of work experience automate baseline habits. Deliberate practice requires targeting weaknesses at the edge of ability with immediate corrective feedback.',
+    detailedResponse: 'K. Anders Ericsson (1993, 2016) showed that domain experience alone correlates weakly with elite competence. Naive practice—repeating tasks in your comfort zone—maintains ability but fails to advance it. Deliberate practice requires: 1) Working at the proximal edge of ability (Zone of Proximal Development); 2) Concrete process-level target goals; 3) Immediate error feedback; and 4) Effortful generative refinement to construct rich mental representations.',
+    socraticChallenge: 'What specific sub-skill in your engineering stack is currently at the outer edge of your ability, where you make frequent mistakes?',
+    referencedSection: 'Lesson 3.2 • Section 1: Ericsson’s Deliberate Practice Framework',
+  },
+  {
+    keywords: ['zimmerman', 'self-regulated learning', 'self-regulation', 'forethought', 'process goal', 'causal attribution'],
+    title: 'Zimmerman’s Cybernetic Self-Regulated Learning Triad',
+    summary: 'Self-regulated learning operates across three recursive phases: Forethought, Performance, and Self-Reflection.',
+    takeaway: 'Structure study into a cybernetic loop: set concrete process goals in Forethought, monitor execution in Performance, and attribute errors to strategy in Self-Reflection.',
+    detailedResponse: 'Barry Zimmerman (2000, 2002) modeled autonomous self-regulated learning (SRL) across three cyclical phases: 1) Forethought: task analysis and process-level goal setting before practice; 2) Performance: focused self-monitoring during execution; and 3) Self-Reflection: comparing observed results to standards and adapting causal attributions. Strategic learners attribute errors to imperfect methods rather than fixed ability, refining the next sprint.',
+    socraticChallenge: 'Before your next study session, can you write down one falsifiable process goal instead of a vague outcome ambition?',
+    referencedSection: 'Lesson 3.2 • Section 2: Zimmerman’s Cybernetic Self-Regulated Learning Architecture',
+  },
+  {
+    keywords: ['metacognitive calibration', 'calibration curve', 'dunlosky', 'personal learning operating system', 'plos', 'personal learning stack'],
+    title: 'Metacognitive Calibration & The Personal Learning Stack',
+    summary: 'Align subjective confidence with objective test accuracy to eliminate epistemic blind spots.',
+    takeaway: 'Metacognitive calibration aligns feeling-of-knowing with objective test accuracy. Never trust subjective fluency without uncued verification testing.',
+    detailedResponse: 'Dunlosky & Metcalfe (2008) demonstrated that uncalibrated learners suffer from severe fluency illusions and overconfidence, mistakenly reviewing what feels easy while ignoring genuine blind spots. The Personal Learning Operating System resolves this by integrating a curriculum dependency graph, a spaced retrieval calendar, deliberate practice sprints, and an error journal to anchor confidence strictly to demonstrated evidence.',
+    socraticChallenge: 'How do you currently verify that you actually understand a complex concept before concluding your study session?',
+    referencedSection: 'Lesson 3.2 • Section 3: Metacognitive Calibration & The Personal Learning Stack',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

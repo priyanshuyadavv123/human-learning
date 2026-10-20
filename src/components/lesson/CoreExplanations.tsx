@@ -37,6 +37,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'reward-prediction-error': <Sparkles size={18} />,
   'hypercorrection-epistemic-surprise': <Eye size={18} />,
   'architecture-calibrated-feedback': <RefreshCw size={18} />,
+  // Lesson 3.2 Tabs
+  'deliberate-practice-ericsson': <Repeat size={18} />,
+  'zimmerman-self-regulation-triad': <RefreshCw size={18} />,
+  'metacognitive-calibration-os': <Network size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

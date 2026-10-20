@@ -93,6 +93,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-pre-commitment-necessity': 'concept:reward_prediction_error_signaling',
     },
   },
+  'personal-learning-operating-system': {
+    predictionConceptId: 'concept:deliberate_practice_reps',
+    predictionMisconceptionId: 'misconception:experience_equals_expertise',
+    quizConceptMapping: {
+      'q1-ericsson-deliberate-practice': 'concept:deliberate_practice_reps',
+      'q2-zimmerman-phases': 'concept:autonomous_learning_operating_system',
+      'q3-metacognitive-calibration': 'concept:metacognitive_monitoring_calibration',
+      'q4-process-vs-outcome-goals': 'concept:deliberate_practice_reps',
+    },
+  },
 };
 
 interface LearningContextType {

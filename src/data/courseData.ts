@@ -4,6 +4,7 @@ import { LESSON_COGNITIVE_LOAD_SCHEMA } from './lesson1_3Data.ts';
 import { LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY } from './lesson2_1Data.ts';
 import { LESSON_SPACED_SCHEDULING } from './lesson2_2Data.ts';
 import { LESSON_CALIBRATED_ERROR_SIGNALS } from './lesson3_1Data.ts';
+import { LESSON_PERSONAL_LEARNING_OS } from './lesson3_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -86,9 +87,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'personal-learning-operating-system',
           number: '3.2',
           title: 'The Personal Learning Operating System',
-          subtitle: 'Synthesizing retrieval, interleaving, and project-based execution',
-          readingTimeMinutes: 20,
-          isAvailable: false,
+          subtitle: 'Metacognitive Calibration, Deliberate Practice Loops, and Autonomous Study Workflows',
+          readingTimeMinutes: 18,
+          isAvailable: true,
         },
       ],
     },
@@ -1129,6 +1130,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY.id]: LESSON_TESTING_EFFECT_DESIRABLE_DIFFICULTY,
   [LESSON_SPACED_SCHEDULING.id]: LESSON_SPACED_SCHEDULING,
   [LESSON_CALIBRATED_ERROR_SIGNALS.id]: LESSON_CALIBRATED_ERROR_SIGNALS,
+  [LESSON_PERSONAL_LEARNING_OS.id]: LESSON_PERSONAL_LEARNING_OS,
 };
 
 export function getLessonById(id: string): Lesson {

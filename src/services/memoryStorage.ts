@@ -54,6 +54,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'calibrated-error-signals';
     chapterId = 'ch-3-deliberate-practice';
+  } else if (
+    conceptId.startsWith('concept:deliberate_practice_') ||
+    conceptId.startsWith('concept:metacognitive_monitoring_') ||
+    conceptId.startsWith('concept:autonomous_learning_')
+  ) {
+    lessonId = 'personal-learning-operating-system';
+    chapterId = 'ch-3-deliberate-practice';
   }
 
   return {

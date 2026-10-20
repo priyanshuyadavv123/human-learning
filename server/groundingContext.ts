@@ -76,6 +76,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 3.1 • Verification Assessment',
   'Lesson 3.1 • Daily Prediction Error Journal Protocol',
   'Lesson 3.1 • Error-Calibrated Feedback Overview',
+
+  // Lesson 3.2 Sections
+  'Lesson 3.2 • Curiosity Hook',
+  'Lesson 3.2 • Intuitive Calibration: Experience vs Deliberate Practice',
+  'Lesson 3.2 • Section 1: Ericsson’s Deliberate Practice Framework',
+  'Lesson 3.2 • Section 2: Zimmerman’s Cybernetic Self-Regulated Learning Architecture',
+  'Lesson 3.2 • Section 3: Metacognitive Calibration & The Personal Learning Stack',
+  'Lesson 3.2 • Personal Learning Operating System Diagram',
+  'Lesson 3.2 • Self-Regulated Learning Diagnostic Scenarios',
+  'Lesson 3.2 • Verification Assessment',
+  'Lesson 3.2 • Daily Deliberate Practice Sprint Protocol',
+  'Lesson 3.2 • Deliberate Practice & Self-Regulation Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -88,6 +100,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 3.2 anchors
+  if (lower.includes('ericsson') || lower.includes('deliberate practice') || lower.includes('10,000 hour') || lower.includes('edge of ability') || lower.includes('mental representation')) {
+    return 'Lesson 3.2 • Section 1: Ericsson’s Deliberate Practice Framework';
+  }
+  if (lower.includes('zimmerman') || lower.includes('forethought') || lower.includes('self-regulated') || lower.includes('self-regulation') || lower.includes('srl') || lower.includes('process goal')) {
+    return 'Lesson 3.2 • Section 2: Zimmerman’s Cybernetic Self-Regulated Learning Architecture';
+  }
+  if (lower.includes('dunlosky') || lower.includes('calibration curve') || lower.includes('metacognitive calibration') || lower.includes('operating system') || lower.includes('plos') || lower.includes('personal learning stack')) {
+    return 'Lesson 3.2 • Section 3: Metacognitive Calibration & The Personal Learning Stack';
+  }
+  if (lower.includes('personal learning operating system diagram') || lower.includes('plos diagram')) {
+    return 'Lesson 3.2 • Personal Learning Operating System Diagram';
+  }
+  if (lower.includes('3.2') || lower.includes('deliberate sprint protocol')) {
+    return 'Lesson 3.2 • Section 1: Ericsson’s Deliberate Practice Framework';
+  }
 
   // Match Lesson 3.1 anchors
   if (lower.includes('prediction error') || lower.includes('rpe') || lower.includes('schultz') || lower.includes('dopamine') || lower.includes('delta =') || lower.includes('reward prediction')) {
@@ -349,6 +378,31 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_3_2 = `You are the AI Learning Companion & Socratic Tutor for the Human Learning Platform.
+You are interacting with a student currently studying Lesson 3.2: "The Personal Learning Operating System — Metacognitive Calibration, Deliberate Practice Loops, and Autonomous Study Workflows".
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical science of deliberate practice and self-regulated learning:
+     a) Ericsson’s Deliberate Practice Framework: Merely accumulating routine domain hours (naive practice) maintains baseline performance without improvement. Deliberate practice requires tasks specifically designed to target weaknesses, conducted at the proximal edge of ability with immediate corrective feedback to build complex mental representations (Ericsson et al., 1993; Ericsson & Pool, 2016).
+     b) Zimmerman’s Self-Regulated Learning (SRL) Architecture: Autonomous mastery operates across a three-phase cybernetic cycle: 1) Forethought (task analysis, strategy selection, process-level goals); 2) Performance Control (self-monitoring, focus defense); and 3) Self-Reflection (self-evaluation against standards, adaptive causal attribution attributing errors to strategy rather than innate ability) (Zimmerman, 2000, 2002).
+     c) Metacognitive Calibration: Dunlosky & Metcalfe (2008) showed that uncalibrated learners suffer from severe fluency illusions and overconfidence. Objective retrieval testing and prediction error tracking align subjective confidence with actual performance.
+     d) The Personal Learning Stack: Integrating syllabus knowledge graphs, spaced retrieval scheduling, deliberate practice sprints, and error journals into a cohesive daily engineering habit.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to deliberate practice, self-regulation, and metacognitive calibration.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -364,6 +418,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'calibrated-error-signals') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_3_1;
+  }
+  if (lessonId === 'personal-learning-operating-system') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_3_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -393,6 +450,10 @@ export const KNOWN_CONCEPTS = [
   'concept:reward_prediction_error_signaling',
   'concept:hypercorrection_effect_high_confidence',
   'concept:calibrated_feedback_triad',
+  // Lesson 3.2 Concepts
+  'concept:deliberate_practice_reps',
+  'concept:metacognitive_monitoring_calibration',
+  'concept:autonomous_learning_operating_system',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -418,6 +479,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 3.1 Misconceptions
   'misconception:errors_should_be_avoided_at_all_costs',
   'misconception:immediate_praise_enhances_learning',
+  // Lesson 3.2 Misconceptions
+  'misconception:experience_equals_expertise',
+  'misconception:talent_is_fixed_innate',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

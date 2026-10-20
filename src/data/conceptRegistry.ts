@@ -291,6 +291,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:immediate_praise_enhances_learning',
     discrepancyPrompt: 'Previously you may have valued motivational cheerleading or vague encouragement. Why does empirical feedback science show that actionable discrepancy signals are far more effective for engineering mastery?',
   },
+  'concept:deliberate_practice_reps': {
+    conceptId: 'concept:deliberate_practice_reps',
+    title: 'Deliberate Practice & Edge-of-Ability Repetition',
+    prompt: 'What is the fundamental difference between naive domain experience and deliberate practice according to K. Anders Ericsson (1993, 2016)?',
+    keyCriteria: [
+      'Cites K. Anders Ericsson (1993, 2016)',
+      'Distinguishes naive repetition (doing routine work in comfort zone) from deliberate practice',
+      'Identifies essential elements: targeted sub-skills, operating at the proximal edge of ability, immediate feedback',
+      'Explains that deliberate practice builds complex, domain-specific mental representations',
+    ],
+    canonicalAnswer: 'K. Anders Ericsson proved that mere years of work experience do not produce elite mastery because routine work quickly automates within comfort zones (naive practice). In contrast, deliberate practice requires: 1) Working at the proximal edge of current capability; 2) Explicit, bounded process goals targeting specific weaknesses; 3) Immediate corrective feedback; and 4) Repetitive generative refinement. This deliberate struggle builds sophisticated mental representations that enable rapid problem solving and anomaly detection.',
+    lessonSectionAnchor: 'Lesson 3.2 • Section 1: Ericsson’s Deliberate Practice Framework',
+    relatedMisconception: 'misconception:experience_equals_expertise',
+    discrepancyPrompt: 'Previously you may have assumed that 10 years on the job naturally produces 10 years of expertise. Why does deliberate practice show that repetition without edge-of-ability struggle merely automates existing habits?',
+  },
+  'concept:metacognitive_monitoring_calibration': {
+    conceptId: 'concept:metacognitive_monitoring_calibration',
+    title: 'Metacognitive Monitoring & Calibration',
+    prompt: 'What is metacognitive calibration according to Dunlosky & Metcalfe (2008), and how does objective retrieval testing eliminate the illusion of competence?',
+    keyCriteria: [
+      'Cites Dunlosky & Metcalfe (2008)',
+      'Defines calibration as alignment between subjective confidence ratings and objective test performance',
+      'Explains that uncalibrated learners suffer from fluency illusions and overconfidence',
+      'Explains that objective testing shatters illusions and accurately directs study time to genuine deficits',
+    ],
+    canonicalAnswer: 'Dunlosky & Metcalfe (2008) defined metacognitive calibration as the quantitative alignment between a learner’s subjective confidence (e.g., judgment of learning) and their actual objective performance. Without objective testing, learners fall prey to fluency illusions and overconfidence, spending time reviewing easy material. Regular, uncued retrieval testing exposes real discrepancies, recalibrates subjective confidence, and ensures study effort is allocated to actual conceptual bottlenecks.',
+    lessonSectionAnchor: 'Lesson 3.2 • Section 3: Metacognitive Calibration & The Personal Learning Stack',
+    relatedMisconception: 'misconception:recognition_equals_mastery',
+    discrepancyPrompt: 'Previously you may have judged your understanding by how clear an explanation felt while reading. Why does metacognitive calibration require verifying your knowledge with an uncued test before claiming mastery?',
+  },
+  'concept:autonomous_learning_operating_system': {
+    conceptId: 'concept:autonomous_learning_operating_system',
+    title: 'The Autonomous Learning Operating System (Zimmerman Triad)',
+    prompt: 'What are the three recursive phases of Barry Zimmerman’s Self-Regulated Learning framework, and how do they form a cybernetic learning operating system?',
+    keyCriteria: [
+      'Cites Barry Zimmerman (2000, 2002)',
+      'Identifies the 3 phases: Forethought (process goal setting & strategic planning), Performance Control (metacognitive self-monitoring), and Self-Reflection (adaptive causal attribution)',
+      'Explains why process goals are superior to vague outcome goals',
+      'Describes the recursive feedback loop that feeds reflection insights into the next forethought phase',
+    ],
+    canonicalAnswer: 'Barry Zimmerman (2000, 2002) modeled autonomous self-regulated learning as a cybernetic three-phase cycle: 1) Forethought: setting actionable process-level goals and choosing deliberate strategies before practice; 2) Performance Control: maintaining focus defense and actively monitoring execution against expectations; and 3) Self-Reflection: evaluating results against objective standards and attributing errors to strategy rather than fixed ability. The insights from self-reflection directly calibrate the forethought of the next practice sprint, creating an exponential improvement loop.',
+    lessonSectionAnchor: 'Lesson 3.2 • Section 2: Zimmerman’s Cybernetic Self-Regulated Learning Architecture',
+    relatedMisconception: 'misconception:talent_is_fixed_innate',
+    discrepancyPrompt: 'Previously you may have sat down to study without structured planning or post-session reflection. Why does Zimmerman’s cybernetic loop transform scattered study hours into high-velocity deliberate practice?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

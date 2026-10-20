@@ -28,6 +28,10 @@ export const KNOWN_CONCEPTS = [
   'concept:reward_prediction_error_signaling',
   'concept:hypercorrection_effect_high_confidence',
   'concept:calibrated_feedback_triad',
+  // Lesson 3.2 Concepts
+  'concept:deliberate_practice_reps',
+  'concept:metacognitive_monitoring_calibration',
+  'concept:autonomous_learning_operating_system',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -53,6 +57,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 3.1 Misconceptions
   'misconception:errors_should_be_avoided_at_all_costs',
   'misconception:immediate_praise_enhances_learning',
+  // Lesson 3.2 Misconceptions
+  'misconception:experience_equals_expertise',
+  'misconception:talent_is_fixed_innate',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
