@@ -233,6 +233,16 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4-goldstone-concreteness-fading': 'concept:concreteness_fading_grounding_schematics',
     },
   },
+  'diagrammatic-reasoning': {
+    predictionConceptId: 'concept:larkin_simon_diagrammatic_computational_equivalence',
+    predictionMisconceptionId: 'misconception:informational_equivalence_implies_computational_equivalence',
+    quizConceptMapping: {
+      'q1-larkin-simon-computational-equivalence': 'concept:larkin_simon_diagrammatic_computational_equivalence',
+      'q2-kirsh-maglio-epistemic-action-nature': 'concept:kirsh_maglio_epistemic_actions_external_buffers',
+      'q3-tversky-spatial-schema-alignment': 'concept:tversky_spatial_schemas_graphic_cartography',
+      'q4-external-memory-buffer-mechanism': 'concept:kirsh_maglio_epistemic_actions_external_buffers',
+    },
+  },
 };
 
 interface LearningContextType {

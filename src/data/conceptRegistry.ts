@@ -919,6 +919,52 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:decorative_graphics_enhance_learning',
     discrepancyPrompt: 'Previously you may have jumped straight into memorizing abstract equations or stayed trapped in photorealistic illustrations. Why does Concreteness Fading prove that mastery requires systematically fading from concrete physical models to idealized schematics and formal symbols?',
   },
+  'concept:larkin_simon_diagrammatic_computational_equivalence': {
+    conceptId: 'concept:larkin_simon_diagrammatic_computational_equivalence',
+    title: 'Informational vs Computational Equivalence (Larkin & Simon, 1987)',
+    prompt: 'How did Larkin & Simon (1987) define informational vs computational equivalence, and why do diagrams drastically reduce search and working memory strain?',
+    keyCriteria: [
+      'Cites Jill Larkin & Herbert A. Simon (1987) "Why a Diagram is (Sometimes) Worth Ten Thousand Words"',
+      'Distinguishes Informational Equivalence (both representations encode identical facts) from Computational Equivalence (identical computational effort to extract inferences)',
+      'Explains 2D spatial indexing (all related attributes co-located adjacent to the entity)',
+      'Explains direct perceptual inference operators replacing serial symbolic search',
+    ],
+    canonicalAnswer: 'Larkin & Simon (1987) established that two representations are "informationally equivalent" when they contain identical formal facts, but "computationally equivalent" only when an agent can extract inferences with the same computational effort. Sentential text organizes data sequentially, demanding serial search and heavy working memory caching of intermediate tokens. Diagrammatic representations index information by 2D spatial location: all relationships are physically co-located, reducing search from linear scans to immediate local neighborhoods. Furthermore, human visual hardware computes topological properties (closed loops, intersections, clusters) in parallel via perceptual recognition, eliminating the need for effortful mental algorithms.',
+    lessonSectionAnchor: 'Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence',
+    relatedMisconception: 'misconception:informational_equivalence_implies_computational_equivalence',
+    discrepancyPrompt: 'Previously you may have assumed that code contains everything and diagrams are redundant visual fluff. How does Larkin & Simon’s computational equivalence theorem prove that identical information in sentential form creates catastrophic working memory bottlenecks during relational reasoning?',
+  },
+  'concept:kirsh_maglio_epistemic_actions_external_buffers': {
+    conceptId: 'concept:kirsh_maglio_epistemic_actions_external_buffers',
+    title: 'Epistemic Actions & External Memory Buffers (Kirsh & Maglio, 1994)',
+    prompt: 'What are epistemic actions (Kirsh & Maglio, 1994), how do they differ from pragmatic actions, and how do physical external media expand working memory?',
+    keyCriteria: [
+      'Cites David Kirsh & Paul Maglio (1994) Tetris study',
+      'Distinguishes Pragmatic Actions (done to advance external goal) from Epistemic Actions (done to simplify internal computation/unburden memory)',
+      'Explains physical external media as persistent external memory buffers',
+      'Cites distributed cognition/extended mind (Hutchins, Clark & Chalmers)',
+    ],
+    canonicalAnswer: 'Kirsh and Maglio (1994) demonstrated that human motor actions are not solely pragmatic (executed to advance an external task goal). Instead, humans perform "epistemic actions"—physical interventions designed to unburden internal working memory, expose hidden information, and accelerate computation (e.g. Tetris players physically rotating pieces 3x faster than mental rotation). In distributed cognition (Hutchins, 1995; Clark & Chalmers, 1998), sketching on paper, whiteboards, or digital canvasses creates an external memory buffer. Unlike biological working memory (limited to ~3-4 chunks with rapid decay), the external spatial buffer holds state indefinitely without cognitive interference, freeing executive function for creative synthesis.',
+    lessonSectionAnchor: 'Lesson 10.2 • Section 2: Kirsh & Maglio: Epistemic Actions & External Memory Buffers',
+    relatedMisconception: 'misconception:thinking_is_purely_internal_to_the_skull',
+    discrepancyPrompt: 'Previously you may have viewed sketching or manipulating tokens as an afterthought to "real" thinking in your head. How does Kirsh & Maglio’s discovery of epistemic actions demonstrate that physical externalization is an active computational co-processor of the mind?',
+  },
+  'concept:tversky_spatial_schemas_graphic_cartography': {
+    conceptId: 'concept:tversky_spatial_schemas_graphic_cartography',
+    title: 'Spatial Schemas and Graphic Cartography (Barbara Tversky)',
+    prompt: 'How do universal spatial schemas (vertical, horizontal, proximity, containment) map to abstract thought, and what are Tversky’s Congruence and Apprehension principles?',
+    keyCriteria: [
+      'Cites Barbara Tversky (Mind in Motion, 2011/2019)',
+      'Vertical axis = hierarchy, power, abstraction, foundation (Up = abstract/more, Down = concrete/foundation)',
+      'Horizontal axis = time, process, causality (Left-to-Right = input/past to output/future)',
+      'Defines Principle of Congruence (external structure must mirror mental model)',
+      'Defines Principle of Apprehension (visual elements must be readily perceived without distortion)',
+    ],
+    canonicalAnswer: 'Barbara Tversky revealed that abstract human concepts systematically map onto innate spatial schemas: vertical space encodes hierarchy and abstraction (Up = higher level/application, Down = foundational substrate), horizontal space encodes causality and temporal flow (Left-to-Right represents input to output), proximity encodes semantic coupling, and boundaries encode containment. Tversky established two design mandates: (1) The Principle of Congruence: the external visual structure must naturally mirror the internal mental model (e.g. hierarchies as vertical trees, pipelines as left-to-right flows); and (2) The Principle of Apprehension: graphics must be readily perceived without perceptual distortion, eliminating misleading 3D perspective or visual chartjunk.',
+    lessonSectionAnchor: 'Lesson 10.2 • Section 3: Barbara Tversky: Spatial Schemas & Graphic Cartography',
+    relatedMisconception: 'misconception:decorative_graphics_enhance_learning',
+    discrepancyPrompt: 'Previously you may have laid out diagrams haphazardly or used flashy 3D perspective art. Why does Tversky’s Principle of Congruence prove that violating universal spatial schemas forces the reader’s brain to waste working memory translating unnatural orientations?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

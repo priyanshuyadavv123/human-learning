@@ -84,6 +84,10 @@ export const KNOWN_CONCEPTS = [
   'concept:paivio_dual_coding_logogens_imagens',
   'concept:mayer_multimedia_spatial_contiguity_modality',
   'concept:concreteness_fading_grounding_schematics',
+  // Lesson 10.2 Concepts
+  'concept:larkin_simon_diagrammatic_computational_equivalence',
+  'concept:kirsh_maglio_epistemic_actions_external_buffers',
+  'concept:tversky_spatial_schemas_graphic_cartography',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -151,6 +155,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 10.1 Misconceptions
   'misconception:learning_styles_neuromyth_visual_verbal',
   'misconception:decorative_graphics_enhance_learning',
+  // Lesson 10.2 Misconceptions
+  'misconception:informational_equivalence_implies_computational_equivalence',
+  'misconception:thinking_is_purely_internal_to_the_skull',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

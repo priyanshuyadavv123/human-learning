@@ -244,6 +244,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 10.1 • Verification Assessment',
   'Lesson 10.1 • The Dual-Coding Technical Documentation & Schema Architecture Protocol',
   'Lesson 10.1 • Paivio\'s Dual Coding Theory Overview',
+
+  // Lesson 10.2 Sections
+  'Lesson 10.2 • Curiosity Hook',
+  'Lesson 10.2 • Intuitive Calibration: Sentential Code vs Diagrammatic Indexing',
+  'Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence',
+  'Lesson 10.2 • Section 2: Kirsh & Maglio: Epistemic Actions & External Memory Buffers',
+  'Lesson 10.2 • Section 3: Barbara Tversky: Spatial Schemas & Graphic Cartography',
+  'Lesson 10.2 • The Diagrammatic Computational Advantage Simulator Diagram',
+  'Lesson 10.2 • Spatial & Diagrammatic Reasoning Diagnostic Scenarios',
+  'Lesson 10.2 • Verification Assessment',
+  'Lesson 10.2 • The Spatial Locality & Epistemic Action Architecture Protocol',
+  'Lesson 10.2 • Spatial and Diagrammatic Reasoning Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -256,6 +268,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if (found) return found;
 
   const lower = sectionCandidate.toLowerCase();
+
+  // Match Lesson 10.2 anchors
+  if (lower.includes('larkin') || lower.includes('herbert simon') || lower.includes('computational equivalence') || lower.includes('informational equivalence') || lower.includes('perceptual indexing') || lower.includes('perceptual inference')) {
+    return 'Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence';
+  }
+  if (lower.includes('kirsh') || lower.includes('maglio') || lower.includes('epistemic action') || lower.includes('pragmatic action') || lower.includes('external memory buffer') || lower.includes('extended mind') || lower.includes('distributed cognition')) {
+    return 'Lesson 10.2 • Section 2: Kirsh & Maglio: Epistemic Actions & External Memory Buffers';
+  }
+  if (lower.includes('tversky') || lower.includes('spatial schema') || lower.includes('principle of congruence') || lower.includes('principle of apprehension') || lower.includes('graphic cartography')) {
+    return 'Lesson 10.2 • Section 3: Barbara Tversky: Spatial Schemas & Graphic Cartography';
+  }
+  if (lower.includes('the diagrammatic computational advantage simulator diagram') || lower.includes('diagrammatic advantage diagram') || lower.includes('computational advantage diagram')) {
+    return 'Lesson 10.2 • The Diagrammatic Computational Advantage Simulator Diagram';
+  }
+  if (lower.includes('10.2') || lower.includes('spatial protocol') || lower.includes('diagrammatic reasoning')) {
+    return 'Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence';
+  }
 
   // Match Lesson 10.1 anchors
   if (lower.includes('paivio') || lower.includes('dual coding') || lower.includes('logogen') || lower.includes('imagen') || lower.includes('referential connection')) {
@@ -1098,6 +1127,41 @@ YOUR MISSION & PEDAGOGICAL DIRECTIVE:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_10_2 = `You are the specialized Socratic AI Learning Companion for Lesson 10.2: "Spatial and Diagrammatic Reasoning" within the Human Learning Platform.
+
+CANONICAL SYLLABUS ANCHORS FOR LESSON 10.2:
+- Lesson 10.2 • Curiosity Hook
+- Lesson 10.2 • Intuitive Calibration: Sentential Code vs Diagrammatic Indexing
+- Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence
+- Lesson 10.2 • Section 2: Kirsh & Maglio: Epistemic Actions & External Memory Buffers
+- Lesson 10.2 • Section 3: Barbara Tversky: Spatial Schemas & Graphic Cartography
+- Lesson 10.2 • The Diagrammatic Computational Advantage Simulator Diagram
+- Lesson 10.2 • Spatial & Diagrammatic Reasoning Diagnostic Scenarios
+- Lesson 10.2 • Verification Assessment
+- Lesson 10.2 • The Spatial Locality & Epistemic Action Architecture Protocol
+- Lesson 10.2 • Spatial and Diagrammatic Reasoning Overview
+
+YOUR MISSION & PEDAGOGICAL DIRECTIVE:
+1. Socratic Mentorship:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the empirical cognitive science of spatial cognition and diagrammatic computation:
+     a) Jill H. Larkin & Herbert A. Simon (1987) "Why a Diagram is (Sometimes) Worth Ten Thousand Words": Two representations are informationally equivalent if they contain the exact same facts, but computationally equivalent only if extracting inferences requires equal computational search and recognition effort. Diagrams index facts by 2D location, turning linear $O(N)$ text scanning into local spatial lookup, and substituting effortful symbolic deductions with automatic parallel perceptual recognition (e.g., closed loops for cycles).
+     b) David Kirsh & Paul Maglio (1994) Epistemic Actions: Actions are not only pragmatic (done to achieve physical task goals). Epistemic actions (like rotating a Tetris piece or sketching on a whiteboard) physically alter the external world to simplify mental computation, reveal hidden information, and unburden working memory. In distributed cognition (Hutchins, Clark & Chalmers), external media act as persistent memory buffers with infinite token capacity and zero trace decay.
+     c) Barbara Tversky (2001, 2011, 2019) Spatial Schemas: Universal spatial metaphors structure abstract thought (vertical = hierarchy/abstraction; horizontal = time/causality; proximity = coupling; boundary = category). Mandates the Principle of Congruence (external structure must mirror mental structure) and Principle of Apprehension (visual items must be readily perceptible without deceptive 3D skewing or chartjunk).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to informational vs computational equivalence, epistemic actions, external buffers, and spatial schemas.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -1155,6 +1219,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'paivio-dual-coding') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_10_1;
+  }
+  if (lessonId === 'diagrammatic-reasoning') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_10_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -1240,6 +1307,10 @@ export const KNOWN_CONCEPTS = [
   'concept:paivio_dual_coding_logogens_imagens',
   'concept:mayer_multimedia_spatial_contiguity_modality',
   'concept:concreteness_fading_grounding_schematics',
+  // Lesson 10.2 Concepts
+  'concept:larkin_simon_diagrammatic_computational_equivalence',
+  'concept:kirsh_maglio_epistemic_actions_external_buffers',
+  'concept:tversky_spatial_schemas_graphic_cartography',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -1307,6 +1378,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 10.1 Misconceptions
   'misconception:learning_styles_neuromyth_visual_verbal',
   'misconception:decorative_graphics_enhance_learning',
+  // Lesson 10.2 Misconceptions
+  'misconception:informational_equivalence_implies_computational_equivalence',
+  'misconception:thinking_is_purely_internal_to_the_skull',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

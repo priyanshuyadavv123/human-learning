@@ -603,6 +603,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How can you structure your learning so you build a concrete physical anchor before formalizing the mathematical syntax?',
     referencedSection: 'Lesson 10.1 • Section 3: Goldstone & Son: Concreteness Fading & Perceptual Grounding',
   },
+  {
+    keywords: ['larkin', 'simon', 'computational equivalence', 'informational equivalence', 'perceptual indexing', 'perceptual inference', 'ten thousand words'],
+    title: 'Larkin & Simon: Informational vs Computational Equivalence',
+    summary: 'Diagrams are computationally superior to sentences because spatial indexing co-locates facts and allows perceptual inference to replace linear search.',
+    takeaway: 'Two representations can be informationally equivalent yet computationally radically different: diagrams index facts by 2D location, replacing slow symbolic search with parallel visual recognition.',
+    detailedResponse: 'In their classic 1987 paper "Why a Diagram is (Sometimes) Worth Ten Thousand Words," Jill Larkin and Herbert Simon proved that informational equivalence does not equal computational equivalence. Sentential text requires linear $O(N)$ scanning across pages or code files, forcing working memory to cache intermediate tokens. In a diagram, facts are indexed by 2D spatial location: all relationships are co-located in adjacent physical neighborhoods. Crucially, human visual cortex hardware executes parallel perceptual inference operators (instantly detecting closed loops, intersections, and clusters in <150 ms), completely eliminating the need for complex internal algorithmic search.',
+    socraticChallenge: 'In your current technical projects, where are you forcing yourself to mentally trace linear text when a 2D spatial graph would make cycles visually obvious in 2 seconds?',
+    referencedSection: 'Lesson 10.2 • Section 1: Larkin & Simon: Informational vs Computational Equivalence',
+  },
+  {
+    keywords: ['kirsh', 'maglio', 'epistemic action', 'pragmatic action', 'external memory buffer', 'distributed cognition', 'extended mind'],
+    title: 'Kirsh & Maglio: Epistemic Actions & External Memory Buffers',
+    summary: 'Physical manipulation of external representations unburdens working memory and transforms internal mental struggle into effortless visual inspection.',
+    takeaway: 'Epistemic actions physically alter the external environment to unburden working memory and simplify mental calculation rather than advance task goals directly.',
+    detailedResponse: 'David Kirsh and Paul Maglio (1994) revolutionized cognitive science by distinguishing pragmatic actions (physical acts that advance an external goal) from "epistemic actions" (physical interventions designed to unburden working memory, uncover hidden cues, and accelerate internal calculation). In their classic study of Tetris players, rotating physical pieces was 3x faster than internal mental rotation. Furthermore, drawing diagrams on whiteboards or paper creates an external memory buffer with infinite capacity and zero trace decay, bypassing the 3-4 chunk limit of biological working memory and freeing executive control for relational reasoning.',
+    socraticChallenge: 'When you hit a difficult technical problem, do you stare at the ceiling trying to compute everything in your head, or do you take immediate epistemic action on paper?',
+    referencedSection: 'Lesson 10.2 • Section 2: Kirsh & Maglio: Epistemic Actions & External Memory Buffers',
+  },
+  {
+    keywords: ['tversky', 'spatial schema', 'spatial schemas', 'principle of congruence', 'principle of apprehension', 'graphic cartography'],
+    title: 'Barbara Tversky: Spatial Schemas & Graphic Cartography',
+    summary: 'Abstract concepts naturally map onto universal spatial dimensions; adhering to congruence and apprehension eliminates cognitive friction.',
+    takeaway: 'Aligning technical diagrams with human spatial schemas (up = hierarchy, left-to-right = time, close = coupled) eliminates cognitive translation overhead.',
+    detailedResponse: 'Barbara Tversky (2001, 2011, 2019) demonstrated that abstract human thought is anchored in physical spatial schemas: vertical space maps to hierarchy and abstraction (up = high-level model, down = foundational substrate), horizontal space maps to time and process flow (left-to-right represents causality and sequential progression), and proximity maps to semantic coupling. Tversky established two design principles: (1) Principle of Congruence: the external visual layout must mirror the natural mental structure of the concept; and (2) Principle of Apprehension: visual elements must be accurately and effortlessly perceptible, avoiding confusing 3D isometric perspectives or decorative chartjunk.',
+    socraticChallenge: 'How can you audit your system architecture diagrams to ensure they do not violate natural spatial metaphors of causality and hierarchy?',
+    referencedSection: 'Lesson 10.2 • Section 3: Barbara Tversky: Spatial Schemas & Graphic Cartography',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -93,6 +93,10 @@ const iconsMap: Record<string, React.ReactNode> = {
   'paivio-dual-coding-architecture-logogens-imagens': <Network size={18} />,
   'richard-mayer-cognitive-theory-multimedia-learning': <Sparkles size={18} />,
   'concreteness-fading-goldstone-son': <Repeat size={18} />,
+  // Lesson 10.2 Tabs
+  'larkin-simon-computational-advantage': <Cpu size={18} />,
+  'kirsh-maglio-epistemic-actions': <Repeat size={18} />,
+  'tversky-spatial-schemas-mapping': <Network size={18} />,
 };
 
 function getBadgeProps(status: ScientificStatus) {

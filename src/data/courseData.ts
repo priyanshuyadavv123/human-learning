@@ -18,6 +18,7 @@ import { LESSON_HIERARCHICAL_KNOWLEDGE } from './lesson8_2Data.ts';
 import { LESSON_STRUCTURE_MAPPING_ANALOGY } from './lesson9_1Data.ts';
 import { LESSON_ABSTRACTION_LADDERS } from './lesson9_2Data.ts';
 import { LESSON_PAIVIO_DUAL_CODING } from './lesson10_1Data.ts';
+import { LESSON_DIAGRAMMATIC_REASONING } from './lesson10_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -274,7 +275,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Spatial and Diagrammatic Reasoning',
           subtitle: 'External visual representations as cognitive co-processors',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1157,6 +1158,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_STRUCTURE_MAPPING_ANALOGY.id]: LESSON_STRUCTURE_MAPPING_ANALOGY,
   [LESSON_ABSTRACTION_LADDERS.id]: LESSON_ABSTRACTION_LADDERS,
   [LESSON_PAIVIO_DUAL_CODING.id]: LESSON_PAIVIO_DUAL_CODING,
+  [LESSON_DIAGRAMMATIC_REASONING.id]: LESSON_DIAGRAMMATIC_REASONING,
 };
 
 export function getLessonById(id: string): Lesson {

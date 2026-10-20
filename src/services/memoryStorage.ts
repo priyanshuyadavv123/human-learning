@@ -153,6 +153,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'paivio-dual-coding';
     chapterId = 'ch-10-dual-coding';
+  } else if (
+    conceptId.startsWith('concept:larkin_simon_') ||
+    conceptId.startsWith('concept:kirsh_maglio_') ||
+    conceptId.startsWith('concept:tversky_spatial_')
+  ) {
+    lessonId = 'diagrammatic-reasoning';
+    chapterId = 'ch-10-dual-coding';
   }
 
   return {
