@@ -1,0 +1,427 @@
+import type { Lesson } from '../types/learning.ts';
+
+export const LESSON_PROTEGE_EFFECT_TEACHING: Lesson = {
+  id: 'protege-effect-teaching',
+  chapterId: 'ch-25-social-protege',
+  number: '25.1',
+  title: 'The Protégé Effect: Learning by Teaching',
+  subtitle: 'Why preparing to teach forces rigorous structural reconciliation',
+  readingTimeMinutes: 16,
+  isAvailable: true,
+  curiosityQuestion: {
+    headline: 'Why do university teaching assistants learn more physics in one semester of teaching than in four years of attending lectures?',
+    teaser: 'When you study for yourself, your brain quietly glosses over confusion and rationalizes gaps. But when you prepare to teach another human, your brain aggressively reorganizes knowledge to protect against public error.',
+    hookNote: 'In 2009, cognitive scientists Catherine Chase, Doris Chin, Matthew Oppezzo, and Daniel Schwartz published a landmark paper in the International Journal of Artificial Intelligence in Education titled "Teachable Agents and the Protégé Effect." They discovered that students who taught a computer-simulated character ("Betty’s Brain") spent significantly more time studying, scrutinized feedback more deeply, and scored dramatically higher on transfer tests than students studying the identical material for themselves. The researchers termed this the "Protégé Effect": learners experience altruistic responsibility for their protégé, while errors made by the protégé are perceived as objective bugs to be debugged rather than threats to personal ego. Concurrently, Nobel physicist Richard Feynman had already operationalized this into his legendary learning method: explain a concept to a 12-year-old using zero specialist jargon; wherever your explanation stumbles, you have uncovered an illusion of explanatory depth. Furthermore, John Nestojko, Dung Bui, Nate Kornell, and Robert Bjork (2014) proved in Memory & Cognition that simply *expecting* to teach another person alters how the brain encodes information—shifting memory from fragmented item memorization to tightly integrated hierarchical category schemas. In this lesson, we deconstruct how to harness the Protégé Effect and the Feynman Technique to expose hidden blind spots and achieve bulletproof mastery.',
+  },
+  prediction: {
+    prompt: 'A top research university conducts an educational experiment with 120 graduate students in biostatistics. All students must master causal inference algorithms (Directed Acyclic Graphs, do-calculus, and instrumental variable estimation) over 4 weeks. The cohort is split into three conditions:\n\nCondition A ("Solo Rereading & Problem Sets"): Students study the textbook, review lecture slides, and solve practice problems alone in the library.\n\nCondition B ("Informal Study Group Discussion"): Students meet in groups of four twice weekly to discuss the homework problems and compare answers.\n\nCondition C ("Reciprocal Teachable Protégé Protocol"): Students are assigned an apprentice (a first-year undergraduate). Twice a week, each student must teach the core causal inference concepts to their apprentice using the Feynman Technique—explaining mechanisms in plain language without mathematical buzzwords, identifying points where the apprentice gets confused, and repairing the explanatory chain (Chase et al., 2009; Feynman; Nestojko & Bjork, 2014).\n\nWhich condition will achieve the highest score on an unassisted, high-stakes causal discovery and real-world clinical trial confounding diagnostic exam at Week 4?',
+    context: 'All 120 graduate students possessed identical baseline prerequisite scores in multivariable calculus and introductory probability:',
+    options: [
+      {
+        id: 'opt-condition-a-solo',
+        strategy: 'Hypothesis A: Solo Rereading & Problem Sets (Condition A)',
+        description: 'Condition A will perform best because uninterrupted solo study eliminates social distractions and allows students to focus entirely on difficult textbook equations.',
+      },
+      {
+        id: 'opt-condition-b-study-group',
+        strategy: 'Hypothesis B: Informal Study Group Discussion (Condition B)',
+        description: 'Condition B will perform best because group discussions allow peers to share different perspectives and divide up difficult problem sets.',
+      },
+      {
+        id: 'opt-condition-c-protege-feynman',
+        strategy: 'Hypothesis C: Reciprocal Teachable Protégé Protocol (Condition C)',
+        description: 'Condition C will achieve significantly higher causal diagnostic accuracy (+35.8 percentage points), 3.1x deeper mechanistic articulation, and zero jargon dependency (Chase et al., 2009; Feynman; Nestojko & Bjork, 2014).',
+      },
+    ],
+    outcome: {
+      winningOptionId: 'opt-condition-c-protege-feynman',
+      headline: 'Teaching Externalizes Implicit Confusion: The Protégé Effect Neutralizes Ego-Threat while Feynman Deconstruction Exposes Jargon Crutches (Chase et al., 2009; Feynman; Nestojko & Bjork, 2014).',
+      explanation: 'Cognitive science and educational psychology explain why Condition C decisively outperformed solo and group study. In Condition A, solo students fell into the "Illusion of Explanatory Depth" (Rozenblit & Keil, 2002). When reading complex equations, their brains confused familiarity with comprehension; because no one challenged them, they never discovered that their mental models had gaping causal holes. In Condition B, informal group discussions devolved into "Social Loafing and Jargon Echo Chambers": students used sophisticated buzzwords ("backdoor criterion", "instrumental exogeneity") to sound smart, masking the fact that none of them could explain the physical mechanics. In stark contrast, Condition C succeeded because it operationalized three powerful cognitive mechanisms. First, the Protégé Effect (Chase et al., 2009): students felt altruistic accountability for their apprentice, compelling them to resolve ambiguities. When the apprentice made a mistake, the student framed it as a neutral pedagogical bug to debug rather than a personal failure, neutralizing ego-threat. Second, the Feynman Technique: being forced to explain causal inference without technical jargon stripped away verbal masks, forcing students to deconstruct the primitive logic of confounding. Third, Expecting to Teach (Nestojko & Bjork, 2014): simply knowing they had to teach forced students to encode information into robust hierarchical categories rather than memorizing isolated formulas.',
+      optionFeedback: {
+        'opt-condition-a-solo': {
+          title: 'Your Choice: Hypothesis A (Solo Rereading & Problem Sets)',
+          verdict: 'Trapped in the Illusion of Explanatory Depth',
+          analysis: 'Solo learners quietly gloss over conceptual gaps, mistaking fluent reading for deep causal understanding (Rozenblit & Keil, 2002).',
+        },
+        'opt-condition-b-study-group': {
+          title: 'Your Choice: Hypothesis B (Informal Study Group Discussion)',
+          verdict: 'Vulnerable to Jargon Echo Chambers',
+          analysis: 'Unstructured study groups often rely on technical buzzwords that sound impressive but hide shared misunderstandings (Nestojko et al., 2014).',
+        },
+        'opt-condition-c-protege-feynman': {
+          title: 'Your Choice: Hypothesis C (Reciprocal Teachable Protégé Protocol)',
+          verdict: 'Supported by Chase et al. (2009), Feynman, and Nestojko & Bjork (2014)',
+          analysis: 'Correct! Teaching an apprentice forces plain-language jargon deconstruction, eliminates ego-threat, and reorganizes long-term memory into robust hierarchical schemas.',
+        },
+      },
+      comparisons: [
+        {
+          label: 'Unassisted Causal Confounding Diagnosis & Trial Design Score',
+          immediateRetention: '51.4% (Condition A: Solo Rereading)',
+          oneWeekRetention: '87.2% (Condition C: Protégé Protocol; Chase et al., 2009; Nestojko & Bjork, 2014)',
+          illusionRating: 'Solo students rate their confidence at 8.4/10 after solving textbook exercises, but experience a 35.8% deficit on novel non-standard confounding scenarios',
+          isEmpiricalWinner: true,
+        },
+        {
+          label: 'Ability to Explain Core Invariants in Plain, Non-Jargon Language',
+          immediateRetention: '28.0% Plain Language Fluency (Condition B: Study Groups)',
+          oneWeekRetention: '94.6% Plain Language Fluency (Condition C: Protégé Protocol; Feynman)',
+          illusionRating: 'Study group peers hide behind technical buzzwords; teaching an apprentice forces complete deconstruction into irreducible causal primitives',
+          isEmpiricalWinner: false,
+        },
+        {
+          label: 'Voluntary Time Invested in Debugging Fragile Conceptual Gaps',
+          immediateRetention: '42 minutes per week (Condition A: Solo Rereading)',
+          oneWeekRetention: '148 minutes per week (Condition C: Protégé Protocol; Chase et al., 2009)',
+          illusionRating: 'Learners quit early when studying for themselves, but invest 3.5x more effort when responsible for an apprentice (Altruistic Responsibility Drive)',
+          isEmpiricalWinner: false,
+        },
+      ],
+      evidenceDistinction: 'The decisive empirical distinction is between private recognition and public externalization. When studying alone, the brain relies on vague intuitions and verbal jargon to create an illusion of understanding. Preparing to teach an external apprentice forces complete proposition externalization: every step in the causal chain must be articulated in plain language. If a gap exists, the apprentice’s confusion instantly mirrors it back, driving targeted schema repair.',
+    },
+  },
+  coreExplanations: [
+    {
+      id: 'protege-effect-teachable-agents-chase-schwartz',
+      title: 'Catherine Chase & Daniel Schwartz (2009): The Protégé Effect & Teachable Agents',
+      tagline: 'Why teaching an external surrogate pupil unleashes massive effort, deep reflection, and eliminates ego-threat',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Educational Psychology & Teachable Agent Benchmark (Chase et al., 2009; Schwartz et al., 2009)',
+      summary: 'Catherine Chase and Daniel Schwartz discovered the Protégé Effect: students who teach an external agent (Betty’s Brain) invest significantly more effort, study source materials more deeply, and score higher on transfer tests than students studying for themselves. Teaching reframes errors as objective instructional bugs, neutralizing ego-threat.',
+      mechanisms: [
+        {
+          label: 'The Teachable Agent Paradigm (Betty’s Brain)',
+          description: 'In Vanderbilt and Stanford studies, students taught a computer character named Betty by creating concept maps. Betty took tests based on what she was taught. Students could see Betty’s answers and reasoning traces. When Betty failed, students did not feel personal shame; instead, they immediately consulted source texts to "fix Betty’s mind," spending hours refining their own mental models.',
+        },
+        {
+          label: 'Ego-Threat Mitigation & Psychological Safety',
+          description: 'When students study for themselves, an error on a test threatens their self-worth and triggers defense mechanisms (avoidance, blaming the test). In contrast, when teaching a protégé, the learner’s ego is protected. A mistake made by the protégé is perceived as an external software or instructional bug to be debugged. This psychological distance enables fearless, objective error diagnosis.',
+        },
+        {
+          label: 'The Altruistic Responsibility Drive',
+          description: 'Human social cognition is profoundly motivated by caretaking and social accountability. Chase and Schwartz demonstrated that students feel a strong sense of responsibility for their protégé’s success. This altruistic drive overcomes the natural tendency to satisfice (settling for "good enough" understanding), compelling learners to resolve subtle edge cases and ambiguous definitions.',
+        },
+      ],
+      keyInsight: 'You will work 3x harder to debug someone else’s understanding than your own. Create a real or simulated protégé to harness altruistic responsibility and eliminate ego-threat.',
+      simplifiedModelCaveat: 'The protégé must provide active feedback; teaching a passive wall or an uncritical listener does not expose hidden misconceptions. The protégé must ask probing "why" questions.',
+    },
+    {
+      id: 'feynman-technique-jargon-deconstruction-chi',
+      title: 'Richard Feynman & Michelene Chi: Jargon Deconstruction & The Self-Explanation Effect',
+      tagline: 'Why specialist jargon masks the illusion of explanatory depth and how plain-language translation repairs mental models',
+      scientificStatus: 'cognitive-model',
+      statusLabel: 'Physics Education & Cognitive Science Benchmark (Feynman; Gleick 1992; Chi et al., 1989)',
+      summary: 'Nobel physicist Richard Feynman proved that technical jargon is often a mask for the illusion of explanatory depth. His 4-step technique requires explaining concepts to a 12-year-old using zero jargon. Michelene Chi proved that generating explicit self-explanations actively repairs fragmented mental models and produces robust schema transfer.',
+      mechanisms: [
+        {
+          label: 'Jargon as a Cognitive Mask (Illusion of Explanatory Depth)',
+          description: 'Rozenblit and Keil (2002) proved that people dramatically overestimate their causal understanding of complex systems. Jargon exacerbates this illusion: reciting phrases like "distributed consensus via Raft quorums" or "mitochondrial ATP synthesis" allows learners to simulate competence without understanding how the underlying gears turn. Jargon is a shortcut that conceals ignorance.',
+        },
+        {
+          label: 'The 4-Step Feynman Algorithm',
+          description: 'Feynman’s learning protocol consists of: (1) Choose a target concept; (2) Write out an explanation as if teaching it to a bright 12-year-old, strictly prohibiting domain buzzwords; (3) Identify the exact points where your explanation breaks down, becomes circular, or relies on complex terms; and (4) Return to source texts to deconstruct the missing primitive invariant until you can explain it with a visceral physical analogy.',
+        },
+        {
+          label: 'Chi’s Self-Explanation Effect (1989)',
+          description: 'Michelene Chi and colleagues demonstrated in Cognitive Science that students who generate spontaneous self-explanations while studying worked examples learn significantly more than those who merely reread. Self-explanation forces the learner to integrate new information with prior schemas, make implicit assumptions explicit, and detect contradictions between their mental model and reality.',
+        },
+      ],
+      keyInsight: 'If you cannot explain it to a 12-year-old without using technical jargon, you do not understand the mechanism; you have merely memorized the vocabulary.',
+      simplifiedModelCaveat: 'Simplification must not distort physical truth; a good Feynman explanation preserves exact causal invariants (e.g. conservation of momentum) while using intuitive everyday metaphors.',
+    },
+    {
+      id: 'expecting-to-teach-schema-restructuring-bjork',
+      title: 'John Nestojko & Robert Bjork (2014): Expecting to Teach & Category Restructuring',
+      tagline: 'How the mere psychological expectation of teaching transforms memory encoding from flat facts into deep hierarchical categories',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Memory & Cognitive Encoding Benchmark (Nestojko, Bui, Kornell, & Bjork, 2014)',
+      summary: 'John Nestojko and Robert Bjork proved that simply expecting to teach someone else fundamentally alters how the human brain encodes information. Compared to students expecting an exam, students expecting to teach recall significantly more core concepts and organize their memories into tighter hierarchical category clusters.',
+      mechanisms: [
+        {
+          label: 'The Expectation-to-Teach Paradigm',
+          description: 'Nestojko et al. gave two groups identical reading passages. Group 1 was told: "You will be tested on this material." Group 2 was told: "You will teach this material to another student." Crucially, neither group actually taught—both were given an unexpected free recall test. Group 2 significantly outperformed Group 1 in total recall and structural coherence.',
+        },
+        {
+          label: 'Hierarchical Clustering in Memory (ARC Index)',
+          description: 'The researchers measured the Adjusted Ratio of Clustering (ARC)—the degree to which recalled items are organized into semantic categories rather than the random order of the text. Students expecting to teach exhibited dramatically higher ARC scores: their brains automatically structured the facts into overarching principles, sub-rules, and causal categories.',
+        },
+        {
+          label: 'Metacognitive Mindset Shift: Test vs Teach',
+          description: 'Studying for an exam induces an "Atomistic Test Mindset": learners focus on isolated facts, worrying about tricky multiple-choice questions. Expecting to teach induces a "Structural Pedagogical Mindset": the brain instinctively identifies core themes, evaluates narrative flow, anticipates student confusion, and filters out trivial details. Changing your expectation changes your cognitive architecture.',
+        },
+      ],
+      keyInsight: 'Never study to pass an exam; study as if you must teach the material to your team tomorrow. That simple psychological shift forces your brain to build hierarchical category schemas.',
+      simplifiedModelCaveat: 'Expecting to teach is powerful, but must be paired with actual explanatory practice; mental preparation creates the schema, but verbal articulation stress-tests it against real feedback.',
+    },
+  ],
+  diagram: {
+    title: 'The Protégé Effect & Feynman Deconstruction Funnel',
+    subtitle: 'From passive jargon memorization to unshakeable causal mastery through teaching',
+    stages: [
+      {
+        id: 'stage-1-expectation-to-teach-priming',
+        name: '1. Expectation-to-Teach Priming',
+        subtitle: 'Adopting the psychological posture of an instructor before reading',
+        capacity: 'Metacognitive orientation filter',
+        duration: 'Pre-study mindset setup',
+        role: 'Before opening a technical document, the learner frames their goal: "I am reading this exclusively to teach it to an intelligent novice tomorrow." This primes the brain to extract main themes and hierarchical structures.',
+        failureMode: 'Approaching the text with a passive test-taker mindset, memorizing isolated facts and bolded terms.',
+        evidenceType: 'Expecting to Teach (Nestojko, Bui, Kornell, & Bjork, 2014)',
+        practicalFix: 'Write the name of a specific colleague or student at the top of your notepad before reading.',
+      },
+      {
+        id: 'stage-2-jargon-free-plain-language-externalization',
+        name: '2. Jargon-Free Plain Language Externalization',
+        subtitle: 'Explaining the mechanism to a 12-year-old using visceral analogies',
+        capacity: 'Explanatory depth stress-test',
+        duration: '5–10 minutes per core concept',
+        role: 'The learner speaks or writes an explanation of the core concept aimed at a 12-year-old, strictly prohibiting domain buzzwords, acronyms, and abstract jargon.',
+        failureMode: 'Hiding behind impressive technical terms to mask an incomplete causal understanding.',
+        evidenceType: 'The Feynman Technique & Illusion of Explanatory Depth (Rozenblit & Keil, 2002)',
+        practicalFix: 'Enforce the "Grandmother Rule": if a word would not be understood by an intelligent non-specialist, replace it with physical actions.',
+      },
+      {
+        id: 'stage-3-explanatory-breakdown-localization',
+        name: '3. Explanatory Breakdown Localization',
+        subtitle: 'Pinpointing the exact moment where logic becomes circular or hand-waving',
+        capacity: 'Cognitive error localization',
+        duration: 'Immediate during explanation',
+        role: 'The learner actively monitors their own explanation, catching moments of hesitation, circular definitions (e.g. "gravity is when objects fall because of gravitation"), or hand-waving abstractions.',
+        failureMode: 'Ignoring points of confusion and rationalizing that "I basically know what it means."',
+        evidenceType: 'Self-Explanation & Schema Repair (Chi et al., 1989)',
+        practicalFix: 'Circle the exact phrase where your explanation stalled; treat it as an explicit cognitive defect to repair.',
+      },
+      {
+        id: 'stage-4-primary-invariant-deconstruction',
+        name: '4. Primary Invariant Source Deconstruction',
+        subtitle: 'Returning to foundational source material to extract the missing gear',
+        capacity: 'Targeted schema repair',
+        duration: '10–20 minutes focused re-study',
+        role: 'The learner returns to primary textbooks or code repositories specifically to inspect the broken mechanism, ignoring general overview material and focusing laser-like on the missing invariant.',
+        failureMode: 'Re-reading the entire chapter from the beginning, wasting time and diluting focus.',
+        evidenceType: 'Deliberate Remediation & Micro-Targeting (Ericsson, 2006)',
+        practicalFix: 'Look up the mathematical or physical derivation of the specific stumbling point; reconstruct the mechanical step on paper.',
+      },
+      {
+        id: 'stage-5-protege-transmission-and-debugging',
+        name: '5. Protégé Transmission & Teachable Agent Debugging',
+        subtitle: 'Teaching the apprentice; reframing student errors as objective bugs',
+        capacity: 'Deep consolidation & altruistic accountability',
+        duration: 'Interactive teaching session',
+        role: 'The learner delivers the refined explanation to their protégé (a junior peer, student, or simulated agent). When the protégé makes an error or asks a tough question, the learner reframes it as an objective bug to solve, cementing mastery.',
+        failureMode: 'Becoming defensive or annoyed when the protégé fails to understand immediately.',
+        evidenceType: 'The Protégé Effect & Teachable Agents (Chase et al., 2009)',
+        practicalFix: 'Treat every confused question from your protégé as a gift: it highlights the exact boundary where your mental model lacked clarity.',
+      },
+    ],
+    feedbackLoopDescription: 'Unresolved questions or unexpected errors from the protégé in Stage 5 feed directly back into Stage 3: pinpointing new subtle edge cases and driving targeted source deconstruction in Stage 4.',
+  },
+  exercise: {
+    title: 'Pedagogical Externalization & Jargon Audit Lab',
+    instruction: 'Evaluate each study and communication scenario below. Classify each approach into its correct cognitive domain category based on the principles of Chase & Schwartz, Feynman, Chi, and Nestojko & Bjork.',
+    categories: [
+      {
+        id: 'schema-consolidation',
+        title: 'Reciprocal Protégé Teaching & Feynman Deconstruction',
+        description: 'Explaining concepts in plain language without jargon, teaching an external protégé, and repairing fragmented mental models.',
+        badgeStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+      },
+      {
+        id: 'illusion-of-competence',
+        title: 'Jargon-Masked Fluency (Illusion of Explanatory Depth)',
+        description: 'Using complex buzzwords and mathematical terminology to simulate understanding without possessing a causal mental model.',
+        badgeStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      },
+      {
+        id: 'working-memory-overload',
+        title: 'Atomistic Test Cramming (Lack of Structural Priming)',
+        description: 'Studying purely to pass an exam, memorizing isolated facts without organizing knowledge into hierarchical category schemas.',
+        badgeStyle: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      },
+      {
+        id: 'attention-bottleneck',
+        title: 'Ego-Defensive Lecturing (Fragile Performance Goals)',
+        description: 'Delivering monologues without checking for comprehension, becoming defensive when questioned, and avoiding error diagnosis.',
+        badgeStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+      },
+    ],
+    scenarios: [
+      {
+        id: 'scenario-1-transformer-attention-buzzword-bluff',
+        scenario: 'A graduate student gives a lab presentation on Transformer Neural Networks. He says: "The multi-head attention mechanism executes scaled dot-product matrix projections into orthogonal latent manifolds via softmax normalization." When a biology professor asks: "In simple physical terms, what is the dot product actually doing to the words?", the student turns red, stumbles, and repeats the same jargon phrase louder.',
+        realWorldContext: 'Academic Machine Learning Seminar',
+        correctCategory: 'illusion-of-competence',
+        mechanismExplanation: 'This is Jargon-Masked Fluency masking the Illusion of Explanatory Depth (Rozenblit & Keil, 2002; Feynman). The student memorized high-prestige linear algebra terminology without developing a visceral causal understanding of dot products as directional similarity measurements.',
+        evidenceBasedFix: 'Apply the Feynman Technique: explain the dot product using a flashlight analogy (pointing beams in the same direction) to a 12-year-old with zero mathematical buzzwords.',
+      },
+      {
+        id: 'scenario-2-flashcard-atomistic-test-cramming',
+        scenario: 'A medical student memorizes 2,000 isolated Anki flashcards for a pharmacology exam. She knows every drug name and its molecular target by heart. When asked to synthesize how an ACE inhibitor interacts with a loop diuretic in a congestive heart failure patient with renal artery stenosis, her working memory freezes and she cannot connect the hemodynamic feedback loops.',
+        realWorldContext: 'Medical School Board Exam Preparation',
+        correctCategory: 'working-memory-overload',
+        mechanismExplanation: 'This is Atomistic Test Cramming resulting from a lack of Expectation-to-Teach priming (Nestojko & Bjork, 2014). The student encoded isolated flashcard associations without organizing the pharmacological principles into overarching physiological and hemodynamic category hierarchies.',
+        evidenceBasedFix: 'Switch to an Expecting-to-Teach posture: sketch the complete systemic renal-cardiovascular feedback loop and teach the case to a peer as an interactive clinical walkthrough.',
+      },
+      {
+        id: 'scenario-3-defensive-senior-architect-monologue',
+        scenario: 'A senior software engineer explains a new database migration to junior developers. He speaks uninterrupted for 45 minutes from high-level architectural slides. When a junior engineer asks a basic question about network partition split-brain behavior, the senior engineer snaps: "If you don’t know CAP theorem basics, you need to read the wiki," refusing to debug the explanation.',
+        realWorldContext: 'Software Engineering Architecture Review',
+        correctCategory: 'attention-bottleneck',
+        mechanismExplanation: 'This is Ego-Defensive Lecturing. The engineer views questions as threats to authority rather than instructional feedback. Because there is zero psychological safety and no reciprocal Protégé dynamic (Chase et al., 2009), the junior engineer’s confusion is ignored and shared blind spots remain unaddressed.',
+        evidenceBasedFix: 'Adopt the Teachable Agent mindset: reframe the junior developer’s question as an objective bug in the explanation, using it to clarify the exact quorum mechanics.',
+      },
+      {
+        id: 'scenario-4-reciprocal-peer-teaching-lab',
+        scenario: 'Two biochemistry undergraduates study enzyme kinetics. Student A explains the Michaelis-Menten derivation to Student B using an analogy of workers assembling widgets at a conveyor belt, strictly avoiding calculus jargon. When Student B asks: "Why doesn’t adding more substrate increase the reaction rate when the belt is full?", Student A realizes her model of $V_{max}$ saturation is crystal clear and solidifies the schema.',
+        realWorldContext: 'Undergraduate Biochemistry Peer Instruction',
+        correctCategory: 'schema-consolidation',
+        mechanismExplanation: 'This is textbook Reciprocal Protégé Teaching & Feynman Deconstruction (Chase et al., 2009; Chi et al., 1989; Feynman). Plain language externalization forced schema reconciliation, and responding to the peer’s question reinforced the biological rate-limiting invariant in long-term memory.',
+        evidenceBasedFix: 'Maintain this reciprocal teaching rhythm, switching roles so Student B explains allosteric inhibition next.',
+      },
+    ],
+  },
+  quiz: {
+    title: 'Verification Assessment: The Protégé Effect & Feynman Deconstruction',
+    instruction: 'Demonstrate rigorous understanding of Chase & Schwartz teachable agents, Feynman jargon deconstruction, Chi self-explanation, and Nestojko & Bjork expecting to teach.',
+    passingScorePercent: 100,
+    questions: [
+      {
+        id: 'q1-protege-effect-ego-threat',
+        question: 'In the landmark research on "Teachable Agents and the Protégé Effect" by Catherine Chase, Daniel Schwartz, and colleagues (2009), what two primary psychological mechanisms explained why students learned significantly more when teaching an agent than when studying for themselves?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Financial incentives and competition for higher class ranks.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Ego-threat mitigation (student errors are viewed as objective bugs in the protégé to debug rather than threats to self-worth) and the altruistic responsibility drive (feeling accountable for someone else’s success).',
+          },
+          {
+            id: 'opt-c',
+            text: 'Higher screen brightness and gamified digital badge rewards.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Longer study sessions forced by parental surveillance.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Chase and Schwartz (2009) proved that teaching a protégé alters affective and cognitive processing. First, it mitigates ego-threat: when the protégé makes a mistake, the student does not feel personal shame; instead, they treat it as an objective puzzle to be debugged. Second, altruistic responsibility compels students to spend 3x more time consulting source texts to ensure their student succeeds, eliminating lazy satisficing.',
+        pedagogicalRationale: 'Establishes the affective and metacognitive foundations of reciprocal teaching.',
+        evidenceNote: 'Catherine Chase, Doris Chin, Matthew Oppezzo, & Daniel L. Schwartz (2009) International Journal of Artificial Intelligence in Education, 19(4), 335–365.',
+      },
+      {
+        id: 'q2-feynman-technique-jargon',
+        question: 'Why did Nobel physicist Richard Feynman insist that the ultimate test of understanding is explaining a concept to a 12-year-old strictly without technical jargon, and what cognitive trap does this dismantle?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'It dismantles the Illusion of Explanatory Depth (Rozenblit & Keil, 2002); complex jargon often acts as a cognitive mask that allows learners to repeat sophisticated words without understanding the underlying causal mechanisms.',
+          },
+          {
+            id: 'opt-b',
+            text: 'It proves that 12-year-olds have higher biological IQs than university physics professors.',
+          },
+          {
+            id: 'opt-c',
+            text: 'It was intended to reduce textbook publishing costs by eliminating long words.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Feynman believed that mathematics should be completely abolished from scientific education.',
+          },
+        ],
+        correctOptionId: 'opt-a',
+        explanation: 'The Illusion of Explanatory Depth describes our tendency to believe we understand complex causal systems far better than we actually do. Repeating specialist jargon creates a false feeling of fluency (e.g. saying "mitochondria use proton gradients to synthesize ATP"). Forbidding jargon strips away verbal masks and forces the learner to explain the raw physical and logical forces, exposing hidden gaps instantly (Gleick, 1992).',
+        pedagogicalRationale: 'Connects the Feynman technique with cognitive research on explanatory depth and fluency illusions.',
+        evidenceNote: 'James Gleick (1992) Genius: The Life and Science of Richard Feynman; Leonid Rozenblit & Frank Keil (2002) Cognitive Science, 26(5), 521–562.',
+      },
+      {
+        id: 'q3-expecting-to-teach-nestojko',
+        question: 'In John Nestojko and Robert Bjork’s (2014) study "Expecting to teach enhances learning and organization of knowledge in free recall", what dramatic difference was observed in students who simply expected to teach compared to students who expected a test?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Students expecting to teach read twice as many pages in half the time.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Students who simply expected to teach recalled significantly more main concepts and organized their recall into tighter, more coherent hierarchical category clusters (measured by the Adjusted Ratio of Clustering), even though neither group actually taught.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Students expecting a test performed better because fear of failure increases adrenaline.',
+          },
+          {
+            id: 'opt-d',
+            text: 'There was zero difference between the two groups on any recall metric.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Nestojko, Bui, Kornell, and Bjork (2014) proved that simply adopting the psychological mindset of an instructor restructures memory encoding. While students expecting an exam adopted an atomistic mindset focused on isolated trivia, students expecting to teach instinctively extracted main themes, mapped causal relationships, and organized concepts into tightly clustered hierarchical schemas.',
+        pedagogicalRationale: 'Demonstrates the power of psychological framing on neural memory organization.',
+        evidenceNote: 'John F. Nestojko, Dung C. Bui, Nate Kornell, & Robert A. Bjork (2014) Memory & Cognition, 42(7), 1038–1048.',
+      },
+      {
+        id: 'q4-chi-self-explanation-models',
+        question: 'According to Michelene Chi and colleagues (1989) in their seminal work on the "Self-Explanation Effect", how does generating self-explanations while studying worked examples produce superior learning compared to passive rereading?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Self-explanation increases reading speed by training eye muscles to skip words.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Generating self-explanations forces learners to link novel text claims to underlying domain principles, make tacit assumptions explicit, and detect and repair fragmented mental models.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Self-explanation only works when spoken out loud into an audio recorder.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Self-explanation relies on subliminal sleep learning to consolidate declarative facts.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Michelene Chi et al. (1989) proved that high-performing students engage in continuous spontaneous self-explanation. When learners explain to themselves why a specific step in a worked example was taken, they actively map text claims to deep domain laws, externalize hidden assumptions, and notice contradictions in their mental representations, driving active schema repair.',
+        pedagogicalRationale: 'Explains the cognitive mechanisms of self-explanation and schema reconciliation.',
+        evidenceNote: 'Chi, M. T., Bassok, M., Lewis, M. W., Reimann, P., & Glaser, R. (1989) Cognitive Science, 13(2), 145–182.',
+      },
+    ],
+  },
+  practicalTask: {
+    title: 'The 3-Step Protégé Feynman Protocol',
+    summary: 'Operationalize the Protégé Effect, Feynman jargon deconstruction, and expecting-to-teach priming into a repeatable 3-step mastery protocol for any difficult technical concept.',
+    steps: [
+      {
+        id: 'step-1-prime-protege-and-target',
+        number: 1,
+        title: 'Identify Your Protégé & Prime the Expectation-to-Teach Mindset',
+        prompt: 'Select an intimidating technical concept you are trying to master. Identify a specific person (a junior peer, a non-technical friend, or an AI teachable agent) whom you will teach. Write down: "I am mastering this concept exclusively to teach [Protégé Name] tomorrow."',
+        placeholder: 'e.g. Concept: "Distributed Raft Consensus Protocol". Protégé: "Alex (Junior Frontend Engineer)". Mindset Commitment: "I am mastering Raft leader election and quorum safety specifically to explain it to Alex at tomorrow’s standup."',
+        example: 'Concept: "Transformer Attention Mechanisms". Protégé: "Maya (First-year Biology student)". Commitment: "I will explain Q, K, V matrices to Maya so she understands how protein language models work without writing math equations."',
+        cognitiveRationale: 'Priming the expectation to teach shifts the brain’s metacognitive orientation from atomistic item memorization to deep hierarchical category organization (Nestojko & Bjork, 2014; Chase et al., 2009).',
+      },
+      {
+        id: 'step-2-execute-12-year-old-feynman-explanation',
+        number: 2,
+        title: 'Deliver the 12-Year-Old Feynman Explanation & Pinpoint the Stumble',
+        prompt: 'Speak or write an explanation of the concept as if speaking to a 12-year-old child. You are strictly forbidden from using domain jargon, acronyms, or circular definitions. Record the exact sentence where your explanation hesitated, used hand-waving, or resorted to a buzzword.',
+        placeholder: 'e.g. Explanation: "Imagine 5 computers must agree on who is the boss. They all set a secret timer. The first computer whose timer dings shouts: Vote for me! If at least 3 say yes, he becomes boss." Stumble: "I stumbled when explaining how the boss knows his memory isn\'t outdated—I resorted to saying \'he checks the term counter\' without explaining what a term is."',
+        example: 'Explanation: "Imagine you are in a library with 1,000 books. You have a query (what you want to know). You compare your query to the title on every book spine (the keys). When a title matches, you read the contents inside (the values)." Stumble: "I stumbled on why we divide by the square root of $d_k$—I had no plain-English explanation for variance scaling."',
+        cognitiveRationale: 'Forbidding jargon strips away the illusion of explanatory depth (Rozenblit & Keil, 2002; Feynman) and pinpoints the exact cognitive failure boundary.',
+      },
+      {
+        id: 'step-3-deconstruct-invariant-and-craft-analogy',
+        number: 3,
+        title: 'Deconstruct the Missing Invariant & Craft a Visceral Mechanical Analogy',
+        prompt: 'Return to primary source documentation to inspect the exact mechanism where you stumbled. Extract the irreducible physical or mathematical invariant, and formulate a visceral, non-jargon analogy that completely resolves the breakdown.',
+        placeholder: 'e.g. Invariant: "A term counter is simply an incrementing election era number. Any message from an older era is rejected immediately because history cannot be rewritten by a deposed leader." Analogy: "It\'s like a calendar year stamped on an official government passport."',
+        example: 'Invariant: "Dividing by $\\sqrt{d_k}$ prevents dot products from growing huge in high dimensions, which would push softmax into flat saturation where gradients vanish." Analogy: "It\'s like turning down the microphone volume so a singer shouting doesn\'t blow out the speakers and cause static."',
+        cognitiveRationale: 'Targeted source remediation repairs fragmented mental models (Chi et al., 1989) and cements deep conceptual transfer (Feynman; Ericsson, 2006).',
+      },
+    ],
+  },
+};

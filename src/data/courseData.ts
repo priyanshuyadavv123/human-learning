@@ -47,6 +47,7 @@ import { LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING } from './lesson23_1Data.ts';
 import { LESSON_DEPENDENCY_GRAPH_SEQUENCING } from './lesson23_2Data.ts';
 import { LESSON_EXTENDED_MIND_ZETTELKASTEN } from './lesson24_1Data.ts';
 import { LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING } from './lesson24_2Data.ts';
+import { LESSON_PROTEGE_EFFECT_TEACHING } from './lesson25_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -663,7 +664,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Protégé Effect: Learning by Teaching',
           subtitle: 'Why preparing to teach forces rigorous structural reconciliation',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'adversarial-peer-review',
@@ -1215,6 +1216,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_DEPENDENCY_GRAPH_SEQUENCING.id]: LESSON_DEPENDENCY_GRAPH_SEQUENCING,
   [LESSON_EXTENDED_MIND_ZETTELKASTEN.id]: LESSON_EXTENDED_MIND_ZETTELKASTEN,
   [LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING.id]: LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING,
+  [LESSON_PROTEGE_EFFECT_TEACHING.id]: LESSON_PROTEGE_EFFECT_TEACHING,
 };
 
 export function getLessonById(id: string): Lesson {

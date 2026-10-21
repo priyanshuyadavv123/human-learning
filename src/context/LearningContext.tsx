@@ -615,6 +615,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:synthesis_over_storage_friction_forcing_functions',
     },
   },
+  'protege-effect-teaching': {
+    predictionConceptId: 'concept:protege_effect_teachable_agents_chase_schwartz',
+    predictionMisconceptionId: 'misconception:using_complex_jargon_demonstrates_deep_understanding',
+    quizConceptMapping: {
+      'q1-protege-effect-ego-threat': 'concept:protege_effect_teachable_agents_chase_schwartz',
+      'q2-feynman-technique-jargon': 'concept:feynman_technique_jargon_deconstruction_chi',
+      'q3-expecting-to-teach-nestojko': 'concept:expecting_to_teach_schema_restructuring_bjork',
+      'q4-chi-self-explanation-models': 'concept:feynman_technique_jargon_deconstruction_chi',
+      'q1': 'concept:protege_effect_teachable_agents_chase_schwartz',
+      'q2': 'concept:feynman_technique_jargon_deconstruction_chi',
+      'q3': 'concept:expecting_to_teach_schema_restructuring_bjork',
+      'q4': 'concept:feynman_technique_jargon_deconstruction_chi',
+    },
+  },
 };
 
 interface LearningContextType {

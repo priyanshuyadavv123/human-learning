@@ -592,6 +592,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 24.2 • Verification Assessment',
   'Lesson 24.2 • The 3-Step Synthesis-First Tooling Protocol',
   'Lesson 24.2 • Digital Tooling without Passive Hoarding Overview',
+
+  // Lesson 25.1 Sections
+  'Lesson 25.1 • Curiosity Hook',
+  'Lesson 25.1 • Intuitive Calibration: Solo Rote Study vs Reciprocal Teaching',
+  'Lesson 25.1 • Section 1: Catherine Chase & Daniel Schwartz (2009): The Protégé Effect & Teachable Agents',
+  'Lesson 25.1 • Section 2: Richard Feynman & Michelene Chi: Jargon Deconstruction & The Self-Explanation Effect',
+  'Lesson 25.1 • Section 3: John Nestojko & Robert Bjork (2014): Expecting to Teach & Category Restructuring',
+  'Lesson 25.1 • The Protégé Effect & Feynman Deconstruction Funnel',
+  'Lesson 25.1 • Pedagogical Externalization & Jargon Audit Lab',
+  'Lesson 25.1 • Verification Assessment',
+  'Lesson 25.1 • The 3-Step Protégé Feynman Protocol',
+  'Lesson 25.1 • The Protégé Effect: Learning by Teaching Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -705,6 +717,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 25.1 anchors
+  if (lower.includes('protege effect') || lower.includes('protégé effect') || (lower.includes('chase') && lower.includes('schwartz') && (lower.includes('teachable') || lower.includes('2009') || lower.includes('25.1'))) || lower.includes('teachable agent') || lower.includes('teachable agents') || lower.includes('betty’s brain') || lower.includes("betty's brain") || (lower.includes('25.1') && lower.includes('section 1'))) {
+    return 'Lesson 25.1 • Section 1: Catherine Chase & Daniel Schwartz (2009): The Protégé Effect & Teachable Agents';
+  }
+  if (lower.includes('feynman technique') || (lower.includes('feynman') && (lower.includes('jargon') || lower.includes('12-year-old') || lower.includes('plain language') || lower.includes('technique') || lower.includes('25.1'))) || ((lower.includes('self-explanation') || lower.includes('self explanation')) && (lower.includes('chi') || lower.includes('1989') || lower.includes('25.1'))) || lower.includes('jargon deconstruction') || (lower.includes('25.1') && lower.includes('section 2'))) {
+    return 'Lesson 25.1 • Section 2: Richard Feynman & Michelene Chi: Jargon Deconstruction & The Self-Explanation Effect';
+  }
+  if ((lower.includes('nestojko') && (lower.includes('bjork') || lower.includes('bui') || lower.includes('teach') || lower.includes('2014'))) || (lower.includes('expecting to teach') && !lower.includes('25.2')) || lower.includes('adjusted ratio of clustering') || (lower.includes('25.1') && lower.includes('section 3'))) {
+    return 'Lesson 25.1 • Section 3: John Nestojko & Robert Bjork (2014): Expecting to Teach & Category Restructuring';
+  }
+  if (lower.includes('protege effect & feynman deconstruction funnel') || lower.includes('protégé effect & feynman deconstruction funnel') || lower.includes('feynman deconstruction funnel') || lower.includes('protege effect funnel')) {
+    return 'Lesson 25.1 • The Protégé Effect & Feynman Deconstruction Funnel';
+  }
+  if (lower.includes('25.1') || lower.includes('protege-effect-teaching') || lower.includes('the protégé effect: learning by teaching') || lower.includes('the protege effect: learning by teaching') || lower.includes('3-step protégé feynman protocol') || lower.includes('3-step protege feynman protocol')) {
+    return 'Lesson 25.1 • Section 1: Catherine Chase & Daniel Schwartz (2009): The Protégé Effect & Teachable Agents';
   }
 
   // Match Lesson 24.2 anchors
@@ -2775,6 +2804,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_25_1 = `You are the specialized AI Socratic Tutor for Lesson 25.1: "The Protégé Effect: Learning by Teaching".
+Your role is to guide learners to externalize mental models and learn by teaching others: Catherine Chase & Daniel Schwartz's (2009) Protégé Effect and Teachable Agents (reducing ego-threat and driving altruistic accountability through teaching), Richard Feynman's learning algorithm and Michelene Chi et al.'s (1989) Self-Explanation Effect (jargon deconstruction, plain language explanation to a 12-year-old, and repairing fragmented mental models), and John Nestojko & Robert Bjork's (2014) Expecting to Teach research (shifting metacognitive orientation to hierarchical category organization and deep structural encoding).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the cognitive science of reciprocal teaching and self-explanation:
+     a) Chase & Schwartz (2009): The Protégé Effect demonstrates that students spend more time learning and self-correcting when teaching a surrogate agent (Betty's Brain) than when studying for themselves. Framing errors as the protégé's bugs removes ego-threat, while altruistic responsibility compels deep mastery.
+     b) Richard Feynman & Michelene Chi (1989): Complex technical jargon frequently masks the illusion of explanatory depth. The Feynman Technique demands explaining mechanisms to a 12-year-old without jargon, pinpointing points of circularity, and returning to primary invariants. Chi showed that generating self-explanations actively repairs mental models.
+     c) Nestojko & Bjork (2014): Simply expecting to teach someone else alters how the brain encodes information—shifting from superficial item-level test memorization to deep hierarchical category organization (measured by high Adjusted Ratio of Clustering).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the protégé effect, teachable agents, the Feynman technique, jargon deconstruction, self-explanation, and expecting to teach.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2919,6 +2972,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'digital-tooling-without-hoarding') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_24_2;
+  }
+  if (lessonId === 'protege-effect-teaching') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_25_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3120,6 +3176,10 @@ export const KNOWN_CONCEPTS = [
   'concept:risko_gilbert_cognitive_offloading_metacognition',
   'concept:engelbart_bush_intellect_augmentation_h_lam_t',
   'concept:synthesis_over_storage_friction_forcing_functions',
+  // Lesson 25.1 Concepts
+  'concept:protege_effect_teachable_agents_chase_schwartz',
+  'concept:feynman_technique_jargon_deconstruction_chi',
+  'concept:expecting_to_teach_schema_restructuring_bjork',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3275,6 +3335,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 24.2 Misconceptions
   'misconception:all_cognitive_offloading_is_beneficial',
   'misconception:zero_friction_capture_maximizes_learning',
+  // Lesson 25.1 Misconceptions
+  'misconception:using_complex_jargon_demonstrates_deep_understanding',
+  'misconception:teaching_is_only_beneficial_once_mastery_is_complete',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

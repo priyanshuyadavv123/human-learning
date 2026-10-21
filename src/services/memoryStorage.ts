@@ -356,6 +356,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'digital-tooling-without-hoarding';
     chapterId = 'ch-24-external-scaffolding';
+  } else if (
+    conceptId.startsWith('concept:protege_effect_') ||
+    conceptId.startsWith('concept:feynman_technique_') ||
+    conceptId.startsWith('concept:expecting_to_teach_')
+  ) {
+    lessonId = 'protege-effect-teaching';
+    chapterId = 'ch-25-social-protege';
   }
 
   return {

@@ -200,6 +200,10 @@ export const KNOWN_CONCEPTS = [
   'concept:risko_gilbert_cognitive_offloading_metacognition',
   'concept:engelbart_bush_intellect_augmentation_h_lam_t',
   'concept:synthesis_over_storage_friction_forcing_functions',
+  // Lesson 25.1 Concepts
+  'concept:protege_effect_teachable_agents_chase_schwartz',
+  'concept:feynman_technique_jargon_deconstruction_chi',
+  'concept:expecting_to_teach_schema_restructuring_bjork',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -355,6 +359,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 24.2 Misconceptions
   'misconception:all_cognitive_offloading_is_beneficial',
   'misconception:zero_friction_capture_maximizes_learning',
+  // Lesson 25.1 Misconceptions
+  'misconception:using_complex_jargon_demonstrates_deep_understanding',
+  'misconception:teaching_is_only_beneficial_once_mastery_is_complete',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
