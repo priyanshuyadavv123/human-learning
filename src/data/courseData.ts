@@ -45,6 +45,7 @@ import { LESSON_BANDURA_SELF_EFFICACY } from './lesson22_1Data.ts';
 import { LESSON_ATTRIBUTION_RETRAINING_MINDSET } from './lesson22_2Data.ts';
 import { LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING } from './lesson23_1Data.ts';
 import { LESSON_DEPENDENCY_GRAPH_SEQUENCING } from './lesson23_2Data.ts';
+import { LESSON_EXTENDED_MIND_ZETTELKASTEN } from './lesson24_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -637,7 +638,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'External Memory Systems & Graph Notes',
           subtitle: 'Bidirectional linking, atomic notes, and avoiding passive hoarding',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'digital-tooling-without-hoarding',
@@ -1211,6 +1212,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_ATTRIBUTION_RETRAINING_MINDSET.id]: LESSON_ATTRIBUTION_RETRAINING_MINDSET,
   [LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING.id]: LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING,
   [LESSON_DEPENDENCY_GRAPH_SEQUENCING.id]: LESSON_DEPENDENCY_GRAPH_SEQUENCING,
+  [LESSON_EXTENDED_MIND_ZETTELKASTEN.id]: LESSON_EXTENDED_MIND_ZETTELKASTEN,
 };
 
 export function getLessonById(id: string): Lesson {

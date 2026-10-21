@@ -1342,6 +1342,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Can you sketch your current technical learning goals as a DAG and run a manual topological sort to ensure there are zero circular dependencies?',
     referencedSection: 'Lesson 23.2 • Section 3: DAG Topological Sorting & Transitive Reduction in Curriculum Engineering',
   },
+  {
+    keywords: ['andy clark', 'david chalmers', 'extended mind thesis', 'active externalism', 'epistemic action', 'cognitive coupling', 'otto notebook vs inga memory', 'external memory scaffolding'],
+    title: 'Andy Clark & David Chalmers: The Extended Mind & Active Externalism',
+    summary: 'The Extended Mind Thesis establishes that cognition extends beyond the biological skull when external tools are reliably coupled into thought via epistemic actions.',
+    takeaway: 'An external tool becomes a literal constituent of your mind if it meets the criteria of reliability, uncritical endorsement, and effortless accessibility (Clark & Chalmers, 1998).',
+    detailedResponse: 'In their landmark 1998 paper "The Extended Mind", philosophers Andy Clark and David Chalmers demonstrated that human cognition does not stop at the skull and skin. Through "Active Externalism", the biological brain couples with external artifacts to form an integrated cognitive system ($C = \\text{Brain} \\leftrightarrow \\text{Tool}$). Clark and Chalmers presented the famous thought experiment comparing Inga (who uses biological episodic memory) with Otto (an Alzheimer’s patient who uses a well-maintained pocket notebook). Functionally, Otto’s notebook plays the exact same cognitive role as Inga’s biological hippocampus: it provides trustworthy belief contents that drive reasoning and action. For an external tool to count as part of the extended mind, Clark and Chalmers establish three criteria: (1) the artifact must be constantly and reliably available, (2) retrieved information must be directly endorsed without skepticism, and (3) access must be effortless and fluent. When these criteria are met, offloading cognitive state frees biological working memory for higher-level problem solving.',
+    socraticChallenge: 'Which external tools in your daily workflow meet Clark & Chalmers’ criteria for true cognitive extension, and which are just noisy external distractions?',
+    referencedSection: 'Lesson 24.1 • Section 1: Andy Clark & David Chalmers (1998): The Extended Mind & Active Externalism',
+  },
+  {
+    keywords: ['niklas luhmann', 'zettelkasten', 'atomic notes', 'bidirectional linking', 'folgezettel', 'sonke ahrens smart notes', 'associative graph notes', 'second brain dialogue partner'],
+    title: 'Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes',
+    summary: 'Luhmann’s Zettelkasten slip-box turns notes into an autonomous dialogue partner using atomic propositions and dense bidirectional cross-referencing rather than rigid folders.',
+    takeaway: 'Keep notes strictly atomic and connect them via dense bidirectional associative links so unexpected insights emerge organically across disciplines (Luhmann; Ahrens, 2017).',
+    detailedResponse: 'Sociologist Niklas Luhmann authored over 70 books and 400 articles using his paper slip-box (Zettelkasten), which he described as his intellectual conversation partner. Traditional note-taking fails because it sorts information into rigid hierarchical folder trees (e.g. "Physics", "Economics") where interdisciplinary connections cannot form. Luhmann designed a decentralized graph system based on two pillars: Atomicity and Bidirectional Graph Linking. Every note is "atomic"—it captures a single idea, mechanism, or argument written in the author’s own words. Notes are given alphanumeric branch addresses (Folgezettel) and linked bidirectionally to relevant existing cards. When adding a new card, Luhmann asked: "What other note does this support, challenge, or refine?" Over decades, this creates high-clustering network topology where ideas from distant fields collide serendipitously, producing spontaneous creative breakthroughs that no rigid taxonomy could predict.',
+    socraticChallenge: 'If you convert your current topic notes into single-idea atomic cards, what surprising connection can you draw between this idea and an unrelated domain?',
+    referencedSection: 'Lesson 24.1 • Section 2: Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes',
+  },
+  {
+    keywords: ['collectors fallacy', 'passive note taking', 'digital hoarding', 'tito sierra', 'sonke ahrens', 'generation effect notes', 'fleeting vs literature vs permanent notes', 'highlighting illusion'],
+    title: 'The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
+    summary: 'The Collector’s Fallacy is the cognitive illusion that saving or clipping an article equates to understanding it; durable learning requires generative synthesis into permanent notes.',
+    takeaway: 'Never copy-paste: only self-generated permanent notes that integrate into your knowledge graph trigger synaptic consolidation (Slamecka & Graf, 1978; Ahrens, 2017).',
+    detailedResponse: 'The "Collector’s Fallacy" (coined by Tito Sierra and analyzed by Sönke Ahrens) describes the widespread modern illusion that bookmarking a URL, saving a PDF, or highlighting text in a reading app equates to acquiring knowledge. When a learner saves an article into Notion or Evernote, the brain receives a false dopamine reward and a sense of closure: "I have captured this." But because no effortful retrieval or re-encoding occurred, zero synaptic plasticity is stimulated. As Slamecka and Graf (1978) proved with the "Generation Effect", memory traces consolidate only when learners actively generate information themselves. Effective extended cognition uses a three-tier funnel: (1) Fleeting notes for temporary capture, (2) Literature notes capturing sources in one’s own concise words, and (3) Permanent notes that synthesize atomic arguments and link them to your existing graph. If an idea isn’t translated into your own vocabulary and linked to preexisting schemas, it remains digital dead weight.',
+    socraticChallenge: 'How many bookmarked articles or highlighted PDFs have you saved in the past month that you have never re-read or translated into your own words?',
+    referencedSection: 'Lesson 24.1 • Section 3: The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

@@ -192,6 +192,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gagne_learning_hierarchies_cumulative',
   'concept:falmagne_doignon_knowledge_space_theory',
   'concept:dag_topological_sort_transitive_reduction',
+  // Lesson 24.1 Concepts
+  'concept:clark_chalmers_extended_mind_active_externalism',
+  'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+  'concept:collectors_fallacy_generative_note_taking',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -341,6 +345,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 23.2 Misconceptions
   'misconception:linear_textbook_order_is_optimal_learning_sequence',
   'misconception:advanced_concepts_can_be_mastered_with_leaky_prerequisites',
+  // Lesson 24.1 Misconceptions
+  'misconception:clipping_and_saving_articles_equals_understanding',
+  'misconception:hierarchical_folders_are_superior_to_associative_graphs',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

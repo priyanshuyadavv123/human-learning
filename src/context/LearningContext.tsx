@@ -587,6 +587,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:dag_topological_sort_transitive_reduction',
     },
   },
+  'extended-mind-zettelkasten': {
+    predictionConceptId: 'concept:clark_chalmers_extended_mind_active_externalism',
+    predictionMisconceptionId: 'misconception:clipping_and_saving_articles_equals_understanding',
+    quizConceptMapping: {
+      'q1-extended-mind-criteria': 'concept:clark_chalmers_extended_mind_active_externalism',
+      'q2-luhmann-atomicity-dialogue': 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+      'q3-collectors-fallacy-generation': 'concept:collectors_fallacy_generative_note_taking',
+      'q4-bidirectional-vs-hierarchical': 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+      'q1': 'concept:clark_chalmers_extended_mind_active_externalism',
+      'q2': 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+      'q3': 'concept:collectors_fallacy_generative_note_taking',
+      'q4': 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+    },
+  },
 };
 
 interface LearningContextType {

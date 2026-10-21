@@ -2141,6 +2141,53 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:linear_textbook_order_is_optimal_learning_sequence',
     discrepancyPrompt: 'Previously you may have been frustrated by documentation that used jargon before explaining it, assuming you were simply not smart enough to follow. How does graph theory prove that circular dependencies in instructional material represent a compiler bug in the author\'s curriculum DAG?',
   },
+  'concept:clark_chalmers_extended_mind_active_externalism': {
+    conceptId: 'concept:clark_chalmers_extended_mind_active_externalism',
+    title: 'Andy Clark & David Chalmers: The Extended Mind & Active Externalism',
+    prompt: 'What is the Extended Mind Thesis (Clark & Chalmers, 1998), and what criteria must an external memory tool satisfy to function as a literal cognitive constituent of the mind rather than mere passive storage?',
+    keyCriteria: [
+      'Cites Andy Clark & David Chalmers (1998) The Extended Mind (Analysis)',
+      'Defines Active Externalism and Epistemic Actions: external manipulation of artifacts that literally transforms or constitutes cognitive processing',
+      'Explains Cognitive Coupling: two-way interaction between biological brain and external tool creating a single coupled cognitive system ($C = \\text{Brain} \\leftrightarrow \\text{Scaffold}$)',
+      'Explains Otto’s Notebook vs Inga’s Biological Memory Thought Experiment: functional equivalence of external notes and internal memory traces',
+      'Lists Clark & Chalmers Criteria for Cognitive Extension: (1) constant availability/reliability, (2) direct uncritical endorsement of retrieved information, and (3) immediate ease of accessibility',
+    ],
+    canonicalAnswer: 'Andy Clark and David Chalmers (1998) formulated the Extended Mind Thesis and Active Externalism, demonstrating that cognitive processes are not bounded by the skull and skin. Cognition frequently supervenes on a two-way coupled system comprising biological neural circuits and reliable external artifacts. Clark and Chalmers illustrate this with their famous thought experiment comparing Inga (who consults biological episodic memory to recall the location of the Museum of Modern Art) and Otto (an Alzheimer’s patient who consults a meticulously organized pocket notebook). Otto’s notebook plays the exact functional role of Inga’s biological memory: it reliably provides belief contents that guide action. For an external tool (e.g. an Obsidian vault or physical notebook) to constitute part of the mind, Clark and Chalmers establish strict criteria: (1) the artifact must be constantly and reliably available; (2) retrieved information must be directly endorsed with epistemic trust, just like biological recall; and (3) information must be easily and fluently accessible. When an external system meets these criteria, offloading working memory to external structures frees biological prefrontal bandwidth for higher-order reasoning.',
+    lessonSectionAnchor: 'Lesson 24.1 • Section 1: Andy Clark & David Chalmers (1998): The Extended Mind & Active Externalism',
+    relatedMisconception: 'misconception:clipping_and_saving_articles_equals_understanding',
+    discrepancyPrompt: 'Previously you may have believed that true knowledge must reside purely inside your biological skull, or conversely that bookmarking a link makes you smarter. How does Clark & Chalmers’ Extended Mind Thesis prove that an external tool only expands your mind if it is actively coupled into your reasoning workflow with high retrieval fluency and epistemic trust?',
+  },
+  'concept:luhmann_zettelkasten_atomic_bidirectional_linking': {
+    conceptId: 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+    title: 'Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes',
+    prompt: 'How did sociologist Niklas Luhmann use the Zettelkasten slip-box method to generate 70 books, and why are atomicity and bidirectional associative linking superior to hierarchical folder structures?',
+    keyCriteria: [
+      'Cites Niklas Luhmann’s Zettelkasten slip-box communication method and Sönke Ahrens (2017) How to Take Smart Notes',
+      'Defines the Principle of Atomicity: each note contains exactly one single idea or proposition, written in the learner’s own words, making it universally combinable',
+      'Explains Alphanumeric Branching (Folgezettel) & Decentralized Graphs: notes branch organically (1/1a, 1/1b) without rigid top-down category taxonomies',
+      'Contrasts Hierarchical Folders vs Bidirectional Links: folders force ideas into single arbitrary silos; bidirectional links model the associative neural network of human memory, enabling serendipitous collision',
+      'Explains Zettelkasten as an Interlocutor (Second Brain): the slip-box acts as an autonomous dialogue partner that surprises the author with emergent conceptual connections',
+    ],
+    canonicalAnswer: 'German sociologist Niklas Luhmann published over 70 books and 400 academic articles across a 30-year career by treating his physical slip-box (Zettelkasten) not as an archive, but as an intellectual dialogue partner. Luhmann’s system operates on two core principles: Atomicity and Dense Associative Graph Linking. In a Zettelkasten, every note is strictly "atomic"—it contains a single standalone thought, thesis, or mechanism expressed in the author’s own words. Instead of sorting notes into top-down hierarchical folders (which force ideas into rigid, pre-ordained categorical silos where they die), notes are assigned alphanumeric branch identifiers (Folgezettel) and densely connected via bidirectional cross-references. When creating a new note, the author asks: "Which existing note does this idea contradict, refine, generalize, or substantiate?" Over years, the network develops high clustering coefficients and emergent conceptual clusters that the author never consciously planned. The Zettelkasten shifts note-taking from passive record-keeping to an external cybernetic cognition engine that generates novel research hypotheses.',
+    lessonSectionAnchor: 'Lesson 24.1 • Section 2: Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes',
+    relatedMisconception: 'misconception:hierarchical_folders_are_superior_to_associative_graphs',
+    discrepancyPrompt: 'Previously you may have filed notes into neat folders named "Biology" or "Philosophy," only to find that you never opened them again. How does Luhmann’s Zettelkasten prove that hierarchical folder trees bury ideas in isolated silos, whereas atomic bidirectional linking turns notes into an active conversational partner?',
+  },
+  'concept:collectors_fallacy_generative_note_taking': {
+    conceptId: 'concept:collectors_fallacy_generative_note_taking',
+    title: 'The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
+    prompt: 'What is the "Collector’s Fallacy" in digital note-taking, and why does generative translation (permanent notes) build durable understanding while highlight clipping produces illusions of competence?',
+    keyCriteria: [
+      'Defines the Collector’s Fallacy (Tito Sierra; Sönke Ahrens, 2017): the cognitive bias of equating the collection/saving of an article or note with the acquisition of understanding',
+      'Cites the Generation Effect (Slamecka & Graf, 1978): self-generated information is retained at significantly higher rates than passively read or copied material',
+      'Differentiates Three Note Tiers: Fleeting Notes (temporary working memory capture), Literature Notes (brief source notes in own words), and Permanent Notes (autonomous atomic ideas integrated into the graph)',
+      'Explains the Cost of Passive Digital Hoarding: clipping text, saving PDFs, and bookmarking web pages provides dopamine spikes and an illusion of competence while leaving biological schemas unchanged',
+    ],
+    canonicalAnswer: 'The "Collector’s Fallacy" (popularized by Tito Sierra and analyzed by Sönke Ahrens in How to Take Smart Notes) is the cognitive illusion where bookmarking, clipping, saving, or highlighting an article is mistaken for mental comprehension. When learners save a PDF or clip an article into Notion or Evernote, their brain experiences a deceptive sense of closure and relief: "This knowledge is safe." However, passive hoarding bypasses the very mechanism required for neural learning: the Generation Effect (Slamecka & Graf, 1978). In true generative note-taking, the learner never copies and pastes text. Instead, they use a strict three-tier pipeline: (1) "Fleeting Notes"—transient ephemeral captures that are discarded within 24 hours; (2) "Literature Notes"—selective summaries of source material written strictly in the learner’s own concise phrasing; and (3) "Permanent Notes"—self-contained atomic insights that synthesize literature notes and connect them into the permanent associative graph. The generative cognitive effort of paraphrasing, compressing, and linking is what restructures long-term memory; passive hoarding merely builds a digital graveyard of unread text.',
+    lessonSectionAnchor: 'Lesson 24.1 • Section 3: The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
+    relatedMisconception: 'misconception:clipping_and_saving_articles_equals_understanding',
+    discrepancyPrompt: 'Previously you may have saved hundreds of browser bookmarks, highlights, or Notion database rows, feeling productive as your digital library grew. How does the Collector’s Fallacy reveal that storing an article in an external database has zero correlation with whether your biological brain can retrieve and apply that knowledge?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

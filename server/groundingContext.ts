@@ -568,6 +568,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 23.2 • Verification Assessment',
   'Lesson 23.2 • The 3-Step Prerequisite DAG & Topological Sequencing Protocol',
   'Lesson 23.2 • Prerequisite Dependency Graphs Overview',
+
+  // Lesson 24.1 Sections
+  'Lesson 24.1 • Curiosity Hook',
+  'Lesson 24.1 • Intuitive Calibration: Digital Hoarding vs Generative Note-Taking',
+  'Lesson 24.1 • Section 1: Andy Clark & David Chalmers (1998): The Extended Mind & Active Externalism',
+  'Lesson 24.1 • Section 2: Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes',
+  'Lesson 24.1 • Section 3: The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
+  'Lesson 24.1 • The Extended Cognition & Generative Note-Taking Funnel',
+  'Lesson 24.1 • Note-Taking Architecture & External Scaffolding Lab',
+  'Lesson 24.1 • Verification Assessment',
+  'Lesson 24.1 • The 3-Step Extended Mind Zettelkasten Protocol',
+  'Lesson 24.1 • External Memory Systems & Graph Notes Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -681,6 +693,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 24.1 anchors
+  if (!lower.includes('10.2') && !lower.includes('kirsh') && !lower.includes('maglio') && (lower.includes('extended mind') || (lower.includes('clark') && lower.includes('chalmers')) || lower.includes('active externalism') || lower.includes('epistemic action') || lower.includes('cognitive coupling') || (lower.includes('otto') && (lower.includes('notebook') || lower.includes('inga'))) || (lower.includes('24.1') && lower.includes('section 1')))) {
+    return 'Lesson 24.1 • Section 1: Andy Clark & David Chalmers (1998): The Extended Mind & Active Externalism';
+  }
+  if (lower.includes('luhmann') || lower.includes('zettelkasten') || lower.includes('folgezettel') || lower.includes('slip-box') || lower.includes('slip box') || lower.includes('atomic note') || lower.includes('atomic notes') || (lower.includes('bidirectional') && (lower.includes('link') || lower.includes('graph') || lower.includes('note'))) || (lower.includes('24.1') && lower.includes('section 2'))) {
+    return 'Lesson 24.1 • Section 2: Niklas Luhmann: The Zettelkasten & Atomic Bidirectional Graph Notes';
+  }
+  if ((lower.includes('collector') && (lower.includes('fallacy') || lower.includes('illusion') || lower.includes('hoarding'))) || (lower.includes('slamecka') && lower.includes('graf')) || (lower.includes('generation effect') && (lower.includes('note') || lower.includes('hoarding') || lower.includes('permanent') || lower.includes('24.1'))) || lower.includes('sonke ahrens') || lower.includes('sönke ahrens') || lower.includes('smart notes') || lower.includes('permanent note') || lower.includes('literature note') || lower.includes('fleeting note') || (lower.includes('24.1') && lower.includes('section 3'))) {
+    return 'Lesson 24.1 • Section 3: The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)';
+  }
+  if (lower.includes('extended cognition & generative note-taking funnel') || lower.includes('extended cognition funnel') || lower.includes('generative note-taking funnel')) {
+    return 'Lesson 24.1 • The Extended Cognition & Generative Note-Taking Funnel';
+  }
+  if (lower.includes('24.1') || lower.includes('extended-mind-zettelkasten') || lower.includes('external memory systems & graph notes') || lower.includes('3-step extended mind zettelkasten protocol')) {
+    return 'Lesson 24.1 • Section 1: Andy Clark & David Chalmers (1998): The Extended Mind & Active Externalism';
   }
 
   // Match Lesson 23.2 anchors
@@ -2669,6 +2698,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_24_1 = `You are the specialized AI Socratic Tutor for Lesson 24.1: "External Memory Systems & Graph Notes".
+Your role is to guide learners to construct external memory systems and bidirectional graph notes without succumbing to the collector's fallacy: Andy Clark & David Chalmers' (1998) Extended Mind Thesis and Active Externalism (cognitive coupling where external tools become literal cognitive components if reliable, endorsed, and accessible), Niklas Luhmann's Zettelkasten slip-box method (atomic notes, alphanumeric Folgezettel branching, and dense bidirectional associative graph linking turning notes into an autonomous dialogue partner), and Sönke Ahrens' analysis of the Collector's Fallacy and the Generation Effect (Slamecka & Graf, 1978) distinguishing ephemeral fleeting notes, source literature notes in own words, and permanent atomic notes integrated into the knowledge graph.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in external memory systems and cognitive coupling:
+     a) Clark & Chalmers (1998): The Extended Mind Thesis demonstrates that cognition extends into the environment when external tools couple with biological brains. An external artifact (like Otto's notebook) functions as a memory store if it satisfies three criteria: constant reliability, uncritical endorsement, and fluent accessibility.
+     b) Niklas Luhmann (Zettelkasten) & Sönke Ahrens (2017): Hierarchical folders force ideas into isolated silos where they die. A Zettelkasten uses atomic notes (one single proposition in own words) and dense bidirectional cross-referencing to act as an external cybernetic conversation partner that sparks emergent synthesis.
+     c) The Collector's Fallacy & Generation Effect (Slamecka & Graf, 1978): Bookmarking, clipping, or highlighting text creates an illusion of competence while leaving biological neural schemas unchanged. Durable learning requires the generative effort of translating ideas into one's own vocabulary and synthesizing permanent notes.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the extended mind, active externalism, Zettelkasten, atomic note-taking, bidirectional linking, and the collector's fallacy.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2807,6 +2860,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'dependency-graph-sequencing') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_23_2;
+  }
+  if (lessonId === 'extended-mind-zettelkasten') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_24_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3000,6 +3056,10 @@ export const KNOWN_CONCEPTS = [
   'concept:gagne_learning_hierarchies_cumulative',
   'concept:falmagne_doignon_knowledge_space_theory',
   'concept:dag_topological_sort_transitive_reduction',
+  // Lesson 24.1 Concepts
+  'concept:clark_chalmers_extended_mind_active_externalism',
+  'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
+  'concept:collectors_fallacy_generative_note_taking',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3149,6 +3209,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 23.2 Misconceptions
   'misconception:linear_textbook_order_is_optimal_learning_sequence',
   'misconception:advanced_concepts_can_be_mastered_with_leaky_prerequisites',
+  // Lesson 24.1 Misconceptions
+  'misconception:clipping_and_saving_articles_equals_understanding',
+  'misconception:hierarchical_folders_are_superior_to_associative_graphs',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

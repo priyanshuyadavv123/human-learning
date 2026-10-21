@@ -342,6 +342,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'dependency-graph-sequencing';
     chapterId = 'ch-23-syllabus-engineering';
+  } else if (
+    conceptId.startsWith('concept:clark_chalmers_') ||
+    conceptId.startsWith('concept:luhmann_zettelkasten_') ||
+    conceptId.startsWith('concept:collectors_fallacy_')
+  ) {
+    lessonId = 'extended-mind-zettelkasten';
+    chapterId = 'ch-24-external-scaffolding';
   }
 
   return {
