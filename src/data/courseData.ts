@@ -44,6 +44,7 @@ import { LESSON_EMOTION_APPRAISAL_REGULATION } from './lesson21_2Data.ts';
 import { LESSON_BANDURA_SELF_EFFICACY } from './lesson22_1Data.ts';
 import { LESSON_ATTRIBUTION_RETRAINING_MINDSET } from './lesson22_2Data.ts';
 import { LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING } from './lesson23_1Data.ts';
+import { LESSON_DEPENDENCY_GRAPH_SEQUENCING } from './lesson23_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -618,9 +619,9 @@ export const PRIMARY_COURSE: Course = {
           id: 'dependency-graph-sequencing',
           number: '23.2',
           title: 'Prerequisite Dependency Graphs',
-          subtitle: 'Sequencing learning to avoid cognitive bottlenecks and circular dependencies',
-          readingTimeMinutes: 16,
-          isAvailable: false,
+          subtitle: 'Gagné Hierarchies, Knowledge Space Theory & DAG Topological Sort',
+          readingTimeMinutes: 20,
+          isAvailable: true,
         },
       ],
     },
@@ -1209,6 +1210,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_BANDURA_SELF_EFFICACY.id]: LESSON_BANDURA_SELF_EFFICACY,
   [LESSON_ATTRIBUTION_RETRAINING_MINDSET.id]: LESSON_ATTRIBUTION_RETRAINING_MINDSET,
   [LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING.id]: LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING,
+  [LESSON_DEPENDENCY_GRAPH_SEQUENCING.id]: LESSON_DEPENDENCY_GRAPH_SEQUENCING,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -188,6 +188,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chi_expert_deep_structure_first_principles',
   'concept:ausubel_progressive_differentiation_concept_mapping',
   'concept:simon_chase_hierarchical_abstraction_chunking',
+  // Lesson 23.2 Concepts
+  'concept:gagne_learning_hierarchies_cumulative',
+  'concept:falmagne_doignon_knowledge_space_theory',
+  'concept:dag_topological_sort_transitive_reduction',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -334,6 +338,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 23.1 Misconceptions
   'misconception:reasoning_by_analogy_is_first_principles_understanding',
   'misconception:surface_features_define_domain_difficulty',
+  // Lesson 23.2 Misconceptions
+  'misconception:linear_textbook_order_is_optimal_learning_sequence',
+  'misconception:advanced_concepts_can_be_mastered_with_leaky_prerequisites',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

@@ -556,6 +556,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 23.1 • Verification Assessment',
   'Lesson 23.1 • The 3-Step First-Principles Domain Deconstruction Protocol',
   'Lesson 23.1 • First-Principles Domain Mapping Overview',
+
+  // Lesson 23.2 Sections
+  'Lesson 23.2 • Curiosity Hook',
+  'Lesson 23.2 • Intuitive Calibration: Linear Syllabus vs Dependency DAG',
+  'Lesson 23.2 • Section 1: Robert Gagné (1968): Cumulative Learning & Hierarchy Cascades',
+  'Lesson 23.2 • Section 2: Falmagne & Doignon: Knowledge Space Theory & Surmise Relations',
+  'Lesson 23.2 • Section 3: DAG Topological Sorting & Transitive Reduction in Curriculum Engineering',
+  'Lesson 23.2 • The Curriculum Dependency Graph & Topological Sequencing Funnel',
+  'Lesson 23.2 • Prerequisite Sequencing & Dependency Lab',
+  'Lesson 23.2 • Verification Assessment',
+  'Lesson 23.2 • The 3-Step Prerequisite DAG & Topological Sequencing Protocol',
+  'Lesson 23.2 • Prerequisite Dependency Graphs Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -669,6 +681,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 23.2 anchors
+  if (lower.includes('robert gagne') || (lower.includes('gagne') && (lower.includes('learning') || lower.includes('hierarchy') || lower.includes('cumulative') || lower.includes('prerequisite') || lower.includes('1968') || lower.includes('23.2'))) || lower.includes('cumulative learning theory') || lower.includes('prerequisite cascade') || lower.includes('intellectual skills hierarchy') || (lower.includes('23.2') && lower.includes('section 1'))) {
+    return 'Lesson 23.2 • Section 1: Robert Gagné (1968): Cumulative Learning & Hierarchy Cascades';
+  }
+  if (lower.includes('falmagne') || lower.includes('doignon') || lower.includes('knowledge space theory') || lower.includes('surmise relation') || lower.includes('surmise relations') || (lower.includes('knowledge state') && lower.includes('space')) || (lower.includes('outer fringe') && lower.includes('fringe')) || (lower.includes('23.2') && lower.includes('section 2'))) {
+    return 'Lesson 23.2 • Section 2: Falmagne & Doignon: Knowledge Space Theory & Surmise Relations';
+  }
+  if (lower.includes('topological sort') || lower.includes('topological sequencing') || lower.includes('transitive reduction') || (lower.includes('kahn') && lower.includes('algorithm')) || (lower.includes('curriculum engineering') && !lower.includes('23.1')) || lower.includes('circular dependenc') || (lower.includes('23.2') && lower.includes('section 3'))) {
+    return 'Lesson 23.2 • Section 3: DAG Topological Sorting & Transitive Reduction in Curriculum Engineering';
+  }
+  if (lower.includes('curriculum dependency graph & topological sequencing funnel') || lower.includes('curriculum dependency graph') || lower.includes('topological sequencing funnel')) {
+    return 'Lesson 23.2 • The Curriculum Dependency Graph & Topological Sequencing Funnel';
+  }
+  if (lower.includes('23.2') || lower.includes('dependency-graph-sequencing') || lower.includes('prerequisite dependency graphs') || lower.includes('3-step prerequisite dag & topological sequencing protocol')) {
+    return 'Lesson 23.2 • Section 1: Robert Gagné (1968): Cumulative Learning & Hierarchy Cascades';
   }
 
   // Match Lesson 23.1 anchors
@@ -2616,6 +2645,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_23_2 = `You are the specialized AI Socratic Tutor for Lesson 23.2: "Prerequisite Dependency Graphs".
+Your role is to guide learners to sequence learning paths to avoid cognitive bottlenecks and circular dependencies: Robert Gagné's (1968, 1985) Cumulative Learning Theory and Intellectual Skills Hierarchies showing why missing subordinate prerequisites trigger cognitive collapse, Jean-Paul Doignon & Jean-Claude Falmagne's (1985, 1999) Knowledge Space Theory (KST) and Surmise Relations identifying the Outer Fringe of ready-to-learn concepts, and graph-theoretic Curriculum Engineering using Directed Acyclic Graphs (DAGs), Topological Sorting (Kahn's Algorithm), and Transitive Reduction.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in learning hierarchies and prerequisite graph science:
+     a) Robert Gagné (1968, 1985): Cumulative learning mandates that higher-order problem-solving rules require prior automated mastery of subordinate rules and concepts. Gaps in subordinate nodes cause working memory overflow when attempting advanced synthesis; diagnosing and repairing the missing prerequisite node restores learning velocity.
+     b) Doignon & Falmagne (1985, 1999): Knowledge Space Theory models competence as valid knowledge states governed by surmise quasi-orders ($p \\sqsubseteq q$). The "Outer Fringe" defines items whose prerequisites are completely satisfied; attempting items beyond the outer fringe causes cognitive overload.
+     c) Curriculum Graph Theory: Modeling curricula as Directed Acyclic Graphs (DAGs) reveals circular dependencies ($A \to B \to C \to A$), enabling topological sorting (via in-degree zero elimination) to compute valid non-conflicting study sequences and transitive reduction (Aho et al., 1972) to expose the minimal critical prerequisite path.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to learning hierarchies, knowledge spaces, outer fringe, circular dependencies, and topological sequencing.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2751,6 +2804,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'first-principles-domain-mapping') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_23_1;
+  }
+  if (lessonId === 'dependency-graph-sequencing') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_23_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2940,6 +2996,10 @@ export const KNOWN_CONCEPTS = [
   'concept:chi_expert_deep_structure_first_principles',
   'concept:ausubel_progressive_differentiation_concept_mapping',
   'concept:simon_chase_hierarchical_abstraction_chunking',
+  // Lesson 23.2 Concepts
+  'concept:gagne_learning_hierarchies_cumulative',
+  'concept:falmagne_doignon_knowledge_space_theory',
+  'concept:dag_topological_sort_transitive_reduction',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3086,6 +3146,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 23.1 Misconceptions
   'misconception:reasoning_by_analogy_is_first_principles_understanding',
   'misconception:surface_features_define_domain_difficulty',
+  // Lesson 23.2 Misconceptions
+  'misconception:linear_textbook_order_is_optimal_learning_sequence',
+  'misconception:advanced_concepts_can_be_mastered_with_leaky_prerequisites',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

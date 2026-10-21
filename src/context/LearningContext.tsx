@@ -573,6 +573,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:ausubel_progressive_differentiation_concept_mapping',
     },
   },
+  'dependency-graph-sequencing': {
+    predictionConceptId: 'concept:gagne_learning_hierarchies_cumulative',
+    predictionMisconceptionId: 'misconception:linear_textbook_order_is_optimal_learning_sequence',
+    quizConceptMapping: {
+      'q1-gagne-cumulative-hierarchy': 'concept:gagne_learning_hierarchies_cumulative',
+      'q2-falmagne-knowledge-space-theory': 'concept:falmagne_doignon_knowledge_space_theory',
+      'q3-dag-topological-sort-kahn': 'concept:dag_topological_sort_transitive_reduction',
+      'q4-transitive-reduction-curriculum': 'concept:dag_topological_sort_transitive_reduction',
+      'q1': 'concept:gagne_learning_hierarchies_cumulative',
+      'q2': 'concept:falmagne_doignon_knowledge_space_theory',
+      'q3': 'concept:dag_topological_sort_transitive_reduction',
+      'q4': 'concept:dag_topological_sort_transitive_reduction',
+    },
+  },
 };
 
 interface LearningContextType {

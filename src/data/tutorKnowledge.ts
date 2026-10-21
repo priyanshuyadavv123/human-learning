@@ -1315,6 +1315,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What are the three irreducible primitives at the absolute core of the software domain you are trying to master right now?',
     referencedSection: 'Lesson 23.1 • Section 3: Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
   },
+  {
+    keywords: ['robert gagne', 'gagne', 'learning hierarchies', 'cumulative learning theory', 'prerequisite cascade', 'subordinate skills', 'rule using problem solving'],
+    title: 'Robert Gagné: Learning Hierarchies & Cumulative Learning',
+    summary: 'Higher-order intellectual skills cannot be learned if subordinate prerequisite capabilities are unmastered; skipping fundamentals causes cognitive overload cascades.',
+    takeaway: 'Master subordinate concepts and rules completely before attempting higher-order synthesis; unmastered prerequisites cause instant downstream cognitive collapse (Gagné, 1968, 1985).',
+    detailedResponse: 'Robert M. Gagné (1968, 1985) formulated Cumulative Learning Theory and Learning Hierarchies, proving that complex intellectual competence is built sequentially from subordinate capabilities: Discriminations → Concrete Concepts → Defined Concepts → Rules → Higher-Order Problem Solving. Gagné proved experimentally that if any subordinate prerequisite is missing or weak, attempting to teach a higher-order capability leads to immediate cognitive failure. When students struggle with an advanced topic (like distributed consensus or machine learning optimization), instructors often mistakenly think the student needs to re-read the advanced material. In reality, the breakdown is almost always caused by an unmastered prerequisite 2 or 3 layers down the hierarchy. Diagnosing and filling the subordinate gap immediately unblocks higher-order mastery.',
+    socraticChallenge: 'When you hit an intellectual brick wall in an advanced topic, what subordinate prerequisite concept are you struggling to actively retrieve?',
+    referencedSection: 'Lesson 23.2 • Section 1: Robert Gagné (1968): Cumulative Learning & Hierarchy Cascades',
+  },
+  {
+    keywords: ['jean-claude falmagne', 'jean-paul doignon', 'knowledge space theory', 'surmise relation', 'knowledge state', 'outer fringe', 'inner fringe', 'kst adaptive learning'],
+    title: 'Falmagne & Doignon: Knowledge Space Theory & Surmise Relations',
+    summary: 'Knowledge Space Theory models domain competence as partially ordered knowledge states; learners can only acquire items on their outer fringe without prerequisite violation.',
+    takeaway: 'A learner can only successfully acquire concepts situated in their "Outer Fringe"—the set of items whose prerequisites are already 100% satisfied (Doignon & Falmagne, 1985, 1999).',
+    detailedResponse: 'Jean-Paul Doignon and Jean-Claude Falmagne (1985, 1999) created Knowledge Space Theory (KST) to mathematically model how knowledge is structured and acquired. A domain is a set of assessment items $Q$, and an individual\'s competency is a "Knowledge State" (the subset of items they can solve). Because concepts depend on one another, only certain subsets form valid knowledge states. These dependencies are governed by "Surmise Relations" ($p \\sqsubseteq q$: mastering $q$ implies prerequisite mastery of $p$). KST introduces the vital concept of the "Outer Fringe"—the precise set of unmastered items for which all prerequisite dependencies have already been mastered. If a curriculum forces a learner to study an item outside their outer fringe, cognitive overload occurs. KST proves that multiple distinct valid learning trajectories exist through any domain, enabling non-linear adaptive pacing.',
+    socraticChallenge: 'Are the new concepts on your current study roadmap situated firmly in your Outer Fringe, or are you trying to bypass missing prerequisite dependencies?',
+    referencedSection: 'Lesson 23.2 • Section 2: Falmagne & Doignon: Knowledge Space Theory & Surmise Relations',
+  },
+  {
+    keywords: ['dag topological sort', 'transitive reduction', 'curriculum engineering', 'circular dependencies in syllabus', 'kahns algorithm study sequence', 'prerequisite directed acyclic graph'],
+    title: 'DAG Topological Sorting & Transitive Reduction in Curriculum Engineering',
+    summary: 'Modeling syllabi as Directed Acyclic Graphs enables cycle detection, topological linearization, and transitive reduction to construct flawless prerequisite roadmaps.',
+    takeaway: 'Linearize your curriculum using topological sorting to guarantee zero prerequisite violations, and prune redundant edges via transitive reduction (Aho et al., 1972).',
+    detailedResponse: 'Curriculum Engineering applies graph theory to instructional design by modeling syllabi as Directed Acyclic Graphs (DAGs) $G=(V, E)$, where vertices represent conceptual modules and directed edges represent prerequisite constraints. First, cycle detection algorithms identify "Circular Dependencies" ($A \to B \to C \to A$)—a notorious flaw in technical documentation where understanding tool $A$ requires concept $B$, but the guide explains $B$ using $A$. Second, Topological Sorting (via Kahn’s algorithm or DFS post-order traversal) computes a valid linear sequence starting from in-degree 0 nodes, ensuring a student never encounters a topic without prior grounding. Third, Transitive Reduction (Aho, Garey, & Ullman, 1972) removes redundant transitive constraints (if $A \to B$ and $B \to C$, the direct edge $A \to C$ is pruned), revealing the true minimal critical path of essential prerequisites.',
+    socraticChallenge: 'Can you sketch your current technical learning goals as a DAG and run a manual topological sort to ensure there are zero circular dependencies?',
+    referencedSection: 'Lesson 23.2 • Section 3: DAG Topological Sorting & Transitive Reduction in Curriculum Engineering',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

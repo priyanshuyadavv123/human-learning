@@ -335,6 +335,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'first-principles-domain-mapping';
     chapterId = 'ch-23-syllabus-engineering';
+  } else if (
+    conceptId.startsWith('concept:gagne_learning_') ||
+    conceptId.startsWith('concept:falmagne_doignon_') ||
+    conceptId.startsWith('concept:dag_topological_')
+  ) {
+    lessonId = 'dependency-graph-sequencing';
+    chapterId = 'ch-23-syllabus-engineering';
   }
 
   return {
