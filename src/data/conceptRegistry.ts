@@ -1867,6 +1867,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:extrinsic_incentives_always_boost_performance',
     discrepancyPrompt: 'Previously you may have assumed that offering cash bonuses, points, or streaks for studying would always boost engagement. Why does Lepper and Murayama’s research prove that extrinsic carrots actually suppress striatal valuation and extinguish long-term curiosity?',
   },
+  'concept:yerkes_dodson_inverted_u_law': {
+    conceptId: 'concept:yerkes_dodson_inverted_u_law',
+    title: 'Robert Yerkes & John Dodson: The Inverted-U Arousal-Performance Curve',
+    prompt: 'What is the Yerkes-Dodson Law (1908), and how does task difficulty modulate the relationship between physiological arousal and cognitive performance?',
+    keyCriteria: [
+      'Cites Robert M. Yerkes & John D. Dodson (1908) empirical study on stimulus strength and habit formation',
+      'Explains the inverted-U curve: cognitive performance peaks at moderate arousal and collapses under hypo-arousal or hyper-arousal',
+      'Explains task complexity modulation: simple/automatic tasks tolerate and benefit from high arousal, while complex/high working-memory tasks peak at lower arousal levels',
+      'Cites Colin Easterbrook (1959) cue utilization hypothesis: high arousal narrows attentional focus, eliminating peripheral and eventually critical task cues',
+    ],
+    canonicalAnswer: 'Robert Yerkes and John Dodson (1908) formulated the empirical relationship between physiological/cortical arousal and performance as an inverted-U function: performance is suboptimal at low arousal (due to drowsiness, inattention, and low neural signal-to-noise ratio), reaches peak efficacy at an intermediate arousal sweet spot, and progressively collapses at excessive arousal (due to hyper-vigilance, autonomic agitation, and cognitive disorganization). Crucially, the optimal arousal point shifts leftward as task complexity increases: simple, well-rehearsed or procedural motor tasks benefit from high arousal and autonomic drive, whereas novel, complex, or high working-memory cognitive tasks require lower, calmer arousal levels because high arousal triggers premature attentional narrowing (Easterbrook, 1959) and disrupts fragile multi-step mental representations.',
+    lessonSectionAnchor: 'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law',
+    relatedMisconception: 'misconception:stress_is_always_catastrophic_for_learning',
+    discrepancyPrompt: 'Previously you may have believed that any stress or arousal is purely toxic for mental performance, or conversely that maxing out caffeine and adrenaline always enhances productivity. Why does the Yerkes-Dodson Law prove that cognitive efficacy depends on matching arousal level to task complexity?',
+  },
+  'concept:arnsten_pfc_catecholamine_detachment': {
+    conceptId: 'concept:arnsten_pfc_catecholamine_detachment',
+    title: 'Amy Arnsten: Prefrontal Cortex Disconnection Under Catecholamine Storms',
+    prompt: 'How do high levels of norepinephrine and dopamine impair prefrontal cortex (PFC) working memory circuits during acute stress, and what receptor pathways are involved (Arnsten, 1998, 2009)?',
+    keyCriteria: [
+      'Cites Amy F.T. Arnsten (Nature Reviews Neuroscience 2009; Science 1998) on PFC neurobiology under acute stress',
+      'Contrasts optimal arousal (moderate NE engaging high-affinity α2A adrenoceptors, moderate DA engaging D1 receptors, strengthening delay-period persistent firing) with acute stress (high NE flooding low-affinity α1 and β1 adrenoceptors, excessive D1 receptor stimulation)',
+      'Explains intracellular cAMP-PKA signaling opening potassium (K+) channels near dendritic spines, shunting synaptic input and causing microcircuit disconnection',
+      'Explains the evolutionary switch from reflective top-down PFC executive control to reflexive subcortical bottom-up control (amygdala and striatum)',
+    ],
+    canonicalAnswer: 'Amy F.T. Arnsten (1998, 2009) uncovered the molecular mechanism by which stress alters brain function. Under optimal, calm alertness, moderate releases of norepinephrine (NE) stimulate high-affinity post-synaptic α2A adrenoceptors, and moderate dopamine (DA) stimulates D1 receptors. This inhibits cAMP, closes potassium (K+) channels, and strengthens the persistent delay-period firing of prefrontal pyramidal microcircuits, producing sharp working memory and executive focus. Under acute, uncontrollable stress, massive catecholamine release floods low-affinity α1 and β1 adrenoceptors and drives excessive D1 stimulation. This surges intracellular cyclic AMP (cAMP) and protein kinase A (PKA), which opens K+ channels (HCN and KCNQ channels) near spine necks. Current leaks out of dendritic spines, disconnecting prefrontal networks within seconds and inducing an acute state of working memory paralysis ("blanking"), while handing behavioral control over to subcortical structures (amygdala and basal ganglia) optimized for survival reflexes.',
+    lessonSectionAnchor: 'Lesson 21.1 • Section 2: Amy Arnsten: Prefrontal Microcircuit Disconnection Under Stress',
+    relatedMisconception: 'misconception:willpower_can_override_pfc_catecholamine_collapse',
+    discrepancyPrompt: 'Previously you may have blamed yourself for "lacking mental toughness" when your mind went completely blank during an intense exam or outage. How does Arnsten’s discovery of stress-induced potassium channel opening prove that working memory disconnection is a physiological neurochemical reflex rather than a moral failure of willpower?',
+  },
+  'concept:glucocorticoid_hippocampal_ltp_disruption': {
+    conceptId: 'concept:glucocorticoid_hippocampal_ltp_disruption',
+    title: 'Bruce McEwen & Sonia Lupien: Glucocorticoids & Hippocampal Plasticity',
+    prompt: 'How do acute and chronic elevations of cortisol modulate hippocampal function through mineralocorticoid (MR) and glucocorticoid (GR) receptors, and why does chronic stress impair LTP (McEwen, 1998; Lupien et al., 2009)?',
+    keyCriteria: [
+      'Cites Bruce S. McEwen (1998, 2004) and Sonia J. Lupien et al. (Nature Reviews Neuroscience 2009) on stress hormones and brain plasticity',
+      'Distinguishes high-affinity Mineralocorticoid Receptors (MR; ~90% occupied at basal circadian levels, promoting hippocampal LTP and cell survival) from low-affinity Glucocorticoid Receptors (GR; occupied during high stress)',
+      'Explains that acute GR saturation blocks hippocampal retrieval (de Quervain et al., 1998) and suppresses Long-Term Potentiation (LTP) while favoring Long-Term Depression (LTD)',
+      'Explains chronic allostatic load: prolonged GR exposure suppresses BDNF, causes CA3/CA1 dendritic atrophy, spine loss, and impairs neurogenesis in the dentate gyrus',
+    ],
+    canonicalAnswer: 'Bruce McEwen (1998, 2004) and Sonia Lupien et al. (2009) demonstrated that cortisol (corticosterone in rodents) exerts a biphasic, receptor-specific effect on hippocampal synaptic plasticity. The hippocampus contains two corticosteroid receptor types: high-affinity Type I Mineralocorticoid Receptors (MR) and low-affinity Type II Glucocorticoid Receptors (GR). Under basal, resting conditions, MRs are ~90% occupied, supporting normal neuronal excitability, baseline Long-Term Potentiation (LTP), and cell survival. During acute stress, cortisol surges, saturating low-affinity GRs. High GR activation immediately suppresses hippocampal LTP induction, facilitates Long-Term Depression (LTD), and actively blocks the retrieval of consolidated memories (de Quervain et al., 1998). If stress becomes chronic (allostatic overload), prolonged GR overstimulation downregulates Brain-Derived Neurotrophic Factor (BDNF), causes dendritic retraction and spine loss in hippocampal CA3 pyramidal neurons, and suppresses adult neurogenesis in the dentate gyrus, degrading long-term episodic memory storage.',
+    lessonSectionAnchor: 'Lesson 21.1 • Section 3: Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity',
+    relatedMisconception: 'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
+    discrepancyPrompt: 'Previously you may have feared that if you cannot recall a formula or architectural concept during a panic state, the memory was never encoded. How does the discovery of GR-mediated hippocampal retrieval blockade prove that memories remain intact in long-term storage even when acute cortisol renders them temporarily inaccessible?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

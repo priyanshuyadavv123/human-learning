@@ -168,6 +168,10 @@ export const KNOWN_CONCEPTS = [
   'concept:deci_ryan_self_determination_triad',
   'concept:organismic_integration_continuum',
   'concept:lepper_overjustification_undermining_effect',
+  // Lesson 21.1 Concepts
+  'concept:yerkes_dodson_inverted_u_law',
+  'concept:arnsten_pfc_catecholamine_detachment',
+  'concept:glucocorticoid_hippocampal_ltp_disruption',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -298,6 +302,10 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 20.2 Misconceptions
   'misconception:extrinsic_incentives_always_boost_performance',
   'misconception:discipline_and_willpower_are_purely_innate_traits',
+  // Lesson 21.1 Misconceptions
+  'misconception:stress_is_always_catastrophic_for_learning',
+  'misconception:willpower_can_override_pfc_catecholamine_collapse',
+  'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

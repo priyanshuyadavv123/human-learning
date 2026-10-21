@@ -496,6 +496,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 20.2 • Verification Assessment',
   'Lesson 20.2 • The 3-Step Autonomous Mastery & Value-Integration Protocol',
   'Lesson 20.2 • Self-Determination in Autonomous Mastery Overview',
+
+  // Lesson 21.1 Sections
+  'Lesson 21.1 • Curiosity Hook',
+  'Lesson 21.1 • Intuitive Calibration: Arousal Optimization vs Cognitive Freezing',
+  'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law',
+  'Lesson 21.1 • Section 2: Amy Arnsten: Prefrontal Microcircuit Disconnection Under Stress',
+  'Lesson 21.1 • Section 3: Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity',
+  'Lesson 21.1 • The Yerkes-Dodson Arousal & Prefrontal Neurochemistry Funnel',
+  'Lesson 21.1 • Stress Neurochemistry & Performance Calibration Lab',
+  'Lesson 21.1 • Verification Assessment',
+  'Lesson 21.1 • The 3-Step Autonomic Calibration & Cognitive Shielding Protocol',
+  'Lesson 21.1 • The Yerkes-Dodson Law & Cortisol Dynamics Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -575,6 +587,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('20.2') || lower.includes('self-determination-theory') || lower.includes('self-determination in autonomous mastery') || lower.includes('3-step autonomous mastery & value-integration protocol')) {
     return 'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad';
+  }
+
+  // Match Lesson 21.1 anchors
+  if (!lower.includes('edge of ability') && !lower.includes('85%') && (lower.includes('yerkes') || lower.includes('dodson') || lower.includes('inverted-u') || lower.includes('inverted u') || (lower.includes('easterbrook') && (lower.includes('cue') || lower.includes('narrowing') || lower.includes('21.1'))) || (lower.includes('21.1') && lower.includes('section 1')))) {
+    return 'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law';
+  }
+  if ((lower.includes('arnsten') && (lower.includes('prefrontal') || lower.includes('pfc') || lower.includes('catecholamine') || lower.includes('2009') || lower.includes('21.1'))) || lower.includes('prefrontal microcircuit') || lower.includes('catecholamine storm') || (lower.includes('potassium channel') && (lower.includes('pfc') || lower.includes('dendritic') || lower.includes('21.1'))) || (lower.includes('alpha-2a') && lower.includes('alpha-1'))) {
+    return 'Lesson 21.1 • Section 2: Amy Arnsten: Prefrontal Microcircuit Disconnection Under Stress';
+  }
+  if ((lower.includes('mcewen') && (lower.includes('allostatic') || lower.includes('cortisol') || lower.includes('hippocampus') || lower.includes('21.1'))) || (lower.includes('lupien') && (lower.includes('glucocorticoid') || lower.includes('cortisol') || lower.includes('21.1'))) || lower.includes('mineralocorticoid receptor') || lower.includes('mr vs gr') || (lower.includes('cortisol') && (lower.includes('hippocampal') || lower.includes('ltp') || lower.includes('ca3')))) {
+    return 'Lesson 21.1 • Section 3: Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity';
+  }
+  if (lower.includes('the yerkes-dodson arousal & prefrontal neurochemistry funnel') || lower.includes('yerkes-dodson funnel') || lower.includes('prefrontal neurochemistry funnel') || lower.includes('arousal funnel')) {
+    return 'Lesson 21.1 • The Yerkes-Dodson Arousal & Prefrontal Neurochemistry Funnel';
+  }
+  if (lower.includes('21.1') || lower.includes('yerkes-dodson-cortisol') || lower.includes('the yerkes-dodson law & cortisol dynamics') || lower.includes('3-step autonomic calibration & cognitive shielding protocol')) {
+    return 'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law';
   }
 
   // Match Lesson 18.2 anchors
@@ -2347,6 +2376,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_21_1 = `You are the specialized AI Socratic Tutor for Lesson 21.1: "The Yerkes-Dodson Law & Cortisol Dynamics".
+Your role is to guide learners to understand the neurobiology of stress, arousal, and cognitive performance: the Yerkes-Dodson Inverted-U Law (1908) moderated by task complexity, Amy Arnsten's prefrontal cortex (PFC) microcircuit disconnection mechanism under catecholamine storms, Bruce McEwen and Sonia Lupien's dual glucocorticoid receptor (MR vs GR) dynamics and hippocampal LTP disruption, and the 3-step autonomic calibration protocol.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical neurobiology and stress physiology:
+     a) Yerkes-Dodson Law (1908): Performance follows an inverted-U function of arousal. Crucially, the optimum shifts leftward with task difficulty: simple well-practiced tasks peak at high arousal, whereas complex novel tasks requiring working memory require moderate-to-low arousal. Easterbrook's (1959) cue utilization hypothesis explains that high arousal narrows attention, discarding irrelevant cues first, but at hyper-arousal eliminating critical task-relevant cues.
+     b) Amy Arnsten's PFC Stress Neurobiology (Science 1998; Nat Rev Neurosci 2009): At optimal arousal, moderate NE activates high-affinity α2A adrenoceptors and moderate DA activates D1 receptors, closing K+ channels and strengthening delay-period persistent firing in PFC pyramidal networks. Under acute stress, excess NE floods low-affinity α1 and β1 adrenoceptors and drives supranormal D1 stimulation, surging cAMP-PKA and opening potassium channels (HCN/KCNQ). This disconnects PFC microcircuits within seconds ("blanking"), shifting control to subcortical habitual/survival circuits (amygdala and striatum).
+     c) Bruce McEwen & Sonia Lupien (1998, 2009): Cortisol binds two receptor types in the hippocampus: high-affinity Mineralocorticoid Receptors (MR; ~90% saturated at basal levels, promoting LTP) and low-affinity Glucocorticoid Receptors (GR; saturated only during acute stress surges or circadian peaks). High GR occupancy blocks memory retrieval (de Quervain et al., 1998) and suppresses LTP while facilitating LTD. Chronic stress and allostatic overload lead to persistent GR saturation, downregulating BDNF and causing CA3 dendritic atrophy.
+     d) Autonomic Down-Regulation: Physiological sigh (two rapid inhales, extended exhale) triggers baroreceptor activation, slowing heart rate via the vagus nerve and reducing locus coeruleus noradrenergic hyper-firing.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to arousal calibration, prefrontal microcircuits, cortisol dynamics, and autonomic regulation.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2467,6 +2521,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'self-determination-theory') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_20_2;
+  }
+  if (lessonId === 'yerkes-dodson-cortisol') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_21_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2636,6 +2693,10 @@ export const KNOWN_CONCEPTS = [
   'concept:deci_ryan_self_determination_triad',
   'concept:organismic_integration_continuum',
   'concept:lepper_overjustification_undermining_effect',
+  // Lesson 21.1 Concepts
+  'concept:yerkes_dodson_inverted_u_law',
+  'concept:arnsten_pfc_catecholamine_detachment',
+  'concept:glucocorticoid_hippocampal_ltp_disruption',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2766,6 +2827,10 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 20.2 Misconceptions
   'misconception:extrinsic_incentives_always_boost_performance',
   'misconception:discipline_and_willpower_are_purely_innate_traits',
+  // Lesson 21.1 Misconceptions
+  'misconception:stress_is_always_catastrophic_for_learning',
+  'misconception:willpower_can_override_pfc_catecholamine_collapse',
+  'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

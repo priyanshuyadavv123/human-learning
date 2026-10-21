@@ -39,6 +39,7 @@ import { LESSON_INCUBATION_DEFAULT_MODE } from './lesson19_1Data.ts';
 import { LESSON_COMBINATORIAL_PLAY_SYNTHESIS } from './lesson19_2Data.ts';
 import { LESSON_DOPAMINE_REWARD_PREDICTION } from './lesson20_1Data.ts';
 import { LESSON_SELF_DETERMINATION_THEORY } from './lesson20_2Data.ts';
+import { LESSON_YERKES_DODSON_CORTISOL } from './lesson21_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -557,7 +558,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Yerkes-Dodson Law & Cortisol Dynamics',
           subtitle: 'How acute stress narrows attention while chronic stress impairs LTP',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'emotion-appraisal-regulation',
@@ -1199,6 +1200,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_COMBINATORIAL_PLAY_SYNTHESIS.id]: LESSON_COMBINATORIAL_PLAY_SYNTHESIS,
   [LESSON_DOPAMINE_REWARD_PREDICTION.id]: LESSON_DOPAMINE_REWARD_PREDICTION,
   [LESSON_SELF_DETERMINATION_THEORY.id]: LESSON_SELF_DETERMINATION_THEORY,
+  [LESSON_YERKES_DODSON_CORTISOL.id]: LESSON_YERKES_DODSON_CORTISOL,
 };
 
 export function getLessonById(id: string): Lesson {

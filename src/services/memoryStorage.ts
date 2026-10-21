@@ -300,6 +300,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'self-determination-theory';
     chapterId = 'ch-20-motivation-drive';
+  } else if (
+    conceptId.startsWith('concept:yerkes_dodson_') ||
+    conceptId.startsWith('concept:arnsten_pfc_') ||
+    conceptId.startsWith('concept:glucocorticoid_hippocampal_')
+  ) {
+    lessonId = 'yerkes-dodson-cortisol';
+    chapterId = 'ch-21-stress-performance';
   }
 
   return {

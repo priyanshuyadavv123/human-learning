@@ -1180,6 +1180,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Have you ever attached a cash bonus, streak reward, or external trophy to a learning hobby only to watch your authentic curiosity disappear?',
     referencedSection: 'Lesson 20.2 • Section 3: Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
   },
+  {
+    keywords: ['yerkes-dodson', 'yerkes dodson', 'inverted-u', 'inverted u', 'arousal performance curve', 'task difficulty arousal', 'easterbrook cue narrowing', 'arousal sweet spot'],
+    title: 'Robert Yerkes & John Dodson: The Inverted-U Arousal-Performance Curve',
+    summary: 'Cognitive performance follows an inverted-U function of arousal, with complex cognitive tasks requiring lower arousal than simple automatic tasks.',
+    takeaway: 'Optimal performance occurs at moderate arousal; complex tasks shift the peak leftward, while simple tasks benefit from higher autonomic drive (Yerkes & Dodson, 1908; Easterbrook, 1959).',
+    detailedResponse: 'Robert Yerkes and John Dodson (1908) demonstrated that performance on cognitive tasks follows an inverted-U curve as a function of physiological arousal. Under low arousal (drowsiness, hypo-vigilance), neural signal-to-noise ratio is weak. Under excessive arousal (panic, high autonomic stress), performance collapses due to premature attentional narrowing (Easterbrook, 1959) and working memory disruption. The crucial moderator is task complexity: simple, automatic tasks tolerate and benefit from high arousal, whereas complex, novel problem-solving tasks require lower arousal to protect delicate multi-step working memory representations.',
+    socraticChallenge: 'When tackling a novel high-difficulty cognitive problem, is your current physiological arousal calibrated to the calm focus required, or are you in an agitated state?',
+    referencedSection: 'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law',
+  },
+  {
+    keywords: ['amy arnsten', 'prefrontal microcircuit', 'catecholamine storm', 'potassium channels open', 'alpha-2a adrenoceptors', 'alpha-1 beta-1', 'pfc blanking', 'stress working memory disconnection'],
+    title: 'Amy Arnsten: Prefrontal Microcircuit Disconnection Under Stress',
+    summary: 'Acute stress surges catecholamines, opening potassium channels near dendritic spines and disconnecting prefrontal working memory circuits within seconds.',
+    takeaway: 'Moderate catecholamines engage α2A and D1 receptors to strengthen working memory; acute stress surges catecholamines, opening K+ channels and disconnecting the PFC (Arnsten, 1998, 2009).',
+    detailedResponse: 'Amy F.T. Arnsten (1998, 2009) revealed the neurochemical basis of "blanking out" under acute stress. Under calm alertness, moderate norepinephrine (NE) stimulates high-affinity α2A adrenoceptors and moderate dopamine (DA) stimulates D1 receptors, closing potassium (K+) channels and sustaining robust delay-period firing in prefrontal cortex (PFC) pyramidal neurons. Under acute stress, excess NE floods low-affinity α1 and β1 adrenoceptors, while excess DA drives high D1 stimulation. This surges intracellular cAMP and PKA, opening K+ channels (HCN and KCNQ) near spine necks. Current leaks out, rapidly disconnecting PFC microcircuits and transferring behavioral control to reflexive subcortical structures (amygdala and basal ganglia).',
+    socraticChallenge: 'How does understanding that prefrontal blanking is an automated potassium channel gating reflex change how you respond when you feel sudden panic during a high-stakes exam?',
+    referencedSection: 'Lesson 21.1 • Section 2: Amy Arnsten: Prefrontal Microcircuit Disconnection Under Stress',
+  },
+  {
+    keywords: ['bruce mcewen', 'sonia lupien', 'mineralocorticoid receptor', 'glucocorticoid receptor', 'mr vs gr', 'cortisol hippocampal ltp', 'allostatic load hippocampus', 'chronic stress dendritic retraction'],
+    title: 'Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity',
+    summary: 'High-affinity MRs sustain baseline LTP, whereas stress-induced GR saturation suppresses LTP, blocks memory retrieval, and drives dendritic atrophy.',
+    takeaway: 'Basal cortisol saturates high-affinity MRs supporting LTP; acute stress saturates low-affinity GRs, temporarily blocking retrieval and causing CA3 spine atrophy under chronic load (McEwen, 1998; Lupien et al., 2009).',
+    detailedResponse: 'Bruce McEwen (1998, 2004) and Sonia Lupien et al. (2009) established that cortisol exerts a dual receptor mechanism in the hippocampus. High-affinity Type I Mineralocorticoid Receptors (MR) are ~90% saturated at basal circadian levels, promoting baseline synaptic excitability and Long-Term Potentiation (LTP). In contrast, low-affinity Type II Glucocorticoid Receptors (GR) are only occupied during acute stress surges. Excessive GR activation immediately impairs hippocampal LTP induction, facilitates LTD, and blocks the retrieval of consolidated memories (de Quervain et al., 1998). Chronic stress and prolonged allostatic load lead to persistent GR saturation, downregulating BDNF, pruning CA3 dendritic branches, and reducing hippocampal volume.',
+    socraticChallenge: 'Are you managing your study rhythm to prevent the chronic allostatic load that degrades hippocampal dendritic spines and blocks memory consolidation?',
+    referencedSection: 'Lesson 21.1 • Section 3: Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

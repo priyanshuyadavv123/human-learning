@@ -57,7 +57,7 @@ export class CDPClient {
 export async function getTargetPageWsUrl() {
   const res = await fetch('http://localhost:9222/json/list');
   const list = await res.json();
-  const page = list.find((p) => p.type === 'page' && p.url.includes('localhost:3000'));
-  if (!page) throw new Error('No page found for localhost:3000');
+  const page = list.find((p) => p.type === 'page' && (p.url.includes(':3000') || p.url.includes('about:blank')));
+  if (!page) throw new Error('No page found for port 3000');
   return page.webSocketDebuggerUrl;
 }

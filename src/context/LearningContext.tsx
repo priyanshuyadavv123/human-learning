@@ -503,6 +503,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:lepper_overjustification_undermining_effect',
     },
   },
+  'yerkes-dodson-cortisol': {
+    predictionConceptId: 'concept:yerkes_dodson_inverted_u_law',
+    predictionMisconceptionId: 'misconception:stress_is_always_catastrophic_for_learning',
+    quizConceptMapping: {
+      'q1-yerkes-dodson-task-difficulty': 'concept:yerkes_dodson_inverted_u_law',
+      'q2-arnsten-pfc-potassium-channels': 'concept:arnsten_pfc_catecholamine_detachment',
+      'q3-mcewen-lupien-mr-vs-gr': 'concept:glucocorticoid_hippocampal_ltp_disruption',
+      'q4-autonomic-down-regulation': 'concept:yerkes_dodson_inverted_u_law',
+      'q1': 'concept:yerkes_dodson_inverted_u_law',
+      'q2': 'concept:arnsten_pfc_catecholamine_detachment',
+      'q3': 'concept:glucocorticoid_hippocampal_ltp_disruption',
+      'q4': 'concept:yerkes_dodson_inverted_u_law',
+    },
+  },
 };
 
 interface LearningContextType {
