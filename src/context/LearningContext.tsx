@@ -601,6 +601,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
     },
   },
+  'digital-tooling-without-hoarding': {
+    predictionConceptId: 'concept:risko_gilbert_cognitive_offloading_metacognition',
+    predictionMisconceptionId: 'misconception:all_cognitive_offloading_is_beneficial',
+    quizConceptMapping: {
+      'q1-risko-gilbert-offloading': 'concept:risko_gilbert_cognitive_offloading_metacognition',
+      'q2-engelbart-augmentation-hlamt': 'concept:engelbart_bush_intellect_augmentation_h_lam_t',
+      'q3-synthesis-friction-forcing': 'concept:synthesis_over_storage_friction_forcing_functions',
+      'q4-write-only-archive-antipattern': 'concept:synthesis_over_storage_friction_forcing_functions',
+      'q1': 'concept:risko_gilbert_cognitive_offloading_metacognition',
+      'q2': 'concept:engelbart_bush_intellect_augmentation_h_lam_t',
+      'q3': 'concept:synthesis_over_storage_friction_forcing_functions',
+      'q4': 'concept:synthesis_over_storage_friction_forcing_functions',
+    },
+  },
 };
 
 interface LearningContextType {

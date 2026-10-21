@@ -196,6 +196,10 @@ export const KNOWN_CONCEPTS = [
   'concept:clark_chalmers_extended_mind_active_externalism',
   'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
   'concept:collectors_fallacy_generative_note_taking',
+  // Lesson 24.2 Concepts
+  'concept:risko_gilbert_cognitive_offloading_metacognition',
+  'concept:engelbart_bush_intellect_augmentation_h_lam_t',
+  'concept:synthesis_over_storage_friction_forcing_functions',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -348,6 +352,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 24.1 Misconceptions
   'misconception:clipping_and_saving_articles_equals_understanding',
   'misconception:hierarchical_folders_are_superior_to_associative_graphs',
+  // Lesson 24.2 Misconceptions
+  'misconception:all_cognitive_offloading_is_beneficial',
+  'misconception:zero_friction_capture_maximizes_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

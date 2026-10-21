@@ -2188,6 +2188,53 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:clipping_and_saving_articles_equals_understanding',
     discrepancyPrompt: 'Previously you may have saved hundreds of browser bookmarks, highlights, or Notion database rows, feeling productive as your digital library grew. How does the Collector’s Fallacy reveal that storing an article in an external database has zero correlation with whether your biological brain can retrieve and apply that knowledge?',
   },
+  'concept:risko_gilbert_cognitive_offloading_metacognition': {
+    conceptId: 'concept:risko_gilbert_cognitive_offloading_metacognition',
+    title: 'Evan Risko & Sam Gilbert: Cognitive Offloading & Metacognitive Calibration',
+    prompt: 'What is Cognitive Offloading (Risko & Gilbert, 2016), and how do metacognitive biases cause learners to either over-offload (causing cognitive deskilling) or under-offload (causing working memory overflow)?',
+    keyCriteria: [
+      'Cites Evan F. Risko & Sam J. Gilbert (2016) Cognitive Offloading (Trends in Cognitive Sciences)',
+      'Defines Cognitive Offloading: the use of physical action or external digital tools to reduce mental demand and working memory load',
+      'Explains Metacognitive Bias in Offloading: learners systematically misjudge their internal memory capacity (e.g. overconfidence leading to un-offloaded memory errors, or underconfidence leading to excessive reliance on external devices)',
+      'Explains Cognitive Deskilling / Digital Amnesia: when cognitive computation itself is delegated to software (e.g. relying entirely on GPS or AI autocompletion), internal schema consolidation and navigational calculation atrophy',
+      'Defines Calibrated Offloading: using external tools strictly to store immutable factual invariants, execution state checkpoints, and structural constraints, while retaining conceptual schema computation internally in biological neural circuits',
+    ],
+    canonicalAnswer: 'Evan Risko and Sam Gilbert (2016) defined Cognitive Offloading as the physical act of altering the environment or using external tools (timers, notes, checklists, code linters) to reduce working memory load. Human decisions to offload are governed by metacognitive appraisals—our subjective beliefs about our own cognitive abilities. When learners are overconfident, they under-offload, leading to working memory overflow and preventable errors. Conversely, when learners are underconfident or convenience-seeking, they over-offload cognitive computation itself (e.g. relying entirely on GPS navigation, calculators, or AI auto-generation). Over-offloading triggers cognitive deskilling (digital amnesia): the neural circuits responsible for spatial navigation, algorithmic derivation, or syntactic formulation atrophy from disuse. Calibrated Cognitive Offloading establishes a strict functional boundary: externalize static reference data, reminders, and execution state checkpoints to preserve working memory bandwidth, but perform conceptual reasoning, semantic synthesis, and structural derivations internally in the biological brain.',
+    lessonSectionAnchor: 'Lesson 24.2 • Section 1: Evan Risko & Sam Gilbert (2016): Cognitive Offloading & Metacognitive Calibration',
+    relatedMisconception: 'misconception:all_cognitive_offloading_is_beneficial',
+    discrepancyPrompt: 'Previously you may have assumed that offloading everything to AI and search engines is always optimal because it saves mental effort. How does Risko & Gilbert’s research demonstrate that offloading the actual thinking process causes biological schemas to atrophy and degrades long-term competence?',
+  },
+  'concept:engelbart_bush_intellect_augmentation_h_lam_t': {
+    conceptId: 'concept:engelbart_bush_intellect_augmentation_h_lam_t',
+    title: 'Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)',
+    prompt: 'What was Douglas Engelbart’s (1962) H-LAM/T framework and Vannevar Bush’s (1945) Memex, and why must digital tools augment human capability rather than automate human judgment?',
+    keyCriteria: [
+      'Cites Vannevar Bush (1945) As We May Think and the concept of the Memex (associative trails of interest)',
+      'Cites Douglas Engelbart (1962) Augmenting Human Intellect: A Conceptual Framework',
+      'Defines the H-LAM/T System: Human using Language, Artifacts, Methodology, and Training',
+      'Contrasts Augmentation vs Automation: automation replaces human cognition and induces deskilling; augmentation compresses low-level syntactic friction to expand high-level human problem-solving bandwidth',
+      'Explains Associative Trails: connecting disparate documents along non-linear paths of inquiry rather than rigid alphabetical filing',
+    ],
+    canonicalAnswer: 'In 1945, Vannevar Bush envisioned the "Memex"—an interactive personal desk device that stores books, records, and communications, linked together by "Associative Trails" that mirror the natural associative pathways of the human mind. In 1962, Douglas Engelbart formalized this vision in "Augmenting Human Intellect", introducing the H-LAM/T system: Human using Language (conceptual symbols), Artifacts (physical and digital tools), Methodology (scientific and analytical procedures), and Training (skill acquisition). Engelbart proved that genuine intellectual amplification does not come from replacing human thought with automated black boxes. Automation replaces human judgment, creating passive consumers who lose foundational expertise. True augmentation compresses mechanical, low-level friction (e.g. instant text search, graph visualization, syntax highlighting) in order to elevate the upper bound of what a human mind can comprehend and synthesize. A properly designed learning tool scaffolds human metacognition without removing the desirable difficulty required for neural consolidation.',
+    lessonSectionAnchor: 'Lesson 24.2 • Section 2: Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)',
+    relatedMisconception: 'misconception:zero_friction_capture_maximizes_learning',
+    discrepancyPrompt: 'Previously you may have believed that the best software is tool software that does everything automatically with one click. How does Engelbart’s H-LAM/T framework prove that tools should eliminate mechanical friction while preserving the cognitive effort of deep intellectual synthesis?',
+  },
+  'concept:synthesis_over_storage_friction_forcing_functions': {
+    conceptId: 'concept:synthesis_over_storage_friction_forcing_functions',
+    title: 'Designing for Synthesis over Storage: Friction & Forcing Functions',
+    prompt: 'Why do zero-friction digital capture tools create "write-only archives", and what friction forcing functions must a personal knowledge system incorporate to guarantee downstream synthesis?',
+    keyCriteria: [
+      'Defines the "Write-Only Archive" Antipattern: systems with zero ingest friction (1-click clippers, automated feeds) produce vast digital graveyards with a 0% downstream read/synthesis rate',
+      'Explains Ingest Friction as a Necessary Filter: introducing deliberate friction at capture forces the learner to evaluate value and synthesize meaning before filing',
+      'Explains Retrieval-Embedded Notes (Incremental Flashcards): embedding active recall test prompts directly into permanent notes to mandate periodic neural reactivation',
+      'Explains Progressive Summarization & Scheduled Pruning: layered distillation and mandatory review queues that convert raw reference material into consolidated mental models',
+    ],
+    canonicalAnswer: 'In digital knowledge systems, there is an inverse relationship between capture friction and synthesis probability: as ingest friction approaches zero (e.g. 1-click browser clippers, automated RSS downloads, AI summaries), the probability that a human will ever review or synthesize that material drops to virtually zero, creating a "Write-Only Archive". Effective personal knowledge engineering deliberately inserts "Friction Forcing Functions" to prioritize synthesis over storage. First, Ingest Friction mandates that no source can be saved without writing an immediate manual thesis sentence in the learner\'s own words. Second, "Retrieval-Embedded Notes" integrate active recall flashcards directly into the note text, ensuring that key propositions are retrieved and restabilized over spaced intervals. Third, Scheduled Pruning queues mandate weekly or monthly synthesis sprints where the learner must combine 5 atomic notes into an integrative summary essay or delete them. By engineering systems that penalize mindless hoarding and reward effortful synthesis, digital tooling transforms from a digital landfill into an unshakeable cognitive amplifier.',
+    lessonSectionAnchor: 'Lesson 24.2 • Section 3: Designing for Synthesis over Storage: Friction & Forcing Functions',
+    relatedMisconception: 'misconception:zero_friction_capture_maximizes_learning',
+    discrepancyPrompt: 'Previously you may have installed browser extensions that promised "instant 1-click clipping with zero friction," only to end up with 2,000 unread articles. How does system design theory prove that zero ingest friction is the primary cause of write-only digital graveyards?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

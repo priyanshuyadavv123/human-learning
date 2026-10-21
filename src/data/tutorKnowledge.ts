@@ -1369,6 +1369,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'How many bookmarked articles or highlighted PDFs have you saved in the past month that you have never re-read or translated into your own words?',
     referencedSection: 'Lesson 24.1 • Section 3: The Collector’s Fallacy & Generative Note-Taking (Ahrens & Slamecka)',
   },
+  {
+    keywords: ['evan risko', 'sam gilbert', 'cognitive offloading', 'metacognitive calibration', 'digital amnesia', 'deskilling in software tools', 'over-offloading vs under-offloading', 'working memory offloading limits'],
+    title: 'Evan Risko & Sam Gilbert: Cognitive Offloading & Metacognitive Calibration',
+    summary: 'Cognitive offloading uses physical tools to reduce working memory load; calibrated offloading stores static state while preserving internal schema computation to prevent cognitive deskilling.',
+    takeaway: 'Offload static reminders and execution state to external tools, but keep the core conceptual derivations inside your biological neural circuits (Risko & Gilbert, 2016).',
+    detailedResponse: 'Evan Risko and Sam Gilbert (2016) demonstrated that Cognitive Offloading—using external physical or digital artifacts (such as reminders, notebooks, calculators, or linters) to reduce working memory load—is governed by metacognitive appraisals. Learners who are overconfident fail to offload, leading to memory slips and working memory overflow. However, when learners over-offload the actual cognitive computation itself (e.g. relying entirely on GPS navigation or AI auto-generation without exercising mental models), they suffer "Cognitive Deskilling" (digital amnesia): the underlying neural circuits for spatial navigation, deduction, or syntax formulation atrophy from disuse. Calibrated cognitive offloading maintains a strict boundary: externalize static reference data, reminders, and execution state checkpoints to preserve working memory bandwidth, but perform conceptual reasoning, semantic synthesis, and structural derivations internally in the biological brain.',
+    socraticChallenge: 'In your daily work, are you offloading mechanical friction (good) or delegating the core cognitive synthesis to software (inducing deskilling)?',
+    referencedSection: 'Lesson 24.2 • Section 1: Evan Risko & Sam Gilbert (2016): Cognitive Offloading & Metacognitive Calibration',
+  },
+  {
+    keywords: ['douglas engelbart', 'vannevar bush', 'augmenting human intellect', 'h-lam/t framework', 'memex associative trails', 'augmentation vs automation', 'intellectual throughput amplification'],
+    title: 'Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)',
+    summary: 'Engelbart’s H-LAM/T framework and Bush’s Memex establish that technology should augment human intellect by compressing mechanical friction, rather than automating human thought.',
+    takeaway: 'Digital tools should augment human cognition by reducing mechanical friction, never by automating the generative synthesis required for mastery (Bush, 1945; Engelbart, 1962).',
+    detailedResponse: 'In 1945, Vannevar Bush conceptualized the "Memex"—a device that stored books, records, and communications linked by associative trails of inquiry. In 1962, Douglas Engelbart formalized this into the "Augmenting Human Intellect" paradigm, introducing the H-LAM/T system: Human using Language (conceptual symbols), Artifacts (tools/screens), Methodology (scientific procedures), and Training (skill mastery). Engelbart drew a profound distinction between Augmentation and Automation. Automation seeks to replace human cognitive labor with black-box algorithms, turning humans into passive, deskilled button-pushers. True Augmentation, by contrast, removes low-level clerical and syntactic friction (like instant search, graph links, and visual debugging) in order to expand the upper boundary of human intellectual throughput. A well-engineered learning environment augments human reflection and metacognitive monitoring without stripping away the desirable cognitive difficulties needed for deep neural consolidation.',
+    socraticChallenge: 'How can you configure your digital workspace so it augments your analytical depth rather than encouraging passive consumption?',
+    referencedSection: 'Lesson 24.2 • Section 2: Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)',
+  },
+  {
+    keywords: ['synthesis over storage', 'write-only archive antipattern', 'friction forcing functions', 'retrieval-embedded notes', 'incremental flashcards in notes', 'progressive summarization review', 'zero friction capture trap'],
+    title: 'Designing for Synthesis over Storage: Friction & Forcing Functions',
+    summary: 'Zero-friction capture tools create write-only digital archives; engineering deliberate friction and retrieval prompts forces learners to synthesize meaning rather than hoard text.',
+    takeaway: 'Introduce deliberate friction at ingest and embed active recall prompts inside your notes to transform passive archives into active synthesis engines.',
+    detailedResponse: 'In personal knowledge management, there is an inverse relationship between capture friction and synthesis probability. Systems that offer zero-friction 1-click clipping inevitably produce "Write-Only Archives"—massive digital landfills where articles are saved but never reread or understood. To engineer an effective second brain, software tools must implement "Friction Forcing Functions". First, Ingest Friction requires that no note or link can be saved without writing an immediate manual thesis sentence in one’s own words. Second, "Retrieval-Embedded Notes" integrate active recall flashcards directly into the note text, ensuring that key propositions are retrieved and restabilized over spaced intervals. Third, Scheduled Pruning queues mandate weekly or monthly synthesis sprints where the learner must combine 5 atomic notes into an integrative summary essay or delete them. By engineering systems that penalize mindless hoarding and reward effortful synthesis, digital tooling transforms from a digital landfill into an unshakeable cognitive amplifier.',
+    socraticChallenge: 'What friction forcing function could you add to your note-taking tool today to guarantee you synthesize everything you save?',
+    referencedSection: 'Lesson 24.2 • Section 3: Designing for Synthesis over Storage: Friction & Forcing Functions',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

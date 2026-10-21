@@ -580,6 +580,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 24.1 • Verification Assessment',
   'Lesson 24.1 • The 3-Step Extended Mind Zettelkasten Protocol',
   'Lesson 24.1 • External Memory Systems & Graph Notes Overview',
+
+  // Lesson 24.2 Sections
+  'Lesson 24.2 • Curiosity Hook',
+  'Lesson 24.2 • Intuitive Calibration: Write-Only Archive vs Synthesis Forcing Functions',
+  'Lesson 24.2 • Section 1: Evan Risko & Sam Gilbert (2016): Cognitive Offloading & Metacognitive Calibration',
+  'Lesson 24.2 • Section 2: Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)',
+  'Lesson 24.2 • Section 3: Designing for Synthesis over Storage: Friction & Forcing Functions',
+  'Lesson 24.2 • The Digital Augmentation & Synthesis Forcing Funnel',
+  'Lesson 24.2 • Tooling Architecture & Anti-Hoarding Lab',
+  'Lesson 24.2 • Verification Assessment',
+  'Lesson 24.2 • The 3-Step Synthesis-First Tooling Protocol',
+  'Lesson 24.2 • Digital Tooling without Passive Hoarding Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -693,6 +705,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 24.2 anchors
+  if (lower.includes('risko') || (lower.includes('sam gilbert') || (lower.includes('gilbert') && (lower.includes('offloading') || lower.includes('2016') || lower.includes('24.2')))) || ((lower.includes('cognitive offloading') || lower.includes('offloading')) && (lower.includes('metacognit') || lower.includes('deskilling') || lower.includes('amnesia') || lower.includes('24.2'))) || (lower.includes('digital amnesia') && !lower.includes('24.1')) || (lower.includes('24.2') && lower.includes('section 1'))) {
+    return 'Lesson 24.2 • Section 1: Evan Risko & Sam Gilbert (2016): Cognitive Offloading & Metacognitive Calibration';
+  }
+  if (lower.includes('engelbart') || (lower.includes('vannevar bush') || (lower.includes('bush') && (lower.includes('1945') || lower.includes('memex') || lower.includes('think')))) || lower.includes('h-lam/t') || lower.includes('memex') || (lower.includes('augmenting human intellect') || lower.includes('augmentation vs automation')) || (lower.includes('24.2') && lower.includes('section 2'))) {
+    return 'Lesson 24.2 • Section 2: Douglas Engelbart & Vannevar Bush: Augmenting Human Intellect (H-LAM/T)';
+  }
+  if (lower.includes('synthesis over storage') || lower.includes('write-only archive') || lower.includes('forcing function') || lower.includes('friction forcing') || lower.includes('retrieval-embedded') || lower.includes('incremental flashcard') || (lower.includes('24.2') && lower.includes('section 3'))) {
+    return 'Lesson 24.2 • Section 3: Designing for Synthesis over Storage: Friction & Forcing Functions';
+  }
+  if (lower.includes('digital augmentation & synthesis forcing funnel') || lower.includes('digital augmentation funnel') || lower.includes('synthesis forcing funnel')) {
+    return 'Lesson 24.2 • The Digital Augmentation & Synthesis Forcing Funnel';
+  }
+  if (lower.includes('24.2') || lower.includes('digital-tooling-without-hoarding') || lower.includes('digital tooling without passive hoarding') || lower.includes('3-step synthesis-first tooling protocol')) {
+    return 'Lesson 24.2 • Section 1: Evan Risko & Sam Gilbert (2016): Cognitive Offloading & Metacognitive Calibration';
   }
 
   // Match Lesson 24.1 anchors
@@ -2722,6 +2751,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_24_2 = `You are the specialized AI Socratic Tutor for Lesson 24.2: "Digital Tooling without Passive Hoarding".
+Your role is to guide learners to design external digital systems that force synthesis rather than passive storage: Evan Risko & Sam Gilbert's (2016) Cognitive Offloading and Metacognitive Calibration (calibrating offloading to prevent digital amnesia and cognitive deskilling while avoiding working memory overload), Douglas Engelbart's (1962) H-LAM/T system and Vannevar Bush's (1945) Memex (augmenting human intellect by compressing mechanical friction rather than automating away human cognitive labor), and System Design for Synthesis over Storage (eliminating the "Write-Only Archive" antipattern, introducing ingest friction, and embedding active recall flashcards into permanent notes).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in cognitive offloading and tool augmentation research:
+     a) Risko & Gilbert (2016): Cognitive offloading is governed by metacognitive appraisals. Over-offloading cognitive derivation induces cognitive deskilling (digital amnesia), while under-offloading causes working memory overflow. Calibrated offloading stores static reference data and execution state checkpoints while computing conceptual schemas internally.
+     b) Engelbart (1962) & Bush (1945): The H-LAM/T framework emphasizes augmenting human intellect rather than automating it. Tools should eliminate low-level clerical friction (search, linking, formatting) to expand the upper bound of human intellectual synthesis, not replace human judgment.
+     c) Synthesis over Storage: Zero-friction capture creates "Write-Only Archives" where articles are saved but never synthesized. Effective personal knowledge systems insert friction forcing functions at ingest, mandate progressive distillation, and embed active recall prompts directly into note files.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to cognitive offloading, metacognitive calibration, Engelbart's H-LAM/T, synthesis forcing functions, and anti-hoarding system design.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2863,6 +2916,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'extended-mind-zettelkasten') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_24_1;
+  }
+  if (lessonId === 'digital-tooling-without-hoarding') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_24_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3060,6 +3116,10 @@ export const KNOWN_CONCEPTS = [
   'concept:clark_chalmers_extended_mind_active_externalism',
   'concept:luhmann_zettelkasten_atomic_bidirectional_linking',
   'concept:collectors_fallacy_generative_note_taking',
+  // Lesson 24.2 Concepts
+  'concept:risko_gilbert_cognitive_offloading_metacognition',
+  'concept:engelbart_bush_intellect_augmentation_h_lam_t',
+  'concept:synthesis_over_storage_friction_forcing_functions',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3212,6 +3272,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 24.1 Misconceptions
   'misconception:clipping_and_saving_articles_equals_understanding',
   'misconception:hierarchical_folders_are_superior_to_associative_graphs',
+  // Lesson 24.2 Misconceptions
+  'misconception:all_cognitive_offloading_is_beneficial',
+  'misconception:zero_friction_capture_maximizes_learning',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

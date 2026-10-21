@@ -349,6 +349,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'extended-mind-zettelkasten';
     chapterId = 'ch-24-external-scaffolding';
+  } else if (
+    conceptId.startsWith('concept:risko_gilbert_') ||
+    conceptId.startsWith('concept:engelbart_bush_') ||
+    conceptId.startsWith('concept:synthesis_over_storage_')
+  ) {
+    lessonId = 'digital-tooling-without-hoarding';
+    chapterId = 'ch-24-external-scaffolding';
   }
 
   return {
