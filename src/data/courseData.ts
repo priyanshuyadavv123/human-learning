@@ -50,6 +50,7 @@ import { LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING } from './lesson24_2Data.ts';
 import { LESSON_PROTEGE_EFFECT_TEACHING } from './lesson25_1Data.ts';
 import { LESSON_ADVERSARIAL_PEER_REVIEW } from './lesson25_2Data.ts';
 import { LESSON_LONGITUDINAL_SPACED_SCHEDULING } from './lesson26_1Data.ts';
+import { LESSON_PERSONAL_MASTERY_SYNTHESIS } from './lesson26_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -698,7 +699,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'The Synthesis Project: Your Personal Mastery Engine',
           subtitle: 'Architecting an enduring, self-evolving system for lifelong cognitive mastery',
           readingTimeMinutes: 24,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1221,6 +1222,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_PROTEGE_EFFECT_TEACHING.id]: LESSON_PROTEGE_EFFECT_TEACHING,
   [LESSON_ADVERSARIAL_PEER_REVIEW.id]: LESSON_ADVERSARIAL_PEER_REVIEW,
   [LESSON_LONGITUDINAL_SPACED_SCHEDULING.id]: LESSON_LONGITUDINAL_SPACED_SCHEDULING,
+  [LESSON_PERSONAL_MASTERY_SYNTHESIS.id]: LESSON_PERSONAL_MASTERY_SYNTHESIS,
 };
 
 export function getLessonById(id: string): Lesson {

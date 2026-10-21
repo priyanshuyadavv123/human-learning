@@ -657,6 +657,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:wozniak_two_component_memory_stability_retrievability',
     },
   },
+  'personal-mastery-synthesis': {
+    predictionConceptId: 'concept:zimmerman_cyclical_self_regulated_learning_architecture',
+    predictionMisconceptionId: 'misconception:mastery_is_a_destination_rather_than_a_dynamic_feedback_loop',
+    quizConceptMapping: {
+      'q1-zimmerman-cyclical-srl': 'concept:zimmerman_cyclical_self_regulated_learning_architecture',
+      'q2-ericsson-deliberate-practice-bootstrapping': 'concept:ericsson_engelbart_bootstrapping_mastery_engine',
+      'q3-unified-cognitive-architecture-synthesis': 'concept:unified_cognitive_architecture_synthesis_human_learning',
+      'q4-meta-learning-personal-operating-system': 'concept:unified_cognitive_architecture_synthesis_human_learning',
+      'q1': 'concept:zimmerman_cyclical_self_regulated_learning_architecture',
+      'q2': 'concept:ericsson_engelbart_bootstrapping_mastery_engine',
+      'q3': 'concept:unified_cognitive_architecture_synthesis_human_learning',
+      'q4': 'concept:unified_cognitive_architecture_synthesis_human_learning',
+    },
+  },
 };
 
 interface LearningContextType {

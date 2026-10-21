@@ -377,6 +377,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'longitudinal-spaced-scheduling';
     chapterId = 'ch-26-lifetime-architecture';
+  } else if (
+    conceptId.startsWith('concept:zimmerman_cyclical_') ||
+    conceptId.startsWith('concept:ericsson_engelbart_') ||
+    conceptId.startsWith('concept:unified_cognitive_architecture_')
+  ) {
+    lessonId = 'personal-mastery-synthesis';
+    chapterId = 'ch-26-lifetime-architecture';
   }
 
   return {

@@ -212,6 +212,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bahrick_permastore_fifty_year_retention',
   'concept:cepeda_pashler_optimal_spacing_ratio_decades',
   'concept:wozniak_two_component_memory_stability_retrievability',
+  // Lesson 26.2 Concepts (Capstone)
+  'concept:zimmerman_cyclical_self_regulated_learning_architecture',
+  'concept:ericsson_engelbart_bootstrapping_mastery_engine',
+  'concept:unified_cognitive_architecture_synthesis_human_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -376,6 +380,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 26.1 Misconceptions
   'misconception:knowledge_is_inevitably_forgotten_without_daily_weekly_review',
   'misconception:all_memories_decay_at_the_same_exponential_rate',
+  // Lesson 26.2 Misconceptions (Capstone)
+  'misconception:mastery_is_a_destination_rather_than_a_dynamic_feedback_loop',
+  'misconception:tools_and_apps_alone_can_automate_learning_without_cognitive_effort',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

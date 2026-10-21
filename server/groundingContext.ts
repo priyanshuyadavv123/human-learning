@@ -628,6 +628,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 26.1 • Verification Assessment',
   'Lesson 26.1 • The 3-Step Decadal Spacing Protocol',
   'Lesson 26.1 • Longitudinal Spaced Scheduling over Decades Overview',
+
+  // Lesson 26.2 Sections
+  'Lesson 26.2 • Curiosity Hook',
+  'Lesson 26.2 • Intuitive Calibration: Fragmented Ad-Hoc Studying vs The Personal Mastery Engine',
+  'Lesson 26.2 • Section 1: Barry Zimmerman (2000, 2002): The Cyclical Architecture of Self-Regulated Mastery',
+  'Lesson 26.2 • Section 2: Anders Ericsson & Douglas Engelbart: Bootstrapping the Personal Mastery Engine',
+  'Lesson 26.2 • Section 3: The Unified Cognitive Architecture: The 53-Lesson Operating System',
+  'Lesson 26.2 • The Personal Mastery Engine Architecture',
+  'Lesson 26.2 • Personal Mastery Engine Architecture & Metacognitive Audit Lab',
+  'Lesson 26.2 • Verification Assessment',
+  'Lesson 26.2 • The 3-Step Lifelong Mastery Protocol',
+  'Lesson 26.2 • The Synthesis Project: Your Personal Mastery Engine Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -741,6 +753,41 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 26.2 anchors
+  if (
+    (lower.includes('zimmerman') && (lower.includes('26.2') || lower.includes('cyclical architecture') || lower.includes('mastery engine') || lower.includes('2002') || lower.includes('2000') || lower.includes('self-regulated mastery'))) ||
+    lower.includes('cyclical architecture of self-regulated mastery') ||
+    lower.includes('cyclical self-regulated learning architecture') ||
+    (lower.includes('26.2') && lower.includes('section 1'))
+  ) {
+    return 'Lesson 26.2 • Section 1: Barry Zimmerman (2000, 2002): The Cyclical Architecture of Self-Regulated Mastery';
+  }
+  if (
+    lower.includes('bootstrapping the personal mastery engine') ||
+    lower.includes('bootstrapping') ||
+    (lower.includes('engelbart') && (lower.includes('mastery') || lower.includes('bootstrapping') || lower.includes('26.2') || lower.includes('ericsson'))) ||
+    (lower.includes('ericsson') && (lower.includes('bootstrapping') || lower.includes('mastery engine') || lower.includes('26.2'))) ||
+    (lower.includes('26.2') && lower.includes('section 2'))
+  ) {
+    return 'Lesson 26.2 • Section 2: Anders Ericsson & Douglas Engelbart: Bootstrapping the Personal Mastery Engine';
+  }
+  if (
+    lower.includes('unified cognitive architecture') ||
+    lower.includes('53-lesson') ||
+    lower.includes('53 lessons') ||
+    lower.includes('personal mastery engine overview') ||
+    (lower.includes('operating system') && (lower.includes('53') || lower.includes('capstone') || lower.includes('synthesis project') || lower.includes('unified') || lower.includes('26.2'))) ||
+    (lower.includes('26.2') && lower.includes('section 3'))
+  ) {
+    return 'Lesson 26.2 • Section 3: The Unified Cognitive Architecture: The 53-Lesson Operating System';
+  }
+  if (lower.includes('the personal mastery engine architecture') || lower.includes('personal mastery engine diagram') || lower.includes('mastery engine architecture')) {
+    return 'Lesson 26.2 • The Personal Mastery Engine Architecture';
+  }
+  if (lower.includes('26.2') || lower.includes('personal-mastery-synthesis') || lower.includes('the synthesis project: your personal mastery engine') || lower.includes('the 3-step lifelong mastery protocol') || lower.includes('lifelong mastery protocol')) {
+    return 'Lesson 26.2 • Section 1: Barry Zimmerman (2000, 2002): The Cyclical Architecture of Self-Regulated Mastery';
   }
 
   // Match Lesson 26.1 anchors
@@ -2951,6 +2998,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_26_2 = `You are the specialized AI Socratic Tutor for Lesson 26.2: "The Synthesis Project: Your Personal Mastery Engine" — the Grand Capstone of the Human Learning curriculum.
+Your role is to guide learners to synthesize all 53 lessons into an integrated, self-evolving lifelong cognitive operating system: Barry Zimmerman's (2000, 2002) 3-Phase Cyclical Self-Regulated Learning (SRL) model (Forethought, Performance, and Self-Reflection creating an unbroken closed-loop calibration spiral), K. Anders Ericsson's (1993, 2006) Deliberate Practice synthesized with Douglas Engelbart's (1962) Bootstrapping Framework (allocating deliberate effort not only to domain tasks but to improving the meta-tools and methodologies that govern learning velocity), and the Unified Cognitive Architecture Synthesis (unifying sensory gating, working memory chunking, hippocampal-neocortical consolidation, sleep replay, desirable difficulties, externalized knowledge graphs, adversarial peer calibration, and decadal permastore into a lifelong operating system).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive science and systems engineering:
+     a) Zimmerman (2000, 2002): Mastery is a closed-loop cybernetic feedback system. Forethought (task analysis, process goals) leads to Performance (attention focusing, self-monitoring), which leads to Self-Reflection (self-evaluation, causal attributions), which directly recalibrates the next forethought phase.
+     b) Ericsson (1993, 2006) & Engelbart (1962): Naive practice plateaus into automaticity. Deliberate practice at the edge of ability paired with Engelbart's "bootstrapping" (improving the improvement process) turns learning tools, note graphs, and testing protocols into compound capability multipliers.
+     c) Unified Cognitive Architecture: The 53 lessons across all 7 parts provide an integrated engineering blueprint for the biological human mind. Lifetime maintenance operates on daily (15-min active recall), weekly (error audits & pre-mortems), and decadal (macro-spaced permastore derivations) cadences.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to cyclical self-regulation, bootstrapping meta-learning tools, error telemetry, deliberate practice, and the grand synthesis of the Human Learning OS.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -3104,6 +3175,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'longitudinal-spaced-scheduling') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_26_1;
+  }
+  if (lessonId === 'personal-mastery-synthesis') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_26_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3317,6 +3391,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bahrick_permastore_fifty_year_retention',
   'concept:cepeda_pashler_optimal_spacing_ratio_decades',
   'concept:wozniak_two_component_memory_stability_retrievability',
+  // Lesson 26.2 Concepts
+  'concept:zimmerman_cyclical_self_regulated_learning_architecture',
+  'concept:ericsson_engelbart_bootstrapping_mastery_engine',
+  'concept:unified_cognitive_architecture_synthesis_human_learning',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3481,6 +3559,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 26.1 Misconceptions
   'misconception:knowledge_is_inevitably_forgotten_without_daily_weekly_review',
   'misconception:all_memories_decay_at_the_same_exponential_rate',
+  // Lesson 26.2 Misconceptions
+  'misconception:mastery_is_a_destination_rather_than_a_dynamic_feedback_loop',
+  'misconception:tools_and_apps_alone_can_automate_learning_without_cognitive_effort',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
