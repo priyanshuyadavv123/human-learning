@@ -40,6 +40,7 @@ import { LESSON_COMBINATORIAL_PLAY_SYNTHESIS } from './lesson19_2Data.ts';
 import { LESSON_DOPAMINE_REWARD_PREDICTION } from './lesson20_1Data.ts';
 import { LESSON_SELF_DETERMINATION_THEORY } from './lesson20_2Data.ts';
 import { LESSON_YERKES_DODSON_CORTISOL } from './lesson21_1Data.ts';
+import { LESSON_EMOTION_APPRAISAL_REGULATION } from './lesson21_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -566,7 +567,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Cognitive Reappraisal & High-Stakes Performance',
           subtitle: 'Reframing physiological arousal from threat to challenge state',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1201,6 +1202,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_DOPAMINE_REWARD_PREDICTION.id]: LESSON_DOPAMINE_REWARD_PREDICTION,
   [LESSON_SELF_DETERMINATION_THEORY.id]: LESSON_SELF_DETERMINATION_THEORY,
   [LESSON_YERKES_DODSON_CORTISOL.id]: LESSON_YERKES_DODSON_CORTISOL,
+  [LESSON_EMOTION_APPRAISAL_REGULATION.id]: LESSON_EMOTION_APPRAISAL_REGULATION,
 };
 
 export function getLessonById(id: string): Lesson {

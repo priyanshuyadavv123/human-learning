@@ -1912,6 +1912,53 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
     discrepancyPrompt: 'Previously you may have feared that if you cannot recall a formula or architectural concept during a panic state, the memory was never encoded. How does the discovery of GR-mediated hippocampal retrieval blockade prove that memories remain intact in long-term storage even when acute cortisol renders them temporarily inaccessible?',
   },
+  'concept:jamieson_biopsychosocial_challenge_vs_threat': {
+    conceptId: 'concept:jamieson_biopsychosocial_challenge_vs_threat',
+    title: 'Jeremy Jamieson & Wendy Mendes: Biopsychosocial Challenge vs Threat',
+    prompt: 'What is the Biopsychosocial Model of Challenge vs Threat (Jamieson et al., 2010, 2018), and how does reappraising physiological arousal alter hemodynamics and test performance?',
+    keyCriteria: [
+      'Cites Jeremy Jamieson, Wendy Berry Mendes, and Matthew Nock (2010, 2012, 2018)',
+      'Contrasts Threat states (vasoconstriction, elevated total peripheral resistance [TPR], decreased cardiac output, reduced prefrontal blood flow) with Challenge states (vasodilation, decreased TPR, enhanced cardiac efficiency, increased prefrontal perfusion)',
+      'Explains cognitive reappraisal: reframing autonomic arousal (racing heart, sweaty palms) as a functional resource delivering oxygenated blood and glucose to the brain',
+      'Cites field experiments demonstrating that arousal reappraisal produces significant, durable score gains on standardized exams (e.g. +65 points on GRE-Math)',
+    ],
+    canonicalAnswer: 'Jeremy Jamieson, Wendy Berry Mendes, and colleagues (2010, 2018) formulated the Biopsychosocial Model of Challenge vs. Threat. When learners perceive an evaluative situation as a "Threat" (demands outweighing coping resources), the sympathetic-adrenomedullary (SAM) and HPA axes trigger systemic vasoconstriction, elevating Total Peripheral Resistance (TPR) and constricting cerebral blood flow, which starves the prefrontal cortex and causes cognitive freezing. However, when learners are taught "Arousal Reappraisal"—interpreting autonomic arousal (racing pulse, sweaty palms, rapid breathing) not as panic or inability, but as the body’s evolved resource mobilization to deliver oxygen and glucose to prefrontal networks—hemodynamics transform into a "Challenge" state. In a challenge state, the body exhibits systemic vasodilation (decreased TPR) and increased Cardiac Output (CO), maximizing cerebral perfusion and working memory fidelity. In randomized double-blind trials, students taught this reappraisal protocol outperformed controls by 65 points on the GRE Math section, with benefits persisting months later on actual high-stakes exams.',
+    lessonSectionAnchor: 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics',
+    relatedMisconception: 'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
+    discrepancyPrompt: 'Previously you may have believed that when your heart pounds before an exam or technical interview, you must force yourself to "calm down." How does Jamieson’s hemodynamic research prove that reframing arousal as a functional challenge response is far more effective than trying to suppress it?',
+  },
+  'concept:brooks_anxiety_reappraisal_excitement': {
+    conceptId: 'concept:brooks_anxiety_reappraisal_excitement',
+    title: 'Alison Wood Brooks: "Get Excited" Anxiety Reappraisal',
+    prompt: 'Why is trying to "calm down" physiologically ineffective when anxious, and how does reappraising anxiety as excitement improve high-stakes performance (Brooks, 2014)?',
+    keyCriteria: [
+      'Cites Alison Wood Brooks (2014; Journal of Experimental Psychology: General)',
+      'Explains the two-dimensional affective circumplex: Valence (positive vs negative) and Arousal (high vs low)',
+      'Explains that anxiety and excitement share identical high sympathetic arousal states, differing only in valence (negative threat vs positive opportunity)',
+      'Explains why "calming down" requires shifting both high-to-low arousal and negative-to-positive valence—a massive physiological barrier that induces friction and failure',
+      'Demonstrates that stating "I am excited" or adopting an opportunity mindset preserves arousal while flipping valence, boosting performance in public speaking, math problem solving, and persistence',
+    ],
+    canonicalAnswer: 'Alison Wood Brooks (Harvard Business School; 2014) demonstrated why the standard advice to "just calm down" when facing performance anxiety almost always fails. In the two-dimensional circumplex model of affect, emotional states are defined by physiological Arousal (high vs. low) and cognitive Valence (negative vs. positive). Anxiety is characterized by high arousal and negative valence; Calm is characterized by low arousal and positive valence. Attempting to calm down requires an enormous physiological leap across two axes simultaneously—fighting against surging catecholamines and elevated heart rate. In contrast, Excitement is characterized by high arousal and positive valence. Brooks showed that reappraising anxiety as excitement ("I am excited") requires shifting only along the valence axis while working with, rather than against, the existing high autonomic activation. In randomized trials across public speaking, mathematics, and singing tasks, individuals who reappraised anxiety as excitement outperformed those who attempted to calm down, scored higher on objective problem solving, and reported higher self-efficacy.',
+    lessonSectionAnchor: 'Lesson 21.2 • Section 2: Alison Wood Brooks (2014): "Get Excited" Anxiety Reappraisal',
+    relatedMisconception: 'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
+    discrepancyPrompt: 'Previously you may have told yourself "I need to calm down" right before walking into a difficult presentation or exam. Why does Brooks’s research prove that saying "I am excited" aligns with your neurobiology and generates vastly superior cognitive output?',
+  },
+  'concept:gross_reappraisal_vs_expressive_suppression': {
+    conceptId: 'concept:gross_reappraisal_vs_expressive_suppression',
+    title: 'James Gross: Cognitive Reappraisal vs Expressive Suppression',
+    prompt: 'What is James Gross’s Process Model of Emotion Regulation (1998, 2002), and why does expressive suppression deplete working memory while cognitive reappraisal preserves it?',
+    keyCriteria: [
+      'Cites James J. Gross (1998, 2002) Process Model of Emotion Regulation',
+      'Distinguishes Antecedent-Focused emotion regulation (Cognitive Reappraisal: modifying how one construes an event before emotional response cascades fully unfold) from Response-Focused emotion regulation (Expressive Suppression: inhibiting outward behavioral signs after emotion is triggered)',
+      'Explains neurobiology: Reappraisal recruits vlPFC and dlPFC to downregulate amygdala activity early without taxing central executive capacity',
+      'Explains that Suppression requires continuous self-monitoring and cognitive inhibition, consuming phonological and visuospatial working memory bandwidth, elevating sympathetic blood pressure, and impairing memory for the event (Richards & Gross, 2000)',
+      'Connects to Ramirez & Beilock (2011, Science) on 10-minute expressive writing to clear working memory',
+    ],
+    canonicalAnswer: 'James J. Gross (Stanford University; 1998, 2002) formulated the Process Model of Emotion Regulation, distinguishing between Antecedent-Focused strategies (acting before emotional responses fully crystallize) and Response-Focused strategies (acting after emotional responses are generated). Cognitive Reappraisal is an early, antecedent-focused strategy where a learner re-evaluates the meaning or implications of a situation (e.g., viewing an exam as a diagnostic challenge rather than an identity threat). Neuroimaging shows that reappraisal recruits the ventrolateral and dorsolateral prefrontal cortex (vlPFC/dlPFC) to modulate the amygdala, reducing distress without ongoing cognitive cost. In stark contrast, Expressive Suppression is a late, response-focused strategy where the learner tries to bottle up or hide their anxiety. Richards & Gross (2000) proved that suppression acts as a severe cognitive tax: because it requires continuous executive monitoring and motor inhibition, it hijacks working memory bandwidth, elevates cardiovascular stress, and sharply degrades memory recall. Ramirez & Beilock (2011, Science) expanded this by showing that 10 minutes of expressive writing before an exam externalizes intrusive thoughts onto paper, disarming suppression and boosting test scores for highly anxious students.',
+    lessonSectionAnchor: 'Lesson 21.2 • Section 3: James Gross: Cognitive Reappraisal vs Expressive Suppression',
+    relatedMisconception: 'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
+    discrepancyPrompt: 'Previously you may have tried to "bite your lip" and suppress your anxiety, pretending everything was fine. How does James Gross’s research prove that emotional suppression consumes the exact same working memory resources needed for analytical problem solving?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

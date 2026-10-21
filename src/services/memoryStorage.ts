@@ -307,6 +307,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'yerkes-dodson-cortisol';
     chapterId = 'ch-21-stress-performance';
+  } else if (
+    conceptId.startsWith('concept:jamieson_biopsychosocial_') ||
+    conceptId.startsWith('concept:brooks_anxiety_') ||
+    conceptId.startsWith('concept:gross_reappraisal_')
+  ) {
+    lessonId = 'emotion-appraisal-regulation';
+    chapterId = 'ch-21-stress-performance';
   }
 
   return {

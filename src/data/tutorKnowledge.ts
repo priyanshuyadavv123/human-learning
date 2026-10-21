@@ -1207,6 +1207,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Are you managing your study rhythm to prevent the chronic allostatic load that degrades hippocampal dendritic spines and blocks memory consolidation?',
     referencedSection: 'Lesson 21.1 • Section 3: Bruce McEwen & Sonia Lupien: Cortisol Dynamics & Hippocampal Plasticity',
   },
+  {
+    keywords: ['jeremy jamieson', 'wendy mendes', 'biopsychosocial model', 'challenge vs threat', 'arousal reappraisal', 'total peripheral resistance', 'vasodilation vs vasoconstriction', 'gre math reappraisal'],
+    title: 'Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics',
+    summary: 'Reappraising autonomic arousal as a functional bodily resource transforms vasoconstrictive threat into vasodilative challenge, boosting prefrontal perfusion and test scores.',
+    takeaway: 'Arousal reappraisal shifts the cardiovascular response from vasoconstrictive threat to vasodilative challenge, increasing cardiac output and cognitive performance (Jamieson et al., 2010, 2018).',
+    detailedResponse: 'Jeremy Jamieson and Wendy Berry Mendes (2010, 2018) established the Biopsychosocial Model of Challenge vs. Threat in evaluative contexts. When learners perceive high demands with insufficient resources, they enter a "Threat State": blood vessels constrict (elevated Total Peripheral Resistance, TPR) and cardiac output drops, starving the prefrontal cortex of oxygen and glucose. However, when learners practice "Arousal Reappraisal"—recognizing that a racing heart and heightened senses are an evolved biological resource designed to fuel peak cognitive performance—their cardiovascular profile shifts to a "Challenge State": systemic vasodilation occurs, cardiac output expands, and prefrontal oxygenation is optimized. In randomized double-blind trials, students taught to reappraise arousal scored 65 points higher on the GRE Math section, with benefits enduring months later on real high-stakes exams.',
+    socraticChallenge: 'When you notice your pulse quickening before an important evaluation, do you interpret it as a signal that you are about to fail (threat), or that your body is pumping fuel to your prefrontal cortex (challenge)?',
+    referencedSection: 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics',
+  },
+  {
+    keywords: ['alison wood brooks', 'get excited', 'anxiety reappraisal', 'calming down myth', 'affective circumplex', 'valence vs arousal', 'opportunity mindset'],
+    title: 'Alison Wood Brooks: "Get Excited" Anxiety Reappraisal',
+    summary: 'Anxiety and excitement share identical high sympathetic arousal; reappraising anxiety as excitement shifts valence from threat to opportunity, improving performance.',
+    takeaway: 'Telling yourself "I am excited" works because it matches your existing high arousal while shifting valence from negative threat to positive opportunity (Brooks, 2014).',
+    detailedResponse: 'Alison Wood Brooks (2014, JEP: General) proved why attempting to "calm down" when experiencing performance anxiety is physiologically flawed. In Russell’s circumplex model of affect, emotions vary across two dimensions: Arousal (low vs high) and Valence (negative vs positive). Anxiety is high-arousal and negative-valence, whereas Calm is low-arousal and positive-valence. Calming down requires an enormous physiological struggle against surging catecholamines to shift both axes simultaneously. In contrast, Excitement is high-arousal and positive-valence. Brooks demonstrated that stating "I am excited" or adopting an opportunity mindset works with existing autonomic energy, shifting only the valence axis. In randomized experiments across public speaking, mathematics, and singing, participants who reappraised anxiety as excitement dramatically outperformed those who attempted to calm down.',
+    socraticChallenge: 'The next time you feel high performance anxiety, can you reframe that autonomic adrenaline surge as excitement for the opportunity to demonstrate your capability?',
+    referencedSection: 'Lesson 21.2 • Section 2: Alison Wood Brooks (2014): "Get Excited" Anxiety Reappraisal',
+  },
+  {
+    keywords: ['james gross', 'process model of emotion regulation', 'cognitive reappraisal', 'expressive suppression', 'richards and gross', 'ramirez and beilock', 'expressive writing working memory'],
+    title: 'James Gross: Cognitive Reappraisal vs Expressive Suppression',
+    summary: 'Antecedent cognitive reappraisal downregulates amygdala response with minimal cognitive cost, whereas response suppression drains working memory bandwidth and impairs recall.',
+    takeaway: 'Cognitive reappraisal modulates emotional meaning early without cognitive cost; expressive suppression bottles up feelings, continuously depleting working memory (Gross, 1998, 2002).',
+    detailedResponse: 'James J. Gross (1998, 2002) formulated the Process Model of Emotion Regulation, distinguishing between Antecedent-Focused strategies (acting before emotional responses fully crystallize) and Response-Focused strategies (acting after an emotion is triggered). Cognitive Reappraisal is antecedent-focused: reframing the meaning of an event early recruits the prefrontal cortex (vlPFC/dlPFC) to modulate the amygdala, reducing distress with negligible working memory drain. Conversely, Expressive Suppression is response-focused: attempting to bite one\'s lip and hide outward signs of anxiety requires continuous executive monitoring and motor inhibition. Richards & Gross (2000) proved that suppression acts as a heavy cognitive tax, consuming central executive bandwidth, elevating blood pressure, and severely impairing memory recall. Ramirez & Beilock (2011, Science) showed that 10 minutes of expressive writing before an exam externalizes worries onto paper, clearing working memory for complex problem solving.',
+    socraticChallenge: 'When faced with high testing anxiety, do you waste working memory trying to suppress and hide your nervousness, or do you proactively reframe the situation or externalize your thoughts?',
+    referencedSection: 'Lesson 21.2 • Section 3: James Gross: Cognitive Reappraisal vs Expressive Suppression',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

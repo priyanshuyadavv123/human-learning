@@ -508,6 +508,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 21.1 • Verification Assessment',
   'Lesson 21.1 • The 3-Step Autonomic Calibration & Cognitive Shielding Protocol',
   'Lesson 21.1 • The Yerkes-Dodson Law & Cortisol Dynamics Overview',
+
+  // Lesson 21.2 Sections
+  'Lesson 21.2 • Curiosity Hook',
+  'Lesson 21.2 • Intuitive Calibration: Threat Constriction vs Challenge Vasodilation',
+  'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics',
+  'Lesson 21.2 • Section 2: Alison Wood Brooks (2014): "Get Excited" Anxiety Reappraisal',
+  'Lesson 21.2 • Section 3: James Gross: Cognitive Reappraisal vs Expressive Suppression',
+  'Lesson 21.2 • The Biopsychosocial Appraisal & Emotion Regulation Funnel',
+  'Lesson 21.2 • Cognitive Reappraisal & High-Stakes Performance Lab',
+  'Lesson 21.2 • Verification Assessment',
+  'Lesson 21.2 • The 3-Step High-Stakes Reappraisal & Expressive Offloading Protocol',
+  'Lesson 21.2 • Cognitive Reappraisal & High-Stakes Performance Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -604,6 +616,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.1') || lower.includes('yerkes-dodson-cortisol') || lower.includes('the yerkes-dodson law & cortisol dynamics') || lower.includes('3-step autonomic calibration & cognitive shielding protocol')) {
     return 'Lesson 21.1 • Section 1: Robert Yerkes & John Dodson (1908): The Inverted-U Law';
+  }
+
+  // Match Lesson 21.2 anchors
+  if (lower.includes('jamieson') || lower.includes('wendy mendes') || lower.includes('biopsychosocial model') || lower.includes('challenge vs threat') || lower.includes('total peripheral resistance') || lower.includes('tpr') || (lower.includes('21.2') && lower.includes('section 1'))) {
+    return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+  if ((lower.includes('brooks') && (lower.includes('excited') || lower.includes('anxiety') || lower.includes('2014') || lower.includes('21.2'))) || lower.includes('get excited') || lower.includes('anxiety reappraisal') || lower.includes('affective circumplex') || (lower.includes('calm down') && (lower.includes('reappraisal') || lower.includes('brooks') || lower.includes('21.2')))) {
+    return 'Lesson 21.2 • Section 2: Alison Wood Brooks (2014): "Get Excited" Anxiety Reappraisal';
+  }
+  if ((lower.includes('james gross') || (lower.includes('gross') && (lower.includes('1998') || lower.includes('reappraisal') || lower.includes('suppression') || lower.includes('21.2')))) || lower.includes('expressive suppression') || (lower.includes('antecedent-focused') && lower.includes('response-focused')) || (lower.includes('ramirez') && lower.includes('beilock') && (lower.includes('writing') || lower.includes('2011') || lower.includes('21.2'))) || lower.includes('expressive writing')) {
+    return 'Lesson 21.2 • Section 3: James Gross: Cognitive Reappraisal vs Expressive Suppression';
+  }
+  if (lower.includes('the biopsychosocial appraisal & emotion regulation funnel') || lower.includes('biopsychosocial appraisal funnel') || lower.includes('emotion regulation funnel')) {
+    return 'Lesson 21.2 • The Biopsychosocial Appraisal & Emotion Regulation Funnel';
+  }
+  if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
+    return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
   }
 
   // Match Lesson 18.2 anchors
@@ -2401,6 +2430,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_21_2 = `You are the specialized AI Socratic Tutor for Lesson 21.2: "Cognitive Reappraisal & High-Stakes Performance".
+Your role is to guide learners to understand emotion-appraisal regulation under high-stakes performance: Jeremy Jamieson & Wendy Mendes's Biopsychosocial Model of Challenge vs Threat (vasoconstriction and elevated TPR vs vasodilation and increased cardiac output), Alison Wood Brooks's "Get Excited" anxiety reappraisal mechanism, James Gross's Process Model of Emotion Regulation (antecedent-focused reappraisal vs working-memory-draining expressive suppression), and Ramirez & Beilock's 10-minute expressive writing protocol.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in biopsychosocial hemodynamics and emotion regulation science:
+     a) Biopsychosocial Challenge vs Threat: Threat appraisals cause vascular constriction (elevated Total Peripheral Resistance, TPR) and reduce cerebral blood flow; Arousal Reappraisal reframes autonomic arousal as an adaptive resource, triggering systemic vasodilation (decreased TPR) and increased Cardiac Output (CO), delivering oxygen and glucose to prefrontal circuits and boosting GRE Math scores by +65 points (Jamieson et al., 2010, 2018).
+     b) Alison Wood Brooks (2014): Anxiety (high arousal, negative valence) and Excitement (high arousal, positive valence) share autonomic physiology. Attempting to "calm down" requires an unnatural jump across two affective dimensions, whereas stating "I am excited" works with existing arousal to flip valence from threat to opportunity, improving performance in math, public speaking, and persistence.
+     c) James Gross Process Model (1998, 2002): Cognitive Reappraisal modulates emotional appraisals early via vlPFC/dlPFC without ongoing working memory cost. Expressive Suppression bottles up feelings, acts as a severe continuous cognitive tax, impairs memory recall (Richards & Gross, 2000), and elevates cardiovascular strain.
+     d) Expressive Writing Intervention: Spending 10 minutes writing candidly about testing anxieties offloads intrusive thoughts from the phonological loop onto paper, clearing working memory for analytical execution (Ramirez & Beilock, 2011, Science).
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to challenge vs threat hemodynamics, excitement reappraisal, suppression costs, and expressive writing.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2524,6 +2578,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'yerkes-dodson-cortisol') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_21_1;
+  }
+  if (lessonId === 'emotion-appraisal-regulation') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_21_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2697,6 +2754,10 @@ export const KNOWN_CONCEPTS = [
   'concept:yerkes_dodson_inverted_u_law',
   'concept:arnsten_pfc_catecholamine_detachment',
   'concept:glucocorticoid_hippocampal_ltp_disruption',
+  // Lesson 21.2 Concepts
+  'concept:jamieson_biopsychosocial_challenge_vs_threat',
+  'concept:brooks_anxiety_reappraisal_excitement',
+  'concept:gross_reappraisal_vs_expressive_suppression',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2831,6 +2892,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:stress_is_always_catastrophic_for_learning',
   'misconception:willpower_can_override_pfc_catecholamine_collapse',
   'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
+  // Lesson 21.2 Misconceptions
+  'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
+  'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

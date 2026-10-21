@@ -172,6 +172,10 @@ export const KNOWN_CONCEPTS = [
   'concept:yerkes_dodson_inverted_u_law',
   'concept:arnsten_pfc_catecholamine_detachment',
   'concept:glucocorticoid_hippocampal_ltp_disruption',
+  // Lesson 21.2 Concepts
+  'concept:jamieson_biopsychosocial_challenge_vs_threat',
+  'concept:brooks_anxiety_reappraisal_excitement',
+  'concept:gross_reappraisal_vs_expressive_suppression',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -306,6 +310,9 @@ export const KNOWN_MISCONCEPTIONS = [
   'misconception:stress_is_always_catastrophic_for_learning',
   'misconception:willpower_can_override_pfc_catecholamine_collapse',
   'misconception:high_stakes_blanking_means_knowledge_was_never_learned',
+  // Lesson 21.2 Misconceptions
+  'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
+  'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

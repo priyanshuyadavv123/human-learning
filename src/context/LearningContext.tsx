@@ -517,6 +517,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:yerkes_dodson_inverted_u_law',
     },
   },
+  'emotion-appraisal-regulation': {
+    predictionConceptId: 'concept:jamieson_biopsychosocial_challenge_vs_threat',
+    predictionMisconceptionId: 'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
+    quizConceptMapping: {
+      'q1-jamieson-challenge-vs-threat': 'concept:jamieson_biopsychosocial_challenge_vs_threat',
+      'q2-brooks-arousal-reappraisal-excitement': 'concept:brooks_anxiety_reappraisal_excitement',
+      'q3-gross-reappraisal-vs-suppression': 'concept:gross_reappraisal_vs_expressive_suppression',
+      'q4-expressive-writing-intervention': 'concept:gross_reappraisal_vs_expressive_suppression',
+      'q1': 'concept:jamieson_biopsychosocial_challenge_vs_threat',
+      'q2': 'concept:brooks_anxiety_reappraisal_excitement',
+      'q3': 'concept:gross_reappraisal_vs_expressive_suppression',
+      'q4': 'concept:gross_reappraisal_vs_expressive_suppression',
+    },
+  },
 };
 
 interface LearningContextType {

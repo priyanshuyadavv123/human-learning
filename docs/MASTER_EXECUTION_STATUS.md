@@ -132,8 +132,8 @@ Every chapter is classified strictly by actual code implementation:
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **ch-20-motivation-drive** | **20. Dopamine, Anticipation & Intrinsic Drive** | 20.1 Reward Prediction Errors in Motivation<br>20.2 Self-Determination Theory in Autonomous Learning | Wolfram Schultz (1997) Reward Prediction Errors (δ = R - V), phasic bursts vs tonic dopamine, P. Read Montague & Peter Dayan Temporal Difference (TD) reinforcement learning, retrograde temporal migration, John Salamone & Yael Niv motivational vigor & cost-benefit effort allocation, Robert Wilson (2019) ~85% optimal learning rule, Carver & Scheier progress velocity feedback, Edward Deci & Richard Ryan Self-Determination Theory triad (Autonomy, Competence, Relatedness), Organismic Integration Theory (OIT) continuum, Lepper, Greene & Nisbett overjustification / undermining effect, Murayama et al. striatal deactivation. | **ACCEPTED** (2/2 Lessons Complete — **CHAPTER 20 COMPLETE**) |
-| **ch-21-stress-performance** | **21. Stress, Arousal & Cognitive Performance** | 21.1 The Yerkes-Dodson Law & Cortisol Dynamics<br>21.2 Emotion-Appraisal Regulation During High-Stakes Tests | Robert Yerkes & John Dodson (1908) Inverted-U Law & task complexity interaction, Colin Easterbrook (1959) cue utilization hypothesis, Amy Arnsten (1998, 2009) prefrontal cortex catecholaminergic microcircuit gating, α2A vs low-affinity α1/β1 and D1 opening of HCN/KCNQ potassium channels, Bruce McEwen (1998, 2004) & Sonia Lupien (2009) hippocampal receptor duality (high-affinity MRs supporting LTP vs low-affinity GRs acutely blocking retrieval and driving CA3 dendritic atrophy), Sian Beilock (2004, 2010) working memory choking, physiological sigh autonomic down-regulation. | **IN PROGRESS** (21.1 Complete, 21.2 Next) |
-| **ch-22-identity-mindset** | **22. Identity, Self-Efficacy & Growth Orientation** | 22.1 Bandura's Self-Efficacy Mechanisms<br>22.2 Belief Systems & Attribution Retraining | Efficacy expectation sources, incremental theory of intelligence, attribution theory. | **PLANNED** |
+| **ch-21-stress-performance** | **21. Stress, Arousal & Cognitive Performance** | 21.1 The Yerkes-Dodson Law & Cortisol Dynamics<br>21.2 Emotion-Appraisal Regulation During High-Stakes Tests | Robert Yerkes & John Dodson (1908) Inverted-U Law & task complexity interaction, Colin Easterbrook (1959) cue utilization hypothesis, Amy Arnsten (1998, 2009) prefrontal cortex catecholaminergic microcircuit gating, α2A vs low-affinity α1/β1 and D1 opening of HCN/KCNQ potassium channels, Bruce McEwen (1998, 2004) & Sonia Lupien (2009) hippocampal receptor duality (high-affinity MRs supporting LTP vs low-affinity GRs acutely blocking retrieval and driving CA3 dendritic atrophy), Sian Beilock (2004, 2010) working memory choking, physiological sigh autonomic down-regulation, Jeremy Jamieson & Wendy Mendes (2010, 2018) Biopsychosocial Model of Challenge vs Threat, total peripheral resistance vs cardiac output, Alison Wood Brooks (2014) "Get Excited" anxiety reappraisal, James Gross (1998, 2002) process model of emotion regulation: cognitive reappraisal vs expressive suppression working memory tax, Ramirez & Beilock (2011) 10-minute expressive writing intervention. | **ACCEPTED** (2/2 Lessons Complete — **CHAPTER 21 COMPLETE**) |
+| **ch-22-identity-mindset** | **22. Identity, Self-Efficacy & Growth Orientation** | 22.1 Bandura's Self-Efficacy Mechanisms<br>22.2 Belief Systems & Attribution Retraining | Efficacy expectation sources, incremental theory of intelligence, attribution theory. | **IN PROGRESS** (22.1 Next) |
 
 ### Part 7: Meta-Learning, Systems Design & Lifetime Mastery (Chapters 23–26)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
@@ -168,21 +168,21 @@ Every implemented lesson must satisfy the 15-point educational quality benchmark
 
 ## 5. Current Test & Quality Metrics
 
-- **Vitest Suite:** 627 passing tests across 54 test files (100% pass rate).
-- **Linter (`oxlint`):** 0 warnings, 0 errors across 149 files.
-- **Build (`tsc -b && vite build`):** Clean production build (157ms).
+- **Vitest Suite:** 641 passing tests across 55 test files (100% pass rate).
+- **Linter (`oxlint`):** 0 warnings, 0 errors across 152 files.
+- **Build (`tsc -b && vite build`):** Clean production build (155ms).
 - **Bundle Security:** 0 leaked secrets; no server SDK in client bundle.
-- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.1 through 21.1 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
+- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.1 through 21.2 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
 - **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across registered concepts.
 
 ---
 
 ## 6. Immediate Next Milestone
 
-**Stage 6.2: Implement Lesson 21.2: "Cognitive Reappraisal & High-Stakes Performance — Reframing physiological arousal from threat to challenge state"**
-- Create `src/data/lesson21_2Data.ts`.
-- Satisfy all 15 points of the Reusable Lesson Quality Standard (Wendy Berry Mendes & Jeremy Jamieson Biopsychosocial Model of Challenge vs Threat, total peripheral resistance vs cardiac output, Alison Wood Brooks 2014 "Get Excited: Reappraising Pre-Performance Anxiety", James Gross 1998 process model of emotion regulation: cognitive reappraisal vs expressive suppression, Sian Beilock & Gerardo Ramirez 2011 expressive writing intervention to clear working memory).
+**Stage 6.3: Implement Lesson 22.1: "Bandura's Self-Efficacy Mechanisms — Mastery experiences, vicarious models, and agency loops" (Finishing Part 6 with Chapter 22!)**
+- Create `src/data/lesson22_1Data.ts`.
+- Satisfy all 15 points of the Reusable Lesson Quality Standard (Albert Bandura 1977, 1997 Self-Efficacy Theory: mastery experiences, vicarious modeling, social persuasion, physiological/affective states; Dale Schunk proximal goal setting; Carol Dweck implicit theories of intelligence / growth vs fixed mindset neurobiology; Claude Steele stereotype threat).
 - Register concepts and misconceptions in `src/types/memory.ts`, `src/services/memoryStorage.ts`, and `src/data/conceptRegistry.ts`.
-- Add Lesson 21.2 section anchors and tutor system prompt to `server/groundingContext.ts`.
+- Add Lesson 22.1 section anchors and tutor system prompt to `server/groundingContext.ts`.
 - Add local fallback knowledge entries to `src/data/tutorKnowledge.ts`.
-- Expand unit tests with `src/test/lesson21_2Data.test.ts` and execute browser CDP verification.
+- Expand unit tests with `src/test/lesson22_1Data.test.ts` and execute browser CDP verification.
