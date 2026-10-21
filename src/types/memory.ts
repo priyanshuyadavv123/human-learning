@@ -204,6 +204,10 @@ export const KNOWN_CONCEPTS = [
   'concept:protege_effect_teachable_agents_chase_schwartz',
   'concept:feynman_technique_jargon_deconstruction_chi',
   'concept:expecting_to_teach_schema_restructuring_bjork',
+  // Lesson 25.2 Concepts
+  'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
+  'concept:argumentative_theory_reasoning_mercier_sperber',
+  'concept:peer_calibration_red_teaming_tetlock',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -362,6 +366,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 25.1 Misconceptions
   'misconception:using_complex_jargon_demonstrates_deep_understanding',
   'misconception:teaching_is_only_beneficial_once_mastery_is_complete',
+  // Lesson 25.2 Misconceptions
+  'misconception:polite_consensus_signifies_high_quality_collective_learning',
+  'misconception:solitary_introspection_can_eliminate_all_cognitive_biases',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

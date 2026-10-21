@@ -363,6 +363,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'protege-effect-teaching';
     chapterId = 'ch-25-social-protege';
+  } else if (
+    conceptId.startsWith('concept:adversarial_collaboration_') ||
+    conceptId.startsWith('concept:argumentative_theory_') ||
+    conceptId.startsWith('concept:peer_calibration_')
+  ) {
+    lessonId = 'adversarial-peer-review';
+    chapterId = 'ch-25-social-protege';
   }
 
   return {

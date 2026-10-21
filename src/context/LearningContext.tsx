@@ -629,6 +629,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:feynman_technique_jargon_deconstruction_chi',
     },
   },
+  'adversarial-peer-review': {
+    predictionConceptId: 'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
+    predictionMisconceptionId: 'misconception:solitary_introspection_can_eliminate_all_cognitive_biases',
+    quizConceptMapping: {
+      'q1-adversarial-collaboration-kahneman': 'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
+      'q2-argumentative-theory-mercier-sperber': 'concept:argumentative_theory_reasoning_mercier_sperber',
+      'q3-peer-calibration-red-teaming-tetlock': 'concept:peer_calibration_red_teaming_tetlock',
+      'q4-decoupled-dissent-psychological-safety': 'concept:peer_calibration_red_teaming_tetlock',
+      'q1': 'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
+      'q2': 'concept:argumentative_theory_reasoning_mercier_sperber',
+      'q3': 'concept:peer_calibration_red_teaming_tetlock',
+      'q4': 'concept:peer_calibration_red_teaming_tetlock',
+    },
+  },
 };
 
 interface LearningContextType {

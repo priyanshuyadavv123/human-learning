@@ -48,6 +48,7 @@ import { LESSON_DEPENDENCY_GRAPH_SEQUENCING } from './lesson23_2Data.ts';
 import { LESSON_EXTENDED_MIND_ZETTELKASTEN } from './lesson24_1Data.ts';
 import { LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING } from './lesson24_2Data.ts';
 import { LESSON_PROTEGE_EFFECT_TEACHING } from './lesson25_1Data.ts';
+import { LESSON_ADVERSARIAL_PEER_REVIEW } from './lesson25_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -672,7 +673,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Adversarial Collaboration & Peer Calibration',
           subtitle: 'Using peer review and debate to shatter shared illusions of competence',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1217,6 +1218,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_EXTENDED_MIND_ZETTELKASTEN.id]: LESSON_EXTENDED_MIND_ZETTELKASTEN,
   [LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING.id]: LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING,
   [LESSON_PROTEGE_EFFECT_TEACHING.id]: LESSON_PROTEGE_EFFECT_TEACHING,
+  [LESSON_ADVERSARIAL_PEER_REVIEW.id]: LESSON_ADVERSARIAL_PEER_REVIEW,
 };
 
 export function getLessonById(id: string): Lesson {

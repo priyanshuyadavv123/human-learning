@@ -604,6 +604,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 25.1 • Verification Assessment',
   'Lesson 25.1 • The 3-Step Protégé Feynman Protocol',
   'Lesson 25.1 • The Protégé Effect: Learning by Teaching Overview',
+
+  // Lesson 25.2 Sections
+  'Lesson 25.2 • Curiosity Hook',
+  'Lesson 25.2 • Intuitive Calibration: Unchecked Solitary Intuition vs Adversarial Peer Calibration',
+  'Lesson 25.2 • Section 1: Daniel Kahneman & Gary Klein (2009): Adversarial Collaboration & Boundary Testing',
+  'Lesson 25.2 • Section 2: Hugo Mercier & Dan Sperber (2011): The Argumentative Theory of Reasoning',
+  'Lesson 25.2 • Section 3: Philip Tetlock & Red Teaming: Peer Calibration & Decoupled Dissent',
+  'Lesson 25.2 • The Adversarial Collaboration & Peer Calibration Funnel',
+  'Lesson 25.2 • Epistemic Blind-Spot Audit & Red Team Lab',
+  'Lesson 25.2 • Verification Assessment',
+  'Lesson 25.2 • The 3-Step Adversarial Peer Review Protocol',
+  'Lesson 25.2 • Adversarial Collaboration & Peer Calibration Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -717,6 +729,36 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 25.2 anchors
+  if ((lower.includes('kahneman') && lower.includes('klein')) || lower.includes('adversarial collaboration') || (lower.includes('boundary testing') && !lower.includes('23.2')) || lower.includes('conditions for intuitive expertise') || (lower.includes('25.2') && lower.includes('section 1'))) {
+    return 'Lesson 25.2 • Section 1: Daniel Kahneman & Gary Klein (2009): Adversarial Collaboration & Boundary Testing';
+  }
+  if ((lower.includes('mercier') && lower.includes('sperber')) || lower.includes('argumentative theory') || lower.includes('enigma of reason') || lower.includes('myside bias') || lower.includes('asymmetry of evaluation') || (lower.includes('evaluative vigilance') && !lower.includes('24.2')) || (lower.includes('25.2') && lower.includes('section 2'))) {
+    return 'Lesson 25.2 • Section 2: Hugo Mercier & Dan Sperber (2011): The Argumentative Theory of Reasoning';
+  }
+  if (
+    !lower.includes('considering the opposite') &&
+    !lower.includes('calibration mirror') &&
+    !lower.includes('18.1') &&
+    (
+      (lower.includes('tetlock') && (lower.includes('red team') || lower.includes('peer') || lower.includes('decoupled') || lower.includes('dissent') || lower.includes('25.2') || lower.includes('good judgment'))) ||
+      lower.includes('red team') ||
+      lower.includes('red teaming') ||
+      lower.includes('decoupled dissent') ||
+      lower.includes('dragonfly eye') ||
+      lower.includes('peer calibration') ||
+      (lower.includes('25.2') && lower.includes('section 3'))
+    )
+  ) {
+    return 'Lesson 25.2 • Section 3: Philip Tetlock & Red Teaming: Peer Calibration & Decoupled Dissent';
+  }
+  if (lower.includes('adversarial collaboration & peer calibration funnel') || lower.includes('peer calibration funnel') || lower.includes('adversarial collaboration funnel')) {
+    return 'Lesson 25.2 • The Adversarial Collaboration & Peer Calibration Funnel';
+  }
+  if (lower.includes('25.2') || lower.includes('adversarial-peer-review') || lower.includes('adversarial collaboration & peer calibration') || lower.includes('3-step adversarial peer review protocol')) {
+    return 'Lesson 25.2 • Section 1: Daniel Kahneman & Gary Klein (2009): Adversarial Collaboration & Boundary Testing';
   }
 
   // Match Lesson 25.1 anchors
@@ -2828,6 +2870,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_25_2 = `You are the specialized AI Socratic Tutor for Lesson 25.2: "Adversarial Collaboration & Peer Calibration".
+Your role is to guide learners to shatter cognitive blind spots and elevate judgment through adversarial collaboration and peer calibration: Daniel Kahneman & Gary Klein's (2009) Adversarial Collaboration and empirical boundary testing (establishing the dual conditions for valid intuitive expertise: high-validity environments and prolonged rapid feedback), Hugo Mercier & Dan Sperber's (2011, 2017) Argumentative Theory of Reasoning (the evolutionary asymmetry where reasoning evolved for social argument production and evaluative vigilance rather than solitary reflection), and Philip Tetlock's (2015) Superforecasting and military Red Teaming (decoupled dissent, dragonfly-eye perspective aggregation, pre-mortems, and Bayesian belief updating).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in the cognitive science of adversarial collaboration and social reasoning:
+     a) Kahneman & Klein (2009): Adversarial collaboration brings intellectual opponents together to co-design empirical experiments that locate boundary conditions. Valid intuition requires (1) an environment of high causal validity, and (2) prolonged opportunity to learn regularities with rapid feedback.
+     b) Mercier & Sperber (2011): Human reasoning evolved for social communication and persuasion, not solitary contemplation. Humans exhibit strong myside bias when producing arguments, but acute evaluative vigilance when critiquing others. Solitary introspection fails to eliminate bias; dialectical peer review is mandatory.
+     c) Philip Tetlock (2015) & Red Teaming: Superforecasters outperform solo experts through peer calibration, decoupled dissent (disagreement without social penalty), dragonfly-eye perspective aggregation, pre-mortems, and granular Bayesian belief updating tracked via Brier scores.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to adversarial collaboration, boundary conditions, argumentative theory of reasoning, myside bias, evaluative vigilance, superforecasting, and decoupled dissent.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2975,6 +3041,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'protege-effect-teaching') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_25_1;
+  }
+  if (lessonId === 'adversarial-peer-review') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_25_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3180,6 +3249,10 @@ export const KNOWN_CONCEPTS = [
   'concept:protege_effect_teachable_agents_chase_schwartz',
   'concept:feynman_technique_jargon_deconstruction_chi',
   'concept:expecting_to_teach_schema_restructuring_bjork',
+  // Lesson 25.2 Concepts
+  'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
+  'concept:argumentative_theory_reasoning_mercier_sperber',
+  'concept:peer_calibration_red_teaming_tetlock',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3338,6 +3411,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 25.1 Misconceptions
   'misconception:using_complex_jargon_demonstrates_deep_understanding',
   'misconception:teaching_is_only_beneficial_once_mastery_is_complete',
+  // Lesson 25.2 Misconceptions
+  'misconception:polite_consensus_signifies_high_quality_collective_learning',
+  'misconception:solitary_introspection_can_eliminate_all_cognitive_biases',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
