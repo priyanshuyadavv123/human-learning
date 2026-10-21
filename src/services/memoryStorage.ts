@@ -293,6 +293,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'dopamine-reward-prediction';
     chapterId = 'ch-20-motivation-drive';
+  } else if (
+    conceptId.startsWith('concept:deci_ryan_') ||
+    conceptId.startsWith('concept:organismic_integration_') ||
+    conceptId.startsWith('concept:lepper_overjustification_')
+  ) {
+    lessonId = 'self-determination-theory';
+    chapterId = 'ch-20-motivation-drive';
   }
 
   return {

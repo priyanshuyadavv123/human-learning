@@ -1822,6 +1822,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:dopamine_is_the_molecule_of_pleasure_reward',
     discrepancyPrompt: 'Previously you may have viewed lack of motivation as a failure of willpower or moral character. How does Salamone and Niv’s research prove that motivational vigor is a direct neurochemical function of tonic dopamine modulating cost-benefit effort calculations?',
   },
+  'concept:deci_ryan_self_determination_triad': {
+    conceptId: 'concept:deci_ryan_self_determination_triad',
+    title: 'Edward Deci & Richard Ryan: The Basic Psychological Needs Triad',
+    prompt: 'What are the three universal psychological needs identified in Self-Determination Theory (Deci & Ryan, 1985, 2000), and how do they function as non-negotiable nutrients for autonomous motivation?',
+    keyCriteria: [
+      'Cites Edward L. Deci & Richard M. Ryan (1985, 2000) Self-Determination Theory (SDT)',
+      'Defines Autonomy (Internal Perceived Locus of Causality, volition, deCharms origin vs pawn)',
+      'Defines Competence (experiencing mastery, optimal challenge, effective interactions with environment)',
+      'Defines Relatedness (belonging, mutual care, integration into communities of practice, Lave & Wenger)',
+    ],
+    canonicalAnswer: 'Edward L. Deci and Richard M. Ryan (1985, 2000) established Self-Determination Theory (SDT), proving that human vitality, intrinsic drive, and cognitive performance require the continuous satisfaction of three universal basic psychological needs: Autonomy, Competence, and Relatedness. Autonomy is the experience of volition and self-endorsement—acting as the "origin" of one’s behavior rather than a coerced "pawn" (deCharms, 1968). Competence is the experience of mastery and effective challenge, expanding one’s capabilities within structured feedback loops. Relatedness is the sense of belonging, connection, and mutual significance within a community of practice (Lave & Wenger, 1991). When social and educational environments nurture this triad, autonomous motivation flourishes; when any need is thwarted, alienation, cynicism, and burnout inevitably occur.',
+    lessonSectionAnchor: 'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad',
+    relatedMisconception: 'misconception:discipline_and_willpower_are_purely_innate_traits',
+    discrepancyPrompt: 'Previously you may have believed that motivation is a fixed character trait or a single fuel tank of raw willpower. How does Deci & Ryan’s research prove that motivation is a qualitative state governed by Autonomy, Competence, and Relatedness?',
+  },
+  'concept:organismic_integration_continuum': {
+    conceptId: 'concept:organismic_integration_continuum',
+    title: 'Organismic Integration Theory (OIT): The Motivational Continuum',
+    prompt: 'How does Organismic Integration Theory (Ryan & Deci, 2000) structure the continuum of extrinsic motivation from external compliance to integrated regulation, and why is introjection psychologically costly?',
+    keyCriteria: [
+      'Cites Ryan & Deci (2000) Organismic Integration Theory (OIT)',
+      'Distinguishes the four extrinsic regulatory styles: External Regulation, Introjected Regulation, Identified Regulation, and Integrated Regulation',
+      'Details Introjected Regulation: ego-involvement, guilt, shame, and anxiety ("I must study or I am worthless"), explaining its cognitive costs in elevated cortisol and impaired working memory',
+      'Explains Integrated Regulation: full congruence of an instrumental behavior with identity, personal values, and life goals, achieving the durability of intrinsic drive',
+    ],
+    canonicalAnswer: 'Organismic Integration Theory (OIT; Ryan & Deci, 2000) maps motivation across a continuum from Amotivation through four extrinsic regulatory styles to Intrinsic Motivation. External Regulation relies entirely on external carrots and sticks (lowest autonomy). Introjected Regulation occurs when external pressures are internalized into self-coercion—forcing action through guilt, shame, anxiety, and fragile ego-worth; while it drives short-term work, introjection inflicts severe psychological costs (elevated stress, impaired working memory, and burnout). Identified Regulation occurs when an individual consciously values an activity as personally significant. Integrated Regulation represents the highest form of internalization: the behavior is fully assimilated into one’s overarching identity and value hierarchy. Integrated regulation allows learners to sustain demanding technical practice with genuine volition, even during unglamorous drills.',
+    lessonSectionAnchor: 'Lesson 20.2 • Section 2: Organismic Integration Theory (OIT): The Motivational Continuum',
+    relatedMisconception: 'misconception:discipline_and_willpower_are_purely_innate_traits',
+    discrepancyPrompt: 'Previously you may have relied on guilt, self-criticism, and impostor panic ("I should be working harder") to force yourself to study. Why does Organismic Integration Theory show that Introjected guilt produces high cognitive friction, and how does Integrated regulation provide a sustainable alternative?',
+  },
+  'concept:lepper_overjustification_undermining_effect': {
+    conceptId: 'concept:lepper_overjustification_undermining_effect',
+    title: 'Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
+    prompt: 'How do expected task-contingent extrinsic rewards undermine intrinsic motivation, and what neural mechanism did Murayama et al. (2010) uncover using fMRI?',
+    keyCriteria: [
+      'Cites Mark Lepper, David Greene & Richard Nisbett (1973) and Deci, Koestner & Ryan (1999) meta-analysis',
+      'Explains the Overjustification Effect: shift in perceived locus of causality from internal (I do this because I am curious) to external (I do this for the reward)',
+      'Cites Kou Murayama et al. (2010, PNAS) fMRI findings: striatal and lateral prefrontal activation drops below baseline when extrinsic monetary rewards are removed',
+      'Contrasts controlling rewards (which crush autonomy) with informational feedback (which affirms competence without coercing behavior)',
+    ],
+    canonicalAnswer: 'Mark Lepper, David Greene, and Richard Nisbett (1973) established the "Overjustification Effect": providing expected, task-contingent extrinsic rewards for an initially engaging task diminishes subsequent voluntary interest once rewards cease. Deci, Koestner & Ryan’s (1999) meta-analysis of 128 experiments confirmed that tangible, expected rewards consistently undermine intrinsic motivation by shifting the perceived locus of causality outward ("I am only doing this for the carrot"). Kou Murayama et al. (2010, PNAS) demonstrated the neural mechanism using fMRI: while performance bonuses initially activate the anterior striatum and prefrontal cortex, discontinuing the reward causes striatal activation during task engagement to collapse below baseline. In educational and professional systems, controlling rewards corrupt intrinsic curiosity; only informational feedback that affirms competence without dictating compliance sustains intrinsic drive.',
+    lessonSectionAnchor: 'Lesson 20.2 • Section 3: Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
+    relatedMisconception: 'misconception:extrinsic_incentives_always_boost_performance',
+    discrepancyPrompt: 'Previously you may have assumed that offering cash bonuses, points, or streaks for studying would always boost engagement. Why does Lepper and Murayama’s research prove that extrinsic carrots actually suppress striatal valuation and extinguish long-term curiosity?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

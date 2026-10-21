@@ -131,8 +131,8 @@ Every chapter is classified strictly by actual code implementation:
 ### Part 6: Motivation, Emotion & the Bio-Energetics of Mastery (Chapters 20–22)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **ch-20-motivation-drive** | **20. Dopamine, Anticipation & Intrinsic Drive** | 20.1 Reward Prediction Errors in Motivation<br>20.2 Self-Determination Theory in Autonomous Learning | Wolfram Schultz (1997) Reward Prediction Errors (δ = R - V), phasic bursts vs tonic dopamine, P. Read Montague & Peter Dayan Temporal Difference (TD) reinforcement learning, retrograde temporal migration, John Salamone & Yael Niv motivational vigor & cost-benefit effort allocation, Robert Wilson (2019) ~85% optimal learning rule, Carver & Scheier progress velocity feedback. | **IN PROGRESS** (20.1 Complete, 20.2 Next) |
-| **ch-21-stress-performance** | **21. Stress, Arousal & Cognitive Performance** | 21.1 The Yerkes-Dodson Law & Cortisol Dynamics<br>21.2 Emotion-Appraisal Regulation During High-Stakes Tests | Glucocorticoid modulation of hippocampus, test anxiety reframing, arousal regulation. | **PLANNED** |
+| **ch-20-motivation-drive** | **20. Dopamine, Anticipation & Intrinsic Drive** | 20.1 Reward Prediction Errors in Motivation<br>20.2 Self-Determination Theory in Autonomous Learning | Wolfram Schultz (1997) Reward Prediction Errors (δ = R - V), phasic bursts vs tonic dopamine, P. Read Montague & Peter Dayan Temporal Difference (TD) reinforcement learning, retrograde temporal migration, John Salamone & Yael Niv motivational vigor & cost-benefit effort allocation, Robert Wilson (2019) ~85% optimal learning rule, Carver & Scheier progress velocity feedback, Edward Deci & Richard Ryan Self-Determination Theory triad (Autonomy, Competence, Relatedness), Organismic Integration Theory (OIT) continuum, Lepper, Greene & Nisbett overjustification / undermining effect, Murayama et al. striatal deactivation. | **ACCEPTED** (2/2 Lessons Complete — **CHAPTER 20 COMPLETE**) |
+| **ch-21-stress-performance** | **21. Stress, Arousal & Cognitive Performance** | 21.1 The Yerkes-Dodson Law & Cortisol Dynamics<br>21.2 Emotion-Appraisal Regulation During High-Stakes Tests | Glucocorticoid modulation of hippocampus, test anxiety reframing, arousal regulation. | **IN PROGRESS** (21.1 Next) |
 | **ch-22-identity-mindset** | **22. Identity, Self-Efficacy & Growth Orientation** | 22.1 Bandura's Self-Efficacy Mechanisms<br>22.2 Belief Systems & Attribution Retraining | Efficacy expectation sources, incremental theory of intelligence, attribution theory. | **PLANNED** |
 
 ### Part 7: Meta-Learning, Systems Design & Lifetime Mastery (Chapters 23–26)
@@ -168,21 +168,21 @@ Every implemented lesson must satisfy the 15-point educational quality benchmark
 
 ## 5. Current Test & Quality Metrics
 
-- **Vitest Suite:** 192 passing tests across 22 test files (100% pass rate).
-- **Linter (`oxlint`):** 0 warnings, 0 errors across 60 files.
-- **Build (`tsc -b && vite build`):** Clean production build (133ms).
+- **Vitest Suite:** 613 passing tests across 53 test files (100% pass rate).
+- **Linter (`oxlint`):** 0 warnings, 0 errors across 146 files.
+- **Build (`tsc -b && vite build`):** Clean production build (147ms).
 - **Bundle Security:** 0 leaked secrets; no server SDK in client bundle.
-- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.2, 1.3, 2.1, 2.2, 3.1, 3.2, 4.1, 4.2, and 5.1 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
-- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across 32 registered concepts.
+- **Browser CDP Verification:** 100% automated E2E pass for Lessons 1.1 through 20.2 with live Groq AI tutor grounding, quiz scoring, and DOM interaction.
+- **Memory Store Migration:** Strict v2 compatibility + non-destructive forward-compatible concept backfilling across registered concepts.
 
 ---
 
 ## 6. Immediate Next Milestone
 
-**Stage 4.12: Implement Lesson 5.2: "Hippocampal-Neocortical Dialogue — System-level migration from temporary index to distributed network"**
-- Complete Chapter 5 by creating `src/data/lesson5_2Data.ts`.
-- Satisfy all 15 points of the Reusable Lesson Quality Standard (Scoville & Milner 1957 Patient H.M., Standard Consolidation Theory vs Multiple Trace Theory / Nadel & Moscovitch, hippocampal index model / Teyler & DiScenna, neocortical slow learning rate / McClelland, McNaughton & O'Reilly complementary learning systems).
-- Register concepts (`concept:hippocampal_index_model`, `concept:standard_consolidation_vs_multiple_trace`, `concept:complementary_learning_systems_interleaved_integration`) in `conceptRegistry.ts`.
-- Add Lesson 5.2 section anchors and tutor system prompt to `server/groundingContext.ts`.
+**Stage 6.1: Implement Lesson 21.1: "The Yerkes-Dodson Law & Cortisol Dynamics — Arousal optimization and working memory preservation under pressure"**
+- Create `src/data/lesson21_1Data.ts`.
+- Satisfy all 15 points of the Reusable Lesson Quality Standard (Robert Yerkes & John Dodson 1908 inverted-U curve, task complexity interaction, Amy Arnsten prefrontal cortex catecholamine/dopamine-norepinephrine inverted-U dynamics, Bruce McEwen allostatic load, glucocorticoid receptor saturation in hippocampus vs amygdala).
+- Register concepts and misconceptions in `src/types/memory.ts`, `src/services/memoryStorage.ts`, and `src/data/conceptRegistry.ts`.
+- Add Lesson 21.1 section anchors and tutor system prompt to `server/groundingContext.ts`.
 - Add local fallback knowledge entries to `src/data/tutorKnowledge.ts`.
-- Expand unit tests with `src/test/lesson5_2Data.test.ts` and execute browser CDP verification.
+- Expand unit tests with `src/test/lesson21_1Data.test.ts` and execute browser CDP verification.

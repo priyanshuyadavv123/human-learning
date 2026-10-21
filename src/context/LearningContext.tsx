@@ -489,6 +489,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:schultz_reward_prediction_error_phasic_dopamine',
     },
   },
+  'self-determination-theory': {
+    predictionConceptId: 'concept:deci_ryan_self_determination_triad',
+    predictionMisconceptionId: 'misconception:extrinsic_incentives_always_boost_performance',
+    quizConceptMapping: {
+      'q1-sdt-needs-triad': 'concept:deci_ryan_self_determination_triad',
+      'q2-overjustification-undermining-effect': 'concept:lepper_overjustification_undermining_effect',
+      'q3-oit-introjected-vs-integrated': 'concept:organismic_integration_continuum',
+      'q4-murayama-neurobiology-undermining': 'concept:lepper_overjustification_undermining_effect',
+      'q1': 'concept:deci_ryan_self_determination_triad',
+      'q2': 'concept:lepper_overjustification_undermining_effect',
+      'q3': 'concept:organismic_integration_continuum',
+      'q4': 'concept:lepper_overjustification_undermining_effect',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -164,6 +164,10 @@ export const KNOWN_CONCEPTS = [
   'concept:schultz_reward_prediction_error_phasic_dopamine',
   'concept:temporal_difference_learning_montague_dayan',
   'concept:tonic_vs_phasic_dopamine_motivational_vigor',
+  // Lesson 20.2 Concepts
+  'concept:deci_ryan_self_determination_triad',
+  'concept:organismic_integration_continuum',
+  'concept:lepper_overjustification_undermining_effect',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -291,6 +295,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 20.1 Misconceptions
   'misconception:dopamine_is_the_molecule_of_pleasure_reward',
   'misconception:motivation_requires_guaranteed_predictable_outcomes',
+  // Lesson 20.2 Misconceptions
+  'misconception:extrinsic_incentives_always_boost_performance',
+  'misconception:discipline_and_willpower_are_purely_innate_traits',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

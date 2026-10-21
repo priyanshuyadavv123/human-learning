@@ -38,6 +38,7 @@ import { LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY } from './lesson18_2Data.ts';
 import { LESSON_INCUBATION_DEFAULT_MODE } from './lesson19_1Data.ts';
 import { LESSON_COMBINATORIAL_PLAY_SYNTHESIS } from './lesson19_2Data.ts';
 import { LESSON_DOPAMINE_REWARD_PREDICTION } from './lesson20_1Data.ts';
+import { LESSON_SELF_DETERMINATION_THEORY } from './lesson20_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -540,7 +541,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Self-Determination in Autonomous Mastery',
           subtitle: 'Autonomy, competence, and relatedness as intrinsic fuel',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1197,6 +1198,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_INCUBATION_DEFAULT_MODE.id]: LESSON_INCUBATION_DEFAULT_MODE,
   [LESSON_COMBINATORIAL_PLAY_SYNTHESIS.id]: LESSON_COMBINATORIAL_PLAY_SYNTHESIS,
   [LESSON_DOPAMINE_REWARD_PREDICTION.id]: LESSON_DOPAMINE_REWARD_PREDICTION,
+  [LESSON_SELF_DETERMINATION_THEORY.id]: LESSON_SELF_DETERMINATION_THEORY,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -1153,6 +1153,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When you feel intense cognitive friction and want to procrastinate, is the task too difficult, or is your tonic dopamine baseline depleted by fatigue?',
     referencedSection: 'Lesson 20.1 • Section 3: Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
   },
+  {
+    keywords: ['deci and ryan', 'self-determination theory', 'sdt triad', 'autonomy competence relatedness', 'internal locus of causality', 'decharms origin pawn'],
+    title: 'Edward Deci & Richard Ryan: The Basic Psychological Needs Triad',
+    summary: 'Self-Determination Theory proves that intrinsic drive is fueled by three innate needs: Autonomy, Competence, and Relatedness.',
+    takeaway: 'Autonomy, Competence, and Relatedness are universal psychological nutrients; thwarting any need causes alienation and burnout (Deci & Ryan, 2000).',
+    detailedResponse: 'Edward L. Deci and Richard M. Ryan (1985, 2000) established Self-Determination Theory (SDT), showing that human motivation is a qualitative continuum powered by three universal needs: 1) Autonomy: experiencing volition and agency—being an "origin" rather than a coerced "pawn" (deCharms, 1968); 2) Competence: feeling effective, mastering challenges, and receiving informational feedback; 3) Relatedness: experiencing belonging and mutual significance within a community of practice. When learning environments nurture this triad, autonomous motivation flourishes; when any need is thwarted, cognitive disaffection and withdrawal occur.',
+    socraticChallenge: 'In your current study routine, which of the three needs (Autonomy, Competence, or Relatedness) is currently most starved?',
+    referencedSection: 'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad',
+  },
+  {
+    keywords: ['organismic integration', 'introjected regulation', 'integrated regulation', 'external regulation', 'identified regulation', 'motivational continuum'],
+    title: 'Organismic Integration Theory (OIT): The Motivational Continuum',
+    summary: 'Extrinsic motivation spans a continuum from coercive external compliance to identity-congruent Integrated Regulation.',
+    takeaway: 'Introjection forces study through toxic guilt and anxiety; Integrated Regulation assimilates challenging tasks into authentic identity (Ryan & Deci, 2000).',
+    detailedResponse: 'Organismic Integration Theory (Ryan & Deci, 2000) maps motivation across a continuum: Amotivation → External Regulation (carrots/sticks) → Introjected Regulation (internalized guilt, shame, ego-threat) → Identified Regulation (conscious personal utility) → Integrated Regulation (full congruence with identity and values) → Intrinsic Motivation. Many ambitious students rely on toxic introjection ("I must study or I am an impostor"), which elevates cortisol and degrades working memory. Converting tasks into Integrated Regulation requires aligning the technical skill with personal first-principles values.',
+    socraticChallenge: 'Are you currently forcing yourself to study through guilt and impostor panic (introjection), or because it serves your self-authored identity (integration)?',
+    referencedSection: 'Lesson 20.2 • Section 2: Organismic Integration Theory (OIT): The Motivational Continuum',
+  },
+  {
+    keywords: ['overjustification effect', 'undermining effect', 'mark lepper', 'murayama', 'extrinsic rewards undermine', 'fmri striatal undermining'],
+    title: 'Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
+    summary: 'Expected extrinsic rewards shift causality outward, corroding intrinsic curiosity and suppressing striatal valuation circuits.',
+    takeaway: 'Expected rewards shift locus of causality from internal curiosity to external compliance; removing rewards suppresses striatal activation below baseline (Lepper et al., 1973; Murayama et al., 2010).',
+    detailedResponse: 'Mark Lepper, David Greene, and Richard Nisbett (1973) discovered the Overjustification Effect: providing expected task-contingent rewards for an intrinsically interesting activity causes the brain to attribute motivation to the external carrot, suppressing voluntary interest once rewards cease. Kou Murayama et al. (2010, PNAS) demonstrated the fMRI mechanism: performance monetary rewards initially activate the anterior striatum and prefrontal cortex, but once discontinued, striatal activity during task engagement collapses below that of unpaid controls. Use informational, competence-affirming feedback rather than controlling carrots.',
+    socraticChallenge: 'Have you ever attached a cash bonus, streak reward, or external trophy to a learning hobby only to watch your authentic curiosity disappear?',
+    referencedSection: 'Lesson 20.2 • Section 3: Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

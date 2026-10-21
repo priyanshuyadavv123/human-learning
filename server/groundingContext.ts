@@ -484,6 +484,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 20.1 • Verification Assessment',
   'Lesson 20.1 • The 3-Phase RPE-Calibrated Motivation Engine',
   'Lesson 20.1 • Reward Prediction Errors in Motivation Overview',
+
+  // Lesson 20.2 Sections
+  'Lesson 20.2 • Curiosity Hook',
+  'Lesson 20.2 • Intuitive Calibration: Extrinsic Incentives vs Autonomous Mastery',
+  'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad',
+  'Lesson 20.2 • Section 2: Organismic Integration Theory (OIT): The Motivational Continuum',
+  'Lesson 20.2 • Section 3: Lepper, Greene & Murayama: The Overjustification & Undermining Effect',
+  'Lesson 20.2 • The Organismic Integration & Autonomous Motivation Continuum',
+  'Lesson 20.2 • Self-Determination & Motivation Continuum Diagnosis Lab',
+  'Lesson 20.2 • Verification Assessment',
+  'Lesson 20.2 • The 3-Step Autonomous Mastery & Value-Integration Protocol',
+  'Lesson 20.2 • Self-Determination in Autonomous Mastery Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -546,6 +558,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('20.1') || lower.includes('dopamine-reward-prediction') || lower.includes('reward prediction errors in motivation') || lower.includes('3-phase rpe-calibrated motivation engine')) {
     return 'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics';
+  }
+
+  // Match Lesson 20.2 anchors
+  if ((lower.includes('deci') && lower.includes('ryan')) || lower.includes('self-determination theory') || lower.includes('sdt triad') || (lower.includes('autonomy') && lower.includes('competence') && lower.includes('relatedness')) || (lower.includes('20.2') && lower.includes('section 1'))) {
+    return 'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad';
+  }
+  if (lower.includes('organismic integration') || lower.includes('oit') || lower.includes('introjected regulation') || lower.includes('integrated regulation') || lower.includes('motivational continuum') || (lower.includes('external regulation') && lower.includes('identified'))) {
+    return 'Lesson 20.2 • Section 2: Organismic Integration Theory (OIT): The Motivational Continuum';
+  }
+  if (lower.includes('overjustification') || lower.includes('undermining effect') || (lower.includes('lepper') && lower.includes('greene')) || (lower.includes('murayama') && (lower.includes('fmri') || lower.includes('striatal') || lower.includes('2010') || lower.includes('20.2')))) {
+    return 'Lesson 20.2 • Section 3: Lepper, Greene & Murayama: The Overjustification & Undermining Effect';
+  }
+  if (lower.includes('the organismic integration & autonomous motivation continuum') || lower.includes('organismic integration continuum diagram') || lower.includes('autonomous motivation continuum diagram')) {
+    return 'Lesson 20.2 • The Organismic Integration & Autonomous Motivation Continuum';
+  }
+  if (lower.includes('20.2') || lower.includes('self-determination-theory') || lower.includes('self-determination in autonomous mastery') || lower.includes('3-step autonomous mastery & value-integration protocol')) {
+    return 'Lesson 20.2 • Section 1: Edward Deci & Richard Ryan: The Basic Psychological Needs Triad';
   }
 
   // Match Lesson 18.2 anchors
@@ -2293,6 +2322,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_20_2 = `You are the specialized AI Socratic Tutor for Lesson 20.2: "Self-Determination in Autonomous Mastery".
+Your role is to guide learners to understand Edward Deci & Richard Ryan's Self-Determination Theory (SDT), the Basic Psychological Needs Triad (Autonomy, Competence, Relatedness), Organismic Integration Theory (OIT) from external compliance to integrated regulation, and the Overjustification / Undermining Effect (Lepper et al., 1973; Murayama et al., 2010).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in Self-Determination Theory, Organismic Integration, and corticostriatal valuation:
+     a) The Basic Psychological Needs Triad: Human motivation requires three non-negotiable nutrients: Autonomy (acting as volitional origin rather than pawn; deCharms, 1968), Competence (experiencing mastery within calibrated feedback loops), and Relatedness (belonging in a community of practice; Lave & Wenger, 1991). Thwarting any need produces alienation and cognitive disengagement.
+     b) Organismic Integration Continuum: Extrinsic motivation spans External Regulation (carrots/sticks) -> Introjected Regulation (internalized guilt, shame, ego-threat) -> Identified Regulation (conscious personal valuation) -> Integrated Regulation (harmonious congruence with identity and values). Introjection elevates stress and impairs working memory; Integrated regulation achieves the durability of intrinsic motivation.
+     c) The Overjustification & Undermining Effect: Expected, task-contingent extrinsic rewards shift the perceived locus of causality outward (Lepper et al., 1973). Kou Murayama et al. (2010, PNAS) proved using fMRI that when expected performance rewards are removed, anterior striatal and prefrontal activation during task engagement drops below baseline.
+     d) Informational vs Controlling Feedback: Informational feedback affirms competence and guides mastery; controlling feedback dictates compliance and erodes intrinsic interest.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to the SDT triad, OIT continuum, the undermining effect, and the 3-step autonomous mastery protocol.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2410,6 +2464,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'dopamine-reward-prediction') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_20_1;
+  }
+  if (lessonId === 'self-determination-theory') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_20_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2575,6 +2632,10 @@ export const KNOWN_CONCEPTS = [
   'concept:schultz_reward_prediction_error_phasic_dopamine',
   'concept:temporal_difference_learning_montague_dayan',
   'concept:tonic_vs_phasic_dopamine_motivational_vigor',
+  // Lesson 20.2 Concepts
+  'concept:deci_ryan_self_determination_triad',
+  'concept:organismic_integration_continuum',
+  'concept:lepper_overjustification_undermining_effect',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2702,6 +2763,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 20.1 Misconceptions
   'misconception:dopamine_is_the_molecule_of_pleasure_reward',
   'misconception:motivation_requires_guaranteed_predictable_outcomes',
+  // Lesson 20.2 Misconceptions
+  'misconception:extrinsic_incentives_always_boost_performance',
+  'misconception:discipline_and_willpower_are_purely_innate_traits',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
