@@ -41,6 +41,7 @@ import { LESSON_DOPAMINE_REWARD_PREDICTION } from './lesson20_1Data.ts';
 import { LESSON_SELF_DETERMINATION_THEORY } from './lesson20_2Data.ts';
 import { LESSON_YERKES_DODSON_CORTISOL } from './lesson21_1Data.ts';
 import { LESSON_EMOTION_APPRAISAL_REGULATION } from './lesson21_2Data.ts';
+import { LESSON_BANDURA_SELF_EFFICACY } from './lesson22_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -583,7 +584,7 @@ export const PRIMARY_COURSE: Course = {
           title: "Bandura's Self-Efficacy Mechanisms",
           subtitle: 'Mastery experiences, vicarious modeling, and emotional regulation',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'attribution-retraining-mindset',
@@ -1203,6 +1204,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_SELF_DETERMINATION_THEORY.id]: LESSON_SELF_DETERMINATION_THEORY,
   [LESSON_YERKES_DODSON_CORTISOL.id]: LESSON_YERKES_DODSON_CORTISOL,
   [LESSON_EMOTION_APPRAISAL_REGULATION.id]: LESSON_EMOTION_APPRAISAL_REGULATION,
+  [LESSON_BANDURA_SELF_EFFICACY.id]: LESSON_BANDURA_SELF_EFFICACY,
 };
 
 export function getLessonById(id: string): Lesson {

@@ -520,6 +520,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 21.2 • Verification Assessment',
   'Lesson 21.2 • The 3-Step High-Stakes Reappraisal & Expressive Offloading Protocol',
   'Lesson 21.2 • Cognitive Reappraisal & High-Stakes Performance Overview',
+
+  // Lesson 22.1 Sections
+  'Lesson 22.1 • Curiosity Hook',
+  'Lesson 22.1 • Intuitive Calibration: Efficacy Construction vs Hollow Praise',
+  'Lesson 22.1 • Section 1: Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs',
+  'Lesson 22.1 • Section 2: Dale Schunk (1981, 1991): Proximal Goals, Progress Feedback & Efficacy Calibration',
+  'Lesson 22.1 • Section 3: Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety',
+  'Lesson 22.1 • Bandura\'s Self-Efficacy Engine & Attribution Regulation Architecture',
+  'Lesson 22.1 • Self-Efficacy Intervention Diagnostic Lab',
+  'Lesson 22.1 • Verification Assessment',
+  'Lesson 22.1 • The 3-Step Self-Efficacy Calibration & Proximal Scaffolding Protocol',
+  'Lesson 22.1 • Bandura\'s Self-Efficacy Mechanisms Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -633,6 +645,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 22.1 anchors
+  if (lower.includes('bandura') || lower.includes('four sources of efficacy') || lower.includes('enactive mastery') || lower.includes('vicarious experience') || lower.includes('coping model') || lower.includes('mastery model') || (lower.includes('verbal persuasion') && !lower.includes('18.2')) || (lower.includes('22.1') && lower.includes('section 1'))) {
+    return 'Lesson 22.1 • Section 1: Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs';
+  }
+  if ((lower.includes('dale schunk') || lower.includes('schunk')) || (lower.includes('proximal goal') || lower.includes('proximal subgoal') || lower.includes('progress feedback') || lower.includes('efficacy calibration')) || (lower.includes('22.1') && lower.includes('section 2'))) {
+    return 'Lesson 22.1 • Section 2: Dale Schunk (1981, 1991): Proximal Goals, Progress Feedback & Efficacy Calibration';
+  }
+  if ((lower.includes('carol dweck') || lower.includes('dweck') || lower.includes('implicit theories of intelligence') || lower.includes('jennifer mangels') || lower.includes('mangels') || lower.includes('stereotype threat') || lower.includes('claude steele') || lower.includes('identity safety') || lower.includes('entity theor') || lower.includes('incremental theor')) || (lower.includes('22.1') && lower.includes('section 3'))) {
+    return 'Lesson 22.1 • Section 3: Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety';
+  }
+  if (lower.includes('bandura\'s self-efficacy engine & attribution regulation architecture') || lower.includes('self-efficacy engine & attribution regulation') || lower.includes('self-efficacy engine')) {
+    return 'Lesson 22.1 • Bandura\'s Self-Efficacy Engine & Attribution Regulation Architecture';
+  }
+  if (lower.includes('22.1') || lower.includes('bandura-self-efficacy') || lower.includes('bandura\'s self-efficacy mechanisms') || lower.includes('3-step self-efficacy calibration & proximal scaffolding protocol')) {
+    return 'Lesson 22.1 • Section 1: Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs';
   }
 
   // Match Lesson 18.2 anchors
@@ -2455,6 +2484,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_22_1 = `You are the specialized AI Socratic Tutor for Lesson 22.1: "Bandura's Self-Efficacy Mechanisms".
+Your role is to guide learners to understand how self-efficacy is constructed, calibrated, and sustained: Albert Bandura's Self-Efficacy Theory (1977, 1997) and the 4 hierarchical sources of efficacy beliefs (Enactive Mastery Experiences, Vicarious Modeling via coping models, Verbal Persuasion, and Physiological/Affective States), Dale Schunk's (1981, 1991) proximal goal scaffolding and attributional progress feedback, Carol Dweck's Implicit Theories of Intelligence (Entity vs Incremental) and Jennifer Mangels et al.'s (2006) ERP neurobiology showing differential P3 wave allocation to threat vs corrective learning, and Claude Steele & Joshua Aronson's (1995) Stereotype Threat and identity safety buffers.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive and social-learning science:
+     a) Bandura (1977, 1997): Self-efficacy is domain-specific perceived capability, distinct from global self-esteem. The four sources are Enactive Mastery Experiences (most powerful, requiring overcoming obstacles through effort), Vicarious Modeling (coping models who struggle and adapt outperform effortless mastery models), Verbal Persuasion (credible, strategy-focused encouragement), and Physiological States (interpreting autonomic arousal as readiness rather than deficiency).
+     b) Dale Schunk (1981, 1991): Distal goals fail to provide immediate competence cues; Proximal Subgoals provide frequent, immediate benchmarks of mastery. Attributional progress feedback explicitly attributes gains to strategy and effort, calibrating efficacy slightly ahead of current skill to drive perseverance.
+     c) Carol Dweck & Jennifer Mangels et al. (2006): Entity theorists show elevated anterior frontal P3 waves to negative feedback (ego threat) but blunted waveforms to corrective learning information (filtering out solutions). Incremental theorists process corrective feedback deeply, resulting in superior error correction and neural plasticity.
+     d) Claude Steele & Joshua Aronson (1995): Stereotype Threat hijacks working memory bandwidth with intrusive worries; Identity Safety and value affirmations disarm threat and restore analytical capacity.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to self-efficacy sources, proximal goal scaffolding, growth mindset neurobiology, and identity safety.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2581,6 +2635,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'emotion-appraisal-regulation') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_21_2;
+  }
+  if (lessonId === 'bandura-self-efficacy') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_22_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2758,6 +2815,10 @@ export const KNOWN_CONCEPTS = [
   'concept:jamieson_biopsychosocial_challenge_vs_threat',
   'concept:brooks_anxiety_reappraisal_excitement',
   'concept:gross_reappraisal_vs_expressive_suppression',
+  // Lesson 22.1 Concepts
+  'concept:bandura_self_efficacy_four_sources',
+  'concept:schunk_proximal_goal_efficacy_calibration',
+  'concept:dweck_implicit_theories_neurobiology',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2895,6 +2956,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 21.2 Misconceptions
   'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
   'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
+  // Lesson 22.1 Misconceptions
+  'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
+  'misconception:talent_is_fixed_innate_entity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

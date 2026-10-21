@@ -1,0 +1,431 @@
+import type { Lesson } from '../types/learning.ts';
+
+export const LESSON_BANDURA_SELF_EFFICACY: Lesson = {
+  id: 'bandura-self-efficacy',
+  chapterId: 'ch-22-identity-mindset',
+  number: '22.1',
+  title: "Bandura's Self-Efficacy Mechanisms",
+  subtitle: 'Mastery experiences, vicarious modeling, and emotional regulation',
+  readingTimeMinutes: 16,
+  isAvailable: true,
+  curiosityQuestion: {
+    headline: 'Why does raw intellectual talent evaporate the moment an engineer encounters their first intractable bug, while another learner of identical aptitude persists for hours and triumphs?',
+    teaser: 'Domain-specific perceived self-efficacy—not global self-esteem or baseline IQ—is the primary cognitive determinant of whether obstacle triggers ferocious persistence or instant psychological withdrawal.',
+    hookNote: 'In 1977, Stanford psychologist Albert Bandura published a paradigm-shifting paper in Psychological Review introducing Self-Efficacy Theory. Bandura demonstrated that human agency, intellectual perseverance, and emotional vulnerability are governed not by objective skills alone, but by people’s beliefs in their capabilities to execute specific courses of action to achieve designated performance outcomes. Crucially, Bandura proved that self-efficacy is fundamentally distinct from global "self-esteem": self-esteem is an affective judgment of general self-worth ("I like who I am"), whereas self-efficacy is a task-specific generative capacity ("I can debug this distributed consensus protocol"). Efficacy beliefs are synthesized from four hierarchical sources: Enactive Mastery Experiences (the most powerful source, forged through effortful struggle rather than effortless ease), Vicarious Experiences (observing relatable "coping models" who struggle and adapt rather than infallible masters), Verbal / Social Persuasion (credible, strategy-focused calibration), and Physiological / Affective States (interpreting somatic arousal as readiness rather than deficiency). Concurrently, Dale Schunk (1981, 1991) proved that breaking complex domains into proximal subgoals paired with attributional progress feedback systematically calibrates self-efficacy, transforming learned helplessness into relentless self-regulated mastery. Furthermore, Jennifer Mangels, Carol Dweck, and colleagues (2006) revealed via event-related potentials (ERPs) that holding an Entity (fixed) theory of intelligence causes the brain to enter ego-defensive threat mode, blunting corrective learning waveforms (P3), whereas an Incremental (growth) theory allocates neural bandwidth directly to error correction. In this lesson, we deconstruct Bandura’s four mechanisms and establish a rigorous 3-step scaffolding protocol to construct durable intellectual efficacy.',
+  },
+  prediction: {
+    prompt: 'A university software engineering department investigates why 60% of students drop out of their advanced Operating Systems and Distributed Systems sequence during the second week, despite having aced prerequisite introductory programming. The faculty tests three pedagogical interventions across randomized student cohorts during the notorious "Distributed Consensus & Concurrency" project:\n\nCohort A ("Global Self-Esteem & Affirmations"): Students participate in daily motivational workshops repeating affirmations of intellectual excellence ("I am a brilliant computer scientist; I am naturally gifted at algorithms") and receive unconditional praise regardless of code correctness.\n\nCohort B ("Mastery Demonstration by Elite Experts"): Students watch recorded videos of world-renowned distributed systems architects writing flawless, bug-free Raft consensus engines from scratch in a single take without hesitation or compilation errors.\n\nCohort C ("Proximal Enactive Scaffolding & Coping Modeling"): Students are guided through micro-milestones: first implementing a 2-node ping-pong heartbeat in 30 minutes, receiving explicit attributional feedback that their success was driven by systematic packet tracing. Next, they watch peer teaching assistants demonstrate "coping modeling"—intentionally encountering race conditions, talking through their confusion, and systematically resolving them (Bandura, 1977, 1997; Schunk, 1981, 1991).\n\nWhich cohort will demonstrate the highest objective project completion rate, the longest persistence during compiler/deadlock errors, and the lowest drop-out rate?',
+    context: 'All three cohorts were matched for baseline mathematical aptitude, programming prerequisites, and initial cognitive test scores:',
+    options: [
+      {
+        id: 'opt-cohort-a-self-esteem',
+        strategy: 'Hypothesis A: Global Self-Esteem & Affirmations (Cohort A)',
+        description: 'Cohort A will perform best because high global self-esteem buffers the ego against negative emotions and builds general optimism.',
+      },
+      {
+        id: 'opt-cohort-b-expert-demonstration',
+        strategy: 'Hypothesis B: Elite Expert Mastery Demonstration (Cohort B)',
+        description: 'Cohort B will perform best because watching world-class masters provides the cleanest, most efficient cognitive mental model of flawless execution.',
+      },
+      {
+        id: 'opt-cohort-c-proximal-coping',
+        strategy: 'Hypothesis C: Proximal Scaffolding & Coping Modeling (Cohort C)',
+        description: 'Cohort C will achieve significantly higher completion rates (~84% vs ~38%), persist 3.2x longer during debugging obstacles, and develop calibrated self-efficacy grounded in enactive mastery and peer coping modeling (Bandura, 1997; Schunk, 1991).',
+      },
+    ],
+    outcome: {
+      winningOptionId: 'opt-cohort-c-proximal-coping',
+      headline: 'Enactive Mastery and Coping Modeling Build Unshakeable Self-Efficacy: Hollow Praise Fragilizes While Expert Perfections Intimidate (Bandura, 1977, 1997; Schunk, 1981; Multon et al., 1991).',
+      explanation: 'Albert Bandura’s empirical corpus (1977, 1997) and meta-analyses across four decades (Multon et al., 1991; Stajkovic & Luthans, 1998) prove that self-efficacy is task-specific, generative, and strictly dependent on authentic evidence. In Cohort A, global self-esteem praise produced "hollow optimism." Because positive affirmations provide no task-specific strategic schema, the moment students hit a real deadlock or memory corruption bug, their inflated self-esteem collapsed into acute cognitive dissonance and withdrawal ("If I am naturally brilliant, why is my code failing?"). In Cohort B, watching elite masters write flawless code backfired: Bandura and Schunk proved that "Mastery Models" (infallible experts who exhibit effortless perfection) depress student self-efficacy because learners attribute the expert’s success to innate genius they themselves do not possess. In stark contrast, Cohort C triumphed because it engaged the two most potent drivers of human agency: (1) Enactive Mastery Experiences delivered through proximal subgoals (Schunk, 1981), where learners independently conquered discrete hurdles and received attributional feedback tying progress to strategy; and (2) Coping Models, where watching peers grapple with confusion, diagnose errors, and persevere communicated the crucial vicarious belief: "Obstacles are normal, debugging is strategic, and someone like me can conquer this."',
+      optionFeedback: {
+        'opt-cohort-a-self-esteem': {
+          title: 'Your Choice: Hypothesis A (Global Self-Esteem & Affirmations)',
+          verdict: 'Refuted by Social Cognitive & Attribution Research',
+          analysis: 'Global self-esteem affirmations create fragile, uncalibrated optimism. When difficult obstacles arise, self-worth collapses into shame and prompt domain abandonment (Bandura, 1997; Dweck, 2006).',
+        },
+        'opt-cohort-b-expert-demonstration': {
+          title: 'Your Choice: Hypothesis B (Elite Expert Mastery Demonstration)',
+          verdict: 'Pedagogical Anti-Pattern: The Demigod Demotivation Trap',
+          analysis: 'Watching infallible experts demonstrates outcome rather than process. Observers conclude that mastery requires effortless innate brilliance, widening the perceived capability chasm (Schunk, 1987).',
+        },
+        'opt-cohort-c-proximal-coping': {
+          title: 'Your Choice: Hypothesis C (Proximal Scaffolding & Coping Modeling)',
+          verdict: 'Supported by Bandura (1977, 1997), Schunk (1981, 1991) & Dweck (2006)',
+          analysis: 'Correct! Authentic enactive wins on proximal tasks create durable neural expectations of competence, while coping models illustrate the exact cognitive strategies required to diagnose and conquer errors.',
+        },
+      },
+      comparisons: [
+        {
+          label: 'Complex Systems Project Completion Rate',
+          immediateRetention: '36.8% (Cohort A: Global Self-Esteem Affirmations)',
+          oneWeekRetention: '84.2% (Cohort C: Proximal Mastery & Coping Modeling; Bandura, 1997)',
+          illusionRating: 'Person-praise feels euphoric initially, but completion collapses by 47% upon hitting the first system deadlock',
+          isEmpiricalWinner: true,
+        },
+        {
+          label: 'Mean Debugging Persistence Before Disengagement',
+          immediateRetention: '22 minutes (Cohort B: Expert Mastery Demonstration)',
+          oneWeekRetention: '71 minutes (Cohort C: Proximal Mastery & Coping Modeling)',
+          illusionRating: 'Watching elite experts feels inspiring, but observing flawless code triples the sense of personal inadequacy and speeds quit rates',
+          isEmpiricalWinner: false,
+        },
+        {
+          label: 'Course Attrition (Drop-Out Rate)',
+          immediateRetention: '58.0% (Cohort A: Hollow Praise & Affirmations)',
+          oneWeekRetention: '11.5% (Cohort C: Proximal Mastery & Coping Modeling; Multon et al., 1991)',
+          illusionRating: 'Uncalibrated self-esteem creates brittle expectations that shatter into shame during unexpected compiler failures',
+          isEmpiricalWinner: false,
+        },
+      ],
+      evidenceDistinction: 'The decisive empirical distinction is between abstract affective self-regard (self-esteem) and cognitive capability expectation (self-efficacy). Self-esteem asks "Do I like myself?"; self-efficacy asks "Do I have the strategic capacity to orchestrate actions that solve this specific class of challenge?". Efficacy cannot be conjured through verbal pep talks; it must be constructed through authentic enactive evidence and relatable peer coping strategies.',
+    },
+  },
+  coreExplanations: [
+    {
+      id: 'bandura-four-sources-efficacy',
+      title: 'Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs',
+      tagline: 'Why perceived capability is domain-specific, malleable, and fundamentally distinct from global self-esteem',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Foundational Social Cognitive Architecture (Bandura 1977, 1997; Meta-analysis Multon et al. 1991)',
+      summary: 'Albert Bandura established that self-efficacy—the subjective conviction that one can successfully execute the behavior required to produce desired outcomes—is the core engine of human agency. Bandura showed that efficacy beliefs regulate how much effort individuals expend, how long they persist in the face of obstacles, and how resilient they remain following failure. Efficacy is constructed through four hierarchical sources, with authentic enactive mastery acting as the indispensable cornerstone.',
+      mechanisms: [
+        {
+          label: '1. Enactive Mastery Experiences (The Primary Source)',
+          description: 'Authentic past successes are the most influential source of efficacy because they provide direct, undeniable evidence that one possesses what it takes to succeed. However, easy successes are dangerous: if learners only experience effortless triumphs, they develop a fragile efficacy that is rapidly shattered by difficult failure. Resilient self-efficacy requires overcoming authentic obstacles through sustained effort and adaptive problem-solving.',
+        },
+        {
+          label: '2. Vicarious Experiences & Coping vs Mastery Models',
+          description: 'Seeing people similar to oneself succeed by sustained effort raises observers’ beliefs that they too possess the capabilities to master comparable activities ("If someone like me can debug this memory leak, I can too"). Bandura and Dale Schunk proved a vital distinction: "Mastery Models" (experts who show flawless, effortless performance) often induce intimidation, whereas "Coping Models" (peers who openly encounter confusion, make mistakes, voice their self-doubt, but systematically apply strategies to overcome them) yield dramatically higher observer efficacy and skill transfer.',
+        },
+        {
+          label: '3. Verbal Persuasion & Credibility Calibration',
+          description: 'People who are persuaded verbally that they possess the capabilities to master given activities are more likely to mobilize greater effort and sustain it. However, verbal persuasion is fragile: it cannot survive repeated contradictory enactive failures. For verbal persuasion to be effective, it must come from a credible, respected source, focus on strategic effort rather than innate talent, and guide the learner into situations where success is authentically achievable.',
+        },
+        {
+          label: '4. Physiological & Affective States (Somatic Interpretation)',
+          description: 'People rely partly on their somatic and emotional states in judging their capabilities. Individuals read visceral arousal—racing pulse, sweating palms, muscle tension, mental fatigue—as signs of personal vulnerability and impending failure. As demonstrated in Lesson 21.2, somatic reappraisal transforms this perception: interpreting arousal not as panic but as an adaptive resource that energizes cognitive performance profoundly strengthens perceived self-efficacy.',
+        },
+      ],
+      keyInsight: 'Efficacy is not a fixed character trait or feel-good optimism; it is a dynamic, domain-specific cognitive calculation built on authentic enactive proof and relatable peer struggle.',
+      simplifiedModelCaveat: 'Self-efficacy does not replace prerequisite domain knowledge or working memory capacity; rather, high self-efficacy ensures that available cognitive resources are fully mobilized and sustained through demanding problem-solving cycles.',
+    },
+    {
+      id: 'schunk-proximal-goals-progress',
+      title: 'Dale Schunk (1981, 1991): Proximal Goals, Progress Feedback & Efficacy Calibration',
+      tagline: 'How microscopic proximal milestones transform chronic helplessness into calibrated cognitive agency',
+      scientificStatus: 'cognitive-model',
+      statusLabel: 'Replicated Educational Psychology Benchmark (Schunk, 1981, 1984, 1991; Bandura & Schunk, 1981)',
+      summary: 'Dale Schunk demonstrated that the temporal proximity and granularity of goals fundamentally govern self-efficacy growth and skill acquisition. Distal outcome goals are too temporally remote to provide immediate markers of mastery, leaving learners vulnerable to acute self-doubt. Breaking complex challenges into proximal subgoals paired with attributional progress feedback systematically fuels enactive mastery and maintains optimal efficacy calibration.',
+      mechanisms: [
+        {
+          label: 'Distal Goals vs Proximal Subgoals',
+          description: 'A distal goal (e.g. "become an expert in machine learning" or "pass this certification in six months") is too temporally distant to guide daily cognitive effort or provide immediate feedback on competence. Learners faced solely with distal goals experience acute ambiguity and interpret early difficulties as evidence of terminal inadequacy. Proximal subgoals (e.g. "implement the matrix multiplication kernel in the next 25 minutes") provide immediate, unambiguous criteria against which learners can verify their growing mastery.',
+        },
+        {
+          label: 'Attributional Progress Feedback',
+          description: 'Schunk (1984) showed that feedback linking progress to strategy and effort ("You solved this problem because you applied the two-pointer approach and carefully checked your boundary conditions") dramatically elevates self-efficacy and subsequent problem-solving speed compared to ability feedback ("You are so smart at algorithms") or no feedback. Progress feedback affirms that the learner’s agency is the cause of improvement.',
+        },
+        {
+          label: 'Efficacy Calibration: The Golden Zone of Optimism',
+          description: 'Efficacy calibration represents the mathematical correspondence between a learner’s perceived capability and their actual performance. Severe underconfidence breeds avoidance, anxiety, and premature capitulation; severe overconfidence breeds carelessness, superficial preparation, and reckless error. The optimal cognitive profile is "calibrated slight optimism": perceived capability slightly exceeding current ability, which drives ambitious challenge selection and relentless debugging without blinding the learner to real errors.',
+        },
+      ],
+      keyInsight: 'Massive ambitions paralyze when left monolithic; breaking them into 20-minute proximal milestones generates the continuous enactive victories required to sustain high-order intellectual stamina.',
+      simplifiedModelCaveat: 'Proximal subgoals must still connect coherently to a larger conceptual schema; executing isolated sub-tasks without understanding the overall architecture can result in fragmented, brittle proceduralism.',
+    },
+    {
+      id: 'dweck-steele-implicit-theories-identity-safety',
+      title: 'Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety',
+      tagline: 'Fixed vs Growth mindset neurobiology and the protective buffer of identity safety',
+      scientificStatus: 'neurobiological-mechanism',
+      statusLabel: 'Neurobiologically Corroborated Framework (Mangels et al. 2006; Steele & Aronson 1995; Yeager et al. 2019, Nature)',
+      summary: 'Carol Dweck established that people hold implicit theories regarding human intellectual competence: Entity Theory (Fixed Mindset: ability is an unchangeable, innate gift) versus Incremental Theory (Growth Mindset: ability is a malleable muscle cultivated through deliberate effort, strategy, and feedback). Jennifer Mangels et al. (2006) proved that these mindsets produce fundamentally different neural waveforms in response to error feedback. Simultaneously, Claude Steele demonstrated that Stereotype Threat triggers working memory depletion, which can be mitigated through identity safety interventions.',
+      mechanisms: [
+        {
+          label: 'ERP Neurobiology of Mindset: Mangels et al. (2006)',
+          description: 'Using high-density EEG, Mangels and colleagues measured Event-Related Potentials (ERPs) while fixed- and growth-minded learners performed challenging knowledge tasks. When informed they were incorrect, Entity theorists exhibited exaggerated anterior frontal P3 waveforms, reflecting intense emotional ego-threat. However, when the system subsequently displayed the corrective explanation, their P3 waveforms plummeted—their brains literally filtered out the learning information. Incremental theorists, by contrast, robustly processed the corrective information, demonstrating elevated memory updating (Pe/P3 waveforms) and vastly superior error correction on re-tests.',
+        },
+        {
+          label: 'Effort as Deficiency vs Effort as Neural Arborization',
+          description: 'To an entity theorist, having to exert high effort is an indictment: "If I were truly smart, this would be effortless." Consequently, difficulty is interpreted as proof of lack of talent. To an incremental theorist, high effort is the physical sensation of neuroplastic remodeling—dendritic spine formation, synaptic strengthening, and myelin sheath thickening. Struggle is recognized as the biological prerequisite for cognitive expansion.',
+        },
+        {
+          label: 'Claude Steele: Stereotype Threat & Identity Safety (1995, 2010)',
+          description: 'Claude Steele and Joshua Aronson (1995) showed that when an evaluative situation primes a negative stereotype regarding one’s group identity (e.g. gender or race in STEM), learners experience "Stereotype Threat." The subconscious fear of confirming the negative stereotype generates intrusive ruminations and heightened autonomic vigilance, hijacking the phonological loop and central executive. Steele and colleagues showed that "Identity Safety Cues" (explicitly stating that the test is a fair measure of problem-solving strategy, and engaging in brief value-affirmation writing) restore working memory capacity and normalize self-efficacy.',
+        },
+      ],
+      keyInsight: 'When the brain views intelligence as fixed, errors register as ego-threats and corrective feedback is shut out; when viewed as malleable, errors are welcomed as the raw data for neural optimization.',
+      simplifiedModelCaveat: 'A growth mindset is not a magic panacea that eliminates the need for disciplined cognitive architectures; believing your brain can grow is useless unless paired with deliberate retrieval practice, spaced scheduling, and metacognitive calibration.',
+    },
+  ],
+  diagram: {
+    title: "Bandura's Self-Efficacy Engine & Attribution Regulation Architecture",
+    subtitle: 'From enactive proximal scaffolding to coping modeling, neural calibration, and resilient persistence',
+    stages: [
+      {
+        id: 'stage-1-proximal-scaffolding',
+        name: '1. Proximal Task Scaffolding & Subgoal Formulation',
+        subtitle: 'Granular, achievable milestone selection',
+        capacity: '20–45 minute focused execution window',
+        duration: 'Initial task decomposition phase',
+        role: 'The learner or instructor deconstructs an intimidating, monolithic challenge (e.g. building a compiler or mastering real analysis) into discrete, proximal subgoals with transparent, immediate verification criteria.',
+        failureMode: 'Focusing exclusively on distal outcome goals, inducing immediate cognitive overwhelm and paralysis.',
+        evidenceType: 'Proximal Goal Architecture (Schunk, 1981, 1991)',
+        practicalFix: 'Constrain the active working scope to a single micro-deliverable with unambiguous success tests.',
+      },
+      {
+        id: 'stage-2-enactive-mastery',
+        name: '2. Enactive Mastery Win & Attributional Feedback',
+        subtitle: 'Authentic proof of obstacle conquest',
+        capacity: 'Direct behavioral competence evidence',
+        duration: 'Immediately upon completing the proximal subgoal',
+        role: 'The learner successfully executes the proximal task and explicitly receives or self-generates Attributional Progress Feedback: tying the success directly to strategic problem solving and focused effort rather than fixed talent.',
+        failureMode: 'Attributing the win to luck, an easy problem, or external assistance, preventing efficacy consolidation.',
+        evidenceType: 'Enactive Mastery Primacy (Bandura, 1977, 1997)',
+        practicalFix: 'Explicitly record the specific strategy that yielded the breakthrough in an engineering log.',
+      },
+      {
+        id: 'stage-3-vicarious-coping',
+        name: '3. Vicarious Coping Modeling & Struggle Normalization',
+        subtitle: 'Observing peer struggle, diagnosis, and recovery',
+        capacity: 'Relatable behavioral blueprint',
+        duration: 'Encountering novel, ambiguous challenge areas',
+        role: 'The learner observes peer coping models—individuals of similar background who encounter roadblocks, openly verbalize their confusion, test hypotheses, and systematically debug their way to success.',
+        failureMode: 'Comparing oneself to demigod "Mastery Models" who display effortless, instantaneous solutions without visible struggle.',
+        evidenceType: 'Coping vs Mastery Modeling (Bandura, 1997; Schunk, 1987)',
+        practicalFix: 'Seek out peer code reviews, transparent live-coding streams with real bugs, or study groups.',
+      },
+      {
+        id: 'stage-4-neural-updating',
+        name: '4. Neural Mindset & Error-Waveform Updating',
+        subtitle: 'Incremental theory and corrective P3 engagement',
+        capacity: 'Prefrontal executive bandwidth fully engaged',
+        duration: 'Encountering compile errors or test failures',
+        role: 'When errors occur, the incremental mindset frames the failure as diagnostic updating data rather than ego threat. Event-Related Potentials (ERP P3) allocate full attention to understanding and encoding the corrective solution.',
+        failureMode: 'Entity mindset activation: error triggers defensive ego preservation, filtering out the corrective explanation.',
+        evidenceType: 'ERP P3 Mindset Neurobiology (Mangels et al., 2006)',
+        practicalFix: 'Treat every error message as an objective information signal designed to update neural synaptic weights.',
+      },
+      {
+        id: 'stage-5-resilient-persistence',
+        name: '5. Resilient Self-Efficacy & High-Stakes Mobilization',
+        subtitle: 'Sustained cognitive tenacity under intense friction',
+        capacity: 'Optimal task-specific perseverance (3x duration)',
+        duration: 'Longitudinal mastery cycle',
+        role: 'Perceived self-efficacy is firmly calibrated slightly ahead of current skill. High-stakes evaluative stress is reappraised as adaptive arousal, driving ferocious persistence through complex domain challenges.',
+        failureMode: 'Premature disengagement or chronic burnout caused by uncalibrated overconfidence or learned helplessness.',
+        evidenceType: 'Social Cognitive Meta-Analyses (Multon et al., 1991; Stajkovic & Luthans, 1998)',
+        practicalFix: 'Maintain longitudinal tracking of conquered proximal milestones to supply undeniable proof during future doubts.',
+      },
+    ],
+    feedbackLoopDescription: 'When resilient self-efficacy is achieved, subsequent encounters with severe domain difficulty do not trigger ego-threat or avoidance; instead, they trigger heightened dopamine-mediated exploratory effort and strategic adaptation, feeding back into Stage 1 to conquer increasingly sophisticated intellectual frontiers.',
+  },
+  exercise: {
+    title: 'Self-Efficacy Intervention Diagnostic Lab',
+    instruction: 'Evaluate each pedagogical scenario below and classify it into its correct cognitive efficacy category based on the principles of Bandura, Schunk, Mangels, and Steele.',
+    categories: [
+      {
+        id: 'schema-consolidation',
+        title: 'Enactive Mastery & Proximal Calibration',
+        description: 'Authentic task accomplishment achieved through structured, proximal subgoals with strategic progress attribution.',
+        badgeStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+      },
+      {
+        id: 'working-memory-overload',
+        title: 'Vicarious Coping Modeling vs Expert Intimidation',
+        description: 'Observing relatable peer models encounter struggle, articulate debugging strategies, and achieve hard-won triumph.',
+        badgeStyle: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      },
+      {
+        id: 'illusion-of-competence',
+        title: 'Hollow Praise & Self-Esteem Trap',
+        description: 'Vague, person-oriented affirmations of innate brilliance that foster fragile entity mindsets and collapse under real friction.',
+        badgeStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      },
+      {
+        id: 'attention-bottleneck',
+        title: 'Stereotype Threat & Identity Safety',
+        description: 'Reframing somatic arousal as functional fuel and deploying identity affirmations to disarm stereotype threat.',
+        badgeStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+      },
+    ],
+    scenarios: [
+      {
+        id: 'scenario-1-proximal-subgoal-tracing',
+        scenario: 'A mentor breaks down a monolithic 2,000-line distributed systems project into a 45-minute task: write a mock network transport that drops 10% of packets and verify that the retransmission timer fires. When the student gets the test green, the mentor points out: "You caught that subtle timing edge case because you drew out the state machine on paper and checked the lock intervals."',
+        realWorldContext: 'Systems Programming & Mentorship Lab',
+        correctCategory: 'schema-consolidation',
+        mechanismExplanation: 'This intervention pairs a discrete proximal subgoal with explicit attributional progress feedback tying success to strategy (drawing state machine, verifying locks), creating an authentic enactive mastery experience (Bandura, 1997; Schunk, 1984).',
+        evidenceBasedFix: 'Ensure subsequent subgoals gradually fade mentor scaffolding to build unassisted learner agency.',
+      },
+      {
+        id: 'scenario-2-inspirational-cheerleading',
+        scenario: 'A student who is completely lost in quantum computing theory is told by their instructor: "Do not worry at all! You are in the top 5% of intellectual potential at this university, you have a natural gift for physics, and you are destined for greatness! Just believe in yourself!"',
+        realWorldContext: 'Academic Advising & University Coursework',
+        correctCategory: 'illusion-of-competence',
+        mechanismExplanation: 'This is the classic person-oriented praise trap (Dweck, 2006). It inflates global self-esteem without providing task-specific strategies or proximal enactive evidence. The moment the student fails their next quantum state calculation, their belief will collapse into acute imposter syndrome.',
+        evidenceBasedFix: 'Replace person praise ("you are naturally gifted") with process attribution ("let\'s isolate which linear algebra operation is causing this contradiction and solve it step-by-step").',
+      },
+      {
+        id: 'scenario-3-peer-debugging-livestream',
+        scenario: 'A junior engineer feeling intimidated by Kubernetes internals watches a senior peer record a live troubleshooting session where the peer encounters unexpected networking timeouts, admits "I have no idea why this iptables rule isn\'t routing," consults documentation, tests three failed hypotheses on camera, and finally resolves it after 40 minutes of systematic tracing.',
+        realWorldContext: 'Engineering Onboarding & Knowledge Transfer',
+        correctCategory: 'working-memory-overload',
+        mechanismExplanation: 'This is textbook Coping Modeling (Bandura, 1997; Schunk, 1987). Watching a relatable peer encounter genuine confusion and model adaptive problem-solving strategies builds far stronger efficacy and realistic error tolerance than observing effortless mastery.',
+        evidenceBasedFix: 'Encourage the junior engineer to immediately pair-program or replicate the debugging steps on a sandbox cluster.',
+      },
+      {
+        id: 'scenario-4-stereotype-threat-buffering',
+        scenario: 'Before a high-stakes standardized technical assessment in an environment with known negative group stereotyping, the proctor reminds candidates that the test measures learned strategies rather than innate capacity, and invites candidates to spend 5 minutes writing about the core personal values and engineering projects they care most deeply about.',
+        realWorldContext: 'High-Stakes Technical Certification & Interviewing',
+        correctCategory: 'attention-bottleneck',
+        mechanismExplanation: 'This combines identity safety framing with values affirmation (Steele & Aronson, 1995; Cohen et al., 2006). It shields the learner from stereotype threat, prevents intrusive anxieties from consuming working memory bandwidth, and preserves prefrontal analytical focus.',
+        evidenceBasedFix: 'Pair this identity safety framing with arousal reappraisal (Jamieson et al., 2018) for maximal hemodynamic challenge state activation.',
+      },
+    ],
+  },
+  quiz: {
+    title: 'Verification Assessment: Self-Efficacy & Mindset Mechanisms',
+    instruction: 'Demonstrate rigorous mastery of Bandura’s four efficacy sources, Schunk’s proximal calibration, Mangels’s ERP neurobiology, and Steele’s stereotype threat buffering.',
+    passingScorePercent: 100,
+    questions: [
+      {
+        id: 'q1-bandura-four-sources-efficacy',
+        question: 'According to Albert Bandura’s Self-Efficacy Theory (1977, 1997), which of the following represents the most powerful and resilient source of perceived capability, and how does self-efficacy differ from self-esteem?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Global self-esteem affirmations are the most powerful source because feeling generally worthy automatically produces task persistence across all academic and technical domains.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Enactive Mastery Experiences are the most powerful source because they provide authentic, undeniable behavioral evidence of success; self-efficacy is task-specific capability appraisal, whereas self-esteem is global affective self-regard.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Verbal praise from authority figures is the most powerful source because humans are biologically wired to obey external evaluators over their own sensorimotor experiences.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Observing infallible expert demigods execute flawless work is the most powerful source because it implants perfect mental models without requiring effortful trial.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Albert Bandura established that Enactive Mastery Experiences are the preeminent source of self-efficacy because they provide direct behavioral proof of competence. Overcoming authentic difficulties through effort builds resilient efficacy. Crucially, self-efficacy is domain- and task-specific ("Can I execute this specific action?"), whereas self-esteem is a global affective evaluation of general self-worth ("Do I like myself?"). High self-esteem does not predict mathematical perseverance; high task self-efficacy does.',
+        pedagogicalRationale: 'Clarifies the critical distinction between domain-specific self-efficacy and global self-esteem, highlighting the primacy of enactive mastery.',
+        evidenceNote: 'Albert Bandura (1977) Psychological Review; Albert Bandura (1997) Self-Efficacy: The Exercise of Control.',
+      },
+      {
+        id: 'q2-schunk-proximal-goals-progress',
+        question: 'Why do proximal subgoals combined with attributional progress feedback systematically build self-efficacy and performance far more effectively than distal outcome goals alone (Schunk, 1981, 1984, 1991)?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Distal goals are too temporally remote to provide immediate markers of growing competence, whereas proximal subgoals provide rapid verification of capability, and progress feedback explicitly links success to strategy and effort.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Distal goals cause physical atrophy of the optic nerve, preventing students from reading complex textbook diagrams.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Proximal goals eliminate the need to ever understand the overarching architecture or long-term vision of a project.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Attributional progress feedback tells the student they have superior innate genes, which boosts their testosterone and dopamine permanently.',
+          },
+        ],
+        correctOptionId: 'opt-a',
+        explanation: 'Dale Schunk demonstrated that distal goals (e.g. "become an expert in six months") are too far removed in time to regulate daily effort or provide immediate feedback on competence. Proximal subgoals (e.g. "solve this sub-problem in 25 minutes") provide clear, immediate benchmarks of progress. When instructors or systems provide Attributional Progress Feedback—attributing wins to strategy selection and effort—learners experience continuous enactive validation, calibrating efficacy slightly ahead of current skill.',
+        pedagogicalRationale: 'Explains the cognitive and motivational mechanisms underlying proximal subgoal architecture and attributional feedback.',
+        evidenceNote: 'Dale H. Schunk (1981, 1984, 1991) Journal of Educational Psychology.',
+      },
+      {
+        id: 'q3-mangels-growth-mindset-erp-p3',
+        question: 'What did Jennifer Mangels, Carol Dweck, and colleagues (2006) discover regarding Event-Related Potentials (ERPs) when comparing Entity (Fixed) and Incremental (Growth) theorists receiving error feedback?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Both groups showed completely identical neural activity, proving that mindset is purely a social construct with no biological reality.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Entity theorists showed exaggerated anterior frontal P3 waves to negative feedback (reflecting ego threat), but their waveforms plummeted when shown corrective learning information, whereas Incremental theorists allocated sustained neural attention to the corrective information.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Incremental theorists shut down their frontal lobes during errors to avoid feeling bad about their performance.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Entity theorists processed corrective information 10x faster because their brains had already pre-calculated the answers.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Jennifer Mangels et al. (2006, Social Cognitive and Affective Neuroscience) measured ERPs and demonstrated that Entity theorists reacted to error feedback with pronounced anterior frontal P3 waveforms, indicating heightened affective ego-threat and defensive vigilance. Crucially, when the actual corrective learning information was presented, entity theorists exhibited blunted waveforms—their brains literally filtered out the solution to protect their ego. Incremental theorists, by contrast, robustly processed the corrective information, demonstrating superior error correction on re-tests.',
+        pedagogicalRationale: 'Connects cognitive mindset theory directly to high-density EEG and event-related potential neurobiology.',
+        evidenceNote: 'Jennifer A. Mangels, Brady Butterfield, Jennifer Lamb, Catherine Good, & Carol S. Dweck (2006) SCAN.',
+      },
+      {
+        id: 'q4-steele-stereotype-threat-identity-safety',
+        question: 'According to Claude Steele and Joshua Aronson (1995, 2010), through what cognitive mechanism does Stereotype Threat impair high-stakes academic and technical performance, and how do Identity Safety interventions mitigate it?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Stereotype threat permanently lowers a student\'s fundamental neurological IQ by altering DNA methylation in the hippocampus within 5 minutes.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Stereotype threat triggers intrusive worries and evaluative anxiety that hijack working memory bandwidth (phonological loop and central executive); Identity Safety cues and value affirmations buffer against this threat, restoring working memory capacity for complex reasoning.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Stereotype threat only affects people who have not studied the material and has zero effect on highly prepared learners.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Identity safety interventions work by artificially altering the test grading rubric so that wrong answers are counted as correct.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Claude Steele and Joshua Aronson (1995) showed that when negative group stereotypes are primed in evaluative settings, the fear of confirming the stereotype triggers subconscious anxiety and intrusive self-monitoring. This emotional burden directly consumes limited working memory bandwidth (central executive and phonological loop), degrading the capacity needed for multi-step analytical reasoning. Identity Safety cues (reframing tests as non-diagnostic challenges) and values-affirmation exercises neutralize this threat, liberating working memory.',
+        pedagogicalRationale: 'Details the cognitive load and working memory mechanisms of stereotype threat and the restorative function of identity safety.',
+        evidenceNote: 'Claude M. Steele & Joshua Aronson (1995) JPSP; Claude M. Steele (2010) Whistling Vivaldi.',
+      },
+    ],
+  },
+  practicalTask: {
+    title: 'The 3-Step Self-Efficacy Calibration & Proximal Scaffolding Protocol',
+    summary: 'Operationalize Bandura’s four sources, Schunk’s proximal goal calibration, and Dweck’s incremental neurobiology into a 3-step practical protocol to build durable intellectual agency in any intimidating technical domain.',
+    steps: [
+      {
+        id: 'step-1-proximal-subgoal-decomposition',
+        number: 1,
+        title: 'Deconstruct Monolithic Ambition into Sub-45-Minute Proximal Milestones',
+        prompt: 'When confronting an intimidating new technical domain (e.g. distributed systems, machine learning compilers, advanced category theory), identify your distal goal and decompose it into a discrete, 20-to-45-minute sub-milestone with explicit, verifiable success criteria.',
+        placeholder: 'e.g. Distal Goal: "Master Raft Consensus". Proximal Subgoal: "Implement a 3-node in-memory RPC ping-pong heartbeat in Go with timeout detection within 35 minutes."',
+        example: 'Decomposed distributed consensus project: isolated the leader election timer into a 30-minute milestone with a deterministic unit test. Achieved green test and felt immediate enactive competence validation.',
+        cognitiveRationale: 'Proximal subgoals eliminate distal ambiguity and supply the immediate enactive mastery evidence required to anchor task-specific self-efficacy (Schunk, 1981; Bandura, 1997).',
+      },
+      {
+        id: 'step-2-recruit-coping-models',
+        number: 2,
+        title: 'Recruit Peer Coping Models Over Infallible Demigods',
+        prompt: 'Identify and observe relatable peers or practitioners who openly demonstrate the messy, iterative process of problem-solving—grappling with compiler errors, reading documentation, and testing hypotheses—rather than polished expert demonstrations.',
+        placeholder: 'e.g. Replaced watching edited, flawless YouTube tutorials with studying an unedited live-stream of a senior peer debugging a live production database race condition.',
+        example: 'Joined a peer code review group where engineers discuss where they got stuck. Seeing peers systematically troubleshoot unfamiliar error codes normalized cognitive friction and elevated vicarious efficacy.',
+        cognitiveRationale: 'Coping models illustrate adaptive problem-solving heuristics and demonstrate that struggle is a normal phase of mastery rather than a signal of deficiency (Bandura, 1997; Schunk, 1987).',
+      },
+      {
+        id: 'step-3-audit-attributions-and-p3-updating',
+        number: 3,
+        title: 'Audit Attributions and Activate Corrective Error-Updating',
+        prompt: 'Immediately upon encountering a failure, bug, or incorrect quiz question, perform a 60-second attribution audit: reject entity interpretations ("I am not cut out for this") and explicitly attribute the failure to an incomplete strategy or missing schema, focusing your prefrontal attention on the corrective explanation.',
+        placeholder: 'e.g. When the unit test panicked on a nil pointer dereference, said: "This is not evidence that I cannot program; this is a diagnostic pointer indicating my mutex lock scope was insufficient. Let me trace the concurrency flow."',
+        example: 'Consciously engaged with compiler stack trace instead of looking away in shame; treated the error as high-value diagnostic signal to rewire synaptic weights (Mangels et al., 2006).',
+        cognitiveRationale: 'Rejecting entity attributions prevents affective ego-threat from triggering defensive avoidance, liberating neural bandwidth for deep P3-mediated corrective memory encoding.',
+      },
+    ],
+  },
+};

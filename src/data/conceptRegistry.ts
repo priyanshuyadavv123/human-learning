@@ -1959,6 +1959,52 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
     discrepancyPrompt: 'Previously you may have tried to "bite your lip" and suppress your anxiety, pretending everything was fine. How does James Gross’s research prove that emotional suppression consumes the exact same working memory resources needed for analytical problem solving?',
   },
+  'concept:bandura_self_efficacy_four_sources': {
+    conceptId: 'concept:bandura_self_efficacy_four_sources',
+    title: 'Albert Bandura: The Four Sources of Self-Efficacy Beliefs',
+    prompt: 'What is Albert Bandura\'s Self-Efficacy Theory (1977, 1997), how does domain-specific self-efficacy differ from global self-esteem, and what are the four hierarchical sources that construct or erode efficacy beliefs?',
+    keyCriteria: [
+      'Cites Albert Bandura (1977, 1997) Self-Efficacy: The Exercise of Control',
+      'Distinguishes domain-specific self-efficacy (belief in one\'s capability to execute actions to attain specific performance outcomes) from global self-esteem (general affective self-worth)',
+      'Identifies the 4 hierarchical sources: (1) Enactive Mastery Experiences (primary & most impactful), (2) Vicarious Experiences / Social Modeling (especially coping models who demonstrate struggle and recovery), (3) Verbal / Social Persuasion (credible, proximal feedback), and (4) Physiological & Affective States (somatic arousal appraisal)',
+      'Explains why hollow self-esteem affirmations fail to build resilience: efficacy requires authentic evidence of obstacle overcome through effortful strategy',
+    ],
+    canonicalAnswer: 'Albert Bandura (1977, 1997) defined perceived self-efficacy as an individual\'s belief in their capability to organize and execute the courses of action required to manage prospective situations and achieve designated performances. Self-efficacy is strictly domain- and task-specific, whereas self-esteem is a global, affective evaluation of general self-worth; high self-esteem does not predict mathematical perseverance, but high task self-efficacy does. Bandura established that efficacy beliefs are synthesized from four hierarchical sources: (1) Enactive Mastery Experiences—the most powerful source, providing authentic behavioral evidence of success; resilient efficacy requires overcoming genuine difficulties rather than experiencing effortless wins. (2) Vicarious Experiences—observing peer or "coping" models who struggle, adapt strategies, and eventually succeed, which elevates observer belief ("If they can overcome this bug, so can I"). (3) Verbal Persuasion—realistic encouragement from credible experts focused on strategy and capacity rather than empty flattery. (4) Physiological and Affective States—interpreting autonomic activation (heart rate, fatigue, mental tension) as normal mobilization rather than proof of personal deficiency.',
+    lessonSectionAnchor: 'Lesson 22.1 • Section 1: Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs',
+    relatedMisconception: 'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
+    discrepancyPrompt: 'Previously you might have believed that reciting positive affirmations to boost global self-esteem would make you resilient when facing hard programming or mathematical challenges. How does Bandura\'s research prove that true cognitive resilience requires domain-specific enactive mastery experiences and calibrated feedback?',
+  },
+  'concept:schunk_proximal_goal_efficacy_calibration': {
+    conceptId: 'concept:schunk_proximal_goal_efficacy_calibration',
+    title: 'Dale Schunk: Proximal Goals, Progress Feedback & Efficacy Calibration',
+    prompt: 'How do proximal subgoals and attributional progress feedback systematically build self-efficacy and task performance compared to distal outcome goals (Schunk, 1981, 1984, 1991)?',
+    keyCriteria: [
+      'Cites Dale Schunk (1981, 1984, 1991; Journal of Educational Psychology)',
+      'Distinguishes Distal Goals (temporally distant, vague, failing to provide immediate cues of competence) from Proximal Subgoals (short-term, concrete, providing frequent verification of capability)',
+      'Explains Attributional Progress Feedback: explicitly linking incremental success to strategy application and sustained effort rather than innate talent',
+      'Defines Efficacy Calibration: the correspondence between perceived capability and actual performance, showing why slight optimistic bias fosters persistence while extreme distortion produces premature quitting or reckless error',
+    ],
+    canonicalAnswer: 'Dale Schunk (1981, 1984, 1991) demonstrated that the temporal proximity and structure of goals fundamentally regulate self-efficacy and skill acquisition. Distal goals (e.g., "become an expert in machine learning" or "pass the licensing exam in six months") are too far removed in time to provide immediate feedback on learning progress, leaving learners vulnerable to self-doubt during acute difficulty. In contrast, Proximal Subgoals (e.g., "implement the backpropagation gradient descent loop for one layer in the next 30 minutes") provide clear, immediate benchmarks against which learners can evaluate their growing competence. When instructors or systems pair proximal subgoals with Attributional Progress Feedback—explicitly highlighting that progress occurred because the learner utilized effective strategies and concentrated effort—learners experience continuous enactive mastery. This calibrates self-efficacy to be slightly ahead of current skill, creating an optimal zone of challenge and perseverance without reckless overconfidence or paralyzing underconfidence.',
+    lessonSectionAnchor: 'Lesson 22.1 • Section 2: Dale Schunk (1981, 1991): Proximal Goals, Progress Feedback & Efficacy Calibration',
+    relatedMisconception: 'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
+    discrepancyPrompt: 'Previously you may have set massive long-term goals without subgoals, only to feel demoralized and inadequate after a few days. How does Dale Schunk\'s research show that proximal milestones with strategic attribution create the neurological evidence required to sustain high-level learning?',
+  },
+  'concept:dweck_implicit_theories_neurobiology': {
+    conceptId: 'concept:dweck_implicit_theories_neurobiology',
+    title: 'Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety',
+    prompt: 'What are the neurobiological and cognitive differences between Entity (Fixed) and Incremental (Growth) theories of intelligence (Mangels et al., 2006), and how does Stereotype Threat undermine cognitive bandwidth (Steele & Aronson, 1995)?',
+    keyCriteria: [
+      'Cites Carol Dweck (1999, 2006) and Jennifer Mangels et al. (2006; Social Cognitive and Affective Neuroscience)',
+      'Explains Event-Related Potential (ERP) findings: Entity theorists exhibit enhanced anterior frontal P3 responses to negative performance feedback (ego-threat) but blunted Pe/P3 waves to subsequent corrective learning information',
+      'Explains Incremental theorists treat errors as diagnostic updating signals, engaging dorsolateral prefrontal and parietal networks for corrective processing',
+      'Cites Claude Steele & Joshua Aronson (1995) on Stereotype Threat: evaluative situations priming negative stereotypes trigger intrusive thoughts that hijack working memory capacity and drop self-efficacy',
+      'Explains identity safety cues and value affirmation interventions that restore working memory and task persistence',
+    ],
+    canonicalAnswer: 'Carol Dweck (1999, 2006) established that learners hold implicit theories about human competence: Entity Theorists view intelligence as a fixed, immutable trait, whereas Incremental Theorists view competence as a dynamic, malleable capacity developed through effort, strategy, and feedback. Jennifer Mangels et al. (2006) revealed the neurobiological basis of these mindsets using event-related potentials (ERPs). When presented with performance feedback, entity theorists showed enhanced frontal P3 waveforms indicative of affective ego-threat, but when subsequently shown corrective information to repair their errors, their waveforms were markedly attenuated—they tuned out the learning signal because their working memory was consumed by self-defense. Incremental theorists, by contrast, robustly processed the corrective explanations, demonstrating heightened memory updating and subsequent performance recovery. Complementing this, Claude Steele & Joshua Aronson (1995) showed that Stereotype Threat primes identity vulnerability in evaluative contexts, causing working memory to be co-opted by intrusive performance anxiety. Creating "Identity Safety"—affirming personal values and framing struggle as standard cognitive friction—buffers self-efficacy and liberates working memory for high-order analytical reasoning.',
+    lessonSectionAnchor: 'Lesson 22.1 • Section 3: Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety',
+    relatedMisconception: 'misconception:talent_is_fixed_innate_entity',
+    discrepancyPrompt: 'Previously you may have assumed that making an intellectual mistake signifies a lack of innate talent. How does Jennifer Mangels’s ERP neuroimaging demonstrate that viewing intelligence as fixed causes the brain to filter out corrective learning information to defend its ego?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

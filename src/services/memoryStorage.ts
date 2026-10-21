@@ -314,6 +314,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'emotion-appraisal-regulation';
     chapterId = 'ch-21-stress-performance';
+  } else if (
+    conceptId.startsWith('concept:bandura_self_efficacy_') ||
+    conceptId.startsWith('concept:schunk_proximal_goal_') ||
+    conceptId.startsWith('concept:dweck_implicit_theories_')
+  ) {
+    lessonId = 'bandura-self-efficacy';
+    chapterId = 'ch-22-identity-mindset';
   }
 
   return {

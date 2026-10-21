@@ -176,6 +176,10 @@ export const KNOWN_CONCEPTS = [
   'concept:jamieson_biopsychosocial_challenge_vs_threat',
   'concept:brooks_anxiety_reappraisal_excitement',
   'concept:gross_reappraisal_vs_expressive_suppression',
+  // Lesson 22.1 Concepts
+  'concept:bandura_self_efficacy_four_sources',
+  'concept:schunk_proximal_goal_efficacy_calibration',
+  'concept:dweck_implicit_theories_neurobiology',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -313,6 +317,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 21.2 Misconceptions
   'misconception:calming_down_is_the_best_response_to_acute_performance_anxiety',
   'misconception:suppressing_emotions_preserves_cognitive_bandwidth',
+  // Lesson 22.1 Misconceptions
+  'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
+  'misconception:talent_is_fixed_innate_entity',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

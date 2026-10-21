@@ -531,6 +531,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:gross_reappraisal_vs_expressive_suppression',
     },
   },
+  'bandura-self-efficacy': {
+    predictionConceptId: 'concept:bandura_self_efficacy_four_sources',
+    predictionMisconceptionId: 'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
+    quizConceptMapping: {
+      'q1-bandura-four-sources-efficacy': 'concept:bandura_self_efficacy_four_sources',
+      'q2-schunk-proximal-goals-progress': 'concept:schunk_proximal_goal_efficacy_calibration',
+      'q3-mangels-growth-mindset-erp-p3': 'concept:dweck_implicit_theories_neurobiology',
+      'q4-steele-stereotype-threat-identity-safety': 'concept:dweck_implicit_theories_neurobiology',
+      'q1': 'concept:bandura_self_efficacy_four_sources',
+      'q2': 'concept:schunk_proximal_goal_efficacy_calibration',
+      'q3': 'concept:dweck_implicit_theories_neurobiology',
+      'q4': 'concept:dweck_implicit_theories_neurobiology',
+    },
+  },
 };
 
 interface LearningContextType {
