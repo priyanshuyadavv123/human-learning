@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "test": "vitest run",
+    "test:e2e": "node scripts/e2e-user-journey.mjs",
     "preview": "vite preview",
     "start": "node --experimental-strip-types server/index.ts"
   },
