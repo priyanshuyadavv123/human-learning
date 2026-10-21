@@ -279,6 +279,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'incubation-default-mode';
     chapterId = 'ch-19-creative-insight';
+  } else if (
+    conceptId.startsWith('concept:koestler_bisociation_') ||
+    conceptId.startsWith('concept:mednick_flat_') ||
+    conceptId.startsWith('concept:jacob_evolutionary_')
+  ) {
+    lessonId = 'combinatorial-play-synthesis';
+    chapterId = 'ch-19-creative-insight';
   }
 
   return {

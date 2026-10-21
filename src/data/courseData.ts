@@ -36,6 +36,7 @@ import { LESSON_SUBGOAL_LABELING_SCAFFOLDING } from './lesson17_2Data.ts';
 import { LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION } from './lesson18_1Data.ts';
 import { LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY } from './lesson18_2Data.ts';
 import { LESSON_INCUBATION_DEFAULT_MODE } from './lesson19_1Data.ts';
+import { LESSON_COMBINATORIAL_PLAY_SYNTHESIS } from './lesson19_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -512,7 +513,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Associative Combinatorics & Lateral Synthesis',
           subtitle: 'Cross-pollinating disparate mental models to forge novel solutions',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1193,6 +1194,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION.id]: LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION,
   [LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY.id]: LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY,
   [LESSON_INCUBATION_DEFAULT_MODE.id]: LESSON_INCUBATION_DEFAULT_MODE,
+  [LESSON_COMBINATORIAL_PLAY_SYNTHESIS.id]: LESSON_COMBINATORIAL_PLAY_SYNTHESIS,
 };
 
 export function getLessonById(id: string): Lesson {

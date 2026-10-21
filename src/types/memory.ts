@@ -156,6 +156,10 @@ export const KNOWN_CONCEPTS = [
   'concept:default_mode_network_incubation',
   'concept:unconscious_associative_search_spreading_activation',
   'concept:cognitive_fixation_release_baird_smallwood',
+  // Lesson 19.2 Concepts
+  'concept:koestler_bisociation_matrices',
+  'concept:mednick_flat_associative_hierarchy',
+  'concept:jacob_evolutionary_bricolage_synthesis',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -277,6 +281,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 19.1 Misconceptions
   'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
   'misconception:incubation_and_mind_wandering_are_passive_wasted_time',
+  // Lesson 19.2 Misconceptions
+  'misconception:creativity_is_mystical_creation_ex_nihilo',
+  'misconception:steep_specialized_hierarchies_suffice_for_breakthrough_innovation',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

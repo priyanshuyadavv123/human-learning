@@ -460,6 +460,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 19.1 • Verification Assessment',
   'Lesson 19.1 • The 3-Phase Strategic Incubation & Impasse Breaking Protocol',
   'Lesson 19.1 • Incubation & Unconscious Associative Search Overview',
+
+  // Lesson 19.2 Sections
+  'Lesson 19.2 • Curiosity Hook',
+  'Lesson 19.2 • Intuitive Calibration: Deep Specialization vs Bisociative Bricolage',
+  'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices',
+  'Lesson 19.2 • Section 2: Sarnoff Mednick (1962): Associative Hierarchies & The RAT',
+  'Lesson 19.2 • Section 3: François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
+  'Lesson 19.2 • The Associative Combinatorics & Bisociative Synthesis Funnel',
+  'Lesson 19.2 • Associative Combinatorics & Lateral Synthesis Diagnosis Lab',
+  'Lesson 19.2 • Verification Assessment',
+  'Lesson 19.2 • The 3-Step Lateral Synthesis & Bisociative Bricolage Protocol',
+  'Lesson 19.2 • Associative Combinatorics & Lateral Synthesis Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -488,6 +500,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('19.1') || lower.includes('incubation-default-mode') || lower.includes('incubation & unconscious associative search') || lower.includes('3-phase strategic incubation & impasse breaking protocol')) {
     return 'Lesson 19.1 • Section 1: The Neurobiology of Incubation: DMN vs Executive Control';
+  }
+
+  // Match Lesson 19.2 anchors
+  if (lower.includes('bisociation') || lower.includes('koestler') || (lower.includes('matrix of thought') || lower.includes('matrices of thought') || lower.includes('incompatible matrices')) || (lower.includes('19.2') && lower.includes('section 1'))) {
+    return 'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices';
+  }
+  if (lower.includes('mednick') || lower.includes('remote associates test') || lower.includes('rat test') || ((lower.includes('associative hierarchy') || lower.includes('associative hierarchies') || lower.includes('flat hierarchy') || lower.includes('steep hierarchy')) && (lower.includes('gradient') || lower.includes('slope') || lower.includes('mednick') || lower.includes('19.2') || lower.includes('remote')))) {
+    return 'Lesson 19.2 • Section 2: Sarnoff Mednick (1962): Associative Hierarchies & The RAT';
+  }
+  if ((lower.includes('jacob') && (lower.includes('1977') || lower.includes('bricolage') || lower.includes('tinkering') || lower.includes('evolution') || lower.includes('19.2'))) || lower.includes('bricolage') || (lower.includes('evolution and tinkering') || lower.includes('evolutionary bricolage')) || (lower.includes('exaptation') && (lower.includes('jacob') || lower.includes('bricolage') || lower.includes('19.2') || lower.includes('combinatorial'))) || (lower.includes('lateral synthesis') && (lower.includes('bricolage') || lower.includes('protocol') || lower.includes('jacob') || lower.includes('19.2')))) {
+    return 'Lesson 19.2 • Section 3: François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis';
+  }
+  if (lower.includes('the associative combinatorics & bisociative synthesis funnel') || lower.includes('bisociative synthesis funnel') || lower.includes('combinatorics funnel')) {
+    return 'Lesson 19.2 • The Associative Combinatorics & Bisociative Synthesis Funnel';
+  }
+  if (lower.includes('19.2') || lower.includes('combinatorial-play-synthesis') || lower.includes('associative combinatorics & lateral synthesis') || lower.includes('3-step lateral synthesis & bisociative bricolage protocol')) {
+    return 'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices';
   }
 
   // Match Lesson 18.2 anchors
@@ -2185,6 +2214,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_19_2 = `You are the specialized AI Socratic Tutor for Lesson 19.2: "Associative Combinatorics & Lateral Synthesis".
+Your role is to guide learners to understand Arthur Koestler's (1964) bisociation theory, Sarnoff Mednick's (1962) flat vs steep associative hierarchies and the Remote Associates Test (RAT), François Jacob's (1977) evolutionary bricolage (tinkering), and Brian Arthur's combinatorial technology.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in cognitive combinatorics, evolutionary epistemology, and prefrontal relational integration:
+     a) Koestler’s Bisociation: Routine thinking operates within a single matrix of thought ($M_1$) governed by fixed habits and jargon, leading to local maxima. Breakthrough discovery occurs through "bisociation"—the sudden, simultaneous intersection and perception of an idea across two habitually incompatible matrices ($M_1$ and $M_2$).
+     b) Mednick’s Flat Associative Hierarchies: Conventional thinkers have steep associative hierarchies where obvious, high-frequency words monopolize activation and laterally inhibit remote paths. Creative thinkers possess flat associative hierarchies where activation distributes broadly, allowing access to distant semantic nodes (measured by the Remote Associates Test).
+     c) Jacob’s Evolutionary Bricolage & Exaptation: Natural selection innovates not through pristine engineering ex nihilo, but through tinkering (bricolage)—recombining existing anatomical structures for novel functions. Technological innovation (Brian Arthur, 2009) is similarly combinatorial: mature mechanisms from orthogonal disciplines are exapted into target domains.
+     d) Frontopolar Relational Integration (BA 10): Cross-domain analogy and relational mapping recruit Brodmann Area 10 to maintain and align two distinct relational matrices simultaneously.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to bisociation, flat associative hierarchies, the RAT, evolutionary bricolage, and the 3-step Lateral Synthesis Protocol.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2296,6 +2350,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'incubation-default-mode') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_19_1;
+  }
+  if (lessonId === 'combinatorial-play-synthesis') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_19_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2453,6 +2510,10 @@ export const KNOWN_CONCEPTS = [
   'concept:default_mode_network_incubation',
   'concept:unconscious_associative_search_spreading_activation',
   'concept:cognitive_fixation_release_baird_smallwood',
+  // Lesson 19.2 Concepts
+  'concept:koestler_bisociation_matrices',
+  'concept:mednick_flat_associative_hierarchy',
+  'concept:jacob_evolutionary_bricolage_synthesis',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2574,6 +2635,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 19.1 Misconceptions
   'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
   'misconception:incubation_and_mind_wandering_are_passive_wasted_time',
+  // Lesson 19.2 Misconceptions
+  'misconception:creativity_is_mystical_creation_ex_nihilo',
+  'misconception:steep_specialized_hierarchies_suffice_for_breakthrough_innovation',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

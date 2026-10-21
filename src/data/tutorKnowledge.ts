@@ -1099,6 +1099,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What undemanding physical activity can you integrate into your daily problem-solving routine as a dedicated incubation window?',
     referencedSection: 'Lesson 19.1 • Section 3: Fixation Forgetting & The Strategic Incubation Protocol',
   },
+  {
+    keywords: ['koestler', 'bisociation', 'matrices of thought', 'matrix of thought', 'act of creation', 'incompatible matrices', 'gutenberg press', 'kepler'],
+    title: 'Arthur Koestler (1964): Bisociation & Incompatible Matrices',
+    summary: 'Creative breakthroughs occur when an idea is perceived simultaneously in two habitually incompatible frames of reference (bisociation), shattering single-matrix ruts.',
+    takeaway: 'Routine thinking optimizes within a single rule-bound matrix; breakthrough creation bisociates two incompatible matrices into an emergent paradigm (Koestler, 1964).',
+    detailedResponse: 'Arthur Koestler (1964) established in The Act of Creation that routine mental habits operate within a single "matrix of thought"—a closed system governed by fixed rules, assumptions, and specialized jargon. While single-matrix thinking achieves high local efficiency, it inevitably plateaus in cognitive ruts and local optima. Creative discovery happens through "bisociation": the sudden, simultaneous intersection and perception of an idea across two habitually incompatible matrices of thought (e.g., Gutenberg colliding the agricultural wine press with the coin punch to invent movable type). Neurobiologically, this relational synthesis recruits the frontopolar prefrontal cortex (Brodmann Area 10), which coordinates the simultaneous holding and mapping of two disparate abstract schemas.',
+    socraticChallenge: 'Can you identify two completely unrelated fields whose core mechanisms could collide to solve a bottleneck in your current work?',
+    referencedSection: 'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices',
+  },
+  {
+    keywords: ['mednick', 'associative hierarchy', 'remote associates test', 'rat test', 'flat hierarchy', 'steep hierarchy', 'associative gradient', 'remote association'],
+    title: 'Sarnoff Mednick (1962): Flat vs Steep Associative Hierarchies',
+    summary: 'The slope of your semantic associative hierarchy governs creative reach: flat hierarchies distribute activation broadly, reaching distant nodes.',
+    takeaway: 'Flat associative hierarchies allow spreading activation to reach distant semantic clusters, enabling remote combinatorial breakthroughs (Mednick, 1962).',
+    detailedResponse: 'Sarnoff Mednick (1962) proposed that creative ability is determined by the slope of an individual’s semantic associative hierarchy. Conventional thinkers exhibit steep associative hierarchies: a stimulus word (e.g., "table") produces a steep gradient dominated by high-probability, stereotypical associations ("chair", "wood") whose lateral inhibition suppresses remote paths. Highly creative thinkers maintain flat associative hierarchies: associative activation is more broadly and evenly distributed, allowing spreading activation to reach distant, low-probability conceptual nodes ("periodic", "altar"). Mednick developed the Remote Associates Test (RAT) to measure this trait (e.g., finding the bridge "cheese" for "cottage / Swiss / cake").',
+    socraticChallenge: 'When generating solutions to a new problem, how do you deliberately suppress your first three obvious ideas to access the long tail of remote associations?',
+    referencedSection: 'Lesson 19.2 • Section 2: Sarnoff Mednick (1962): Associative Hierarchies & The RAT',
+  },
+  {
+    keywords: ['francois jacob', 'bricolage', 'evolution and tinkering', 'tinkerer', 'combinatorial play', 'exaptation', 'lateral synthesis', 'brian arthur'],
+    title: 'François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
+    summary: 'Evolution and innovation act not like engineers designing ex nihilo, but like tinkerers recombining existing parts for novel functions (bricolage).',
+    takeaway: 'Do not invent ex nihilo; identify mature structural mechanisms in orthogonal fields and exapt them through combinatorial bricolage (Jacob, 1977; Arthur, 2009).',
+    detailedResponse: 'Nobel laureate François Jacob (1977) showed that evolution does not engineer from scratch with a master blueprint; it operates as a tinkerer (bricoleur) who repurposes whatever materials are at hand, exapting existing anatomical structures for radically novel functions (e.g., mammalian middle ear bones evolved from reptilian jawbones). In technological innovation, W. Brian Arthur (2009) similarly proved that novel technologies are combinatorial assemblies of existing sub-technologies. The 3-Step Lateral Synthesis Protocol operationalizes this: 1) Extract abstract relational invariants from your problem; 2) Forage in orthogonal disciplines that share those invariants; 3) Exapt foreign mechanisms to engineer an emergent hybrid solution.',
+    socraticChallenge: 'What mature mechanism from nature or an unrelated industry could you exapt to replace an unproven component you are trying to build from scratch?',
+    referencedSection: 'Lesson 19.2 • Section 3: François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

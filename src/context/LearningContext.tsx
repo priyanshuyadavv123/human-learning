@@ -461,6 +461,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:unconscious_associative_search_spreading_activation',
     },
   },
+  'combinatorial-play-synthesis': {
+    predictionConceptId: 'concept:koestler_bisociation_matrices',
+    predictionMisconceptionId: 'misconception:creativity_is_mystical_creation_ex_nihilo',
+    quizConceptMapping: {
+      'q1-koestler-bisociation-matrices': 'concept:koestler_bisociation_matrices',
+      'q2-mednick-associative-hierarchies': 'concept:mednick_flat_associative_hierarchy',
+      'q3-jacob-evolutionary-bricolage': 'concept:jacob_evolutionary_bricolage_synthesis',
+      'q4-neurobiology-frontopolar-ba10': 'concept:koestler_bisociation_matrices',
+      'q1': 'concept:koestler_bisociation_matrices',
+      'q2': 'concept:mednick_flat_associative_hierarchy',
+      'q3': 'concept:jacob_evolutionary_bricolage_synthesis',
+      'q4': 'concept:koestler_bisociation_matrices',
+    },
+  },
 };
 
 interface LearningContextType {

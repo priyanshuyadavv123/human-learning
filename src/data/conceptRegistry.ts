@@ -1732,6 +1732,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:unbroken_hyper_focused_grinding_maximizes_breakthrough_insights',
     discrepancyPrompt: 'Previously you may have believed that when stuck on a bug or math problem, doing an equally intense mental puzzle or checking social media would refresh your brain. Why does Baird et al. prove that only undemanding, low-load tasks release fixation and foster creative incubation?',
   },
+  'concept:koestler_bisociation_matrices': {
+    conceptId: 'concept:koestler_bisociation_matrices',
+    title: 'Arthur Koestler (1964): Bisociation & Incompatible Matrices of Thought',
+    prompt: 'How does Arthur Koestler (1964) differentiate routine single-matrix thinking from creative bisociation, and why does breakthrough innovation require colliding habitually incompatible frames of reference?',
+    keyCriteria: [
+      'Cites Arthur Koestler (1964) The Act of Creation',
+      'Contrasts routine single-matrix thinking (operating within a rule-bound frame of reference M1) with bisociation (simultaneous perception of an idea across two incompatible matrices M1 and M2)',
+      'Explains that intra-matrix optimization leads to cognitive entrapment and local maxima, whereas inter-matrix collision generates emergent insights',
+      'Cites neurobiological substrate: frontopolar cortex (Brodmann Area 10) coordinating relational integration and multi-matrix schema mapping',
+    ],
+    canonicalAnswer: 'Arthur Koestler (1964) demonstrated that routine problem solving operates within a single "matrix of thought"—a closed, self-consistent frame of reference governed by habitual rules and jargon. While single-matrix thinking drives incremental optimization, it inevitably traps the thinker in local maxima and cognitive ruts. In contrast, creative discovery occurs through "bisociation": the sudden, simultaneous intersection and perception of an idea in two habitually incompatible matrices of thought (e.g., Gutenberg colliding the agricultural wine press with the coin punch to invent movable type). Neurobiologically, bisociation recruits the frontopolar prefrontal cortex (Brodmann Area 10), which maintains and integrates two distinct abstract relational representations simultaneously, allowing emergent cross-domain properties to surface.',
+    lessonSectionAnchor: 'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices',
+    relatedMisconception: 'misconception:creativity_is_mystical_creation_ex_nihilo',
+    discrepancyPrompt: 'Previously you may have assumed that breakthrough ideas come from thinking harder within your established discipline. How does Koestler’s bisociation model prove that breakthroughs require colliding two habitually incompatible frames of reference?',
+  },
+  'concept:mednick_flat_associative_hierarchy': {
+    conceptId: 'concept:mednick_flat_associative_hierarchy',
+    title: 'Sarnoff Mednick (1962): Flat vs Steep Associative Hierarchies',
+    prompt: 'How does the slope of an individual’s associative hierarchy determine creative problem-solving capability, and how does the Remote Associates Test (RAT) measure this cognitive trait (Mednick, 1962)?',
+    keyCriteria: [
+      'Cites Sarnoff Mednick (1962) associative theory of the creative process and the Remote Associates Test (RAT)',
+      'Contrasts steep associative hierarchies (steep slope dominated by a few high-frequency, stereotypical associations) with flat associative hierarchies (shallow slope with equalized activation across remote semantic nodes)',
+      'Explains that steep hierarchies extinguish quickly and induce lateral inhibition on distant associates, whereas flat hierarchies permit spreading activation to reach remote concepts',
+      'Connects flat hierarchies to reduced latent inhibition coupled with high prefrontal working memory control (Carson et al., 2003)',
+    ],
+    canonicalAnswer: 'Sarnoff Mednick (1962) demonstrated that creative problem solving is governed by the slope of an individual’s semantic associative hierarchy. Conventional thinkers exhibit steep associative hierarchies: a stimulus word (e.g., "table") triggers high-probability, stereotypical responses ("chair", "wood") whose high activation and lateral inhibition suppress remote nodes. In contrast, creative thinkers maintain flat associative hierarchies: associative activation is more broadly and evenly distributed, allowing spreading activation to reach distant, low-probability conceptual nodes ("periodic", "round-table", "altar"). Mednick designed the Remote Associates Test (RAT) to index this capacity by presenting word triads (e.g., "cottage / Swiss / cake" -> "cheese") where finding the solution requires navigating past obvious associations into remote semantic clusters.',
+    lessonSectionAnchor: 'Lesson 19.2 • Section 2: Sarnoff Mednick (1962): Associative Hierarchies & The RAT',
+    relatedMisconception: 'misconception:steep_specialized_hierarchies_suffice_for_breakthrough_innovation',
+    discrepancyPrompt: 'Previously you may have thought that having instant, lightning-fast recall of obvious domain definitions was the hallmark of genius. How does Mednick’s research show that steep associative hierarchies actually suppress the remote associations necessary for creative synthesis?',
+  },
+  'concept:jacob_evolutionary_bricolage_synthesis': {
+    conceptId: 'concept:jacob_evolutionary_bricolage_synthesis',
+    title: 'François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
+    prompt: 'Why did Nobel laureate François Jacob describe evolution as a "tinkerer" (bricoleur) rather than an engineer, and how does combinatorial bricolage drive technological and conceptual breakthroughs (Jacob, 1977; Arthur, 2009)?',
+    keyCriteria: [
+      'Cites François Jacob (1977) "Evolution and Tinkering" in Science',
+      'Contrasts engineering ex nihilo (designing from scratch with an idealized blueprint) with evolutionary tinkering / bricolage (recombining existing mature parts for novel functions)',
+      'Defines exaptation (Gould & Vrba) and combinatorial technology (Brian Arthur, 2009): novel breakthroughs are syntheses of existing sub-technologies across disciplinary boundaries',
+      'Outlines the 3-step Lateral Synthesis protocol: (1) Structural Invariant Extraction (de-jargoning), (2) Orthogonal Matrix Foraging, (3) Jacobian Bricolage & Mechanism Exaptation',
+    ],
+    canonicalAnswer: 'Nobel laureate François Jacob (1977) established that evolution operates not like an engineer designing from a pristine blueprint ex nihilo, but like a tinkerer (bricoleur) who repurposes whatever spare parts are at hand to address novel environmental pressures (e.g., mammalian middle ear bones exapted from reptilian jaw hinges). In cognitive and technological domains, W. Brian Arthur (2009) similarly proved that novel technologies are combinatorial assemblies of existing sub-technologies. Breakthrough innovations almost never originate from whole cloth; they arise through cross-domain bricolage—extracting structural invariants from an intractable problem, foraging in orthogonal disciplines, and exapting mature functional mechanisms into an emergent hybrid solution.',
+    lessonSectionAnchor: 'Lesson 19.2 • Section 3: François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
+    relatedMisconception: 'misconception:creativity_is_mystical_creation_ex_nihilo',
+    discrepancyPrompt: 'Previously you may have believed that true innovators invent radical technologies completely from scratch. How does François Jacob’s evolutionary bricolage prove that innovation is actually the combinatorial recombination of existing components across boundaries?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;
