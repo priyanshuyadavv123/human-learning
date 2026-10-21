@@ -643,6 +643,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:peer_calibration_red_teaming_tetlock',
     },
   },
+  'longitudinal-spaced-scheduling': {
+    predictionConceptId: 'concept:bahrick_permastore_fifty_year_retention',
+    predictionMisconceptionId: 'misconception:knowledge_is_inevitably_forgotten_without_daily_weekly_review',
+    quizConceptMapping: {
+      'q1-bahrick-permastore-fifty-year': 'concept:bahrick_permastore_fifty_year_retention',
+      'q2-cepeda-optimal-spacing-ratio': 'concept:cepeda_pashler_optimal_spacing_ratio_decades',
+      'q3-wozniak-stability-retrievability': 'concept:wozniak_two_component_memory_stability_retrievability',
+      'q4-flashcard-debt-queue-pruning': 'concept:wozniak_two_component_memory_stability_retrievability',
+      'q1': 'concept:bahrick_permastore_fifty_year_retention',
+      'q2': 'concept:cepeda_pashler_optimal_spacing_ratio_decades',
+      'q3': 'concept:wozniak_two_component_memory_stability_retrievability',
+      'q4': 'concept:wozniak_two_component_memory_stability_retrievability',
+    },
+  },
 };
 
 interface LearningContextType {

@@ -370,6 +370,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'adversarial-peer-review';
     chapterId = 'ch-25-social-protege';
+  } else if (
+    conceptId.startsWith('concept:bahrick_permastore_') ||
+    conceptId.startsWith('concept:cepeda_pashler_') ||
+    conceptId.startsWith('concept:wozniak_two_component_')
+  ) {
+    lessonId = 'longitudinal-spaced-scheduling';
+    chapterId = 'ch-26-lifetime-architecture';
   }
 
   return {

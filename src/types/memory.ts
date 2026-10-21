@@ -208,6 +208,10 @@ export const KNOWN_CONCEPTS = [
   'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
   'concept:argumentative_theory_reasoning_mercier_sperber',
   'concept:peer_calibration_red_teaming_tetlock',
+  // Lesson 26.1 Concepts
+  'concept:bahrick_permastore_fifty_year_retention',
+  'concept:cepeda_pashler_optimal_spacing_ratio_decades',
+  'concept:wozniak_two_component_memory_stability_retrievability',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -369,6 +373,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 25.2 Misconceptions
   'misconception:polite_consensus_signifies_high_quality_collective_learning',
   'misconception:solitary_introspection_can_eliminate_all_cognitive_biases',
+  // Lesson 26.1 Misconceptions
+  'misconception:knowledge_is_inevitably_forgotten_without_daily_weekly_review',
+  'misconception:all_memories_decay_at_the_same_exponential_rate',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

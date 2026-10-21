@@ -49,6 +49,7 @@ import { LESSON_EXTENDED_MIND_ZETTELKASTEN } from './lesson24_1Data.ts';
 import { LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING } from './lesson24_2Data.ts';
 import { LESSON_PROTEGE_EFFECT_TEACHING } from './lesson25_1Data.ts';
 import { LESSON_ADVERSARIAL_PEER_REVIEW } from './lesson25_2Data.ts';
+import { LESSON_LONGITUDINAL_SPACED_SCHEDULING } from './lesson26_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -689,7 +690,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Longitudinal Spaced Scheduling over Decades',
           subtitle: 'Managing knowledge retention intervals extending to 10+ years',
           readingTimeMinutes: 20,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'personal-mastery-synthesis',
@@ -1219,6 +1220,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING.id]: LESSON_DIGITAL_TOOLING_WITHOUT_HOARDING,
   [LESSON_PROTEGE_EFFECT_TEACHING.id]: LESSON_PROTEGE_EFFECT_TEACHING,
   [LESSON_ADVERSARIAL_PEER_REVIEW.id]: LESSON_ADVERSARIAL_PEER_REVIEW,
+  [LESSON_LONGITUDINAL_SPACED_SCHEDULING.id]: LESSON_LONGITUDINAL_SPACED_SCHEDULING,
 };
 
 export function getLessonById(id: string): Lesson {

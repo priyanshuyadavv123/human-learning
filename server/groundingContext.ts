@@ -616,6 +616,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 25.2 • Verification Assessment',
   'Lesson 25.2 • The 3-Step Adversarial Peer Review Protocol',
   'Lesson 25.2 • Adversarial Collaboration & Peer Calibration Overview',
+
+  // Lesson 26.1 Sections
+  'Lesson 26.1 • Curiosity Hook',
+  'Lesson 26.1 • Intuitive Calibration: Micro-Spaced Daily Drills vs Decadal Macro-Spacing',
+  'Lesson 26.1 • Section 1: Harry Bahrick (1984, 1993): The Permastore Phenomenon & 50-Year Retention',
+  'Lesson 26.1 • Section 2: Cepeda, Pashler & Rohrer: Optimal Spacing Ratios & The 10–20% Rule',
+  'Lesson 26.1 • Section 3: Piotr Wozniak: The Two-Component Model (Stability vs Retrievability) & Queue Pruning',
+  'Lesson 26.1 • The Longitudinal Permastore & Stability Expansion Engine',
+  'Lesson 26.1 • Decadal Retention & Review Debt Audit Lab',
+  'Lesson 26.1 • Verification Assessment',
+  'Lesson 26.1 • The 3-Step Decadal Spacing Protocol',
+  'Lesson 26.1 • Longitudinal Spaced Scheduling over Decades Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -729,6 +741,27 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 26.1 anchors
+  if (lower.includes('bahrick') || lower.includes('permastore') || lower.includes('fifty-year retention') || lower.includes('50-year retention') || (lower.includes('26.1') && lower.includes('section 1'))) {
+    return 'Lesson 26.1 • Section 1: Harry Bahrick (1984, 1993): The Permastore Phenomenon & 50-Year Retention';
+  }
+  if ((lower.includes('cepeda') && (lower.includes('pashler') || lower.includes('rohrer') || lower.includes('spacing') || lower.includes('2006') || lower.includes('2008'))) || lower.includes('optimal spacing ratio') || lower.includes('inter-study interval') || lower.includes('retention interval') || lower.includes('10-20% rule') || lower.includes('10–20% rule') || (lower.includes('26.1') && lower.includes('section 2'))) {
+    return 'Lesson 26.1 • Section 2: Cepeda, Pashler & Rohrer: Optimal Spacing Ratios & The 10–20% Rule';
+  }
+  if (
+    !lower.includes('fsrs') &&
+    !lower.includes('2.2') &&
+    ((lower.includes('wozniak') && (lower.includes('supermemo') || lower.includes('stability') || lower.includes('two-component') || lower.includes('pruning'))) || lower.includes('two-component model of memory') || lower.includes('flashcard bankruptcy') || lower.includes('queue pruning') || lower.includes('memory stability') || lower.includes('memory retrievability') || (lower.includes('26.1') && lower.includes('section 3')))
+  ) {
+    return 'Lesson 26.1 • Section 3: Piotr Wozniak: The Two-Component Model (Stability vs Retrievability) & Queue Pruning';
+  }
+  if (lower.includes('longitudinal permastore & stability expansion engine') || lower.includes('permastore & stability expansion engine') || lower.includes('stability expansion engine')) {
+    return 'Lesson 26.1 • The Longitudinal Permastore & Stability Expansion Engine';
+  }
+  if (lower.includes('26.1') || lower.includes('longitudinal-spaced-scheduling') || lower.includes('longitudinal spaced scheduling over decades') || lower.includes('3-step decadal spacing protocol')) {
+    return 'Lesson 26.1 • Section 1: Harry Bahrick (1984, 1993): The Permastore Phenomenon & 50-Year Retention';
   }
 
   // Match Lesson 25.2 anchors
@@ -2894,6 +2927,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_26_1 = `You are the specialized AI Socratic Tutor for Lesson 26.1: "Longitudinal Spaced Scheduling over Decades".
+Your role is to guide learners to manage knowledge retention over multi-year and multi-decade lifespans: Harry Bahrick's (1984, 1993) Permastore research (where semantic schemas stabilized by long-interval spacing plateau permanently for 50+ years without decay), Nicholas Cepeda, Harold Pashler, and Doug Rohrer's (2006, 2008) 10–20% optimal spacing ratio (demonstrating that multi-year retention requires expanding inter-study intervals to 1 to 2 years), and Piotr Wozniak's (1995, 2005) Two-Component Model of Memory (differentiating immediate Retrievability from biological Stability, eliminating review debt and flashcard bankruptcy through aggressive queue pruning).
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical cognitive science and mathematical scheduling:
+     a) Bahrick (1984, 1993): Semantic memory plateaus after 3-5 years into Permastore, retaining 60-70% for 50 years. Spacing practice across 56 days doubles retention compared to 14-day spacing.
+     b) Cepeda, Pashler & Rohrer (2006, 2008): The optimal Inter-Study Interval (ISI) is 10-20% of the target Retention Interval (RI). Reviewing daily or monthly for a 10-year goal wastes effort and provides minimal desirable difficulty.
+     c) Wozniak (1995, 2005): Memory requires two variables: Retrievability (probability of recall now) and Stability (durability). As stability expands, intervals must grow to years, and low-utility cards must be aggressively pruned to prevent flashcard bankruptcy.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to permastore, long-term retention intervals, optimal spacing ratios, memory stability vs retrievability, and review debt management.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -3044,6 +3101,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'adversarial-peer-review') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_25_2;
+  }
+  if (lessonId === 'longitudinal-spaced-scheduling') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_26_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -3253,6 +3313,10 @@ export const KNOWN_CONCEPTS = [
   'concept:adversarial_collaboration_kahneman_klein_boundary_testing',
   'concept:argumentative_theory_reasoning_mercier_sperber',
   'concept:peer_calibration_red_teaming_tetlock',
+  // Lesson 26.1 Concepts
+  'concept:bahrick_permastore_fifty_year_retention',
+  'concept:cepeda_pashler_optimal_spacing_ratio_decades',
+  'concept:wozniak_two_component_memory_stability_retrievability',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3414,6 +3478,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 25.2 Misconceptions
   'misconception:polite_consensus_signifies_high_quality_collective_learning',
   'misconception:solitary_introspection_can_eliminate_all_cognitive_biases',
+  // Lesson 26.1 Misconceptions
+  'misconception:knowledge_is_inevitably_forgotten_without_daily_weekly_review',
+  'misconception:all_memories_decay_at_the_same_exponential_rate',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];
