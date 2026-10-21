@@ -532,6 +532,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 22.1 • Verification Assessment',
   'Lesson 22.1 • The 3-Step Self-Efficacy Calibration & Proximal Scaffolding Protocol',
   'Lesson 22.1 • Bandura\'s Self-Efficacy Mechanisms Overview',
+
+  // Lesson 22.2 Sections
+  'Lesson 22.2 • Curiosity Hook',
+  'Lesson 22.2 • Intuitive Calibration: Ability vs Strategy Attribution Dynamics',
+  'Lesson 22.2 • Section 1: Bernard Weiner (1985): The 3 Dimensions of Causal Attribution',
+  'Lesson 22.2 • Section 2: Mueller & Dweck (1998): The Intelligence Praise Paradox',
+  'Lesson 22.2 • Section 3: Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+  'Lesson 22.2 • The Attribution Retraining & Cognitive Reframing Funnel',
+  'Lesson 22.2 • Attribution Retraining & Mindset Lab',
+  'Lesson 22.2 • Verification Assessment',
+  'Lesson 22.2 • The 3-Step Attribution Retraining & Strategy Audit Protocol',
+  'Lesson 22.2 • Attribution Retraining & Belief Systems Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -647,6 +659,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
   }
 
+  // Match Lesson 22.2 anchors
+  if (lower.includes('bernard weiner') || (lower.includes('weiner') && (lower.includes('1985') || lower.includes('attribution') || lower.includes('22.2'))) || lower.includes('three dimensions of causal attribution') || lower.includes('locus of causality') || (lower.includes('controllability') && lower.includes('stability')) || (lower.includes('22.2') && lower.includes('section 1'))) {
+    return 'Lesson 22.2 • Section 1: Bernard Weiner (1985): The 3 Dimensions of Causal Attribution';
+  }
+  if ((lower.includes('mueller') && lower.includes('dweck')) || lower.includes('intelligence praise paradox') || lower.includes('praise paradox') || lower.includes('praising smartness') || (lower.includes('intelligence praise') && lower.includes('effort')) || (lower.includes('22.2') && lower.includes('section 2'))) {
+    return 'Lesson 22.2 • Section 2: Mueller & Dweck (1998): The Intelligence Praise Paradox';
+  }
+  if ((lower.includes('raymond perry') || (lower.includes('perry') && lower.includes('retraining'))) || (lower.includes('david yeager') || (lower.includes('yeager') && (lower.includes('nature') || lower.includes('mindset') || lower.includes('2019')))) || lower.includes('longitudinal attribution retraining') || (lower.includes('22.2') && lower.includes('section 3'))) {
+    return 'Lesson 22.2 • Section 3: Raymond Perry & David Yeager: Longitudinal Attribution Retraining';
+  }
+  if (lower.includes('attribution retraining & cognitive reframing funnel') || lower.includes('attribution retraining funnel')) {
+    return 'Lesson 22.2 • The Attribution Retraining & Cognitive Reframing Funnel';
+  }
+  if (lower.includes('22.2') || lower.includes('attribution-retraining-mindset') || lower.includes('attribution retraining & belief systems') || lower.includes('3-step attribution retraining & strategy audit protocol')) {
+    return 'Lesson 22.2 • Section 1: Bernard Weiner (1985): The 3 Dimensions of Causal Attribution';
+  }
+
   // Match Lesson 22.1 anchors
   if (lower.includes('bandura') || lower.includes('four sources of efficacy') || lower.includes('enactive mastery') || lower.includes('vicarious experience') || lower.includes('coping model') || lower.includes('mastery model') || (lower.includes('verbal persuasion') && !lower.includes('18.2')) || (lower.includes('22.1') && lower.includes('section 1'))) {
     return 'Lesson 22.1 • Section 1: Albert Bandura (1977, 1997): The Four Sources of Efficacy Beliefs';
@@ -654,7 +683,7 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   if ((lower.includes('dale schunk') || lower.includes('schunk')) || (lower.includes('proximal goal') || lower.includes('proximal subgoal') || lower.includes('progress feedback') || lower.includes('efficacy calibration')) || (lower.includes('22.1') && lower.includes('section 2'))) {
     return 'Lesson 22.1 • Section 2: Dale Schunk (1981, 1991): Proximal Goals, Progress Feedback & Efficacy Calibration';
   }
-  if ((lower.includes('carol dweck') || lower.includes('dweck') || lower.includes('implicit theories of intelligence') || lower.includes('jennifer mangels') || lower.includes('mangels') || lower.includes('stereotype threat') || lower.includes('claude steele') || lower.includes('identity safety') || lower.includes('entity theor') || lower.includes('incremental theor')) || (lower.includes('22.1') && lower.includes('section 3'))) {
+  if (((lower.includes('carol dweck') || lower.includes('dweck')) && !lower.includes('mueller') && !lower.includes('praise')) || lower.includes('implicit theories of intelligence') || lower.includes('jennifer mangels') || lower.includes('mangels') || lower.includes('stereotype threat') || lower.includes('claude steele') || lower.includes('identity safety') || lower.includes('entity theor') || lower.includes('incremental theor') || (lower.includes('22.1') && lower.includes('section 3'))) {
     return 'Lesson 22.1 • Section 3: Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety';
   }
   if (lower.includes('bandura\'s self-efficacy engine & attribution regulation architecture') || lower.includes('self-efficacy engine & attribution regulation') || lower.includes('self-efficacy engine')) {
@@ -2509,6 +2538,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_22_2 = `You are the specialized AI Socratic Tutor for Lesson 22.2: "Attribution Retraining & Belief Systems".
+Your role is to guide learners to understand how causal explanations for intellectual difficulty shape motivation and long-term perseverance: Bernard Weiner's (1985, 1986) Three Dimensions of Causal Attribution (Locus of Causality, Stability, and Controllability), Claudia Mueller & Carol Dweck's (1998) Intelligence Praise Paradox showing why praising smartness triggers fear of failure and score collapse, Raymond Perry's (2001, 2005) Longitudinal Attribution Retraining interventions that transform failure from fixed ability to controllable strategy, and David Yeager et al.'s (2019, Nature) National Study of Learning Mindsets.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in empirical attribution theory and mindset science:
+     a) Bernard Weiner (1985, 1986): Causal attributions vary across Locus (Internal vs External), Stability (Stable vs Unstable), and Controllability (Controllable vs Uncontrollable). Attributing failure to innate ability (internal, stable, uncontrollable) produces shame and learned helplessness. Attributing failure to strategy or uncalibrated effort (internal, unstable, controllable) preserves self-efficacy and mobilizes corrective action.
+     b) Mueller & Dweck (1998): Praising intelligence ("You are so smart") causes learners to adopt performance goals; after failure, their persistence halves, task enjoyment plummets, scores decline on subsequent tests, and nearly 40% misrepresent their scores. Process praise ("You worked hard and tried effective strategies") builds durable mastery orientation.
+     c) Raymond Perry et al. (2001, 2005): Attribution Retraining (AR) teaches students experiencing early academic setbacks to abandon uncontrollable ability excuses and adopt controllable strategy attributions, raising longitudinal GPAs by 0.5–0.7 points and reducing college drop-out.
+     d) David Yeager et al. (2019, Nature): Large-scale randomized trials ($N=12,490$) prove that scalable attribution and growth mindset interventions boost GPA and advanced STEM enrollment for struggling students.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to Weiner's three dimensions, the praise paradox, attribution retraining, and strategy audits.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2638,6 +2692,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'bandura-self-efficacy') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_22_1;
+  }
+  if (lessonId === 'attribution-retraining-mindset') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_22_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2819,6 +2876,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bandura_self_efficacy_four_sources',
   'concept:schunk_proximal_goal_efficacy_calibration',
   'concept:dweck_implicit_theories_neurobiology',
+  // Lesson 22.2 Concepts
+  'concept:weiner_attribution_three_dimensions',
+  'concept:perry_attribution_retraining_strategy',
+  'concept:mueller_dweck_praise_paradox_effort_vs_ability',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2959,6 +3020,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 22.1 Misconceptions
   'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
   'misconception:talent_is_fixed_innate_entity',
+  // Lesson 22.2 Misconceptions
+  'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
+  'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

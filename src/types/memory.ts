@@ -180,6 +180,10 @@ export const KNOWN_CONCEPTS = [
   'concept:bandura_self_efficacy_four_sources',
   'concept:schunk_proximal_goal_efficacy_calibration',
   'concept:dweck_implicit_theories_neurobiology',
+  // Lesson 22.2 Concepts
+  'concept:weiner_attribution_three_dimensions',
+  'concept:perry_attribution_retraining_strategy',
+  'concept:mueller_dweck_praise_paradox_effort_vs_ability',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -320,6 +324,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 22.1 Misconceptions
   'misconception:self_efficacy_is_general_uncalibrated_self_esteem',
   'misconception:talent_is_fixed_innate_entity',
+  // Lesson 22.2 Misconceptions
+  'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
+  'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

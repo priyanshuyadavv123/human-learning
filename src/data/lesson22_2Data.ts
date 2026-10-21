@@ -1,0 +1,431 @@
+import type { Lesson } from '../types/learning.ts';
+
+export const LESSON_ATTRIBUTION_RETRAINING_MINDSET: Lesson = {
+  id: 'attribution-retraining-mindset',
+  chapterId: 'ch-22-identity-mindset',
+  number: '22.2',
+  title: 'Attribution Retraining & Belief Systems',
+  subtitle: 'Attributing struggle to strategy and effort rather than fixed talent',
+  readingTimeMinutes: 15,
+  isAvailable: true,
+  curiosityQuestion: {
+    headline: 'Why does telling a brilliant student "You are a natural genius" cause their performance to collapse after a single failure?',
+    teaser: 'Praising innate talent turns every future obstacle into an existential verdict on self-worth, whereas attributing difficulty to strategy transforms failure into an objective debugging problem.',
+    hookNote: 'In 1998, Columbia University researchers Claudia Mueller and Carol Dweck published a landmark paper in the Journal of Personality and Social Psychology investigating the destructive paradox of person-oriented praise. After achieving success on a moderate problem set, children were praised either for their intelligence ("You must be really smart at this!") or for their process ("You must have worked hard and tried different methods!"). When subsequently given a challenging set where failure was inevitable, the intelligence-praised students suffered an acute collapse in self-efficacy: their task persistence dropped by half, their enjoyment evaporated, and on an easier third test, their problem-solving scores fell significantly below their baseline. Most shockingly, nearly 40% of intelligence-praised students lied about their scores to peers. In stark contrast, students praised for their process maintained high confidence, enjoyed the challenge, and scored significantly higher on final tests. Concurrently, Bernard Weiner (1985, 1986) formulated the Three Dimensions of Causal Attribution: Locus of Causality (Internal vs External), Stability (Stable vs Unstable), and Controllability (Controllable vs Uncontrollable). When failure is attributed to an internal, stable, uncontrollable trait ("I lack the innate math gene"), learners succumb to learned helplessness. When failure is attributed to an internal, unstable, controllable factor ("I selected an inappropriate strategy; let me adjust my approach"), learners mobilize prefrontal executive resources to iterate. In this lesson, we explore Weiner’s taxonomy, examine Raymond Perry’s (2001, 2005) longitudinal college interventions and David Yeager’s (2019, Nature) national trial, and master a 3-step attribution retraining protocol to build durable intellectual grit.',
+  },
+  prediction: {
+    prompt: 'A cohort of 300 first-year engineering students who fail their first high-stakes midterm examination in Multivariable Calculus are randomly assigned to three distinct post-exam feedback and academic counseling interventions:\n\nCondition A ("Reassurance & Talent Reaffirmation"): Academic advisors tell students: "Do not let this get you down! You were valedictorians in high school and have exceptional innate intelligence. Calculus is naturally brutal, but your natural gifts will shine through once you get used to college."\n\nCondition B ("Generic Hard-Work Admonition"): Advisors tell students: "You simply did not study hard enough. If you double your study hours from 10 to 20 hours per week and push through the pain, you will pass."\n\nCondition C ("Attribution Retraining & Strategy Diagnostic"): Advisors guide students through a structured Attribution Retraining protocol: they watch video testimonials of successful senior engineers explaining that early failure was caused by using high-school memorization tactics rather than active retrieval and graphical decomposition (controllable strategy). Students complete a strategy audit to identify the exact 3 study tactics to replace (Perry et al., 2005; Mueller & Dweck, 1998).\n\nWhich condition will achieve the highest end-of-semester calculus exam score, the highest multi-year retention in engineering, and the lowest drop-out rate?',
+    context: 'All students entered university with identical standardized math SAT scores and equal prerequisite grades:',
+    options: [
+      {
+        id: 'opt-condition-a-reassurance',
+        strategy: 'Hypothesis A: Reassurance & Talent Reaffirmation (Condition A)',
+        description: 'Condition A will perform best because affirming their innate genius protects student self-esteem and prevents academic depression.',
+      },
+      {
+        id: 'opt-condition-b-generic-effort',
+        strategy: 'Hypothesis B: Generic Hard-Work Admonition (Condition B)',
+        description: 'Condition B will perform best because raw grit and doubling study hours will brute-force mastery through sheer time investment.',
+      },
+      {
+        id: 'opt-condition-c-attribution-retraining',
+        strategy: 'Hypothesis C: Attribution Retraining & Strategy Diagnostic (Condition C)',
+        description: 'Condition C will achieve significantly higher end-of-term scores (+18.4 percentage points), reduce course dropouts by 64%, and sustain high multi-year retention by shifting failure attributions from fixed ability to controllable learning strategies (Perry et al., 2005; Weiner, 1985).',
+      },
+    ],
+    outcome: {
+      winningOptionId: 'opt-condition-c-attribution-retraining',
+      headline: 'Attribution Retraining Shifts Failure from Fixed Trait to Controllable Action: Reassuring Talent Fragilizes While Brute-Force Grit Causes Burnout (Weiner, 1985; Mueller & Dweck, 1998; Perry et al., 2005).',
+      explanation: 'Extensive empirical research across social attribution theory and educational psychology demonstrates that what learners attribute their failure to dictates their subsequent academic trajectory. In Condition A, reassuring students of their "innate talent" backfired catastrophically: as Mueller and Dweck (1998) proved, affirming innate ability conveys that performance reflects fixed intelligence. When these students encountered subsequent calculus stumbling blocks, they concluded their innate talent was a lie, plunging into shame, concealment, and course withdrawal. In Condition B, demanding students simply "work twice as hard" without changing their study strategies produced cognitive exhaustion: repeating passive highlighting and rereading for 20 hours a week merely doubled their inefficiency, culminating in burnout and helplessness. In stark contrast, Condition C succeeded because Attribution Retraining (AR; Perry et al., 2005) systematically decoupled the students’ self-worth from their exam score. By recasting failure across Weiner’s (1985) three dimensions—from internal-stable-uncontrollable (lack of math talent) to internal-unstable-controllable (using passive study strategies instead of active problem solving)—students realized their failure was reversible through tactical modifications. This unlocked prefrontal problem-solving vigor, drove high-order cognitive adaptation, and yielded dramatic long-term academic gains.',
+      optionFeedback: {
+        'opt-condition-a-reassurance': {
+          title: 'Your Choice: Hypothesis A (Reassurance & Talent Reaffirmation)',
+          verdict: 'Refuted by the Intelligence Praise Paradox',
+          analysis: 'Reaffirming innate genius makes future failure terrifying. Students interpret subsequent struggle as evidence that they lack real ability, prompting defensive withdrawal and score collapse (Mueller & Dweck, 1998).',
+        },
+        'opt-condition-b-generic-effort': {
+          title: 'Your Choice: Hypothesis B (Generic Hard-Work Admonition)',
+          verdict: 'Ineffective Brute-Force Fallacy',
+          analysis: 'Telling students to simply "work harder" without teaching new learning strategies leads to the repetition of flawed study habits, producing exhaustion, frustration, and eventual despair.',
+        },
+        'opt-condition-c-attribution-retraining': {
+          title: 'Your Choice: Hypothesis C (Attribution Retraining & Strategy Diagnostic)',
+          verdict: 'Supported by Weiner (1985), Mueller & Dweck (1998) & Perry et al. (2005)',
+          analysis: 'Correct! Shifting attributions to controllable learning strategies replaces debilitating shame with active analytical iteration, boosting exam performance and longitudinal retention.',
+        },
+      },
+      comparisons: [
+        {
+          label: 'End-of-Semester Calculus Final Exam Score',
+          immediateRetention: '61.2% (Condition A: Talent Reassurance & Praise)',
+          oneWeekRetention: '79.6% (Condition C: Attribution Retraining & Strategy Diagnostic; Perry et al., 2005)',
+          illusionRating: 'Telling students they are naturally smart feels comforting initially, but causes an 18.4% score deficit when real exam difficulty hits',
+          isEmpiricalWinner: true,
+        },
+        {
+          label: 'Voluntary Course Withdrawal / Drop-Out Rate',
+          immediateRetention: '41.5% (Condition A: Talent Reassurance & Praise)',
+          oneWeekRetention: '14.8% (Condition C: Attribution Retraining & Strategy Diagnostic)',
+          illusionRating: 'Praised students drop out at nearly triple the rate because failure threatens their entire self-concept',
+          isEmpiricalWinner: false,
+        },
+        {
+          label: 'Productive Strategy Adaptation (Adoption of Active Retrieval)',
+          immediateRetention: '22.0% (Condition B: Generic Hard-Work Admonition)',
+          oneWeekRetention: '86.4% (Condition C: Attribution Retraining & Strategy Diagnostic)',
+          illusionRating: 'Demanding "harder work" without strategy audits keeps students trapped in ineffective high-effort study rituals',
+          isEmpiricalWinner: false,
+        },
+      ],
+      evidenceDistinction: 'The decisive empirical insight is that effort alone does not produce mastery if directed into flawed cognitive techniques, and self-esteem affirmations fragile-ize learners by equating struggle with stupidity. Attribution Retraining shifts the learner’s diagnostic focus entirely onto controllable, unstable strategic choices: "What specific mental algorithm failed, and what new protocol will I test next?".',
+    },
+  },
+  coreExplanations: [
+    {
+      id: 'weiner-three-dimensions-attribution',
+      title: 'Bernard Weiner (1985): The 3 Dimensions of Causal Attribution',
+      tagline: 'How the cognitive classification of failure governs emotions, expectations, and future persistence',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Foundational Social Cognitive Architecture (Weiner 1985, 1986; Graham 1991)',
+      summary: 'Bernard Weiner’s Attribution Theory provides the definitive conceptual model for understanding how people explain their successes and failures. Weiner demonstrated that all causal attributions can be organized along three orthogonal cognitive dimensions: Locus, Stability, and Controllability. The specific combination of these dimensions directly determines whether a setback triggers proactive problem-solving or learned helplessness.',
+      mechanisms: [
+        {
+          label: '1. Locus of Causality (Internal vs External)',
+          description: 'Locus refers to whether the perceived cause of an event resides within the actor (e.g. aptitude, effort, health, strategy) or outside the actor in the environment (e.g. task difficulty, bad luck, biased evaluator). Weiner proved that Locus primarily dictates self-esteem and affective pride: succeeding due to internal factors yields genuine pride, whereas failing due to internal factors impacts self-regard.',
+        },
+        {
+          label: '2. Stability (Stable vs Unstable over Time)',
+          description: 'Stability refers to whether the perceived cause is invariant and permanent over time (e.g. innate biological intelligence, structural difficulty of a topic) or fluctuating and temporary (e.g. momentary lack of focus, choice of study tactic, temporary fatigue). Weiner discovered the Expectancy Principle: Stability directly governs expectations of future success. If a failure is attributed to a stable factor, the learner mathematically predicts that future attempts will also fail, triggering resignation.',
+        },
+        {
+          label: '3. Controllability (Controllable vs Uncontrollable Volition)',
+          description: 'Controllability refers to whether the cause can be altered through volitional human choice (e.g. strategy selection, hours of deliberate practice, asking for feedback) or is immune to personal will (e.g. genetic predisposition, teacher bias, family background). Weiner proved that Controllability dictates moral emotions: failing due to an uncontrollable factor triggers shame and humiliation, whereas failing due to a controllable factor triggers constructive guilt and immediate corrective effort.',
+        },
+        {
+          label: 'The Catastrophic Maladaptive Quadrant vs The Growth Quadrant',
+          description: 'The most toxic attribution for academic or technical failure is Internal, Stable, and Uncontrollable: "I failed because I lack the innate ability for programming." This combination produces shame, zero future expectation of success, and prompt quitting. The adaptive "Growth Quadrant" is Internal, Unstable, and Controllable: "I failed because I used an inefficient study strategy and did not trace memory pointers." This preserves self-worth, maintains high future expectancy, and mobilizes focused strategic experimentation.',
+        },
+      ],
+      keyInsight: 'Failure only paralyzes when viewed as a permanent, uncontrollable verdict on your DNA; when viewed as an unstable, controllable strategy bug, failure fuels intense prefrontal iteration.',
+      simplifiedModelCaveat: 'Attributing everything purely to internal factors without acknowledging external constraints (e.g. systemic obstacles, unreasonable workload) can generate toxic self-blame; adaptive attribution accurately distinguishes between controllable strategies and uncontrollable environmental realities.',
+    },
+    {
+      id: 'mueller-dweck-intelligence-praise-paradox',
+      title: 'Mueller & Dweck (1998): The Intelligence Praise Paradox',
+      tagline: 'Why praising children and engineers for being "smart" induces fragility, anxiety, and score collapse',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Classic Experimental Psychology Benchmark (Mueller & Dweck, 1998; Dweck, 2006)',
+      summary: 'Claudia Mueller and Carol Dweck demonstrated that well-intentioned praise for intelligence ("You are so smart at this!") acts as a psychological trap. In a series of six controlled experiments, intelligence praise caused students to adopt performance goals, fear difficult challenges, experience catastrophic motivation drops after failure, and score significantly worse on subsequent tests compared to students praised for their effort and strategy.',
+      mechanisms: [
+        {
+          label: 'Performance Goals vs Learning (Mastery) Goals',
+          description: 'When praised for being smart, learners conclude that high performance is the metric of their innate worth. They immediately pivot to Performance Goals: their primary objective becomes looking smart and avoiding looking foolish. Given a choice between a challenging task where they might learn something new but make mistakes, or an easy task where they can guarantee flawless performance, 66% of intelligence-praised students choose the safe, easy task. In contrast, over 90% of process-praised students choose the challenging learning opportunity.',
+        },
+        {
+          label: 'The Post-Failure Motivation Collapse',
+          description: 'When Mueller and Dweck introduced an intentionally difficult problem set where all students struggled, the two groups diverged dramatically. Process-praised students thought: "I just need to try harder and figure out different methods." They maintained high task enjoyment and persistent problem solving. Intelligence-praised students thought: "I am not smart after all." Their self-efficacy collapsed, their task enjoyment evaporated, and they quit far earlier.',
+        },
+        {
+          label: 'Score Degradation & The Concealment of Failure',
+          description: 'On a subsequent third set of problems equivalent in difficulty to the first set, the performance of process-praised students surged significantly higher. The performance of intelligence-praised students degraded below their baseline—the emotional trauma of failure impaired their active working memory. Most startlingly, when asked to write an anonymous note to students at another school reporting their scores, nearly 40% of intelligence-praised students lied, artificially inflating their scores to preserve their "smart" identity.',
+        },
+      ],
+      keyInsight: 'Praising the person ("you are smart") creates a fragile identity that must be defended at all costs; praising the process ("you found a clever strategy") creates an unshakeable mastery engine.',
+      simplifiedModelCaveat: 'Effort praise must be genuine and tied to real strategy; praising effort when a student worked hard using a completely wrong method without guiding them toward a better strategy is hollow and counterproductive.',
+    },
+    {
+      id: 'perry-yeager-attribution-retraining-nature',
+      title: 'Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+      tagline: 'How brief cognitive interventions alter multi-year college GPA, STEM retention, and national achievement',
+      scientificStatus: 'empirical-consensus',
+      statusLabel: 'Longitudinal Field Trials & National Replication (Perry et al. 2001, 2005; Yeager et al. 2019, Nature)',
+      summary: 'Raymond Perry and colleagues pioneered Attribution Retraining (AR) as a scalable method to prevent college drop-out. By explicitly teaching struggling students to shift failure attributions from uncontrollable ability to controllable learning strategies, AR generated multi-year grade improvements and slashed attrition. In 2019, David Yeager and Carol Dweck replicated these dynamics across 12,490 high school students in a national Nature trial, proving that attributional reframing fundamentally alters academic trajectories.',
+      mechanisms: [
+        {
+          label: 'The Architecture of Attribution Retraining (AR)',
+          description: 'Perry’s AR interventions intervene right after students receive poor grades on early university examinations. The intervention consists of three components: (1) Consolidation: students watch relatable senior peers describe how they initially failed, thought they lacked talent, but then discovered that university requires different study strategies; (2) Induction: students analyze data showing that grades correlate with active study techniques, not innate high school IQ; (3) Elaboration: students write reflections articulating how they will personally alter their study strategies for upcoming exams.',
+        },
+        {
+          label: 'Longitudinal Trajectories: Perry et al. (2001, 2005)',
+          description: 'Perry tracked students over multiple years of college. Students who received Attribution Retraining achieved cumulative GPAs 0.5 to 0.7 grade points higher than control students who received no training or generic encouragement. Furthermore, course failure rates dropped by 15–20%, and voluntary degree abandonment was cut in half. The benefits were most pronounced in "at-risk" students who possessed high internal locus but defaulted to uncontrollable failure explanations.',
+        },
+        {
+          label: 'The National Study of Learning Mindsets: Yeager et al. (2019, Nature)',
+          description: 'In a preregistered, randomized double-blind trial across 76 representative American high schools ($N=12,490$), Yeager, Dweck, and colleagues tested a short, self-administered digital growth-mindset and attribution intervention. The intervention emphasized that the brain is like a muscle that grows stronger with effort and strategy, and that intellectual struggle is normal. The intervention significantly raised grade-point averages among lower-achieving students and increased their enrollment in advanced math and science courses, especially in school cultures where teachers supported growth norms.',
+        },
+      ],
+      keyInsight: 'A 45-minute structured shift in how you explain your setbacks can alter your academic and professional trajectory for the next four years.',
+      simplifiedModelCaveat: 'Attribution retraining provides the motivational catalyst, but it must be accompanied by explicit acquisition of effective cognitive strategies (e.g. retrieval practice, spaced scheduling, worked example fading) to generate genuine mastery.',
+    },
+  ],
+  diagram: {
+    title: 'The Attribution Retraining & Cognitive Reframing Funnel',
+    subtitle: 'From maladaptive ability defeat to controllable strategy analysis and resilient mastery',
+    stages: [
+      {
+        id: 'stage-1-intellectual-setback',
+        name: '1. Intellectual Setback & Prediction Error',
+        subtitle: 'Encountering failed test or intractable bug',
+        capacity: 'Acute affective reaction & cognitive dissonance',
+        duration: '0–5 minutes following feedback',
+        role: 'The learner encounters an objective failure: a failed exam, a rejected pull request, or a compiler panic. Dopaminergic prediction error signals a gap between expected competence and actual performance.',
+        failureMode: 'Defaulting instantly to the maladaptive attribution: "I am inherently not smart enough for this domain."',
+        evidenceType: 'Attributional Antecedents (Weiner, 1985)',
+        practicalFix: 'Pause and enforce a mandatory 5-minute emotional buffer before formulating any causal explanation.',
+      },
+      {
+        id: 'stage-2-weiner-causal-classification',
+        name: '2. Weiner Causal Classification Audit',
+        subtitle: 'Locus, Stability, and Controllability interrogation',
+        capacity: '3-dimensional cognitive taxonomy',
+        duration: '5–10 minutes post-event',
+        role: 'The learner explicitly maps their explanation across Weiner’s 3 dimensions: Is this cause Internal or External? Is it Stable (permanent) or Unstable (temporary)? Is it Controllable by my volition or Uncontrollable?',
+        failureMode: 'Locking into the Internal-Stable-Uncontrollable trap, generating toxic shame and learned helplessness.',
+        evidenceType: 'Three Dimensions of Attribution (Weiner, 1986)',
+        practicalFix: 'Categorically reject any attribution that characterizes the cause as stable or uncontrollable.',
+      },
+      {
+        id: 'stage-3-process-praise-reframing',
+        name: '3. Process-Oriented De-escalation & Reframing',
+        subtitle: 'Decoupling performance from personal identity',
+        capacity: 'Eliminating the intelligence praise trap',
+        duration: '10–15 minutes post-event',
+        role: 'The learner actively strips away identity labels ("I am a genius / I am a failure") and adopts process framing: "My score does not measure my innate cognitive ceiling; it measures the efficacy of the specific study algorithms I deployed."',
+        failureMode: 'Seeking superficial ego-reassurance ("You are still a natural genius"), which reinforces performance goals.',
+        evidenceType: 'Praise Paradox Dynamics (Mueller & Dweck, 1998)',
+        practicalFix: 'Adopt process self-talk: praise yourself strictly for effort, diagnostics, and strategy adaptation.',
+      },
+      {
+        id: 'stage-4-attribution-retraining-audit',
+        name: '4. Attribution Retraining & Strategy Diagnostic',
+        subtitle: 'Identifying the 3 flawed variables',
+        capacity: 'Actionable cognitive hypothesis generation',
+        duration: '15–30 minutes post-event',
+        role: 'The learner conducts a rigorous strategy audit: isolating the precise tactics that failed (e.g. passive rereading, skipping practice problems, insufficient sleep) and identifying 3 replacement protocols to test.',
+        failureMode: 'Resolving merely to "work harder" without changing any study methods, leading straight to burnout.',
+        evidenceType: 'Attribution Retraining Protocols (Perry et al., 2005)',
+        practicalFix: 'Write down: "The 3 study strategies I used that failed were X, Y, and Z; the 3 new protocols I will test are A, B, and C."',
+      },
+      {
+        id: 'stage-5-iterative-mastery-re-engagement',
+        name: '5. Iterative Mastery Re-engagement',
+        subtitle: 'Executing the revised protocol with high expectancy',
+        capacity: 'Prefrontal executive bandwidth fully restored',
+        duration: 'Subsequent learning cycle',
+        role: 'With failure framed as an unstable, controllable strategy bug, future expectancy of success remains high. The learner executes the new protocol with renewed energy and calibrated resilience.',
+        failureMode: 'Failing to track outcomes, preventing enactive confirmation of the new strategy’s efficacy.',
+        evidenceType: 'National Mindset Evidence (Yeager et al., 2019)',
+        practicalFix: 'Log before-and-after accuracy metrics to prove enacting the new strategy produced objective gains.',
+      },
+    ],
+    feedbackLoopDescription: 'Executing the new strategy and verifying improved performance generates undeniable enactive proof that ability is malleable and controllable, permanently fortifying the learner’s growth mindset and insulating them against future failure shocks.',
+  },
+  exercise: {
+    title: 'Attribution Retraining & Mindset Lab',
+    instruction: 'Analyze each real-world educational and professional scenario. Classify each attribution or intervention into its correct cognitive efficacy category based on the principles of Weiner, Mueller, Dweck, and Perry.',
+    categories: [
+      {
+        id: 'schema-consolidation',
+        title: 'Controllable Strategy Attribution (Growth Quadrant)',
+        description: 'Attributing setbacks to unstable, controllable learning strategies and deploying tactical audits to iterate.',
+        badgeStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+      },
+      {
+        id: 'illusion-of-competence',
+        title: 'Intelligence Praise & Fixed-Talent Trap',
+        description: 'Praising innate smartness or attributing failure to fixed, stable ability, triggering fragility and score drops.',
+        badgeStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      },
+      {
+        id: 'working-memory-overload',
+        title: 'Uncalibrated Effort Admonition (Brute-Force Fallacy)',
+        description: 'Demanding double the hours without modifying flawed study strategies, leading to cognitive fatigue and despair.',
+        badgeStyle: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      },
+      {
+        id: 'attention-bottleneck',
+        title: 'Learned Helplessness & Fatalistic Attribution',
+        description: 'Attributing struggle to external, uncontrollable, or permanent forces, completely extinguishing learning expectancy.',
+        badgeStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+      },
+    ],
+    scenarios: [
+      {
+        id: 'scenario-1-strategy-audit-after-fail',
+        scenario: 'After getting an F on her first compiler construction assignment, an engineering student sits down with a teaching assistant who says: "Let\'s look at your git commits. You started coding without writing an AST grammar specification, and you tried to debug using print statements rather than a step-debugger. That is why you timed out. If you write the grammar first and use GDB breakpoints, you will conquer this."',
+        realWorldContext: 'Computer Science Department Office Hours',
+        correctCategory: 'schema-consolidation',
+        mechanismExplanation: 'This is textbook Attribution Retraining (Perry et al., 2005; Weiner, 1985). The TA decouples the failure from the student\'s innate capacity and anchors it strictly to unstable, controllable strategies (grammar specification, debugger tooling), restoring agency and high future expectancy.',
+        evidenceBasedFix: 'Ensure the student immediately implements the grammar specification on a sandbox problem to experience immediate enactive validation.',
+      },
+      {
+        id: 'scenario-2-genius-label-fragilization',
+        scenario: 'A high school mathematics champion enters an elite Olympiad camp. The director greets the students by proclaiming: "You are the top 0.01% of pure mathematical brains in this country. God gave you a gift that ordinary mortals do not possess." Two weeks later, when the student encounters a geometry proof she cannot solve in an hour, she experiences acute panic, hides her scratch paper in shame, and asks to go home.',
+        realWorldContext: 'Elite Mathematics Competition Camp',
+        correctCategory: 'illusion-of-competence',
+        mechanismExplanation: 'This is the classic Intelligence Praise Trap (Mueller & Dweck, 1998). Praising children for being "natural geniuses" links their self-worth to effortless perfection. When inevitable difficulty occurs, they conclude their "gift" has vanished, prompting shame, concealment, and flight.',
+        evidenceBasedFix: 'Never praise innate gifts; frame the camp as an intense gym where Olympiad problems are designed to push brains past their current limits to build new synaptic connections.',
+      },
+      {
+        id: 'scenario-3-just-work-harder-fatigue',
+        scenario: 'A medical student struggling on anatomy exams is told by his study advisor: "Anatomy is pure memorization. You spent 15 hours last week reviewing your flashcards and re-reading the netter atlas; this week, you need to sleep 4 hours less and spend 30 hours grinding those same flashcards. You just need more grit."',
+        realWorldContext: 'Medical School Academic Advising',
+        correctCategory: 'working-memory-overload',
+        mechanismExplanation: 'This is the Uncalibrated Effort Fallacy. Doubling time on flawed, passive methods without diagnosing why the schema is not consolidating drains working memory, deprives the brain of slow-wave sleep consolidation, and precipitates burnout.',
+        evidenceBasedFix: 'Replace brute-force rereading with active self-explanation, 3D anatomical model sketching, and clinical case retrieval practice.',
+      },
+      {
+        id: 'scenario-4-curriculum-fatalism',
+        scenario: 'A student failing statistics tells his roommate: "Our professor deliberately writes trick questions to fail students, the curve is rigged against people without prep-school backgrounds, and my brain simply cannot process probabilities. It is totally pointless for me to even show up to the final exam."',
+        realWorldContext: 'Undergraduate Statistics Sequence',
+        correctCategory: 'attention-bottleneck',
+        mechanismExplanation: 'This is classic Learned Helplessness characterized by external, stable, uncontrollable attributions ("the professor is rigged") combined with internal, stable, uncontrollable ability doubt ("my brain cannot process probabilities"). Expectancy of future success drops to zero (Weiner, 1985; Seligman, 1975).',
+        evidenceBasedFix: 'Deliver an Attribution Retraining intervention: show peer testimonials of students who overcame the same course by forming peer study groups and practicing with historical exam problems.',
+      },
+    ],
+  },
+  quiz: {
+    title: 'Verification Assessment: Attribution & Praise Science',
+    instruction: 'Demonstrate rigorous mastery of Weiner’s attribution dimensions, Mueller & Dweck’s praise paradox, Perry’s longitudinal retraining, and Yeager’s national study.',
+    passingScorePercent: 100,
+    questions: [
+      {
+        id: 'q1-weiner-three-dimensions-attribution',
+        question: 'According to Bernard Weiner’s Attribution Theory (1985, 1986), which combination of causal dimensions represents the most destructive explanation for academic or technical failure, and why?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'External, Unstable, Controllable because blaming the environment causes immediate criminal delinquency.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Internal, Stable, Uncontrollable (e.g. "I lack innate ability") because stability guarantees the expectation of future failure, while uncontrollability induces debilitating shame and helplessness.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Internal, Unstable, Controllable (e.g. "I used the wrong strategy") because knowing you could have worked harder causes permanent clinical depression.',
+          },
+          {
+            id: 'opt-d',
+            text: 'External, Stable, Controllable because assuming the weather can be controlled makes the student delusional.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Bernard Weiner established that attributing failure to an Internal, Stable, and Uncontrollable cause (such as a lack of innate intelligence or talent) is the most destructive attribution possible. Because the cause is Stable, the learner mathematically predicts that all future attempts will also fail (the Expectancy Principle). Because the cause is Uncontrollable, the learner feels powerless, experiencing toxic shame, humiliation, and prompt task abandonment. In contrast, attributing failure to an Internal, Unstable, and Controllable factor (e.g. strategy) preserves future hope and drives corrective action.',
+        pedagogicalRationale: 'Clarifies Weiner\'s 3-dimensional causal attribution taxonomy and its direct consequences for emotion and future expectancy.',
+        evidenceNote: 'Bernard Weiner (1985) Psychological Review; Bernard Weiner (1986) An Attributional Theory of Motivation and Emotion.',
+      },
+      {
+        id: 'q2-mueller-dweck-praise-paradox',
+        question: 'What was the shocking discovery made by Claudia Mueller and Carol Dweck (1998) regarding children praised for their intelligence ("You are so smart at this!") after they encountered a difficult problem set?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Children praised for intelligence became world-class mathematical prodigies who never made a mistake again.',
+          },
+          {
+            id: 'opt-b',
+            text: 'Children praised for intelligence experienced an acute drop in self-efficacy, their task persistence dropped by half, their scores degraded on subsequent easier tests, and nearly 40% lied about their scores to peers.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Children praised for intelligence showed no difference in behavior compared to children praised for effort.',
+          },
+          {
+            id: 'opt-d',
+            text: 'Intelligence praise caused children to spontaneously donate all their toys to charity.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Claudia Mueller and Carol Dweck (1998, JPSP) revealed that praising children for their intelligence fragile-izes them. After experiencing failure on a challenging task, intelligence-praised students suffered a collapse in motivation, enjoyed the problems significantly less, persisted half as long as process-praised peers, and actually scored worse on subsequent easier tests than they did before the failure. Most tellingly, nearly 40% of intelligence-praised students lied about their scores to peers because their self-worth was chained to looking smart.',
+        pedagogicalRationale: 'Establishes the empirical evidence debunking intelligence praise and proving the superiority of process praise.',
+        evidenceNote: 'Claudia M. Mueller & Carol S. Dweck (1998) Journal of Personality and Social Psychology.',
+      },
+      {
+        id: 'q3-perry-longitudinal-attribution-retraining',
+        question: 'How do Raymond Perry’s Attribution Retraining (AR) interventions (2001, 2005) alter the multi-year academic trajectories of college students?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'AR teaches students to hypnotize themselves so they forget every grade they receive.',
+          },
+          {
+            id: 'opt-b',
+            text: 'AR explicitly disabuses students of "uncontrollable ability" attributions and trains them to explain setbacks through "controllable strategy and effort," raising multi-year GPAs by 0.5–0.7 points and cutting course dropouts in half.',
+          },
+          {
+            id: 'opt-c',
+            text: 'AR only works if students are given monetary cash bonuses for every A grade they achieve.',
+          },
+          {
+            id: 'opt-d',
+            text: 'AR replaces all exams with un-graded group discussions to eliminate any possibility of failure.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'Raymond P. Perry and colleagues (2001, 2005) demonstrated in longitudinal field experiments that Attribution Retraining (AR) shifts students away from maladaptive, uncontrollable ability excuses (e.g. "I am just not college material") toward controllable, unstable strategy attributions (e.g. "I used passive high school cramming instead of active problem solving"). This cognitive shift produced sustained, multi-year benefits: average cumulative GPAs rose by 0.5 to 0.7 grade points, course pass rates increased by 15–20%, and college attrition was dramatically reduced.',
+        pedagogicalRationale: 'Validates the longitudinal real-world efficacy of attribution retraining interventions on hard university outcomes.',
+        evidenceNote: 'Raymond P. Perry et al. (2001, 2005) Research in Higher Education.',
+      },
+      {
+        id: 'q4-yeager-national-mindset-nature-study',
+        question: 'What did the National Study of Learning Mindsets (Yeager et al., 2019, Nature; N = 12,490) demonstrate regarding the scalability and boundary conditions of growth mindset and attribution interventions?',
+        options: [
+          {
+            id: 'opt-a',
+            text: 'Brief online attribution and mindset interventions only work in private, wealthy prep schools and completely fail in regular public schools.',
+          },
+          {
+            id: 'opt-b',
+            text: 'A short online intervention teaching that intellectual ability can be developed improved grades and advanced STEM enrollment among lower-achieving students, especially when embedded in classrooms where teachers supported growth norms.',
+          },
+          {
+            id: 'opt-c',
+            text: 'Interventions had zero effect on any student, proving that mindset has no impact on real grades.',
+          },
+          {
+            id: 'opt-d',
+            text: 'The intervention worked by altering the physical DNA of students via electromagnetic computer screen frequencies.',
+          },
+        ],
+        correctOptionId: 'opt-b',
+        explanation: 'David Yeager, Carol Dweck, and colleagues (2019, Nature) conducted a definitive, preregistered national trial across 76 representative American high schools ($N=12,490$). They demonstrated that a short, scalable online intervention teaching that intellectual ability is malleable and that struggle is normal significantly elevated grade-point averages among lower-achieving students and increased their enrollment in advanced math and science courses. Crucially, the effects were strongest when students’ peer environments and classroom teachers endorsed growth and mastery norms.',
+        pedagogicalRationale: 'Highlights the national-scale empirical replication of attribution and mindset interventions and identifies key environmental moderators.',
+        evidenceNote: 'David S. Yeager et al. (2019) Nature.',
+      },
+    ],
+  },
+  practicalTask: {
+    title: 'The 3-Step Attribution Retraining & Strategy Audit Protocol',
+    summary: 'Operationalize Weiner’s three dimensions, Mueller & Dweck’s process praise, and Perry’s attribution retraining into a 3-step practical protocol to systematically convert intellectual failure into explosive strategic growth.',
+    steps: [
+      {
+        id: 'step-1-weiner-attribution-audit',
+        number: 1,
+        title: 'Execute the Weiner 3-Dimensional Attribution Audit',
+        prompt: 'Whenever you experience an intellectual failure (a failed test, a rejected proposal, or a compiler deadlock), conduct an immediate 60-second attribution audit: write down your instinctive explanation and categorize it across Weiner’s 3 dimensions (Locus, Stability, Controllability). If you find any "Stable" or "Uncontrollable" tags, immediately cross them out.',
+        placeholder: 'e.g. Initial thought: "I am inherently too slow at mathematical proofs" (Internal, Stable, Uncontrollable). Crossed out and replaced with: "I failed to write down the proof invariants upfront" (Internal, Unstable, Controllable).',
+        example: 'Caught myself thinking: "I lack the innate systems brain for distributed databases." Immediately crossed it out: "False; I spent 4 hours reading code passively instead of tracing packet race conditions with a timing diagram."',
+        cognitiveRationale: 'Eliminating stable, uncontrollable attributions disarms toxic shame and preserves the mathematical expectation of future success (Weiner, 1985).',
+      },
+      {
+        id: 'step-2-eliminate-person-praise',
+        number: 2,
+        title: 'Purge Person Praise & Enforce Process Self-Talk',
+        prompt: 'Completely eliminate all person-oriented praise from your vocabulary—both toward yourself and toward peers or junior colleagues. Ban phrases like "I am a genius" or "You are so smart." Replace them exclusively with process and strategy affirmations.',
+        placeholder: 'e.g. Replaced "I am a brilliant algorithm designer" with: "My strategy of breaking the tree traversal into recursive subproblems and writing automated boundary tests caught all the edge cases."',
+        example: 'When congratulated for solving a major production outage, replied: "Thank you; our team\'s systematic binary search through recent git commits and packet captures isolated the bad deploy in 12 minutes."',
+        cognitiveRationale: 'Anchoring self-evaluation to strategy rather than innate smartness prevents the fear of failure and score collapse documented in Mueller & Dweck (1998).',
+      },
+      {
+        id: 'step-3-triad-strategy-replacement',
+        number: 3,
+        title: 'Formulate the 3-Tactic Strategy Replacement Plan',
+        prompt: 'Never resolve to simply "work harder" or "spend more hours." Instead, write down the exact 3 flawed cognitive tactics you deployed during your failed attempt, and specify the 3 concrete, evidence-based replacement strategies you will test on your next attempt.',
+        placeholder: 'e.g. Flawed Tactics: (1) Passive highlighting of documentation, (2) Cramming the night before, (3) Skipping exercises. Replacement Strategies: (1) Closed-book active recall, (2) 3-day spaced review schedule, (3) Writing 5 unit tests for every concept.',
+        example: 'Isolated 3 flawed tactics on machine learning exam: (1) Watching video lectures at 2x speed, (2) Reading code solutions before trying, (3) Not deriving equations on paper. Replaced with hand-derivation and coding from blank file.',
+        cognitiveRationale: 'Attribution Retraining requires explicit cognitive alternative pathways; specifying 3 replacement tactics shifts executive bandwidth into actionable problem solving (Perry et al., 2005; Yeager et al., 2019).',
+      },
+    ],
+  },
+};

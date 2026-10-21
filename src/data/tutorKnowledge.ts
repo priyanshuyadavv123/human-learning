@@ -1261,6 +1261,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'When you receive negative feedback on code or an assessment, does your brain instinctively defend your ego, or does it activate prefrontal attention to absorb the corrective explanation?',
     referencedSection: 'Lesson 22.1 • Section 3: Carol Dweck & Claude Steele: Implicit Theories of Intelligence & Identity Safety',
   },
+  {
+    keywords: ['bernard weiner', 'attribution theory', 'three dimensions of attribution', 'locus of causality', 'stability', 'controllability', 'internal vs external', 'stable vs unstable', 'shame vs guilt'],
+    title: 'Bernard Weiner: The Three Dimensions of Causal Attribution',
+    summary: 'Weiner’s 3 causal dimensions (locus, stability, controllability) dictate emotional reactions and future expectations after intellectual struggle.',
+    takeaway: 'Attributing failure to unstable, controllable strategies preserves agency and fuels persistent problem solving; attributing it to stable lack of talent breeds helplessness (Weiner, 1985).',
+    detailedResponse: 'Bernard Weiner (1985, 1986) formulated the definitive Three-Dimensional Taxonomy of Causal Attribution: Locus of Causality (Internal vs External), Stability (Stable vs Unstable over time), and Controllability (Controllable vs Uncontrollable by personal will). When learners encounter failure, how they classify the cause across these three dimensions dictates their emotional and motivational trajectory. Attributing failure to "lack of innate ability" (internal, stable, uncontrollable) produces debilitating shame, reduces future success expectations to zero, and causes immediate task abandonment. Conversely, attributing failure to "ineffective study strategy or uncalibrated effort" (internal, unstable, controllable) preserves self-worth, produces constructive guilt rather than shame, and mobilizes focused cognitive effort to debug the process.',
+    socraticChallenge: 'When an algorithm fails its unit tests or an exam score is disappointing, do you attribute the result to a permanent personal defect (uncontrollable) or to a specific flawed problem-solving tactic (controllable)?',
+    referencedSection: 'Lesson 22.2 • Section 1: Bernard Weiner (1985): The 3 Dimensions of Causal Attribution',
+  },
+  {
+    keywords: ['claudia mueller', 'carol dweck 1998', 'intelligence praise paradox', 'effort praise vs intelligence praise', 'process praise', 'praising smartness', 'lying about scores', 'performance goals vs learning goals'],
+    title: 'Mueller & Dweck (1998): The Intelligence Praise Paradox',
+    summary: 'Praising learners for being smart backfires: after failure, they exhibit lower persistence, lower enjoyment, declining test scores, and 40% misrepresent their performance.',
+    takeaway: 'Process praise ("you worked hard and used good strategies") fosters resilient problem solving, whereas intelligence praise ("you are so smart") fragile-izes learners (Mueller & Dweck, 1998).',
+    detailedResponse: 'Claudia Mueller and Carol Dweck (1998, JPSP) revealed the destructive paradox of person-oriented intelligence praise. In six controlled trials, children praised for their intelligence ("You must be really smart at this!") initially felt proud, but immediately adopted risk-averse performance goals. When subsequently exposed to a difficult problem set where failure was inevitable, the intelligence-praised group suffered an acute collapse in self-efficacy, reported dramatic drops in task enjoyment, and persisted half as long as children praised for their effort and strategy ("You must have worked hard and tried different approaches!"). Most alarmingly, when given a subsequent easy set, the intelligence-praised students actually scored significantly worse than their baseline, and nearly 40% lied about their scores to peers. Process praise anchors success to controllable action; intelligence praise chains identity to fragile outcome.',
+    socraticChallenge: 'When evaluating your own learning breakthroughs, do you praise yourself for having "innate genius," or do you audit and reinforce the specific analytical strategies that unlocked the solution?',
+    referencedSection: 'Lesson 22.2 • Section 2: Mueller & Dweck (1998): The Intelligence Praise Paradox',
+  },
+  {
+    keywords: ['raymond perry', 'david yeager', 'attribution retraining', 'national study of learning mindsets', 'longitudinal attribution retraining', 'perry 2005', 'yeager 2019 nature', 'shifting failure attributions'],
+    title: 'Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+    summary: 'Structured attribution retraining interventions shift failure explanations from fixed ability to controllable strategy, yielding durable multi-year GPA and completion gains.',
+    takeaway: 'Retraining students to explain early academic setbacks through controllable strategy and effort raises multi-year retention and advanced STEM enrollment (Perry et al., 2005; Yeager et al., 2019).',
+    detailedResponse: 'Raymond P. Perry and colleagues (2001, 2005) developed Attribution Retraining (AR) to break the vicious cycle of academic failure. In multi-year longitudinal studies of university students, Perry demonstrated that brief, structured interventions—combining peer video testimonials, diagnostic quizzes, and strategy-mapping exercises—successfully train students to reject "uncontrollable ability" explanations and adopt "controllable strategy" attributions. AR elevated graduation rates and course GPAs by 0.5–0.7 grade points, with the greatest protective benefit seen in at-risk students. In 2019, David Yeager, Carol Dweck, and colleagues published a landmark national study in Nature ($N=12,490$) showing that a short, scalable online attribution and growth mindset program significantly raised GPA and increased enrollment in advanced mathematics courses, proving the enduring power of attributional restructuring.',
+    socraticChallenge: 'Can you design a personal post-mortem protocol that forces you to identify three controllable strategy variables every time you face an unexpected technical setback?',
+    referencedSection: 'Lesson 22.2 • Section 3: Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

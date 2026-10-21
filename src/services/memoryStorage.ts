@@ -321,6 +321,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'bandura-self-efficacy';
     chapterId = 'ch-22-identity-mindset';
+  } else if (
+    conceptId.startsWith('concept:weiner_attribution_') ||
+    conceptId.startsWith('concept:perry_attribution_') ||
+    conceptId.startsWith('concept:mueller_dweck_')
+  ) {
+    lessonId = 'attribution-retraining-mindset';
+    chapterId = 'ch-22-identity-mindset';
   }
 
   return {

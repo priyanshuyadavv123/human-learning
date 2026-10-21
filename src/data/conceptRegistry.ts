@@ -2005,6 +2005,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:talent_is_fixed_innate_entity',
     discrepancyPrompt: 'Previously you may have assumed that making an intellectual mistake signifies a lack of innate talent. How does Jennifer Mangels’s ERP neuroimaging demonstrate that viewing intelligence as fixed causes the brain to filter out corrective learning information to defend its ego?',
   },
+  'concept:weiner_attribution_three_dimensions': {
+    conceptId: 'concept:weiner_attribution_three_dimensions',
+    title: 'Bernard Weiner: The Three Dimensions of Causal Attribution',
+    prompt: 'What are the three dimensions of causal attribution formulated by Bernard Weiner (1985, 1986), and how does each dimension affect emotional responses and future performance expectations?',
+    keyCriteria: [
+      'Cites Bernard Weiner (1985, 1986) An Attributional Theory of Motivation and Emotion',
+      'Defines the 3 dimensions: Locus of Causality (Internal vs External), Stability (Stable vs Unstable over time), and Controllability (Controllable vs Uncontrollable by volition)',
+      'Explains emotional and cognitive consequences: Stability governs expectancy of future success (stable causes yield invariant future expectations); Controllability governs guilt vs shame (controllable failure yields guilt and adaptive corrective action; uncontrollable failure yields shame, humiliation, and resignation); Locus governs self-esteem',
+      'Contrasts "lack of innate ability" (internal, stable, uncontrollable → helplessness) with "ineffective strategy / modifiable effort" (internal, unstable, controllable → vigorous problem solving)',
+    ],
+    canonicalAnswer: 'Bernard Weiner (1985, 1986) formulated the definitive Three-Dimensional Taxonomy of Causal Attribution to explain how individuals make sense of their successes and failures. The three orthogonal dimensions are: (1) Locus of Causality (Internal vs. External)—whether the cause originates within the person (e.g., skill, effort) or in the environment (e.g., task difficulty, luck), which directly governs affective pride and self-worth. (2) Stability (Stable vs. Unstable)—whether the cause fluctuates over time (e.g., strategy, temporary fatigue) or remains permanent (e.g., innate biological ceiling, inherent domain difficulty). Stability directly dictates future performance expectations: attributing failure to a stable factor guarantees the expectation of future failure. (3) Controllability (Controllable vs. Uncontrollable)—whether the factor is subject to volitional modification (e.g., choice of algorithm, hours of deliberate practice) or beyond personal influence (e.g., genetic endowment, sudden illness). Weiner demonstrated that attributing failure to lack of innate ability (internal, stable, uncontrollable) produces debilitating shame and learned helplessness. Conversely, attributing failure to ineffective strategy or uncalibrated effort (internal, unstable, controllable) preserves self-efficacy, produces constructive guilt, and mobilizes focused problem-solving effort.',
+    lessonSectionAnchor: 'Lesson 22.2 • Section 1: Bernard Weiner (1985): The 3 Dimensions of Causal Attribution',
+    relatedMisconception: 'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
+    discrepancyPrompt: 'Previously you might have viewed failing a mock interview or tough exam as a verdict on your permanent intelligence. How does Weiner\'s attribution taxonomy prove that recasting the cause as unstable and controllable fundamentally transforms your emotional trajectory and future success expectancy?',
+  },
+  'concept:perry_attribution_retraining_strategy': {
+    conceptId: 'concept:perry_attribution_retraining_strategy',
+    title: 'Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+    prompt: 'How do attribution retraining interventions systematically alter student achievement trajectories, and what does the national mindset trial reveal about scaling these shifts (Perry et al., 2005; Yeager et al., 2019)?',
+    keyCriteria: [
+      'Cites Raymond P. Perry et al. (2001, 2005) Longitudinal Attribution Retraining (AR)',
+      'Explains the Attribution Retraining (AR) mechanism: explicitly disabusing learners of "uncontrollable ability" attributions for early failure and retraining them to adopt "controllable strategy and effort" attributions',
+      'Details empirical outcomes: at-risk college students receiving AR achieve significantly higher multi-year GPAs, course pass rates (+15–20%), and dramatic reductions in voluntary course drop-out',
+      'Cites David Yeager et al. (2019, Nature) National Study of Learning Mindsets ($N=12,490$): short online mindset/attribution interventions elevate grades and advanced STEM enrollment among lower-achieving students, especially when embedded in classrooms where teachers foster mastery norms',
+    ],
+    canonicalAnswer: 'Raymond P. Perry and colleagues (University of Manitoba; 2001, 2005) pioneered "Attribution Retraining" (AR)—a targeted cognitive intervention designed to shift how students explain academic setbacks. During critical transition periods, students who experience poor early exam grades often default to maladaptive attributions: "I failed because I lack the talent." Perry showed that a brief AR intervention—involving videotaped peer testimonials, structured cognitive exercises, and diagnostic self-reflection—teaches students to reinterpret setbacks as the natural consequence of using inappropriate learning strategies or insufficient focused effort (unstable, controllable factors). In longitudinal trials tracking students across entire academic degrees, AR raised course completion rates, elevated average GPAs by 0.5–0.7 grade points, and dramatically lowered student attrition, with the strongest effects seen in historically at-risk learners. Complementing this at massive scale, David Yeager, Carol Dweck, and colleagues (2019, Nature; National Study of Learning Mindsets, $N=12,490$) demonstrated that a short digital attribution and mindset intervention significantly improved high school grade-point averages and increased enrollment in advanced mathematics courses, proving that altering attributional frameworks unlocks latent cognitive potential.',
+    lessonSectionAnchor: 'Lesson 22.2 • Section 3: Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
+    relatedMisconception: 'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
+    discrepancyPrompt: 'Previously you may have believed that interventions targeting thoughts or beliefs are "soft" and cannot change hard academic or technical outcomes. How do Perry’s multi-year longitudinal trials and Yeager’s national Nature study prove that attribution retraining directly transforms course grades and graduation rates?',
+  },
+  'concept:mueller_dweck_praise_paradox_effort_vs_ability': {
+    conceptId: 'concept:mueller_dweck_praise_paradox_effort_vs_ability',
+    title: 'Claudia Mueller & Carol Dweck (1998): The Intelligence Praise Paradox',
+    prompt: 'Why does praising children or learners for being "smart" produce fragility, performance anxiety, and score declines after failure, whereas praising effort and strategy produces resilience (Mueller & Dweck, 1998)?',
+    keyCriteria: [
+      'Cites Claudia M. Mueller & Carol S. Dweck (1998; Journal of Personality and Social Psychology)',
+      'Contrasts Intelligence Praise ("You must be smart at this") with Process / Effort Praise ("You must have worked hard and tried different methods")',
+      'Details the 6 behavioral consequences of intelligence praise after encountering failure: (1) adoption of performance goals over learning goals, (2) lower task enjoyment, (3) dramatic drop in task persistence, (4) impaired subsequent problem-solving performance, (5) attribution of failure to low ability, and (6) misrepresentation (lying about) test scores to peers',
+      'Explains the psychological mechanism: intelligence praise conveys that performance reflects a permanent innate trait; when failure inevitably happens, the learner concludes they are no longer smart, triggering defensive concealment',
+    ],
+    canonicalAnswer: 'Claudia M. Mueller and Carol S. Dweck (1998, JPSP) revealed one of the most famous paradoxes in educational psychology: praising learners for their intelligence ("You got a high score, you must be really smart at this!") causes severe cognitive and motivational impairment rather than building resilient confidence. In a series of six controlled experiments, children who received intelligence praise after an initial success adopted performance goals (focused on looking smart and avoiding risks). When subsequently confronted with a difficult set of problems where they failed, these "smart" learners experienced an immediate collapse in self-efficacy, enjoyed the task significantly less, persisted half as long, and attributed their failure directly to lack of ability. Most shockingly, when given an easier third set of problems, their actual performance dropped below their baseline, and nearly 40% lied about their scores to peers. In stark contrast, learners who received Process Praise ("You must have worked hard and used good strategies!") retained high self-efficacy after failure, attributed setbacks to need for strategy adjustments, enjoyed the challenge, and scored significantly higher on the final set. Intelligence praise links performance to fragile identity; process praise links performance to malleable, controllable action.',
+    lessonSectionAnchor: 'Lesson 22.2 • Section 2: Mueller & Dweck (1998): The Intelligence Praise Paradox',
+    relatedMisconception: 'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
+    discrepancyPrompt: 'Previously you might have assumed that telling an aspiring programmer or scientist "You have a natural genius for this!" would boost their confidence and make them work harder. How does Mueller & Dweck\'s experimental evidence prove that intelligence praise fragile-izes learners and causes them to lie about their mistakes?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

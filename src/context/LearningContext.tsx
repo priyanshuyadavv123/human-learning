@@ -545,6 +545,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:dweck_implicit_theories_neurobiology',
     },
   },
+  'attribution-retraining-mindset': {
+    predictionConceptId: 'concept:weiner_attribution_three_dimensions',
+    predictionMisconceptionId: 'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
+    quizConceptMapping: {
+      'q1-weiner-three-dimensions-attribution': 'concept:weiner_attribution_three_dimensions',
+      'q2-mueller-dweck-praise-paradox': 'concept:mueller_dweck_praise_paradox_effort_vs_ability',
+      'q3-perry-longitudinal-attribution-retraining': 'concept:perry_attribution_retraining_strategy',
+      'q4-yeager-national-mindset-nature-study': 'concept:perry_attribution_retraining_strategy',
+      'q1': 'concept:weiner_attribution_three_dimensions',
+      'q2': 'concept:mueller_dweck_praise_paradox_effort_vs_ability',
+      'q3': 'concept:perry_attribution_retraining_strategy',
+      'q4': 'concept:perry_attribution_retraining_strategy',
+    },
+  },
 };
 
 interface LearningContextType {

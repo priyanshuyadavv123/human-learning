@@ -42,6 +42,7 @@ import { LESSON_SELF_DETERMINATION_THEORY } from './lesson20_2Data.ts';
 import { LESSON_YERKES_DODSON_CORTISOL } from './lesson21_1Data.ts';
 import { LESSON_EMOTION_APPRAISAL_REGULATION } from './lesson21_2Data.ts';
 import { LESSON_BANDURA_SELF_EFFICACY } from './lesson22_1Data.ts';
+import { LESSON_ATTRIBUTION_RETRAINING_MINDSET } from './lesson22_2Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -592,7 +593,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Attribution Retraining & Belief Systems',
           subtitle: 'Attributing struggle to strategy and effort rather than fixed talent',
           readingTimeMinutes: 15,
-          isAvailable: false,
+          isAvailable: true,
         },
       ],
     },
@@ -1205,6 +1206,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_YERKES_DODSON_CORTISOL.id]: LESSON_YERKES_DODSON_CORTISOL,
   [LESSON_EMOTION_APPRAISAL_REGULATION.id]: LESSON_EMOTION_APPRAISAL_REGULATION,
   [LESSON_BANDURA_SELF_EFFICACY.id]: LESSON_BANDURA_SELF_EFFICACY,
+  [LESSON_ATTRIBUTION_RETRAINING_MINDSET.id]: LESSON_ATTRIBUTION_RETRAINING_MINDSET,
 };
 
 export function getLessonById(id: string): Lesson {
