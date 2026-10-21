@@ -451,8 +451,7 @@ export async function handleTutorChatRequest(
               },
               referencedSection: {
                 type: 'string',
-                description: 'The exact matching section name from Lesson 1.1 syllabus list',
-                enum: [...KNOWN_LESSON_SECTIONS],
+                description: 'The exact matching section name from the lesson syllabus list',
               },
             },
             required: ['title', 'takeaway', 'detailedResponse', 'socraticChallenge', 'referencedSection'],

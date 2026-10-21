@@ -23,8 +23,8 @@ async function runE2EUserJourney() {
     mobile: false,
   });
 
-  console.log('[2/9] Navigating to Human Learning Platform (http://127.0.0.1:3000)...');
-  await client.send('Page.navigate', { url: 'http://127.0.0.1:3000' });
+  console.log('[2/9] Navigating to Human Learning Platform (http://localhost:3000)...');
+  await client.send('Page.navigate', { url: 'http://localhost:3000' });
   await delay(2000);
 
   // STEP 3: Initial Check & Reset to clean slate if needed
