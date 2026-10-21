@@ -2050,6 +2050,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
     discrepancyPrompt: 'Previously you might have assumed that telling an aspiring programmer or scientist "You have a natural genius for this!" would boost their confidence and make them work harder. How does Mueller & Dweck\'s experimental evidence prove that intelligence praise fragile-izes learners and causes them to lie about their mistakes?',
   },
+  'concept:chi_expert_deep_structure_first_principles': {
+    conceptId: 'concept:chi_expert_deep_structure_first_principles',
+    title: 'Michelene Chi et al. (1981): Deep Structure vs Surface Features',
+    prompt: 'How do experts and novices fundamentally differ in how they categorize and represent complex domain problems, and what are the implications for first-principles syllabus design (Chi, Feltovich & Glaser, 1981)?',
+    keyCriteria: [
+      'Cites Michelene T. H. Chi, Paul J. Feltovich, and Robert Glaser (1981, Cognitive Science)',
+      'Contrasts Novice Surface-Feature Categorization (grouping problems by literal objects: pulleys, inclined planes, specific API keywords) with Expert Deep-Structure Categorization (grouping problems by underlying physical/mathematical laws: Conservation of Energy, Newton’s Second Law)',
+      'Explains mental representations: novices access shallow declarative labels, whereas experts access rich procedural schemas containing applicability conditions and solution equations',
+      'Connects to first-principles domain mapping: extracting irreducible physical/logical invariants rather than memorizing noisy surface syntax',
+    ],
+    canonicalAnswer: 'Michelene Chi, Paul Feltovich, and Robert Glaser (1981, Cognitive Science) conducted the seminal study on expert-novice problem representations. When asked to categorize physics problems, novices categorized based on superficial surface features mentioned in the problem prompt—such as "problems with inclined planes," "friction problems," or "pulley systems." In stark contrast, physics experts completely ignored surface entities and categorized problems based strictly on their underlying deep physical principles—such as "Conservation of Energy" or "Newton’s Second Law ($F=ma$)." Chi and colleagues demonstrated that expert schemas are organized around first-principles: when an expert identifies a governing law, their cognitive architecture immediately activates procedural steps, applicability conditions, and mathematical equations. In technical domain mapping (e.g. distributed systems or compiler design), novice learning materials obsess over surface features (syntax, CLI flags, framework tooling), whereas expert curriculum deconstruction extracts the irreducible core principles (state machines, idempotency, consensus invariants) that govern all surface manifestations.',
+    lessonSectionAnchor: 'Lesson 23.1 • Section 1: Chi, Feltovich & Glaser (1981): Deep Structure vs Surface Features',
+    relatedMisconception: 'misconception:surface_features_define_domain_difficulty',
+    discrepancyPrompt: 'Previously you might have organized your study notes by technology names, frameworks, or problem keywords. How does Chi’s landmark physics study prove that true expertise requires reorganizing your mental knowledge tree around deep first-principles invariants?',
+  },
+  'concept:ausubel_progressive_differentiation_concept_mapping': {
+    conceptId: 'concept:ausubel_progressive_differentiation_concept_mapping',
+    title: 'David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping',
+    prompt: 'What are David Ausubel’s (1968) principles of Progressive Differentiation and Integrative Reconciliation, and how do Joseph Novak’s Concept Maps operationalize them (Novak, 1984)?',
+    keyCriteria: [
+      'Cites David Ausubel (1968) Educational Psychology: A Cognitive View, and Joseph Novak (1984) Learning How to Learn',
+      'Defines Progressive Differentiation: introducing the most general, inclusive core concepts of a discipline first, then progressively refining and differentiating them into specific sub-concepts and details',
+      'Defines Integrative Reconciliation: explicitly cross-linking and harmonizing concepts across different branches of the knowledge tree to resolve contradictions and show deep structural unity',
+      'Explains Novak Concept Maps: hierarchical graphical networks of propositions (Concept 1 --[linking verb]--> Concept 2) that externalize schema structure and expose flawed mental models',
+    ],
+    canonicalAnswer: 'David Ausubel (1968) formulated Meaningful Learning Theory, positing that new knowledge is acquired most effectively when it is anchored to preexisting cognitive subsumers. Ausubel established two core instructional principles: (1) Progressive Differentiation—the most general, inclusive, and foundational concepts of a domain must be presented first, after which detailed components are progressively differentiated and elaborated. This ensures the learner has a robust conceptual scaffolding to anchor granular information. (2) Integrative Reconciliation—instruction must explicitly cross-link and synthesize related concepts across different branches of the hierarchy, clarifying similarities, resolving apparent contradictions, and demonstrating deep structural coherence. Joseph Novak (1984) operationalized Ausubel’s theory through "Concept Mapping"—constructing visual 2D graphs where nodes represent concepts and directional labeled edges form explicit propositions (e.g., "Raft Leader Election --[maintains]--> Strong Consistency"). Concept mapping prevents rote serial memorization and forces learners to reconcile hierarchical dependencies.',
+    lessonSectionAnchor: 'Lesson 23.1 • Section 2: David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping',
+    relatedMisconception: 'misconception:reasoning_by_analogy_is_first_principles_understanding',
+    discrepancyPrompt: 'Previously you may have studied a new programming language or mathematical field by linearly reading chapter by chapter. How does Ausubel’s principle of progressive differentiation show that starting with granular details before mastering top-level subsumers causes cognitive fragmentation?',
+  },
+  'concept:simon_chase_hierarchical_abstraction_chunking': {
+    conceptId: 'concept:simon_chase_hierarchical_abstraction_chunking',
+    title: 'Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
+    prompt: 'How did Herbert Simon and William Chase (1973) explain expert chunking, and how does Simon’s "Architecture of Complexity" (1962) define nearly-decomposable hierarchical systems?',
+    keyCriteria: [
+      'Cites Herbert Simon (1962, The Architecture of Complexity) and William G. Chase & Herbert A. Simon (1973, American Scientist / Cognitive Psychology)',
+      'Explains "Nearly-Decomposable Hierarchies": complex systems are structured into hierarchical sub-assemblies where internal subsystem interactions are strong and rapid, while inter-subsystem interactions are weak and decoupled',
+      'Explains Chunking and Irreducible Primitives: chess masters hold 50,000+ relational perceptual chunks that act as single cognitive units in working memory, organized into multi-level abstraction hierarchies',
+      'Applies to domain mapping: decomposing complex engineering domains down to primitive abstractions that can be understood independently before mapping inter-module communication',
+    ],
+    canonicalAnswer: 'Herbert Simon (Nobel laureate and cognitive science pioneer; 1962, 1973) analyzed how the human mind masters complex systems. In "The Architecture of Complexity" (1962), Simon demonstrated that nearly all stable, scalable complex systems—from biological cells to distributed software—are "Nearly-Decomposable Hierarchies." In such systems, the high-frequency internal dynamics within a subsystem are largely decoupled from the low-frequency interactions between subsystems. Chase & Simon (1973) expanded this to human cognition, proving that chess grandmasters do not calculate deeper search trees than novices; rather, they perceive the board in terms of 50,000+ hierarchical "chunks"—relational configurations of pieces stored in long-term memory that act as single cognitive units. In First-Principles Domain Mapping, an engineer deconstructs an intimidating software system (e.g. a database storage engine) by identifying its irreducible primitives (B-trees, Write-Ahead Logs, Page Caches) and their decoupled hierarchical interfaces, compressing immense systemic complexity into manageable, nearly-decomposable cognitive chunks.',
+    lessonSectionAnchor: 'Lesson 23.1 • Section 3: Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
+    relatedMisconception: 'misconception:surface_features_define_domain_difficulty',
+    discrepancyPrompt: 'Previously you may have felt overwhelmed by massive 100,000-line codebases, believing you had to understand every line simultaneously. How does Herbert Simon\'s nearly-decomposable hierarchy principle prove that complex systems can be understood by isolating decoupled sub-assemblies and irreducible primitives?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

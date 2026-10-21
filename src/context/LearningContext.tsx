@@ -559,6 +559,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:perry_attribution_retraining_strategy',
     },
   },
+  'first-principles-domain-mapping': {
+    predictionConceptId: 'concept:chi_expert_deep_structure_first_principles',
+    predictionMisconceptionId: 'misconception:surface_features_define_domain_difficulty',
+    quizConceptMapping: {
+      'q1-chi-deep-structure-physics': 'concept:chi_expert_deep_structure_first_principles',
+      'q2-ausubel-progressive-differentiation': 'concept:ausubel_progressive_differentiation_concept_mapping',
+      'q3-simon-nearly-decomposable-hierarchies': 'concept:simon_chase_hierarchical_abstraction_chunking',
+      'q4-novak-concept-mapping-propositions': 'concept:ausubel_progressive_differentiation_concept_mapping',
+      'q1': 'concept:chi_expert_deep_structure_first_principles',
+      'q2': 'concept:ausubel_progressive_differentiation_concept_mapping',
+      'q3': 'concept:simon_chase_hierarchical_abstraction_chunking',
+      'q4': 'concept:ausubel_progressive_differentiation_concept_mapping',
+    },
+  },
 };
 
 interface LearningContextType {

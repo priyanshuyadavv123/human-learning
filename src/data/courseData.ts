@@ -43,6 +43,7 @@ import { LESSON_YERKES_DODSON_CORTISOL } from './lesson21_1Data.ts';
 import { LESSON_EMOTION_APPRAISAL_REGULATION } from './lesson21_2Data.ts';
 import { LESSON_BANDURA_SELF_EFFICACY } from './lesson22_1Data.ts';
 import { LESSON_ATTRIBUTION_RETRAINING_MINDSET } from './lesson22_2Data.ts';
+import { LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING } from './lesson23_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -611,7 +612,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'First-Principles Domain Mapping',
           subtitle: 'Extracting irreducible core concepts from noisy industry documentation',
           readingTimeMinutes: 18,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'dependency-graph-sequencing',
@@ -1207,6 +1208,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_EMOTION_APPRAISAL_REGULATION.id]: LESSON_EMOTION_APPRAISAL_REGULATION,
   [LESSON_BANDURA_SELF_EFFICACY.id]: LESSON_BANDURA_SELF_EFFICACY,
   [LESSON_ATTRIBUTION_RETRAINING_MINDSET.id]: LESSON_ATTRIBUTION_RETRAINING_MINDSET,
+  [LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING.id]: LESSON_FIRST_PRINCIPLES_DOMAIN_MAPPING,
 };
 
 export function getLessonById(id: string): Lesson {

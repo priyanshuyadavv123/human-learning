@@ -184,6 +184,10 @@ export const KNOWN_CONCEPTS = [
   'concept:weiner_attribution_three_dimensions',
   'concept:perry_attribution_retraining_strategy',
   'concept:mueller_dweck_praise_paradox_effort_vs_ability',
+  // Lesson 23.1 Concepts
+  'concept:chi_expert_deep_structure_first_principles',
+  'concept:ausubel_progressive_differentiation_concept_mapping',
+  'concept:simon_chase_hierarchical_abstraction_chunking',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -327,6 +331,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 22.2 Misconceptions
   'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
   'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
+  // Lesson 23.1 Misconceptions
+  'misconception:reasoning_by_analogy_is_first_principles_understanding',
+  'misconception:surface_features_define_domain_difficulty',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

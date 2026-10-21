@@ -328,6 +328,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'attribution-retraining-mindset';
     chapterId = 'ch-22-identity-mindset';
+  } else if (
+    conceptId.startsWith('concept:chi_expert_') ||
+    conceptId.startsWith('concept:ausubel_progressive_') ||
+    conceptId.startsWith('concept:simon_chase_')
+  ) {
+    lessonId = 'first-principles-domain-mapping';
+    chapterId = 'ch-23-syllabus-engineering';
   }
 
   return {

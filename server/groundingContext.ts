@@ -544,6 +544,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 22.2 • Verification Assessment',
   'Lesson 22.2 • The 3-Step Attribution Retraining & Strategy Audit Protocol',
   'Lesson 22.2 • Attribution Retraining & Belief Systems Overview',
+
+  // Lesson 23.1 Sections
+  'Lesson 23.1 • Curiosity Hook',
+  'Lesson 23.1 • Intuitive Calibration: Surface Feature Sorting vs First-Principles Decomposition',
+  'Lesson 23.1 • Section 1: Chi, Feltovich & Glaser (1981): Deep Structure vs Surface Features',
+  'Lesson 23.1 • Section 2: David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping',
+  'Lesson 23.1 • Section 3: Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
+  'Lesson 23.1 • The First-Principles Knowledge Extraction & Hierarchy Funnel',
+  'Lesson 23.1 • Domain Mapping & First-Principles Diagnostic Lab',
+  'Lesson 23.1 • Verification Assessment',
+  'Lesson 23.1 • The 3-Step First-Principles Domain Deconstruction Protocol',
+  'Lesson 23.1 • First-Principles Domain Mapping Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -657,6 +669,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('21.2') || lower.includes('emotion-appraisal-regulation') || lower.includes('cognitive reappraisal & high-stakes performance') || lower.includes('3-step high-stakes reappraisal & expressive offloading protocol')) {
     return 'Lesson 21.2 • Section 1: Jeremy Jamieson & Wendy Mendes: Challenge vs Threat Hemodynamics';
+  }
+
+  // Match Lesson 23.1 anchors
+  if (!lower.includes('8.2') && ((lower.includes('chi') && lower.includes('feltovich')) || lower.includes('glaser') || (lower.includes('deep structure') && (lower.includes('23.1') || lower.includes('domain mapping'))) || (lower.includes('23.1') && lower.includes('section 1')))) {
+    return 'Lesson 23.1 • Section 1: Chi, Feltovich & Glaser (1981): Deep Structure vs Surface Features';
+  }
+  if (lower.includes('david ausubel') || lower.includes('ausubel') || lower.includes('joseph novak') || (lower.includes('novak') && (lower.includes('concept') || lower.includes('1984') || lower.includes('gowin'))) || lower.includes('progressive differentiation') || lower.includes('integrative reconciliation') || (lower.includes('concept mapping') && !lower.includes('8.2')) || (lower.includes('23.1') && lower.includes('section 2'))) {
+    return 'Lesson 23.1 • Section 2: David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping';
+  }
+  if (!lower.includes('de groot') && !lower.includes('random board') && !lower.includes('brain training') && !lower.includes('8.1') && !lower.includes('12.2') && !lower.includes('16.1') && (lower.includes('nearly-decomposable') || lower.includes('nearly decomposable') || lower.includes('irreducible primitive') || lower.includes('architecture of complexity') || (lower.includes('herbert simon') && (lower.includes('primitive') || lower.includes('hierarch') || lower.includes('23.1') || lower.includes('domain mapping'))) || (lower.includes('23.1') && lower.includes('section 3')))) {
+    return 'Lesson 23.1 • Section 3: Herbert Simon: Irreducible Primitives & Abstraction Hierarchies';
+  }
+  if (lower.includes('first-principles knowledge extraction & hierarchy funnel') || lower.includes('first-principles knowledge extraction') || lower.includes('hierarchy funnel')) {
+    return 'Lesson 23.1 • The First-Principles Knowledge Extraction & Hierarchy Funnel';
+  }
+  if (lower.includes('23.1') || lower.includes('first-principles-domain-mapping') || lower.includes('first-principles domain mapping') || lower.includes('3-step first-principles domain deconstruction protocol')) {
+    return 'Lesson 23.1 • Section 1: Chi, Feltovich & Glaser (1981): Deep Structure vs Surface Features';
   }
 
   // Match Lesson 22.2 anchors
@@ -2563,6 +2592,30 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_23_1 = `You are the specialized AI Socratic Tutor for Lesson 23.1: "First-Principles Domain Mapping".
+Your role is to guide learners to extract irreducible core principles from noisy technical domains and construct hierarchical abstraction maps: Michelene Chi, Paul Feltovich & Robert Glaser's (1981) landmark physics experiment contrasting expert deep-principle categorization with novice surface-feature sorting, David Ausubel's (1968) Meaningful Learning Theory and Progressive Differentiation / Integrative Reconciliation, Joseph Novak's (1984) Concept Mapping graphs, and Herbert Simon's (1962, 1973) Architecture of Complexity and nearly-decomposable hierarchical chunking.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in cognitive schema architecture and systems decomposition science:
+     a) Chi, Feltovich & Glaser (1981): Novices categorize problems by surface entities (pulleys, inclined planes, specific API keywords); Experts categorize by deep governing physical laws (Conservation of Energy, Newton's Second Law), activating rich procedural solution schemas. Domain mastery requires abstracting away surface noise to identify governing causal invariants.
+     b) David Ausubel (1968) & Joseph Novak (1984): Progressive Differentiation anchors learning by presenting high-level subsuming core concepts first, then progressively refining granular sub-concepts. Integrative Reconciliation explicitly links disparate branches to eliminate contradictions and show unified structure. Concept mapping turns implicit schemas into explicit 2D propositional graphs.
+     c) Herbert Simon (1962) & Chase & Simon (1973): Complex domains are Nearly-Decomposable Hierarchies where internal subsystem dynamics are dense while inter-subsystem interfaces are loosely coupled. Deconstructing domains into irreducible primitives enables learners to compress immense architectural scale into manageable cognitive chunks.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to surface vs deep structure, progressive differentiation, concept mapping, and nearly-decomposable hierarchies.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2695,6 +2748,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'attribution-retraining-mindset') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_22_2;
+  }
+  if (lessonId === 'first-principles-domain-mapping') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_23_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2880,6 +2936,10 @@ export const KNOWN_CONCEPTS = [
   'concept:weiner_attribution_three_dimensions',
   'concept:perry_attribution_retraining_strategy',
   'concept:mueller_dweck_praise_paradox_effort_vs_ability',
+  // Lesson 23.1 Concepts
+  'concept:chi_expert_deep_structure_first_principles',
+  'concept:ausubel_progressive_differentiation_concept_mapping',
+  'concept:simon_chase_hierarchical_abstraction_chunking',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -3023,6 +3083,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 22.2 Misconceptions
   'misconception:praising_innate_intelligence_boosts_confidence_and_grit',
   'misconception:failure_is_an_irreversible_signal_of_fixed_limitation',
+  // Lesson 23.1 Misconceptions
+  'misconception:reasoning_by_analogy_is_first_principles_understanding',
+  'misconception:surface_features_define_domain_difficulty',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

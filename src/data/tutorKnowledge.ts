@@ -1288,6 +1288,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'Can you design a personal post-mortem protocol that forces you to identify three controllable strategy variables every time you face an unexpected technical setback?',
     referencedSection: 'Lesson 22.2 • Section 3: Raymond Perry & David Yeager: Longitudinal Attribution Retraining',
   },
+  {
+    keywords: ['michelene chi', 'chi feltovich glaser', 'deep structure vs surface features', 'physics experts and novices', 'problem categorization', 'first-principles domain mapping', 'conservation of energy vs inclined plane'],
+    title: 'Michelene Chi et al. (1981): Deep Structure vs Surface Features',
+    summary: 'Novices categorize problems by superficial surface features (pulleys, syntax), whereas experts categorize by deep physical laws and first-principles invariants.',
+    takeaway: 'True domain mastery requires classifying problems by governing causal principles rather than surface-level terminology or tool syntax (Chi et al., 1981).',
+    detailedResponse: 'Michelene Chi, Paul Feltovich, and Robert Glaser (1981, Cognitive Science) conducted the foundational investigation comparing how experts and novices categorize physics problems. Novices grouped problems by literal surface features—such as problems involving inclined planes, ropes, or pulleys. Experts, however, categorized problems strictly by their deep, underlying governing principles—such as Conservation of Energy or Newton’s Second Law ($F=ma$). Chi showed that expert representations activate complete procedural packages (schemas) containing applicability criteria, mathematical relations, and solution algorithms. In software engineering and technical learning, novices obsess over syntax, framework names, and API trivia, whereas first-principles domain mappers extract the irreducible causal invariants (e.g. data consistency models, immutability, state machines) that unify diverse frameworks.',
+    socraticChallenge: 'When you approach a new software library or system, do you organize your notes around surface syntax and APIs, or around deep structural invariants?',
+    referencedSection: 'Lesson 23.1 • Section 1: Chi, Feltovich & Glaser (1981): Deep Structure vs Surface Features',
+  },
+  {
+    keywords: ['david ausubel', 'joseph novak', 'progressive differentiation', 'integrative reconciliation', 'concept mapping', 'meaningful learning theory', 'hierarchical concept graphs'],
+    title: 'David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping',
+    summary: 'Meaningful learning occurs when high-level core concepts are introduced first (progressive differentiation) and cross-linked across domain branches (integrative reconciliation).',
+    takeaway: 'Introduce the most general, foundational concepts first, then differentiate details and cross-link branches to build integrated schemas (Ausubel, 1968; Novak, 1984).',
+    detailedResponse: 'David Ausubel (1968) introduced Meaningful Learning Theory, demonstrating that learning is most potent when new information anchors into existing cognitive subsumers. Ausubel articulated two fundamental principles: (1) Progressive Differentiation—introducing the most inclusive, general core concepts of a field first, followed by gradual refinement into specific sub-components and exceptions; and (2) Integrative Reconciliation—explicitly cross-linking concepts across disparate branches of the domain tree to resolve apparent contradictions and highlight unified principles. Joseph Novak (1984) translated this into visual Concept Mapping: constructing 2D graphical networks where concepts are linked by explicit propositions (Node A --[action]--> Node B). Concept maps expose structural gaps, eliminate rote memorization, and anchor lifelong understanding.',
+    socraticChallenge: 'Can you map the top three foundational concepts of your current engineering project and draw the explicit proposition arrows connecting them to lower-level implementation details?',
+    referencedSection: 'Lesson 23.1 • Section 2: David Ausubel & Joseph Novak: Progressive Differentiation & Concept Mapping',
+  },
+  {
+    keywords: ['herbert simon', 'william chase', 'architecture of complexity', 'nearly-decomposable hierarchies', 'chunking chess masters', 'irreducible primitives', 'abstraction hierarchies'],
+    title: 'Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
+    summary: 'Complex systems are structured as nearly-decomposable hierarchies; expert mastery compresses systemic complexity into relational chunks and irreducible primitives.',
+    takeaway: 'Deconstruct complex systems into nearly-decomposable subsystems and irreducible primitives with decoupled interfaces to master vast domains (Simon, 1962; Chase & Simon, 1973).',
+    detailedResponse: 'Herbert Simon (1962, 1973) explored how complex systems and human minds manage massive information scale. In "The Architecture of Complexity," Simon proved that scalable systems are "Nearly-Decomposable Hierarchies": assemblies where high-frequency interactions occur internally within subsystems, while interactions between subsystems are low-frequency and loosely coupled. Chase and Simon (1973) showed that grandmaster chess cognition relies on 50,000+ relational perceptual chunks that act as single cognitive units in working memory. In First-Principles Domain Mapping, an engineer decompiles a complex technical ecosystem down to its irreducible primitives (atomic units that cannot be simplified further without losing domain essence) and arranges them into hierarchical abstraction layers, rendering multi-million-line software architectures comprehensible and maintainable.',
+    socraticChallenge: 'What are the three irreducible primitives at the absolute core of the software domain you are trying to master right now?',
+    referencedSection: 'Lesson 23.1 • Section 3: Herbert Simon: Irreducible Primitives & Abstraction Hierarchies',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {
