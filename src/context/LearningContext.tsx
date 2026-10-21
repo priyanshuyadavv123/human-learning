@@ -475,6 +475,20 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
       'q4': 'concept:koestler_bisociation_matrices',
     },
   },
+  'dopamine-reward-prediction': {
+    predictionConceptId: 'concept:schultz_reward_prediction_error_phasic_dopamine',
+    predictionMisconceptionId: 'misconception:dopamine_is_the_molecule_of_pleasure_reward',
+    quizConceptMapping: {
+      'q1-schultz-rpe-definition': 'concept:schultz_reward_prediction_error_phasic_dopamine',
+      'q2-temporal-difference-retrograde-shift': 'concept:temporal_difference_learning_montague_dayan',
+      'q3-phasic-vs-tonic-dopamine': 'concept:tonic_vs_phasic_dopamine_motivational_vigor',
+      'q4-wilson-85-percent-rule': 'concept:schultz_reward_prediction_error_phasic_dopamine',
+      'q1': 'concept:schultz_reward_prediction_error_phasic_dopamine',
+      'q2': 'concept:temporal_difference_learning_montague_dayan',
+      'q3': 'concept:tonic_vs_phasic_dopamine_motivational_vigor',
+      'q4': 'concept:schultz_reward_prediction_error_phasic_dopamine',
+    },
+  },
 };
 
 interface LearningContextType {

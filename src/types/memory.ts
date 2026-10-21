@@ -160,6 +160,10 @@ export const KNOWN_CONCEPTS = [
   'concept:koestler_bisociation_matrices',
   'concept:mednick_flat_associative_hierarchy',
   'concept:jacob_evolutionary_bricolage_synthesis',
+  // Lesson 20.1 Concepts
+  'concept:schultz_reward_prediction_error_phasic_dopamine',
+  'concept:temporal_difference_learning_montague_dayan',
+  'concept:tonic_vs_phasic_dopamine_motivational_vigor',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -284,6 +288,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 19.2 Misconceptions
   'misconception:creativity_is_mystical_creation_ex_nihilo',
   'misconception:steep_specialized_hierarchies_suffice_for_breakthrough_innovation',
+  // Lesson 20.1 Misconceptions
+  'misconception:dopamine_is_the_molecule_of_pleasure_reward',
+  'misconception:motivation_requires_guaranteed_predictable_outcomes',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

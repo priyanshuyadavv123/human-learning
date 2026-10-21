@@ -286,6 +286,13 @@ export function createDefaultConceptState(conceptId: ConceptId, nowIso: string):
   ) {
     lessonId = 'combinatorial-play-synthesis';
     chapterId = 'ch-19-creative-insight';
+  } else if (
+    conceptId.startsWith('concept:schultz_reward_prediction_') ||
+    conceptId.startsWith('concept:temporal_difference_') ||
+    conceptId.startsWith('concept:tonic_vs_phasic_dopamine_')
+  ) {
+    lessonId = 'dopamine-reward-prediction';
+    chapterId = 'ch-20-motivation-drive';
   }
 
   return {

@@ -472,6 +472,18 @@ export const KNOWN_LESSON_SECTIONS = [
   'Lesson 19.2 • Verification Assessment',
   'Lesson 19.2 • The 3-Step Lateral Synthesis & Bisociative Bricolage Protocol',
   'Lesson 19.2 • Associative Combinatorics & Lateral Synthesis Overview',
+
+  // Lesson 20.1 Sections
+  'Lesson 20.1 • Curiosity Hook',
+  'Lesson 20.1 • Intuitive Calibration: Predictable Checklist vs Calibrated RPE Engine',
+  'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics',
+  'Lesson 20.1 • Section 2: Montague, Dayan & Sutton: Temporal Difference (TD) Learning',
+  'Lesson 20.1 • Section 3: Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
+  'Lesson 20.1 • The Temporal Difference & Reward Prediction Error Signaling Funnel',
+  'Lesson 20.1 • Dopaminergic Motivation & Feedback Architecture Diagnosis Lab',
+  'Lesson 20.1 • Verification Assessment',
+  'Lesson 20.1 • The 3-Phase RPE-Calibrated Motivation Engine',
+  'Lesson 20.1 • Reward Prediction Errors in Motivation Overview',
 ] as const;
 
 export type LessonSection = typeof KNOWN_LESSON_SECTIONS[number];
@@ -517,6 +529,23 @@ export function resolveValidSection(sectionCandidate: string | undefined): Lesso
   }
   if (lower.includes('19.2') || lower.includes('combinatorial-play-synthesis') || lower.includes('associative combinatorics & lateral synthesis') || lower.includes('3-step lateral synthesis & bisociative bricolage protocol')) {
     return 'Lesson 19.2 • Section 1: Arthur Koestler (1964): Bisociation & Incompatible Matrices';
+  }
+
+  // Match Lesson 20.1 anchors
+  if ((lower.includes('schultz') && (lower.includes('motivation') || lower.includes('anticipation') || lower.includes('20.1') || lower.includes('dynamics'))) || ((lower.includes('reward prediction error') || lower.includes('rpe')) && (lower.includes('motivation') || lower.includes('anticipation') || lower.includes('20.1'))) || lower.includes('dopamine dynamics') || lower.includes('delta = r - v') || (lower.includes('20.1') && lower.includes('section 1'))) {
+    return 'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics';
+  }
+  if (lower.includes('temporal difference') || lower.includes('td learning') || (lower.includes('montague') && lower.includes('dayan')) || (lower.includes('sutton') && lower.includes('barto') && (lower.includes('reinforcement') || lower.includes('temporal') || lower.includes('20.1')))) {
+    return 'Lesson 20.1 • Section 2: Montague, Dayan & Sutton: Temporal Difference (TD) Learning';
+  }
+  if ((lower.includes('salamone') && lower.includes('correa')) || (lower.includes('yael niv') || lower.includes('niv et al')) || (lower.includes('tonic dopamine') && (lower.includes('vigor') || lower.includes('effort') || lower.includes('salamone') || lower.includes('20.1'))) || (lower.includes('motivational vigor') && (lower.includes('dopamine') || lower.includes('tonic') || lower.includes('effort') || lower.includes('20.1')))) {
+    return 'Lesson 20.1 • Section 3: Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort';
+  }
+  if (lower.includes('the temporal difference & reward prediction error signaling funnel') || lower.includes('temporal difference funnel') || lower.includes('reward prediction error signaling funnel')) {
+    return 'Lesson 20.1 • The Temporal Difference & Reward Prediction Error Signaling Funnel';
+  }
+  if (lower.includes('20.1') || lower.includes('dopamine-reward-prediction') || lower.includes('reward prediction errors in motivation') || lower.includes('3-phase rpe-calibrated motivation engine')) {
+    return 'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics';
   }
 
   // Match Lesson 18.2 anchors
@@ -2239,6 +2268,31 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
+export const TUTOR_SYSTEM_INSTRUCTION_LESSON_20_1 = `You are the specialized AI Socratic Tutor for Lesson 20.1: "Reward Prediction Errors in Motivation".
+Your role is to guide learners to understand Wolfram Schultz's (1997) Reward Prediction Error model, Montague, Dayan & Sutton's Temporal Difference (TD) learning algorithm, Salamone & Niv's distinction between phasic dopamine bursts and tonic motivational vigor, and Wilson et al.'s (2019) ~85% optimal learning rule.
+
+Key Pedagogical Invariants:
+1. Socratic Method:
+   - Guide the student through thoughtful questions, calibrated analogies, and diagnostic inquiry.
+   - Do NOT simply provide full answers to quiz questions or do the student's cognitive work for them.
+   - Prompt the student to retrieve concepts from their own memory first, because effortful recall is the active mechanism of learning.
+2. Scientific Accuracy & Traceability:
+   - Ground explanations in computational neuroscience, reinforcement learning, and neuroeconomics:
+     a) Schultz’s RPE Equation: Midbrain dopamine neurons in the VTA and SNc compute prediction error: \\delta = R - V. When an outcome exceeds expectations, a phasic burst occurs (15–30 Hz, driving LTP via D1 receptors). When fully predicted, dopamine firing drops to zero delta (\\delta = 0). When an outcome falls short, a dip/pause occurs below tonic baseline.
+     b) Temporal Difference (TD) Retrograde Migration: Phasic dopamine shifts backward in time from reward delivery to the earliest reliable predictive cue (CS). Once an association is fully learned, reward delivery evokes zero dopamine response; motivation is fueled by anticipation, not consumption.
+     c) Phasic vs Tonic Dopamine Dynamics: Fast phasic bursts update internal models and drive learning, while slow tonic dopamine concentrations in the nucleus accumbens regulate "motivational vigor"—the willingness of the dACC and striatum to overcome energetic friction.
+     d) The ~85% Rule (Wilson et al., 2019): Calibrating learning challenges to an ~85% success rate sustains positive prediction errors and avoids zero-delta habituation while preventing negative RPE learned helplessness.
+3. Handling Uncertainty & Off-Topic Queries:
+   - Acknowledge boundaries politely and bridge questions back to Schultz's RPE, TD learning, phasic vs tonic dopamine, and the 3-phase RPE-calibrated motivation engine.
+4. Response Format Requirement:
+   You MUST return a JSON object with these EXACT keys:
+   - "title": A concise 2-5 word concept headline.
+   - "takeaway": One crisp, high-impact key takeaway sentence (max 25 words).
+   - "detailedResponse": The main pedagogical explanation (1-3 paragraphs, structured and scannable with bullet points).
+   - "socraticChallenge": A single calibrating reflection question to prompt active recall or metacognition.
+   - "referencedSection": Must be one of the known lesson sections from the syllabus list.
+`;
+
 export function getTutorSystemInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
@@ -2353,6 +2407,9 @@ export function getTutorSystemInstruction(lessonId?: string): string {
   }
   if (lessonId === 'combinatorial-play-synthesis') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_19_2;
+  }
+  if (lessonId === 'dopamine-reward-prediction') {
+    return TUTOR_SYSTEM_INSTRUCTION_LESSON_20_1;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
 }
@@ -2514,6 +2571,10 @@ export const KNOWN_CONCEPTS = [
   'concept:koestler_bisociation_matrices',
   'concept:mednick_flat_associative_hierarchy',
   'concept:jacob_evolutionary_bricolage_synthesis',
+  // Lesson 20.1 Concepts
+  'concept:schultz_reward_prediction_error_phasic_dopamine',
+  'concept:temporal_difference_learning_montague_dayan',
+  'concept:tonic_vs_phasic_dopamine_motivational_vigor',
 ] as const;
 
 export type ConceptId = typeof KNOWN_CONCEPTS[number];
@@ -2638,6 +2699,9 @@ export const KNOWN_MISCONCEPTIONS = [
   // Lesson 19.2 Misconceptions
   'misconception:creativity_is_mystical_creation_ex_nihilo',
   'misconception:steep_specialized_hierarchies_suffice_for_breakthrough_innovation',
+  // Lesson 20.1 Misconceptions
+  'misconception:dopamine_is_the_molecule_of_pleasure_reward',
+  'misconception:motivation_requires_guaranteed_predictable_outcomes',
 ] as const;
 
 export type CognitiveMisconceptionId = typeof KNOWN_MISCONCEPTIONS[number];

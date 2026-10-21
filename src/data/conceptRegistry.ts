@@ -1777,6 +1777,51 @@ export const CANONICAL_REVIEW_PROMPTS: Record<ConceptId, ReviewPromptData> = {
     relatedMisconception: 'misconception:creativity_is_mystical_creation_ex_nihilo',
     discrepancyPrompt: 'Previously you may have believed that true innovators invent radical technologies completely from scratch. How does François Jacob’s evolutionary bricolage prove that innovation is actually the combinatorial recombination of existing components across boundaries?',
   },
+  'concept:schultz_reward_prediction_error_phasic_dopamine': {
+    conceptId: 'concept:schultz_reward_prediction_error_phasic_dopamine',
+    title: 'Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics',
+    prompt: 'How did Wolfram Schultz (1997) demonstrate that midbrain dopamine neurons encode Reward Prediction Errors (RPE) rather than reward receipt or pleasure, and what are the firing dynamics of positive versus negative errors?',
+    keyCriteria: [
+      'Cites Wolfram Schultz (1997, 1998) on midbrain dopamine neurons in VTA and SNc',
+      'Explains the Reward Prediction Error formula: δ = R - V (difference between received outcome R and expected value V)',
+      'Contrasts positive RPE (phasic burst at 15–30 Hz), zero RPE (baseline tonic firing at 1–5 Hz when outcome is fully predicted), and negative RPE (suppression/dip below baseline when expected reward fails to appear)',
+      'Maps projections to ventral striatum (nucleus accumbens) and prefrontal cortex, explaining how D1/D2 receptor binding mediates LTP/LTD synaptic plasticity',
+    ],
+    canonicalAnswer: 'Wolfram Schultz (1997) demonstrated that midbrain dopamine neurons in the ventral tegmental area (VTA) and substantia nigra pars compacta (SNc) do not fire in response to rewards or pleasure per se; they fire in precise accordance with Reward Prediction Errors: δ = R - V. When an outcome exceeds expectations (R > V), δ > 0, triggering a high-frequency phasic burst (15–30 Hz) that binds low-affinity D1 receptors on striatal medium spiny neurons to drive Long-Term Potentiation (LTP). When an outcome is completely predicted (R = V), δ = 0, and dopamine firing remains flat at baseline tonic rates (1–5 Hz) even upon reward delivery. When an outcome falls short (R < V), δ < 0, causing a phasic pause or dip below baseline firing that disinhibits D2 receptors and triggers Long-Term Depression (LTD), signaling the need to update internal models.',
+    lessonSectionAnchor: 'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics',
+    relatedMisconception: 'misconception:dopamine_is_the_molecule_of_pleasure_reward',
+    discrepancyPrompt: 'Previously you may have assumed that dopamine is released as a reward whenever you accomplish a goal. Why does Schultz’s discovery of Reward Prediction Errors prove that fully predicted successes release zero extra dopamine?',
+  },
+  'concept:temporal_difference_learning_montague_dayan': {
+    conceptId: 'concept:temporal_difference_learning_montague_dayan',
+    title: 'Montague, Dayan & Sutton: Temporal Difference (TD) Learning',
+    prompt: 'How does the Temporal Difference (TD) learning framework (Montague et al., 1996; Sutton & Barto, 1998) explain the retrograde temporal migration of dopamine firing from reward delivery to predictive cues, and why does this lead to task habituation?',
+    keyCriteria: [
+      'Cites Montague, Dayan & Sejnowski (1996) and Sutton & Barto (1998) on Temporal Difference (TD) reinforcement learning',
+      'Explains the continuous-time TD error equation: δ_t = r_t + γ V(s_{t+1}) - V(s_t)',
+      'Describes retrograde temporal migration: as a cue-reward contingency is learned, the phasic dopamine burst shifts backward in time from reward delivery to the earliest reliable conditioned stimulus (CS)',
+      'Explains the Habituation Trap: once a task is 100% mastered and predictable, the prediction error during task execution drops to zero, causing motivational extinction',
+    ],
+    canonicalAnswer: 'Montague, Dayan, and Sejnowski (1996) proved that phasic dopamine firing mathematically implements Sutton & Barto’s (1998) Temporal Difference (TD) algorithm: δ_t = r_t + γ V(s_{t+1}) - V(s_t). In an unconditioned state, an unexpected reward produces a phasic burst upon receipt. Over repeated learning trials, as the association solidifies, the burst migrates backward in time to the earliest sensory cue that reliably predicts the reward. At the moment of reward delivery, because the outcome is now fully predicted, dopamine firing drops to zero delta. In learning systems, this causes the "habituation trap": when study tasks become routine, predictable, and devoid of surprises, task execution generates zero prediction error, causing anticipatory drive to evaporate and leaving the learner feeling apathetic.',
+    lessonSectionAnchor: 'Lesson 20.1 • Section 2: Montague, Dayan & Sutton: Temporal Difference (TD) Learning',
+    relatedMisconception: 'misconception:motivation_requires_guaranteed_predictable_outcomes',
+    discrepancyPrompt: 'Previously you may have thought that having a 100% predictable, guaranteed study routine would maximize motivation. How does the Temporal Difference model show that zero-delta predictability extinguishes dopamine firing during task execution?',
+  },
+  'concept:tonic_vs_phasic_dopamine_motivational_vigor': {
+    conceptId: 'concept:tonic_vs_phasic_dopamine_motivational_vigor',
+    title: 'Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
+    prompt: 'What is the neurobiological distinction between phasic dopamine bursts and tonic dopamine concentrations, and how does tonic dopamine regulate motivational vigor and cost-benefit effort allocation (Salamone & Correa, 2002; Niv et al., 2007; Wilson et al., 2019)?',
+    keyCriteria: [
+      'Cites John Salamone & M. Correa (2002) and Yael Niv et al. (2007) on tonic dopamine and motivational vigor',
+      'Distinguishes fast phasic bursts (<500 ms prediction errors) from slow tonic concentrations (baseline extrasynaptic tone across hours)',
+      'Explains dorsal anterior cingulate cortex (dACC) and striatal cost-benefit computation: high tonic dopamine lowers perceived effort cost, while depleted tonic dopamine inflates friction and triggers procrastination',
+      'Connects to Wilson et al. (2019) ~85% optimal learning rule and Carver & Scheier progress velocity tracking',
+    ],
+    canonicalAnswer: 'Salamone & Correa (2002) and Yael Niv et al. (2007) established that midbrain dopamine operates across two distinct temporal scales: millisecond-scale phasic bursts that encode learning prediction errors (updating synaptic weights), and slow, steady tonic concentrations that regulate "motivational vigor"—the willingness to overcome energetic costs, delays, and friction in pursuit of goals. The dorsal anterior cingulate cortex (dACC) and ventral striatum continuously calculate the net value of an action: high tonic dopamine reduces the subjective cost of cognitive effort, whereas depleted tonic dopamine (caused by sleep loss, chronic stress, or repeated failure) inflates perceived friction, causing anhedonia and executive paralysis. Wilson et al. (2019) demonstrated that calibrating task difficulty to ~85% accuracy optimizes this system by generating frequent positive prediction errors without triggering negative RPE exhaustion.',
+    lessonSectionAnchor: 'Lesson 20.1 • Section 3: Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
+    relatedMisconception: 'misconception:dopamine_is_the_molecule_of_pleasure_reward',
+    discrepancyPrompt: 'Previously you may have viewed lack of motivation as a failure of willpower or moral character. How does Salamone and Niv’s research prove that motivational vigor is a direct neurochemical function of tonic dopamine modulating cost-benefit effort calculations?',
+  },
 };
 
 export const CONCEPT_REGISTRY = CANONICAL_REVIEW_PROMPTS;

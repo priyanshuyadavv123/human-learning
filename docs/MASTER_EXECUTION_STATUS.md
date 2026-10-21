@@ -131,7 +131,7 @@ Every chapter is classified strictly by actual code implementation:
 ### Part 6: Motivation, Emotion & the Bio-Energetics of Mastery (Chapters 20–22)
 | Chapter ID | Chapter Title | Lessons | Key Concepts & Misconceptions | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **ch-20-motivation-drive** | **20. Dopamine, Anticipation & Intrinsic Drive** | 20.1 Reward Prediction Errors in Motivation<br>20.2 Self-Determination Theory in Autonomous Learning | Phasic dopamine firing, autonomy-competence-relatedness, reward discounting. | **PLANNED** |
+| **ch-20-motivation-drive** | **20. Dopamine, Anticipation & Intrinsic Drive** | 20.1 Reward Prediction Errors in Motivation<br>20.2 Self-Determination Theory in Autonomous Learning | Wolfram Schultz (1997) Reward Prediction Errors (δ = R - V), phasic bursts vs tonic dopamine, P. Read Montague & Peter Dayan Temporal Difference (TD) reinforcement learning, retrograde temporal migration, John Salamone & Yael Niv motivational vigor & cost-benefit effort allocation, Robert Wilson (2019) ~85% optimal learning rule, Carver & Scheier progress velocity feedback. | **IN PROGRESS** (20.1 Complete, 20.2 Next) |
 | **ch-21-stress-performance** | **21. Stress, Arousal & Cognitive Performance** | 21.1 The Yerkes-Dodson Law & Cortisol Dynamics<br>21.2 Emotion-Appraisal Regulation During High-Stakes Tests | Glucocorticoid modulation of hippocampus, test anxiety reframing, arousal regulation. | **PLANNED** |
 | **ch-22-identity-mindset** | **22. Identity, Self-Efficacy & Growth Orientation** | 22.1 Bandura's Self-Efficacy Mechanisms<br>22.2 Belief Systems & Attribution Retraining | Efficacy expectation sources, incremental theory of intelligence, attribution theory. | **PLANNED** |
 

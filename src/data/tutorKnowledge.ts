@@ -1126,6 +1126,33 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
     socraticChallenge: 'What mature mechanism from nature or an unrelated industry could you exapt to replace an unproven component you are trying to build from scratch?',
     referencedSection: 'Lesson 19.2 • Section 3: François Jacob (1977): Evolutionary Bricolage & Lateral Synthesis',
   },
+  {
+    keywords: ['wolfram schultz', 'schultz reward prediction error in motivation', 'reward prediction errors in motivation', 'rpe in motivation', 'dopamine anticipation', 'phasic vs tonic dopamine', 'delta = r - v in motivation', 'vta motivation', 'reward prediction errors and dopamine dynamics'],
+    title: 'Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics',
+    summary: 'Dopamine neurons do not encode raw reward or pleasure; they compute the difference between expected and received outcomes (Reward Prediction Error).',
+    takeaway: 'Dopamine fires for unexpected outcomes (δ = R - V), flatlining when results are fully predicted and dipping when expectations fail (Schultz, 1997).',
+    detailedResponse: 'Wolfram Schultz (1997) proved that midbrain dopamine neurons in the ventral tegmental area (VTA) and substantia nigra pars compacta (SNc) do not fire in response to rewards or pleasure per se. Instead, they fire in precise mathematical accordance with Reward Prediction Errors (RPE: δ = R - V). When an outcome exceeds expectation (R > V), a high-frequency phasic burst (15–30 Hz) occurs, binding D1 receptors to induce Long-Term Potentiation (LTP). When an outcome matches expectations (R = V), dopamine delta drops to zero (δ = 0) and firing remains at baseline tonic levels (1–5 Hz). When an outcome falls short (R < V), dopamine firing pauses below baseline, disinhibiting D2 receptors to trigger Long-Term Depression (LTD).',
+    socraticChallenge: 'Why does completing an easy, 100% predictable study task feel increasingly boring even when you get every answer right?',
+    referencedSection: 'Lesson 20.1 • Section 1: Wolfram Schultz (1997): Reward Prediction Errors & Dopamine Dynamics',
+  },
+  {
+    keywords: ['temporal difference', 'td learning', 'montague', 'dayan', 'sutton and barto', 'retrograde shift', 'cue conditioning', 'habituation trap'],
+    title: 'Montague, Dayan & Sutton: Temporal Difference (TD) Learning',
+    summary: 'Dopamine bursts migrate backward in time from reward delivery to the earliest predictive cue, explaining why anticipation drives motivation.',
+    takeaway: 'Phasic dopamine transfers retrogradely to the earliest predictive cue (CS); fully mastered tasks yield zero dopamine during execution (Montague et al., 1996).',
+    detailedResponse: 'P. Read Montague, Peter Dayan, and Terrence Sejnowski (1996) demonstrated that midbrain dopamine implements Sutton & Barto’s (1998) Temporal Difference (TD) algorithm: δ_t = r_t + γ V(s_{t+1}) - V(s_t). As an association between a conditioned cue and a reward solidifies, the phasic dopamine burst migrates backward in time from reward delivery to the onset of the predictive cue. When the reward actually arrives, because it is now 100% predicted, the dopamine response is zero. This explains why motivation is experienced during anticipation rather than after task completion, and why overly predictable routines lead to motivational extinction.',
+    socraticChallenge: 'How can you structure your study sessions so that starting the session itself triggers anticipatory dopamine drive?',
+    referencedSection: 'Lesson 20.1 • Section 2: Montague, Dayan & Sutton: Temporal Difference (TD) Learning',
+  },
+  {
+    keywords: ['salamone', 'yael niv', 'tonic dopamine', 'motivational vigor', 'effort allocation', 'cost-benefit', '85% rule', 'wilson 2019'],
+    title: 'Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
+    summary: 'Tonic baseline dopamine levels govern motivational vigor and willingness to expend effort to overcome cognitive friction.',
+    takeaway: 'Tonic dopamine determines willingness to exert effort against friction; calibrate challenge to ~85% accuracy to sustain drive (Salamone & Correa, 2002; Wilson et al., 2019).',
+    detailedResponse: 'John Salamone & M. Correa (2002) and Yael Niv et al. (2007) distinguished between fast phasic dopamine bursts (updating synaptic weights during learning) and slow tonic dopamine concentrations in the nucleus accumbens. Tonic dopamine sets "motivational vigor"—the willingness of the brain’s anterior cingulate cortex (dACC) and striatum to invest cognitive effort against friction. Depleting tonic dopamine (via sleep deprivation or chronic frustration) inflates perceived effort cost, causing procrastination. Wilson et al. (2019) demonstrated that maintaining an ~85% success rate optimizes this system: 15% error generates frequent positive prediction errors without triggering negative RPE collapse.',
+    socraticChallenge: 'When you feel intense cognitive friction and want to procrastinate, is the task too difficult, or is your tonic dopamine baseline depleted by fatigue?',
+    referencedSection: 'Lesson 20.1 • Section 3: Salamone & Niv: Tonic Dopamine, Motivational Vigor & Effort',
+  },
 ];
 
 export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {

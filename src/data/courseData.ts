@@ -37,6 +37,7 @@ import { LESSON_OVERCONFIDENCE_EPISTEMIC_CALIBRATION } from './lesson18_1Data.ts
 import { LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY } from './lesson18_2Data.ts';
 import { LESSON_INCUBATION_DEFAULT_MODE } from './lesson19_1Data.ts';
 import { LESSON_COMBINATORIAL_PLAY_SYNTHESIS } from './lesson19_2Data.ts';
+import { LESSON_DOPAMINE_REWARD_PREDICTION } from './lesson20_1Data.ts';
 
 export const PRIMARY_COURSE: Course = {
   id: 'foundations-of-cognition',
@@ -531,7 +532,7 @@ export const PRIMARY_COURSE: Course = {
           title: 'Reward Prediction Errors in Motivation',
           subtitle: 'How the brain calibrates drive based on progress and anticipation',
           readingTimeMinutes: 16,
-          isAvailable: false,
+          isAvailable: true,
         },
         {
           id: 'self-determination-theory',
@@ -1195,6 +1196,7 @@ export const ALL_LESSONS: Record<string, Lesson> = {
   [LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY.id]: LESSON_CONFIRMATION_BIAS_SUNK_COST_STUDY,
   [LESSON_INCUBATION_DEFAULT_MODE.id]: LESSON_INCUBATION_DEFAULT_MODE,
   [LESSON_COMBINATORIAL_PLAY_SYNTHESIS.id]: LESSON_COMBINATORIAL_PLAY_SYNTHESIS,
+  [LESSON_DOPAMINE_REWARD_PREDICTION.id]: LESSON_DOPAMINE_REWARD_PREDICTION,
 };
 
 export function getLessonById(id: string): Lesson {
