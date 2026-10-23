@@ -2,7 +2,6 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import Groq from 'groq-sdk';
 import { 
   getTutorSystemInstruction,
-  KNOWN_LESSON_SECTIONS, 
   KNOWN_CONCEPTS,
   KNOWN_MISCONCEPTIONS,
   type SanitizedLearnerContext,
