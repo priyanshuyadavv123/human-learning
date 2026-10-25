@@ -24,6 +24,7 @@ export const LearningProcessDiagram: React.FC = () => {
 
   return (
     <section 
+      data-testid="learning-process-diagram-section"
       style={{
         marginBottom: '32px',
         padding: '20px',

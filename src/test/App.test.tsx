@@ -16,7 +16,7 @@ describe('App Workspace Integration', () => {
 
     // Sidebar navigation
     expect(screen.getByText('Human Cognition & Mastery')).toBeInTheDocument();
-    expect(screen.getByText(/The Architecture of Human Memory/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/The Architecture of Human Memory/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText(/1.1 How Learning Actually Works/i)).toBeInTheDocument();
 
     // Main lesson reading content

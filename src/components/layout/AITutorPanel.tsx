@@ -49,7 +49,7 @@ function isConceptDue(nextReviewDueAt: string): boolean {
 }
 
 export const AITutorPanel: React.FC = () => {
-  const { isTutorOpen, setTutorOpen, learnerMemory, activeLessonId } = useLearning();
+  const { isTutorOpen, setTutorOpen, learnerMemory, activeLessonId, currentLesson } = useLearning();
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
@@ -343,9 +343,9 @@ export const AITutorPanel: React.FC = () => {
           )}
           <div>
             {isLiveMode ? (
-              <span><strong>Live AI Connected:</strong> Multi-turn Socratic responses powered by Groq and grounded in Lesson 1.1 syllabus.</span>
+              <span><strong>Live AI Connected:</strong> Multi-turn Socratic responses powered by Groq and grounded in Lesson {currentLesson.number} syllabus.</span>
             ) : (
-              <span><strong>Local Socratic Mode:</strong> Grounded in Lesson 1.1 syllabus. Configure <code>GROQ_API_KEY</code> in <code>.env</code> for live AI.</span>
+              <span><strong>Local Socratic Mode:</strong> Grounded in Lesson {currentLesson.number} syllabus. Configure <code>GROQ_API_KEY</code> in <code>.env</code> for live AI.</span>
             )}
           </div>
         </div>

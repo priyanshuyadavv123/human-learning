@@ -3,17 +3,25 @@ import {
   CheckCircle2, 
   Sparkles, 
   BookCheck,
+  ArrowRight,
+  Trophy
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
+import { PRIMARY_COURSE } from '../../data/courseData.ts';
 
 export const CompletionBanner: React.FC = () => {
   const { 
     currentLesson,
     lessonState, 
-    completeLesson, 
+    completeLesson,
+    setActiveLessonId
   } = useLearning();
 
   const isCompleted = lessonState.isCompleted;
+
+  const allLessons = PRIMARY_COURSE.chapters.flatMap(c => c.lessons);
+  const currentIndex = allLessons.findIndex(l => l.id === currentLesson.id);
+  const nextLesson = currentIndex >= 0 && currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
   const handleComplete = () => {
     completeLesson();
@@ -163,7 +171,7 @@ export const CompletionBanner: React.FC = () => {
               cursor: allPrerequisitesMet ? 'pointer' : 'not-allowed',
             }}
           >
-            <span>Mark Lesson 1.1 as Complete</span>
+            <span>Mark Lesson {currentLesson.number} as Complete</span>
             <Sparkles size={18} />
           </button>
 
@@ -187,31 +195,89 @@ export const CompletionBanner: React.FC = () => {
             gap: '16px',
           }}
         >
-          <div>
-            <div style={{ fontSize: '0.6875rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '2px' }}>
-              Next Up in Curriculum
-            </div>
-            <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-main)' }}>
-              Lesson 1.2: The Illusion of Competence
-            </div>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
-              Why recognition feels identical to mastery — fluency bias, overconfidence, and objective self-testing.
-            </p>
-          </div>
+          {nextLesson ? (
+            <>
+              <div style={{ flex: 1, minWidth: '240px' }}>
+                <div style={{ fontSize: '0.6875rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '2px' }}>
+                  Next Up in Curriculum
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '2px' }}>
+                  Lesson {nextLesson.number}: {nextLesson.title}
+                </div>
+                <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+                  {nextLesson.subtitle}
+                </p>
+              </div>
 
-          <div 
-            style={{
-              padding: '8px 14px',
-              borderRadius: 'var(--radius-sm)',
-              backgroundColor: 'var(--bg-surface-subtle)',
-              border: '1px solid var(--border-subtle)',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: 'var(--text-muted)',
-            }}
-          >
-            Lesson 1.1 Complete — Core Principles Verified
-          </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div 
+                  style={{
+                    padding: '8px 14px',
+                    borderRadius: 'var(--radius-sm)',
+                    backgroundColor: 'var(--bg-surface-subtle)',
+                    border: '1px solid var(--border-subtle)',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: 'var(--text-muted)',
+                  }}
+                >
+                  Lesson {currentLesson.number} Complete
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveLessonId(nextLesson.id);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '10px 18px',
+                    borderRadius: 'var(--radius-sm)',
+                    backgroundColor: 'var(--accent-primary)',
+                    color: 'var(--text-on-accent)',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    boxShadow: 'var(--shadow-sm)',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.15s ease',
+                  }}
+                >
+                  <span>Continue to Lesson {nextLesson.number}</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%' }}>
+              <div 
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--success-bg)',
+                  border: '1px solid var(--success-border)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--success-text)',
+                  flexShrink: 0
+                }}
+              >
+                <Trophy size={22} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '2px' }}>
+                  Curriculum Complete: 26 Chapters Mastered!
+                </div>
+                <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+                  You have synthesized all cognitive architectures, deliberate practice models, and longitudinal scheduling protocols into a durable personal mastery engine.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </section>

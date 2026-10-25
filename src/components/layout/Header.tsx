@@ -8,7 +8,7 @@ import {
   CheckCircle2 
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
-import { LESSON_HOW_LEARNING_WORKS } from '../../data/courseData.ts';
+import { PRIMARY_COURSE } from '../../data/courseData.ts';
 
 export const Header: React.FC = () => {
   const { 
@@ -19,8 +19,11 @@ export const Header: React.FC = () => {
     isTutorOpen, 
     toggleTutor,
     progressPercent,
-    lessonState
+    lessonState,
+    currentLesson,
   } = useLearning();
+
+  const currentChapter = PRIMARY_COURSE.chapters.find(c => c.id === currentLesson.chapterId);
 
   return (
     <header 
@@ -64,13 +67,13 @@ export const Header: React.FC = () => {
             <BookOpen size={16} color="var(--accent-primary)" />
             <span style={{ letterSpacing: '-0.01em' }}>Human Learning</span>
           </div>
-          <span style={{ color: 'var(--border-strong)' }}>/</span>
-          <span style={{ color: 'var(--text-muted)', display: 'none', mdDisplay: 'inline' } as React.CSSProperties} className="nav-course-sub">
-            Ch 1: Architecture
+          <span style={{ color: 'var(--border-strong)' }} className="nav-course-sub">/</span>
+          <span style={{ color: 'var(--text-muted)' }} className="nav-course-sub">
+            Ch {currentChapter?.number || 1}: {currentChapter?.title || 'Architecture'}
           </span>
           <span style={{ color: 'var(--border-strong)' }}>/</span>
           <span style={{ color: 'var(--accent-primary)', fontWeight: 500 }}>
-            Lesson {LESSON_HOW_LEARNING_WORKS.number}
+            Lesson {currentLesson.number}
           </span>
         </div>
       </div>

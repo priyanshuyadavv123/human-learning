@@ -757,11 +757,32 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   });
 
   // Active lesson ID
-  const [activeLessonId, setActiveLessonId] = useState<string>('how-learning-actually-works');
+  const [activeLessonId, setActiveLessonId] = useState<string>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.activeLessonId) return parsed.activeLessonId;
+      }
+    } catch {
+      // fallback
+    }
+    return 'how-learning-actually-works';
+  });
 
   // UI Drawer states (responsive)
-  const [isLeftSidebarOpen, setLeftSidebarOpen] = useState<boolean>(true);
-  const [isTutorOpen, setTutorOpen] = useState<boolean>(true);
+  const [isLeftSidebarOpen, setLeftSidebarOpen] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth > 0 && window.innerWidth < 1024) {
+      return false;
+    }
+    return true;
+  });
+  const [isTutorOpen, setTutorOpen] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth > 0 && window.innerWidth < 1024) {
+      return false;
+    }
+    return true;
+  });
 
   // Learner Memory & Review Modal State (Phase 3B)
   const [learnerMemory, setLearnerMemory] = useState<LearnerMemoryStoreV2>(() => loadLearnerMemory());
@@ -917,6 +938,14 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         },
       };
     });
+  };
+
+  const handleSetActiveLessonId = (id: string) => {
+    setActiveLessonId(id);
+    setUserProgress(prev => ({
+      ...prev,
+      activeLessonId: id,
+    }));
   };
 
   const submitPrediction = (optionId: string) => {
@@ -1140,7 +1169,7 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         theme,
         toggleTheme,
         activeLessonId,
-        setActiveLessonId,
+        setActiveLessonId: handleSetActiveLessonId,
         currentLesson,
         isLessonCompleted: (lessonId: string) => !!userProgress.lessonStates[lessonId]?.isCompleted,
         lessonState: currentLessonState,

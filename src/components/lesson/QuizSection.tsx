@@ -49,6 +49,7 @@ export const QuizSection: React.FC = () => {
 
   return (
     <section 
+      data-testid="quiz-assessment-section"
       style={{
         marginBottom: '32px',
         padding: '22px',

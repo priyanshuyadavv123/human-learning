@@ -24,18 +24,19 @@ export const SidebarNav: React.FC = () => {
     resetMemory,
   } = useLearning();
 
-  // Keep track of which chapters are expanded
-  const [expandedChapters, setExpandedChapters] = useState<Record<string, boolean>>({
-    'ch-1-architecture': true,
-    'ch-2-retrieval-spacing': false,
-    'ch-3-deliberate-practice': false,
-  });
+  // User overrides for chapter expansion (derived dynamically from activeLessonId)
+  const [collapsedOverrides, setCollapsedOverrides] = useState<Record<string, boolean>>({});
 
   const toggleChapter = (chapterId: string) => {
-    setExpandedChapters(prev => ({
-      ...prev,
-      [chapterId]: !prev[chapterId],
-    }));
+    setCollapsedOverrides(prev => {
+      const isCurrentlyExpanded = prev[chapterId] !== undefined
+        ? !prev[chapterId]
+        : PRIMARY_COURSE.chapters.find(c => c.id === chapterId)?.lessons.some(l => l.id === activeLessonId) || chapterId === 'ch-1-architecture';
+      return {
+        ...prev,
+        [chapterId]: isCurrentlyExpanded,
+      };
+    });
   };
 
   if (!isLeftSidebarOpen) {
@@ -146,7 +147,8 @@ export const SidebarNav: React.FC = () => {
         {/* Chapters & Lessons Tree */}
         <div style={{ flex: 1, padding: '12px 8px', overflowY: 'auto' }}>
           {PRIMARY_COURSE.chapters.map((chapter) => {
-            const isExpanded = expandedChapters[chapter.id] ?? chapter.lessons.some(l => l.id === activeLessonId);
+            const isDefaultExpanded = chapter.id === 'ch-1-architecture' || chapter.lessons.some(l => l.id === activeLessonId);
+            const isExpanded = collapsedOverrides[chapter.id] !== undefined ? !collapsedOverrides[chapter.id] : isDefaultExpanded;
 
             return (
               <div key={chapter.id} style={{ marginBottom: '10px' }}>

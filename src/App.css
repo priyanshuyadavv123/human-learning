@@ -73,4 +73,13 @@
   .nav-tutor-label {
     display: none !important;
   }
+
+  .workspace-tutor-panel {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  .workspace-sidebar {
+    width: min(320px, 88vw) !important;
+  }
 }

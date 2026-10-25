@@ -43,6 +43,7 @@ export const InteractiveExercise: React.FC = () => {
 
   return (
     <section 
+      data-testid="interactive-exercise-section"
       style={{
         marginBottom: '32px',
         padding: '20px',
