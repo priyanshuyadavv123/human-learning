@@ -89,10 +89,6 @@ export const AITutorPanel: React.FC = () => {
     };
   }, []);
 
-  if (!isTutorOpen) {
-    return null;
-  }
-
   const handleSend = async (queryText: string) => {
     const trimmed = queryText.trim();
     if (!trimmed || isLoading) return;
@@ -179,6 +175,25 @@ export const AITutorPanel: React.FC = () => {
     }
   };
 
+  const handleSendRef = React.useRef(handleSend);
+  useEffect(() => {
+    handleSendRef.current = handleSend;
+  });
+
+  useEffect(() => {
+    const handleInquiry = (event: Event) => {
+      const customEvent = event as CustomEvent<{ question: string }>;
+      if (customEvent.detail?.question) {
+        handleSendRef.current(customEvent.detail.question);
+      }
+    };
+
+    window.addEventListener('human_learning_tutor_inquiry', handleInquiry);
+    return () => {
+      window.removeEventListener('human_learning_tutor_inquiry', handleInquiry);
+    };
+  }, []);
+
   const handleResetChat = () => {
     setMessages([
       {
@@ -200,6 +215,10 @@ export const AITutorPanel: React.FC = () => {
   };
 
   const isLiveMode = healthStatus.hasKey;
+
+  if (!isTutorOpen) {
+    return null;
+  }
 
   return (
     <>

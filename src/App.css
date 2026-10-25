@@ -83,3 +83,37 @@
     width: min(320px, 88vw) !important;
   }
 }
+
+/* Interactive Lab Responsive Styles & Accessibility */
+.cognitive-load-lab-container {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .simulation-workspace-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .concept-map-level-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .concept-map-level-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-map-level-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

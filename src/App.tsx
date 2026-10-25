@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { LearningProvider } from './context/LearningContext.tsx';
+import { LearningProvider, useLearning } from './context/LearningContext.tsx';
 import { Header } from './components/layout/Header.tsx';
 import { SidebarNav } from './components/layout/SidebarNav.tsx';
 import { AITutorPanel } from './components/layout/AITutorPanel.tsx';
@@ -12,25 +12,34 @@ import { InteractiveExercise } from './components/lesson/InteractiveExercise.tsx
 import { QuizSection } from './components/lesson/QuizSection.tsx';
 import { PracticalTask } from './components/lesson/PracticalTask.tsx';
 import { CompletionBanner } from './components/lesson/CompletionBanner.tsx';
+import { CognitiveLoadLab } from './components/lesson/CognitiveLoadLab.tsx';
 import { SpacedReviewSession } from './components/review/SpacedReviewSession.tsx';
 
 const WorkspaceContent: React.FC = () => {
+  const { currentLesson } = useLearning();
+
   return (
     <div className="app-workspace-container">
       {/* Left Navigation */}
       <SidebarNav />
 
-      {/* Main Lesson Editorial Reader */}
+      {/* Main Lesson Editorial Reader / Interactive Lab */}
       <main className="lesson-main-scroll" role="main">
         <article className="lesson-content-wrapper">
-          <LessonHeader />
-          <PredictionInteraction />
-          <CoreExplanations />
-          <LearningProcessDiagram />
-          <InteractiveExercise />
-          <QuizSection />
-          <PracticalTask />
-          <CompletionBanner />
+          {currentLesson.id === 'cognitive-load-schema' ? (
+            <CognitiveLoadLab />
+          ) : (
+            <>
+              <LessonHeader />
+              <PredictionInteraction />
+              <CoreExplanations />
+              <LearningProcessDiagram />
+              <InteractiveExercise />
+              <QuizSection />
+              <PracticalTask />
+              <CompletionBanner />
+            </>
+          )}
         </article>
       </main>
 
