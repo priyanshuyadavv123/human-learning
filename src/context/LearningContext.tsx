@@ -673,12 +673,25 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
   },
 };
 
+export type ActiveView = 
+  | 'overview' 
+  | 'curriculum' 
+  | 'lab' 
+  | 'library' 
+  | 'strategy' 
+  | 'voice' 
+  | 'journal' 
+  | 'mastery' 
+  | 'themes';
+
 interface LearningContextType {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
   language: 'en' | 'hinglish';
   toggleLanguage: () => void;
   setLanguage: (lang: 'en' | 'hinglish') => void;
+  activeView: ActiveView;
+  setActiveView: (view: ActiveView) => void;
   activeLessonId: string;
   setActiveLessonId: (id: string) => void;
   currentLesson: Lesson;
@@ -772,6 +785,34 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
     return 'en';
   });
+
+  // Active View ('overview' | 'curriculum' | 'lab' | 'library' | 'strategy' | 'voice' | 'journal' | 'mastery' | 'themes')
+  const [activeView, setActiveViewState] = useState<ActiveView>(() => {
+    try {
+      const savedView = localStorage.getItem('sovereign_mind_active_view');
+      if (savedView) return savedView as ActiveView;
+
+      const savedProgress = localStorage.getItem(STORAGE_KEY);
+      if (savedProgress) {
+        const parsed = JSON.parse(savedProgress);
+        if (parsed.activeLessonId === 'cognitive-load-schema') {
+          return 'curriculum';
+        }
+      }
+    } catch {
+      // fallback
+    }
+    return 'overview';
+  });
+
+  const setActiveView = (view: ActiveView) => {
+    setActiveViewState(view);
+    try {
+      localStorage.setItem('sovereign_mind_active_view', view);
+    } catch {
+      // ignore
+    }
+  };
 
   const toggleLanguage = () => {
     setLanguage(prev => {
@@ -984,6 +1025,7 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       ...prev,
       activeLessonId: id,
     }));
+    setActiveView('curriculum');
   };
 
   const submitPrediction = (optionId: string) => {
@@ -1209,6 +1251,8 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         language,
         toggleLanguage,
         setLanguage: handleSetLanguage,
+        activeView,
+        setActiveView,
         activeLessonId,
         setActiveLessonId: handleSetActiveLessonId,
         currentLesson,

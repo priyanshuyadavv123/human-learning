@@ -5,7 +5,9 @@ import {
   Sun, 
   Moon, 
   BookOpen, 
-  CheckCircle2
+  CheckCircle2,
+  Compass,
+  FlaskConical
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 import { PRIMARY_COURSE } from '../../data/courseData.ts';
@@ -23,6 +25,9 @@ export const Header: React.FC = () => {
     progressPercent,
     lessonState,
     currentLesson,
+    activeView,
+    setActiveView,
+    setActiveLessonId,
   } = useLearning();
 
   const currentChapter = PRIMARY_COURSE.chapters.find(c => c.id === currentLesson.chapterId);
@@ -65,7 +70,7 @@ export const Header: React.FC = () => {
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, color: 'var(--text-main)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: 'var(--text-main)' }}>
             <BookOpen size={16} color="var(--accent-primary)" />
             <span style={{ letterSpacing: '-0.01em' }}>Human Learning</span>
           </div>
@@ -74,14 +79,103 @@ export const Header: React.FC = () => {
             Ch {currentChapter?.number || 1}: {currentChapter?.title || 'Architecture'}
           </span>
           <span style={{ color: 'var(--border-strong)' }}>/</span>
-          <span style={{ color: 'var(--accent-primary)', fontWeight: 500 }}>
+          <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>
             Lesson {currentLesson.number}
           </span>
         </div>
       </div>
 
-      {/* Right side: Progress, Theme, AI Tutor Toggle */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      {/* Center: View Switcher Capsule (Overview / Lesson / Lab) */}
+      <div 
+        className="top-view-capsule"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: 'var(--bg-surface-subtle)',
+          border: '1px solid var(--border-subtle)',
+          borderRadius: '9999px',
+          padding: '2px',
+          gap: '2px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => setActiveView('overview')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            padding: '4px 10px',
+            borderRadius: '9999px',
+            border: 'none',
+            backgroundColor: activeView === 'overview' ? 'var(--bg-surface)' : 'transparent',
+            color: activeView === 'overview' ? 'var(--accent-primary)' : 'var(--text-muted)',
+            boxShadow: activeView === 'overview' ? 'var(--shadow-sm)' : 'none',
+            fontSize: '0.75rem',
+            fontWeight: activeView === 'overview' ? 700 : 500,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          aria-pressed={activeView === 'overview'}
+        >
+          <Compass size={13} />
+          <span>Overview</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveView('curriculum')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            padding: '4px 10px',
+            borderRadius: '9999px',
+            border: 'none',
+            backgroundColor: activeView === 'curriculum' ? 'var(--bg-surface)' : 'transparent',
+            color: activeView === 'curriculum' ? 'var(--accent-primary)' : 'var(--text-muted)',
+            boxShadow: activeView === 'curriculum' ? 'var(--shadow-sm)' : 'none',
+            fontSize: '0.75rem',
+            fontWeight: activeView === 'curriculum' ? 700 : 500,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          aria-pressed={activeView === 'curriculum'}
+        >
+          <BookOpen size={13} />
+          <span>Lesson</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setActiveLessonId('cognitive-load-schema');
+            setActiveView('lab');
+          }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            padding: '4px 10px',
+            borderRadius: '9999px',
+            border: 'none',
+            backgroundColor: activeView === 'lab' ? 'var(--bg-surface)' : 'transparent',
+            color: activeView === 'lab' ? 'var(--accent-primary)' : 'var(--text-muted)',
+            boxShadow: activeView === 'lab' ? 'var(--shadow-sm)' : 'none',
+            fontSize: '0.75rem',
+            fontWeight: activeView === 'lab' ? 700 : 500,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          aria-pressed={activeView === 'lab'}
+        >
+          <FlaskConical size={13} />
+          <span>Lab</span>
+        </button>
+      </div>
+
+      {/* Right side: Progress, Language, Theme, AI Tutor Toggle */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         {/* Progress pill */}
         <div
           style={{
@@ -106,7 +200,7 @@ export const Header: React.FC = () => {
             <>
               <div 
                 style={{
-                  width: '60px',
+                  width: '50px',
                   height: '5px',
                   borderRadius: '9999px',
                   backgroundColor: 'var(--border-subtle)',
@@ -152,7 +246,7 @@ export const Header: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              padding: '4px 10px',
+              padding: '4px 9px',
               borderRadius: '9999px',
               border: 'none',
               backgroundColor: language === 'en' ? 'var(--bg-surface)' : 'transparent',
@@ -179,7 +273,7 @@ export const Header: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              padding: '4px 10px',
+              padding: '4px 9px',
               borderRadius: '9999px',
               border: 'none',
               backgroundColor: language === 'hinglish' ? 'var(--bg-surface)' : 'transparent',
@@ -233,13 +327,13 @@ export const Header: React.FC = () => {
             backgroundColor: isTutorOpen ? 'var(--accent-subtle)' : 'transparent',
             color: isTutorOpen ? 'var(--accent-primary)' : 'var(--text-main)',
             fontSize: '0.8125rem',
-            fontWeight: 500,
+            fontWeight: 600,
             transition: 'all 0.15s ease',
           }}
         >
-          <Sparkles size={15} color={isTutorOpen ? 'var(--accent-primary)' : 'var(--text-muted)'} />
-          <span style={{ display: 'none', smDisplay: 'inline' } as React.CSSProperties} className="nav-tutor-label">
-            AI Tutor
+          <Sparkles size={14} color={isTutorOpen ? 'var(--accent-primary)' : 'var(--text-muted)'} />
+          <span className="nav-tutor-label">
+            Tutor
           </span>
         </button>
       </div>

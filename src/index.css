@@ -1,28 +1,29 @@
 :root {
-  /* Editorial Warm Cream Theme (Default Light) */
-  --font-serif: "Iowan Old Style", "Newsreader", "Charter", "Georgia", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  /* The Sovereign Mind — Editorial Warm Ivory Grid Theme (Default Light) */
+  --font-serif: "Playfair Display", "Iowan Old Style", "Newsreader", "Charter", "Georgia", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 
-  --bg-app: #FBF9F5;
+  --bg-app: #F7F4EB;
+  --grid-line: rgba(180, 160, 130, 0.22);
   --bg-surface: #FFFFFF;
-  --bg-surface-hover: #F8F5EE;
-  --bg-surface-subtle: #F3EFEA;
-  --bg-surface-well: #ECE6DD;
+  --bg-surface-hover: #FAF7F0;
+  --bg-surface-subtle: #FDFBF7;
+  --bg-surface-well: #EFE9DD;
   
-  --border-subtle: #E6DFD5;
-  --border-strong: #D1C7BA;
+  --border-subtle: #E6DFD3;
+  --border-strong: #D3C9B8;
   
-  --text-main: #1F1C18;
-  --text-secondary: #5C564E;
-  --text-muted: #8C8477;
+  --text-main: #1C1915;
+  --text-secondary: #585145;
+  --text-muted: #8C8272;
   --text-on-accent: #FFFFFF;
 
-  /* Restrained Academic Blue */
-  --accent-primary: #1C4D78;
-  --accent-hover: #143A5C;
-  --accent-subtle: #EBF2F8;
-  --accent-border: #BCD3E8;
+  /* Sovereign Antique Gold / Bronze Accent */
+  --accent-primary: #966E2E;
+  --accent-hover: #7E5A22;
+  --accent-subtle: #F6F1E6;
+  --accent-border: #DBCDB5;
 
   /* Semantic Feedback */
   --success-text: #1E663B;
@@ -37,37 +38,38 @@
   --warning-bg: #FEF8EC;
   --warning-border: #F3D28E;
 
-  --shadow-sm: 0 1px 2px rgba(31, 28, 24, 0.04);
-  --shadow-md: 0 4px 12px rgba(31, 28, 24, 0.06);
-  --shadow-panel: 0 8px 24px rgba(31, 28, 24, 0.08);
+  --shadow-sm: 0 1px 3px rgba(35, 30, 24, 0.04);
+  --shadow-md: 0 4px 14px rgba(35, 30, 24, 0.06);
+  --shadow-panel: 0 10px 28px rgba(35, 30, 24, 0.09);
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 }
 
 [data-theme="dark"],
 .dark {
-  /* Warm Obsidian & Graphite Dark Theme */
+  /* Warm Obsidian & Antique Gold Dark Theme */
   --bg-app: #121211;
-  --bg-surface: #1B1A19;
+  --grid-line: rgba(197, 160, 89, 0.08);
+  --bg-surface: #1B1A18;
   --bg-surface-hover: #242220;
-  --bg-surface-subtle: #201E1D;
-  --bg-surface-well: #292725;
+  --bg-surface-subtle: #201E1C;
+  --bg-surface-well: #2A2825;
   
-  --border-subtle: #302E2A;
-  --border-strong: #45423C;
+  --border-subtle: #302D27;
+  --border-strong: #464137;
   
-  --text-main: #F0ECE4;
-  --text-secondary: #B5AEA2;
-  --text-muted: #7E776C;
-  --text-on-accent: #0C1620;
+  --text-main: #F4EFE6;
+  --text-secondary: #B7AEA0;
+  --text-muted: #807768;
+  --text-on-accent: #121211;
 
-  /* Refined Cerulean Accent for Dark */
-  --accent-primary: #5A9CD8;
-  --accent-hover: #7EAFE0;
-  --accent-subtle: #17283A;
-  --accent-border: #234E75;
+  /* Luminous Sovereign Gold */
+  --accent-primary: #C5A059;
+  --accent-hover: #D9B36B;
+  --accent-subtle: #242018;
+  --accent-border: #4D3F28;
 
   /* Semantic Feedback */
   --success-text: #52CA84;
@@ -82,9 +84,9 @@
   --warning-bg: #342410;
   --warning-border: #6B4918;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-panel: 0 10px 28px rgba(0, 0, 0, 0.55);
 }
 
 *, *::before, *::after {
@@ -165,6 +167,27 @@ textarea, input {
 }
 
 /* Utilities */
+.paper-grid-bg {
+  background-color: var(--bg-app);
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.sovereign-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sovereign-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-border);
+}
+
 .prose-editorial {
   font-size: 1.0625rem;
   line-height: 1.75;

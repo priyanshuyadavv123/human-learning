@@ -14,33 +14,65 @@ import { PracticalTask } from './components/lesson/PracticalTask.tsx';
 import { CompletionBanner } from './components/lesson/CompletionBanner.tsx';
 import { CognitiveLoadLab } from './components/lesson/CognitiveLoadLab.tsx';
 import { SpacedReviewSession } from './components/review/SpacedReviewSession.tsx';
+import { SovereignDashboard } from './components/dashboard/SovereignDashboard.tsx';
+import { BookLibraryView } from './components/dashboard/BookLibraryView.tsx';
+import { PowerStrategyView } from './components/dashboard/PowerStrategyView.tsx';
+import { VoiceCharismaView } from './components/dashboard/VoiceCharismaView.tsx';
+import { PrivateJournalView } from './components/dashboard/PrivateJournalView.tsx';
+import { ProgressMasteryView } from './components/dashboard/ProgressMasteryView.tsx';
+import { ThemeStudioView } from './components/dashboard/ThemeStudioView.tsx';
 
 const WorkspaceContent: React.FC = () => {
-  const { currentLesson } = useLearning();
+  const { currentLesson, activeView, setActiveView, setActiveLessonId } = useLearning();
 
   return (
     <div className="app-workspace-container">
-      {/* Left Navigation */}
+      {/* Left Navigation — The Sovereign Mind Syllabus */}
       <SidebarNav />
 
-      {/* Main Lesson Editorial Reader / Interactive Lab */}
+      {/* Main Workspace Area */}
       <main className="lesson-main-scroll" role="main">
-        <article className="lesson-content-wrapper">
-          {currentLesson.id === 'cognitive-load-schema' ? (
+        {activeView === 'overview' && (
+          <SovereignDashboard 
+            onOpenLesson={() => setActiveView('curriculum')}
+            onOpenLab={() => {
+              setActiveLessonId('cognitive-load-schema');
+              setActiveView('lab');
+            }}
+          />
+        )}
+
+        {activeView === 'library' && <BookLibraryView />}
+        {activeView === 'strategy' && <PowerStrategyView />}
+        {activeView === 'voice' && <VoiceCharismaView />}
+        {activeView === 'journal' && <PrivateJournalView />}
+        {activeView === 'mastery' && <ProgressMasteryView />}
+        {activeView === 'themes' && <ThemeStudioView />}
+
+        {activeView === 'lab' && (
+          <article className="lesson-content-wrapper">
             <CognitiveLoadLab />
-          ) : (
-            <>
-              <LessonHeader />
-              <PredictionInteraction />
-              <CoreExplanations />
-              <LearningProcessDiagram />
-              <InteractiveExercise />
-              <QuizSection />
-              <PracticalTask />
-              <CompletionBanner />
-            </>
-          )}
-        </article>
+          </article>
+        )}
+
+        {activeView === 'curriculum' && (
+          <article className="lesson-content-wrapper">
+            {currentLesson.id === 'cognitive-load-schema' ? (
+              <CognitiveLoadLab />
+            ) : (
+              <>
+                <LessonHeader />
+                <PredictionInteraction />
+                <CoreExplanations />
+                <LearningProcessDiagram />
+                <InteractiveExercise />
+                <QuizSection />
+                <PracticalTask />
+                <CompletionBanner />
+              </>
+            )}
+          </article>
+        )}
       </main>
 
       {/* Right AI Contextual Tutor */}

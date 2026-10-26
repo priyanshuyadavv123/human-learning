@@ -103,6 +103,10 @@ describe('App Workspace Integration', () => {
 
     render(<App />);
 
+    // Navigate to the current active lesson via Continue Lesson action
+    const continueBtn = screen.getByRole('button', { name: /Continue Lesson/i });
+    fireEvent.click(continueBtn);
+
     // Hydrated prediction
     expect(screen.getByText(/Active Retrieval produces substantially higher delayed retention/i)).toBeInTheDocument();
     expect(screen.getByText(/Empirically Supported Strategy \(The Testing Effect\)/i)).toBeInTheDocument();
