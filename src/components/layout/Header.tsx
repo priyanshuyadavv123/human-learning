@@ -5,8 +5,7 @@ import {
   Sun, 
   Moon, 
   BookOpen, 
-  CheckCircle2,
-  Languages
+  CheckCircle2
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 import { PRIMARY_COURSE } from '../../data/courseData.ts';
@@ -16,7 +15,7 @@ export const Header: React.FC = () => {
     theme, 
     toggleTheme, 
     language,
-    toggleLanguage,
+    setLanguage,
     isLeftSidebarOpen, 
     toggleLeftSidebar, 
     isTutorOpen, 
@@ -128,30 +127,74 @@ export const Header: React.FC = () => {
           )}
         </div>
 
-        {/* Language Switcher (EN / Hinglish) */}
-        <button
-          onClick={toggleLanguage}
-          aria-label={`Switch language to ${language === 'en' ? 'Hinglish' : 'English'}`}
-          title={`Switch language to ${language === 'en' ? 'Hinglish' : 'English'}`}
+        {/* Bilingual Engine Capsule Toggle (ElysiaCode Style) */}
+        <div
+          className="pill-group top-lang-pill-group"
+          aria-label="Language selector"
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
-            height: '34px',
-            padding: '0 10px',
-            borderRadius: 'var(--radius-sm)',
-            border: `1px solid ${language === 'hinglish' ? 'var(--accent-border)' : 'var(--border-subtle)'}`,
-            backgroundColor: language === 'hinglish' ? 'var(--accent-subtle)' : 'transparent',
-            color: language === 'hinglish' ? 'var(--accent-primary)' : 'var(--text-secondary)',
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            cursor: 'pointer',
-            transition: 'all 0.15s ease',
+            backgroundColor: 'var(--bg-surface-subtle)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '9999px',
+            padding: '2px',
+            gap: '2px',
           }}
         >
-          <Languages size={15} />
-          <span>{language === 'en' ? 'EN' : 'हिं Hinglish'}</span>
-        </button>
+          <button
+            type="button"
+            onClick={() => setLanguage('en')}
+            className={`pill-btn lang-btn ${language === 'en' ? 'active' : ''}`}
+            aria-pressed={language === 'en'}
+            aria-label="Switch language to English"
+            title="Switch language to English"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              padding: '4px 10px',
+              borderRadius: '9999px',
+              border: 'none',
+              backgroundColor: language === 'en' ? 'var(--bg-surface)' : 'transparent',
+              color: language === 'en' ? 'var(--accent-primary)' : 'var(--text-muted)',
+              boxShadow: language === 'en' ? 'var(--shadow-sm)' : 'none',
+              fontSize: '0.75rem',
+              fontWeight: language === 'en' ? 700 : 500,
+              cursor: 'pointer',
+              transition: 'all 0.15s ease',
+            }}
+          >
+            <span>🇬🇧</span>
+            <span>English</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setLanguage('hinglish')}
+            className={`pill-btn lang-btn ${language === 'hinglish' ? 'active' : ''}`}
+            aria-pressed={language === 'hinglish'}
+            aria-label="Switch language to Hinglish"
+            title="Switch language to Hinglish"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              padding: '4px 10px',
+              borderRadius: '9999px',
+              border: 'none',
+              backgroundColor: language === 'hinglish' ? 'var(--bg-surface)' : 'transparent',
+              color: language === 'hinglish' ? 'var(--accent-primary)' : 'var(--text-muted)',
+              boxShadow: language === 'hinglish' ? 'var(--shadow-sm)' : 'none',
+              fontSize: '0.75rem',
+              fontWeight: language === 'hinglish' ? 700 : 500,
+              cursor: 'pointer',
+              transition: 'all 0.15s ease',
+            }}
+          >
+            <span>🇮🇳</span>
+            <span>Hinglish</span>
+          </button>
+        </div>
 
         {/* Theme toggle */}
         <button

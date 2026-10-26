@@ -280,7 +280,7 @@ export const AITutorPanel: React.FC = () => {
             </div>
             <div>
               <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-main)', lineHeight: 1.2 }}>
-                AI Learning Companion
+                {language === 'hinglish' ? 'Senior AI Mentor (Bhaiya/Didi)' : 'AI Learning Companion'}
               </div>
               <div 
                 style={{ 
@@ -556,7 +556,7 @@ export const AITutorPanel: React.FC = () => {
                       lineHeight: 1.4,
                     }}
                   >
-                    <strong>Socratic Reflection:</strong> {p.socraticChallenge}
+                    <strong>{language === 'hinglish' ? 'Socratic Soch:' : 'Socratic Reflection:'}</strong> {p.socraticChallenge}
                   </div>
                 )}
 

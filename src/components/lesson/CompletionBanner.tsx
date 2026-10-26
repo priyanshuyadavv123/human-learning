@@ -14,7 +14,8 @@ export const CompletionBanner: React.FC = () => {
     currentLesson,
     lessonState, 
     completeLesson,
-    setActiveLessonId
+    setActiveLessonId,
+    language,
   } = useLearning();
 
   const isCompleted = lessonState.isCompleted;
@@ -171,7 +172,7 @@ export const CompletionBanner: React.FC = () => {
               cursor: allPrerequisitesMet ? 'pointer' : 'not-allowed',
             }}
           >
-            <span>Mark Lesson {currentLesson.number} as Complete</span>
+            <span>{language === 'hinglish' ? `Mark Lesson ${currentLesson.number} as Complete (Lesson Complete Karo)` : `Mark Lesson ${currentLesson.number} as Complete`}</span>
             <Sparkles size={18} />
           </button>
 
@@ -245,7 +246,7 @@ export const CompletionBanner: React.FC = () => {
                     transition: 'background-color 0.15s ease',
                   }}
                 >
-                  <span>Continue to Lesson {nextLesson.number}</span>
+                  <span>{language === 'hinglish' ? `Continue to Lesson ${nextLesson.number} (Agla Lesson) →` : `Continue to Lesson ${nextLesson.number}`}</span>
                   <ArrowRight size={16} />
                 </button>
               </div>

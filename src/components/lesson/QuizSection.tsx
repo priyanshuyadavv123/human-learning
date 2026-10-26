@@ -16,7 +16,8 @@ export const QuizSection: React.FC = () => {
     lessonState, 
     setQuizAnswer, 
     submitQuiz, 
-    retakeQuiz 
+    retakeQuiz,
+    language,
   } = useLearning();
 
   const quiz = currentLesson.quiz;
@@ -157,7 +158,7 @@ export const QuizSection: React.FC = () => {
             }}
           >
             <RotateCcw size={14} />
-            <span>Retake Assessment</span>
+            <span>{language === 'hinglish' ? 'Retake Assessment (Dobara Test Do)' : 'Retake Assessment'}</span>
           </button>
         </div>
       )}
@@ -317,7 +318,7 @@ export const QuizSection: React.FC = () => {
                     }}
                   >
                     <div style={{ marginBottom: '6px' }}>
-                      <strong>Pedagogical Mechanism:</strong> {q.explanation}
+                      <strong>Pedagogical Mechanism:{language === 'hinglish' ? ' (Kyun Sahi/Galat Hai)' : ''}</strong> {q.explanation}
                     </div>
                     <div style={{ color: 'var(--text-secondary)', marginBottom: '4px' }}>
                       <strong>Rationale:</strong> {q.pedagogicalRationale}
@@ -367,7 +368,7 @@ export const QuizSection: React.FC = () => {
                 transition: 'background-color 0.15s ease',
               }}
             >
-              <span>Submit Assessment & Reveal Solutions</span>
+              <span>{language === 'hinglish' ? 'Submit Assessment & Reveal Solutions (Answers Submit Karo)' : 'Submit Assessment & Reveal Solutions'}</span>
               <ArrowRight size={16} />
             </button>
 

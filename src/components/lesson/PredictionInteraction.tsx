@@ -8,7 +8,7 @@ import {
 import { useLearning } from '../../context/LearningContext.tsx';
 
 export const PredictionInteraction: React.FC = () => {
-  const { currentLesson, lessonState, submitPrediction } = useLearning();
+  const { currentLesson, lessonState, submitPrediction, language } = useLearning();
   const predictionData = currentLesson.prediction;
 
   const [selectedOption, setSelectedOption] = useState<string>('');
@@ -54,6 +54,23 @@ export const PredictionInteraction: React.FC = () => {
           Commit your intuition before reading the explanation
         </span>
       </div>
+
+      {language === 'hinglish' && (
+        <div 
+          style={{
+            marginBottom: '10px',
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-sm)',
+            backgroundColor: 'rgba(217, 119, 6, 0.08)',
+            border: '1px solid rgba(217, 119, 6, 0.22)',
+            fontSize: '0.8125rem',
+            color: '#d97706',
+            fontWeight: 500,
+          }}
+        >
+          💡 <strong>Andaza Lagao:</strong> Padhne se pehle apna intuition lock karo — prediction error se hi real neural update hota hai!
+        </div>
+      )}
 
       <h3 
         className="font-serif"

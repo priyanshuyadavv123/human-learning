@@ -71,7 +71,7 @@ async function run() {
   console.log('[3/5] Switching to Hinglish mode via Header toggle button...');
   await client.eval(`
     (() => {
-      const b = document.querySelector('button[aria-label*="language"]');
+      const b = document.querySelector('button[aria-label*="Hinglish"]');
       if (b) b.click();
     })()
   `);
@@ -79,7 +79,7 @@ async function run() {
 
   const hinglishState = await client.eval(`
     (() => {
-      const b = document.querySelector('button[aria-label*="language"]');
+      const b = document.querySelector('button[aria-label*="Hinglish"]');
       const tab = document.querySelector('[role="tab"]');
       return {
         storageLang: localStorage.getItem('human_learning_platform_language_v1'),

@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 import type { ScientificStatus } from '../../types/learning.ts';
+import { t, HINGLISH_ANALOGIES } from '../../data/i18nDictionary.ts';
 
 const iconsMap: Record<string, React.ReactNode> = {
   'attention': <Eye size={18} />,
@@ -179,7 +180,7 @@ function getBadgeProps(status: ScientificStatus) {
 }
 
 export const CoreExplanations: React.FC = () => {
-  const { currentLesson, lessonState, setExplanationTab } = useLearning();
+  const { currentLesson, lessonState, setExplanationTab, language } = useLearning();
   const explanations = currentLesson.coreExplanations;
   const activeTabId = lessonState.activeExplanationTab && explanations.some(e => e.id === lessonState.activeExplanationTab)
     ? lessonState.activeExplanationTab
@@ -187,6 +188,7 @@ export const CoreExplanations: React.FC = () => {
 
   const activeExplanation = explanations.find(e => e.id === activeTabId) || explanations[0];
   const badge = getBadgeProps(activeExplanation.scientificStatus);
+  const analogy = HINGLISH_ANALOGIES[activeExplanation.id];
 
   return (
     <section style={{ marginBottom: '32px' }}>
@@ -203,7 +205,7 @@ export const CoreExplanations: React.FC = () => {
             marginBottom: '4px'
           }}
         >
-          Section 2 • Core Mechanics
+          {t('core_section_label', language)}
         </div>
         <h2 
           className="font-serif"
@@ -215,10 +217,10 @@ export const CoreExplanations: React.FC = () => {
             marginBottom: '6px'
           }}
         >
-          The Five Biological Imperatives of Learning
+          {t('core_section_title', language)}
         </h2>
         <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
-          Learning is an energy-intensive sequence of biological transformations. Navigate each foundational mechanism below:
+          {t('core_section_sub', language)}
         </p>
       </div>
 
@@ -332,7 +334,7 @@ export const CoreExplanations: React.FC = () => {
               marginBottom: '10px'
             }}
           >
-            Underlying Operational Mechanisms
+            {t('underlying_mechanisms_title', language)}
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
@@ -370,12 +372,33 @@ export const CoreExplanations: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', fontWeight: 700, color: 'var(--accent-primary)', marginBottom: '4px' }}>
             <Sparkles size={15} />
-            <span>Core Engineering Rule</span>
+            <span>{t('engineering_rule_title', language)}</span>
           </div>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-main)', fontWeight: 500, lineHeight: 1.5 }}>
             {activeExplanation.keyInsight}
           </p>
         </div>
+
+        {/* ElysiaCode-Style Asli Zindagi Ki Analogy (Everyday Mental Model) */}
+        {language === 'hinglish' && analogy && (
+          <div 
+            style={{
+              padding: '16px 20px',
+              borderRadius: 'var(--radius-md)',
+              backgroundColor: 'rgba(217, 119, 6, 0.08)',
+              border: '1px solid rgba(217, 119, 6, 0.28)',
+              borderLeft: '4px solid #d97706',
+              marginBottom: '16px',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8125rem', fontWeight: 700, color: '#d97706', marginBottom: '6px' }}>
+              <span>💡 {t('analogy_card_title', language)} • {analogy.title}</span>
+            </div>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--text-main)', lineHeight: 1.6, margin: 0 }}>
+              {analogy.analogy}
+            </p>
+          </div>
+        )}
 
         {/* Scientific Evidence vs Model Caveat */}
         {activeExplanation.simplifiedModelCaveat && (

@@ -11,7 +11,8 @@ export const PracticalTask: React.FC = () => {
     currentLesson,
     lessonState, 
     setPracticalAnswer, 
-    completePracticalTask 
+    completePracticalTask,
+    language 
   } = useLearning();
 
   const task = currentLesson.practicalTask;
@@ -93,6 +94,23 @@ export const PracticalTask: React.FC = () => {
         <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           {task.summary}
         </p>
+
+        {language === 'hinglish' && (
+          <div 
+            style={{
+              marginTop: '10px',
+              padding: '6px 12px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: 'rgba(217, 119, 6, 0.08)',
+              border: '1px solid rgba(217, 119, 6, 0.22)',
+              fontSize: '0.8125rem',
+              color: '#d97706',
+              fontWeight: 500,
+            }}
+          >
+            💡 <strong>Actionable Protocol:</strong> Cognitive science theory ko apni real-life daily study ya engineering routine me execute karne ka 3-step action plan!
+          </div>
+        )}
       </div>
 
       {/* Task Steps */}

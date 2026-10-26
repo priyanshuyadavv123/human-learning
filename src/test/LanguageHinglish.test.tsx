@@ -156,24 +156,29 @@ describe('Dual Language (English & Hinglish) Support Suite', () => {
       expect(screen.getByTestId('current-lang').textContent).toBe('hinglish');
     });
 
-    it('renders the interactive Language Switcher button in Header and toggles mode', () => {
+    it('renders the interactive ElysiaCode-style Language Switcher pill group in Header', () => {
       render(
         <LearningProvider>
           <Header />
         </LearningProvider>
       );
 
-      // Initial state is English: button displays "EN"
-      const switcherBtn = screen.getByRole('button', { name: /switch language to hinglish/i });
-      expect(switcherBtn).toBeDefined();
-      expect(switcherBtn.textContent).toContain('EN');
+      // Buttons for both English and Hinglish exist in the capsule
+      const enBtn = screen.getByRole('button', { name: /switch language to english/i });
+      const hiBtn = screen.getByRole('button', { name: /switch language to hinglish/i });
 
-      // Click to toggle to Hinglish
-      fireEvent.click(switcherBtn);
+      expect(enBtn).toBeDefined();
+      expect(hiBtn).toBeDefined();
+      expect(enBtn.textContent).toContain('English');
+      expect(hiBtn.textContent).toContain('Hinglish');
 
-      // Now button displays "हिं Hinglish"
-      expect(screen.getByRole('button', { name: /switch language to english/i })).toBeDefined();
-      expect(screen.getByText(/हिं Hinglish/i)).toBeDefined();
+      // Click Hinglish to toggle
+      fireEvent.click(hiBtn);
+      expect(localStorage.getItem('human_learning_platform_language_v1')).toBe('hinglish');
+
+      // Click English to toggle back
+      fireEvent.click(enBtn);
+      expect(localStorage.getItem('human_learning_platform_language_v1')).toBe('en');
     });
   });
 });

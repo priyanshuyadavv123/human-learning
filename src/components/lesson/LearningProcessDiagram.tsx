@@ -7,7 +7,7 @@ import {
 import { useLearning } from '../../context/LearningContext.tsx';
 
 export const LearningProcessDiagram: React.FC = () => {
-  const { currentLesson, lessonState, inspectDiagramStage } = useLearning();
+  const { currentLesson, lessonState, inspectDiagramStage, language } = useLearning();
   const diagram = currentLesson.diagram;
 
   const [selectedStageId, setSelectedStageId] = useState<string | null>(null);
@@ -64,6 +64,23 @@ export const LearningProcessDiagram: React.FC = () => {
         <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)' }}>
           {diagram.subtitle}
         </p>
+
+        {language === 'hinglish' && (
+          <div 
+            style={{
+              marginTop: '10px',
+              padding: '6px 12px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: 'rgba(217, 119, 6, 0.08)',
+              border: '1px solid rgba(217, 119, 6, 0.22)',
+              fontSize: '0.8125rem',
+              color: '#d97706',
+              fontWeight: 500,
+            }}
+          >
+            💡 <strong>Cognitive Architecture Map:</strong> Har block par click karke dekhein ki information kaise filter hoti hai, kahan choke hoti hai, aur kaise solve hoti hai.
+          </div>
+        )}
       </div>
 
       {/* Diagram Pipeline Flow */}

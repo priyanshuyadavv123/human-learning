@@ -16,7 +16,8 @@ export const InteractiveExercise: React.FC = () => {
     lessonState, 
     setExerciseAnswer, 
     submitExercise, 
-    resetExercise 
+    resetExercise,
+    language,
   } = useLearning();
 
   const exercise = currentLesson.exercise;
@@ -234,10 +235,10 @@ export const InteractiveExercise: React.FC = () => {
                   }}
                 >
                   <div style={{ marginBottom: '6px' }}>
-                    <strong>Cognitive Analysis:</strong> {scen.mechanismExplanation}
+                    <strong>{language === 'hinglish' ? 'Asli Wajah (Cognitive Analysis):' : 'Cognitive Analysis:'}</strong> {scen.mechanismExplanation}
                   </div>
                   <div style={{ color: 'var(--accent-primary)', fontWeight: 500 }}>
-                    🛠️ <strong>Recommended Intervention:</strong> {scen.evidenceBasedFix}
+                    🛠️ <strong>{language === 'hinglish' ? 'Scientific Solution (Recommended Intervention):' : 'Recommended Intervention:'}</strong> {scen.evidenceBasedFix}
                   </div>
                 </div>
               )}
@@ -267,7 +268,7 @@ export const InteractiveExercise: React.FC = () => {
               transition: 'background-color 0.15s ease',
             }}
           >
-            <span>Evaluate Clinical Diagnoses</span>
+            <span>{language === 'hinglish' ? 'Evaluate Clinical Diagnoses (Diagnoses Check Karo)' : 'Evaluate Clinical Diagnoses'}</span>
             <ArrowRight size={16} />
           </button>
         ) : (
@@ -288,7 +289,7 @@ export const InteractiveExercise: React.FC = () => {
             }}
           >
             <RotateCcw size={14} />
-            <span>Reset & Re-diagnose</span>
+            <span>{language === 'hinglish' ? 'Reset & Re-diagnose (Dobara Try Karo)' : 'Reset & Re-diagnose'}</span>
           </button>
         )}
 
