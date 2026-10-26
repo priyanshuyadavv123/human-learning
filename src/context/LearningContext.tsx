@@ -676,6 +676,9 @@ export const LESSON_CONCEPT_MAPPINGS: Record<string, LessonConceptMapping> = {
 interface LearningContextType {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
+  language: 'en' | 'hinglish';
+  toggleLanguage: () => void;
+  setLanguage: (lang: 'en' | 'hinglish') => void;
   activeLessonId: string;
   setActiveLessonId: (id: string) => void;
   currentLesson: Lesson;
@@ -723,6 +726,7 @@ interface LearningContextType {
 
 const STORAGE_KEY = 'human_learning_platform_progress_v1';
 const THEME_STORAGE_KEY = 'human_learning_platform_theme_v1';
+const LANGUAGE_STORAGE_KEY = 'human_learning_platform_language_v1';
 
 const defaultLessonState: LessonProgressState = {
   predictionAnswer: undefined,
@@ -755,6 +759,40 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       return 'light';
     }
   });
+
+  // Language state ('en' | 'hinglish')
+  const [language, setLanguage] = useState<'en' | 'hinglish'>(() => {
+    try {
+      const savedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      if (savedLang === 'en' || savedLang === 'hinglish') {
+        return savedLang;
+      }
+    } catch {
+      // fallback
+    }
+    return 'en';
+  });
+
+  const toggleLanguage = () => {
+    setLanguage(prev => {
+      const next = prev === 'en' ? 'hinglish' : 'en';
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  };
+
+  const handleSetLanguage = (lang: 'en' | 'hinglish') => {
+    setLanguage(lang);
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    } catch {
+      // ignore
+    }
+  };
 
   // Active lesson ID
   const [activeLessonId, setActiveLessonId] = useState<string>(() => {
@@ -1168,6 +1206,9 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       value={{
         theme,
         toggleTheme,
+        language,
+        toggleLanguage,
+        setLanguage: handleSetLanguage,
         activeLessonId,
         setActiveLessonId: handleSetActiveLessonId,
         currentLesson,

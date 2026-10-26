@@ -19,6 +19,7 @@ export interface TutorChatRequestBody {
   history?: ChatHistoryTurn[];
   lessonId?: string;
   learnerContext?: SanitizedLearnerContext;
+  language?: 'en' | 'hinglish';
 }
 
 export interface StructuredTutorResponse {
@@ -250,6 +251,7 @@ export function validateChatRequest(body: unknown): {
       history: sanitizedHistory,
       lessonId: typeof b.lessonId === 'string' ? b.lessonId : 'how-learning-actually-works',
       learnerContext: sanitizedContext,
+      language: b.language === 'hinglish' ? ('hinglish' as const) : ('en' as const),
     },
   };
 }
@@ -391,7 +393,7 @@ export async function handleTutorChatRequest(
 
   // Assemble messages array: system instruction + pedagogical context directive + previous turns + current user message
   const contextDirective = formatLearnerContextDirective(validation.data.learnerContext);
-  const baseInstruction = getTutorSystemInstruction(validation.data.lessonId);
+  const baseInstruction = getTutorSystemInstruction(validation.data.lessonId, validation.data.language);
   const systemInstruction = baseInstruction + contextDirective;
 
   const messages: Array<{

@@ -3,7 +3,7 @@ import { Clock, Award, HelpCircle } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 
 export const LessonHeader: React.FC = () => {
-  const { currentLesson } = useLearning();
+  const { currentLesson, language } = useLearning();
   const lesson = currentLesson;
   const chapterNumber = lesson.number.split('.')[0] || '1';
 
@@ -135,6 +135,28 @@ export const LessonHeader: React.FC = () => {
             >
               💡 {lesson.curiosityQuestion.hookNote}
             </div>
+
+            {language === 'hinglish' && (
+              <div 
+                style={{
+                  marginTop: '10px',
+                  padding: '8px 12px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: 'rgba(217, 119, 6, 0.08)',
+                  border: '1px solid rgba(217, 119, 6, 0.25)',
+                  fontSize: '0.8125rem',
+                  color: 'var(--text-main)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}
+              >
+                <span style={{ fontWeight: 600, color: '#d97706', flexShrink: 0 }}>हिं Hinglish Mode:</span>
+                <span>
+                  Cognitive science ke core concepts technical English mein preserved hain, jabki real intuition aur deep understanding relatable Hinglish analogies ke saath milegi!
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

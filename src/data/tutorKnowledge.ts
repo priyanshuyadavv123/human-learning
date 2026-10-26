@@ -1,3 +1,6 @@
+import { adaptToHinglish, HINGLISH_GENERIC_FALLBACK, TUTOR_PROMPTS_HINGLISH } from './tutorHinglishAdapter.ts';
+export { TUTOR_PROMPTS_HINGLISH };
+
 export interface TutorPrompt {
   id: string;
   label: string;
@@ -1506,7 +1509,7 @@ export const TUTOR_KNOWLEDGE_BASE: TutorKnowledgeEntry[] = [
   },
 ];
 
-export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {
+export function findTutorAnswer(userQuery: string, language: 'en' | 'hinglish' = 'en'): TutorKnowledgeEntry {
   const normalized = userQuery.toLowerCase().trim();
   
   // Score entries by matching keyword count
@@ -1526,12 +1529,16 @@ export function findTutorAnswer(userQuery: string): TutorKnowledgeEntry {
     }
   }
 
-  // If match score is high enough, return it
+  // If match score is high enough, return it (adapting to Hinglish if requested)
   if (highestScore > 0) {
-    return bestEntry;
+    return language === 'hinglish' ? adaptToHinglish(bestEntry) : bestEntry;
   }
 
   // Generic honest fallback
+  if (language === 'hinglish') {
+    return HINGLISH_GENERIC_FALLBACK;
+  }
+
   return {
     keywords: [],
     title: 'Contextual Socratic Guidance',

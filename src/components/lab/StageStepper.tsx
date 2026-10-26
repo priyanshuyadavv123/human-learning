@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   LayoutGrid
 } from 'lucide-react';
+import { useLearning } from '../../context/LearningContext.tsx';
 
 export type LabStageId = 'discover' | 'predict' | 'experiment' | 'understand' | 'apply' | 'retrieve';
 
@@ -82,9 +83,23 @@ export const StageStepper: React.FC<StageStepperProps> = ({
   onToggleFullView,
   completedStages,
 }) => {
+  const { language } = useLearning();
   const currentIndex = LAB_STAGES.findIndex(s => s.id === currentStage);
   const prevStage = currentIndex > 0 ? LAB_STAGES[currentIndex - 1] : null;
   const nextStage = currentIndex < LAB_STAGES.length - 1 ? LAB_STAGES[currentIndex + 1] : null;
+
+  const getStageTitle = (stage: StageInfo) => {
+    if (language !== 'hinglish') return stage.shortTitle;
+    switch (stage.id) {
+      case 'discover': return 'Khoj (Discover)';
+      case 'predict': return 'Andaza (Predict)';
+      case 'experiment': return 'Prayog (Experiment)';
+      case 'understand': return 'Samajh (Understand)';
+      case 'apply': return 'Laagu Karo (Apply)';
+      case 'retrieve': return 'Yaad Karo (Retrieve)';
+      default: return stage.shortTitle;
+    }
+  };
 
   return (
     <nav 
@@ -128,7 +143,7 @@ export const StageStepper: React.FC<StageStepperProps> = ({
             Interactive Learning Lab
           </span>
           <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-            Stage {currentIndex + 1} of 6: <strong style={{ color: 'var(--text-main)' }}>{LAB_STAGES[currentIndex]?.shortTitle}</strong>
+            Stage {currentIndex + 1} of 6: <strong style={{ color: 'var(--text-main)' }}>{LAB_STAGES[currentIndex] ? getStageTitle(LAB_STAGES[currentIndex]) : ''}</strong>
           </span>
         </div>
 
@@ -229,7 +244,7 @@ export const StageStepper: React.FC<StageStepperProps> = ({
                   width: '100%',
                 }}
               >
-                {stage.shortTitle}
+                {getStageTitle(stage)}
               </div>
             </button>
           );
@@ -266,7 +281,7 @@ export const StageStepper: React.FC<StageStepperProps> = ({
               }}
             >
               <ChevronLeft size={14} />
-              <span>Previous: <strong>{prevStage.shortTitle}</strong></span>
+              <span>Previous: <strong>{getStageTitle(prevStage)}</strong></span>
             </button>
           ) : <div />}
 
@@ -287,7 +302,7 @@ export const StageStepper: React.FC<StageStepperProps> = ({
                 borderRadius: 'var(--radius-sm)',
               }}
             >
-              <span>Next: <strong>{nextStage.shortTitle}</strong></span>
+              <span>Next: <strong>{getStageTitle(nextStage)}</strong></span>
               <ChevronRight size={14} />
             </button>
           ) : <div />}

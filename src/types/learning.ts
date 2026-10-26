@@ -192,8 +192,11 @@ export interface LessonProgressState {
   completedAt?: string;
 }
 
+export type LanguageMode = 'en' | 'hinglish';
+
 export interface UserProgress {
   theme: 'light' | 'dark';
+  language?: LanguageMode;
   activeLessonId: string;
   lessonStates: Record<string, LessonProgressState>;
 }

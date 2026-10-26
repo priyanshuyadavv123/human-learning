@@ -15,6 +15,7 @@ import {
 import { useLearning } from '../../context/LearningContext.tsx';
 import { 
   TUTOR_PROMPTS, 
+  TUTOR_PROMPTS_HINGLISH,
   type TutorKnowledgeEntry 
 } from '../../data/tutorKnowledge.ts';
 import { 
@@ -49,7 +50,7 @@ function isConceptDue(nextReviewDueAt: string): boolean {
 }
 
 export const AITutorPanel: React.FC = () => {
-  const { isTutorOpen, setTutorOpen, learnerMemory, activeLessonId, currentLesson } = useLearning();
+  const { isTutorOpen, setTutorOpen, learnerMemory, activeLessonId, currentLesson, language } = useLearning();
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [healthStatus, setHealthStatus] = useState<TutorHealthStatus>({
@@ -134,7 +135,7 @@ export const AITutorPanel: React.FC = () => {
         recentOutcome: learnerMemory?.delayedReviews?.slice(-1)[0]?.evaluatedOutcome,
       };
 
-      const result = await queryTutor(trimmed, history, activeLessonId, learnerContext);
+      const result = await queryTutor(trimmed, history, activeLessonId, learnerContext, language);
 
       const tutorMsg: DialogueMessage = {
         id: generateMsgId('tutor'),
@@ -387,10 +388,10 @@ export const AITutorPanel: React.FC = () => {
               marginBottom: '6px' 
             }}
           >
-            Quick Inquiries
+            {language === 'hinglish' ? 'Quick Sawaal (Hinglish)' : 'Quick Inquiries'}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-            {TUTOR_PROMPTS.map(p => (
+            {(language === 'hinglish' ? TUTOR_PROMPTS_HINGLISH : TUTOR_PROMPTS).map(p => (
               <button
                 key={p.id}
                 disabled={isLoading}
@@ -600,7 +601,7 @@ export const AITutorPanel: React.FC = () => {
               }}
             >
               <Loader2 size={16} className="animate-spin" />
-              <span>Reflecting on cognitive architecture...</span>
+              <span>{language === 'hinglish' ? 'Cognitive architecture par vichar kar rahe hain...' : 'Reflecting on cognitive architecture...'}</span>
             </div>
           )}
         </div>
@@ -634,7 +635,11 @@ export const AITutorPanel: React.FC = () => {
               value={inputText}
               disabled={isLoading}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder={isLoading ? 'Tutor is reflecting...' : 'Ask about memory, attention, or retrieval...'}
+              placeholder={
+                isLoading 
+                  ? (language === 'hinglish' ? 'Tutor reflect kar raha hai...' : 'Tutor is reflecting...')
+                  : (language === 'hinglish' ? 'Poochiye: memory, attention ya retrieval ke baare mein...' : 'Ask about memory, attention, or retrieval...')
+              }
               aria-label="Ask AI Tutor"
               style={{
                 flex: 1,

@@ -60,11 +60,12 @@ export async function queryTutor(
   message: string,
   history: ChatHistoryItem[] = [],
   lessonId = 'how-learning-actually-works',
-  learnerContext?: TutorLearnerContext
+  learnerContext?: TutorLearnerContext,
+  language: 'en' | 'hinglish' = 'en'
 ): Promise<TutorServiceResult> {
   const trimmed = message.trim();
   if (!trimmed) {
-    const local = findTutorAnswer('');
+    const local = findTutorAnswer('', language);
     return {
       mode: 'fallback',
       entry: local,
@@ -84,12 +85,13 @@ export async function queryTutor(
         history,
         lessonId,
         learnerContext,
+        language,
       }),
     });
 
     if (!res.ok) {
       // If server returned 429, 413, 500, etc., fall back cleanly
-      const local = findTutorAnswer(trimmed);
+      const local = findTutorAnswer(trimmed, language);
       const isRateLimited = res.status === 429;
       return {
         mode: 'fallback',
@@ -120,7 +122,7 @@ export async function queryTutor(
     }
 
     // Server instructed fallback (e.g. missing API key or invalid output)
-    const local = findTutorAnswer(trimmed);
+    const local = findTutorAnswer(trimmed, language);
     return {
       mode: 'fallback',
       entry: local,
@@ -129,7 +131,7 @@ export async function queryTutor(
     };
   } catch {
     // Network failure / offline
-    const local = findTutorAnswer(trimmed);
+    const local = findTutorAnswer(trimmed, language);
     return {
       mode: 'fallback',
       entry: local,

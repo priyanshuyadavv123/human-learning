@@ -3022,7 +3022,7 @@ Key Pedagogical Invariants:
    - "referencedSection": Must be one of the known lesson sections from the syllabus list.
 `;
 
-export function getTutorSystemInstruction(lessonId?: string): string {
+function resolveInstruction(lessonId?: string): string {
   if (lessonId === 'illusion-of-competence') {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_1_2;
   }
@@ -3180,6 +3180,21 @@ export function getTutorSystemInstruction(lessonId?: string): string {
     return TUTOR_SYSTEM_INSTRUCTION_LESSON_26_2;
   }
   return TUTOR_SYSTEM_INSTRUCTION;
+}
+
+export function getTutorSystemInstruction(lessonId?: string, language: 'en' | 'hinglish' = 'en'): string {
+  const base = resolveInstruction(lessonId);
+  if (language === 'hinglish') {
+    return base + `
+
+LANGUAGE INSTRUCTION: HINGLISH MODE ACTIVE
+- The learner has requested guidance in Hinglish (a natural, conversational blend of Hindi and English written in Latin script, as widely spoken by Indian engineers, developers, and students).
+- Keep core technical and scientific concepts in English (e.g., Working Memory, Cognitive Load Theory, Extraneous Load, Schemas, Retrieval Practice, Desirable Difficulty, Synaptic Reconsolidation, Latency, Buffer).
+- Frame explanations, intuitive analogies, takeaways, and the socraticChallenge in natural, friendly, intellectually rigorous Hinglish (e.g., "Dekho, asali mudda yeh hai ki...", "Jab tum kisi complex architecture diagram ko pehli baar dekhte ho...", "Yeh bilkul waise hi kaam karta hai jaise...").
+- Keep the tone respectful, sharp, encouraging, and clear. Avoid forced slang or robotic phrasing.
+`;
+  }
+  return base;
 }
 
 export const KNOWN_CONCEPTS = [

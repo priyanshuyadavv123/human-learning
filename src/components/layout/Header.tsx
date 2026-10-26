@@ -5,7 +5,8 @@ import {
   Sun, 
   Moon, 
   BookOpen, 
-  CheckCircle2 
+  CheckCircle2,
+  Languages
 } from 'lucide-react';
 import { useLearning } from '../../context/LearningContext.tsx';
 import { PRIMARY_COURSE } from '../../data/courseData.ts';
@@ -14,6 +15,8 @@ export const Header: React.FC = () => {
   const { 
     theme, 
     toggleTheme, 
+    language,
+    toggleLanguage,
     isLeftSidebarOpen, 
     toggleLeftSidebar, 
     isTutorOpen, 
@@ -124,6 +127,31 @@ export const Header: React.FC = () => {
             </>
           )}
         </div>
+
+        {/* Language Switcher (EN / Hinglish) */}
+        <button
+          onClick={toggleLanguage}
+          aria-label={`Switch language to ${language === 'en' ? 'Hinglish' : 'English'}`}
+          title={`Switch language to ${language === 'en' ? 'Hinglish' : 'English'}`}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            height: '34px',
+            padding: '0 10px',
+            borderRadius: 'var(--radius-sm)',
+            border: `1px solid ${language === 'hinglish' ? 'var(--accent-border)' : 'var(--border-subtle)'}`,
+            backgroundColor: language === 'hinglish' ? 'var(--accent-subtle)' : 'transparent',
+            color: language === 'hinglish' ? 'var(--accent-primary)' : 'var(--text-secondary)',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+        >
+          <Languages size={15} />
+          <span>{language === 'en' ? 'EN' : 'हिं Hinglish'}</span>
+        </button>
 
         {/* Theme toggle */}
         <button
